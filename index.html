@@ -434,6 +434,39 @@
     .road-item h3 { margin: 0; font-size: 18px; }
     .road-item p { margin: 6px 0 0; color: var(--muted); }
 
+    .data-panel { padding: 24px; }
+    .data-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 18px; align-items: start; }
+    .data-stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 16px; }
+    .data-stat {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .data-stat strong { display: block; color: var(--text); font-size: 24px; line-height: 1; }
+    .data-stat span { display: block; color: var(--muted-2); font-size: 12px; margin-top: 7px; }
+    .data-note {
+      border: 1px solid rgba(245,158,11,.3);
+      background: rgba(245,158,11,.12);
+      color: var(--brand-3);
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+    .data-output {
+      min-height: 310px;
+      border-radius: 18px;
+      padding: 16px;
+      background: #061719;
+      color: #dffbf7;
+      overflow: auto;
+      font-size: 12px;
+      line-height: 1.55;
+      border: 1px solid rgba(255,255,255,.1);
+      margin: 0;
+    }
+
     .warning {
       border: 1px solid rgba(255,180,165,.35);
       background: rgba(255,180,165,.09);
@@ -469,7 +502,7 @@
     .footer-links a:hover { color: var(--text); }
 
     @media (max-width: 980px) {
-      .hero-grid, .demo-grid, .split { grid-template-columns: 1fr; }
+      .hero-grid, .demo-grid, .split, .data-grid { grid-template-columns: 1fr; }
       .stats-strip, .grid-3, .grid-2 { grid-template-columns: repeat(2, 1fr); }
       .pipeline { grid-template-columns: 1fr; }
       .pipe-step:not(:last-child):after { display: none; }
@@ -501,6 +534,7 @@
         <a href="#process-cards">Process cards</a>
         <a href="#demo">Demo</a>
         <a href="#stack">Stack</a>
+        <a href="#chemfield-data">ChemField data</a>
         <a href="#closedchem">ClosedChem</a>
         <a href="#roadmap">Roadmap</a>
       </div>
@@ -707,6 +741,44 @@ openhydrochem train leachbench_ready.csv \
       </div>
     </section>
 
+    <section id="chemfield-data" class="paper-section">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">ChemField data</div>
+          <h2>Een brongekoppelde composition web voor SmartSlag.</h2>
+          <p>De 5mart ChemWeb-data staat als OpenChem dataset klaar met aliases voor fieldchem, openchem, webchem, chemweb en chemfield. BOF-slagwaarden zijn brongekoppelde ranges; Noord-Hollandse klei is als meetmatrix opgenomen totdat echte locatie-, diepte- en labcompositie beschikbaar is.</p>
+        </div>
+
+        <div class="paper-card data-panel">
+          <div class="data-grid">
+            <div>
+              <h3 style="margin:0;font-size:22px;color:#082428;">SmartSlag composition web</h3>
+              <p style="color:rgba(10,25,28,.68);margin:10px 0 0;">Zelfde bronlaag voor static site, GitHub Pages en latere OriginTrail/DKG-publicatie.</p>
+              <div class="tag-row" id="chemfieldAliases">
+                <span class="tag" style="color:#0a191c;">fieldchem</span>
+                <span class="tag" style="color:#0a191c;">openchem</span>
+                <span class="tag" style="color:#0a191c;">webchem</span>
+                <span class="tag" style="color:#0a191c;">chemweb</span>
+                <span class="tag" style="color:#0a191c;">chemfield</span>
+              </div>
+              <div class="data-stat-grid" id="chemfieldStats">
+                <div class="data-stat"><strong>11</strong><span>composition records</span></div>
+                <div class="data-stat"><strong>9</strong><span>variables</span></div>
+                <div class="data-stat"><strong>5</strong><span>sources</span></div>
+                <div class="data-stat"><strong>locked</strong><span>clay enrichment</span></div>
+              </div>
+              <div class="data-note" id="chemfieldFactPolicy">Numeric enrichment versus Noord-Holland clay remains locked until measured clay composition records are attached.</div>
+              <div class="hero-actions" style="margin-top:18px;">
+                <a class="btn primary" href="data/chemfield-compositions.json">Open dataset</a>
+                <a class="btn" href="chemweb.json">Alias chemweb</a>
+              </div>
+            </div>
+            <pre class="data-output" id="chemfieldOutput" aria-live="polite">Loading data/chemfield-compositions.json...</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="closedchem">
       <div class="container">
         <div class="section-head center">
@@ -799,6 +871,10 @@ openhydrochem train leachbench_ready.csv \
     const extractBtn = document.getElementById('extractBtn');
     const sampleElectroBtn = document.getElementById('sampleElectroBtn');
     const copyBtn = document.getElementById('copyBtn');
+    const chemfieldOutput = document.getElementById('chemfieldOutput');
+    const chemfieldStats = document.getElementById('chemfieldStats');
+    const chemfieldAliases = document.getElementById('chemfieldAliases');
+    const chemfieldFactPolicy = document.getElementById('chemfieldFactPolicy');
 
     function pickNumber(regex, text) {
       const match = text.match(regex);
@@ -896,6 +972,44 @@ openhydrochem train leachbench_ready.csv \
         } catch (e) {}
       });
     });
+
+    async function loadChemfieldData() {
+      if (!chemfieldOutput) return;
+      try {
+        const res = await fetch('data/chemfield-compositions.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const aliases = (data.aliases || []).map(a => a.alias);
+        const clayRecords = (data.records || []).filter(r => r.materialId === 'material:noord-holland-clay');
+        const bofRecord = (data.records || []).find(r => r.materialId === 'material:bof-ld-steel-slag');
+        chemfieldAliases.innerHTML = aliases.map(a => `<span class="tag" style="color:#0a191c;">${a}.json</span>`).join('');
+        chemfieldStats.innerHTML = `
+          <div class="data-stat"><strong>${(data.records || []).length}</strong><span>composition records</span></div>
+          <div class="data-stat"><strong>${(data.variables || []).length}</strong><span>variables</span></div>
+          <div class="data-stat"><strong>${(data.sources || []).length}</strong><span>sources</span></div>
+          <div class="data-stat"><strong>${clayRecords.length}</strong><span>clay targets</span></div>
+        `;
+        chemfieldFactPolicy.textContent = data.factPolicy?.enrichmentRule || '';
+        chemfieldOutput.textContent = JSON.stringify({
+          id: data.id,
+          cid: data.cid,
+          ual: data.ual,
+          aliases,
+          originTrail: data.originTrail,
+          bofComposition: bofRecord?.composition,
+          clayMeasurementStatus: clayRecords.map(r => ({
+            location: r.site?.name,
+            targetDepthIntervalCm: r.targetDepthIntervalCm,
+            status: r.measurementStatus,
+            sourceIds: r.sourceIds
+          }))
+        }, null, 2);
+      } catch (e) {
+        chemfieldOutput.textContent = 'ChemField dataset kon niet worden geladen. Gebruik een lokale HTTP-server of GitHub Pages voor fetch().';
+      }
+    }
+
+    loadChemfieldData();
     render();
   </script>
 </body>

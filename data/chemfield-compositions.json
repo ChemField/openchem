@@ -1,0 +1,1896 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "chemfield": "https://chemfield.github.io/openchem/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "kind": "chemfield-composition-web",
+  "schemaVersion": "chemfield-composition-web-v1",
+  "id": "chemfield:smartslag:composition-web:v1",
+  "title": "SmartSlag BOF-slag compositie en Noord-Holland klei meetmatrix",
+  "updatedAt": "2026-06-28",
+  "canonicalField": "chemfield:smartslag:composition",
+  "aliases": [
+    {
+      "kind": "chemfield_alias",
+      "alias": "fieldchem",
+      "canonicalField": "chemfield:smartslag:composition",
+      "href": "chemfield-compositions.json",
+      "mapsTo": [
+        "composition_records",
+        "process_variables",
+        "source_provenance",
+        "origintrail_prepared_asset"
+      ],
+      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web."
+    },
+    {
+      "kind": "chemfield_alias",
+      "alias": "openchem",
+      "canonicalField": "chemfield:smartslag:composition",
+      "href": "chemfield-compositions.json",
+      "mapsTo": [
+        "composition_records",
+        "process_variables",
+        "source_provenance",
+        "origintrail_prepared_asset"
+      ],
+      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web."
+    },
+    {
+      "kind": "chemfield_alias",
+      "alias": "webchem",
+      "canonicalField": "chemfield:smartslag:composition",
+      "href": "chemfield-compositions.json",
+      "mapsTo": [
+        "composition_records",
+        "process_variables",
+        "source_provenance",
+        "origintrail_prepared_asset"
+      ],
+      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web."
+    },
+    {
+      "kind": "chemfield_alias",
+      "alias": "chemweb",
+      "canonicalField": "chemfield:smartslag:composition",
+      "href": "chemfield-compositions.json",
+      "mapsTo": [
+        "composition_records",
+        "process_variables",
+        "source_provenance",
+        "origintrail_prepared_asset"
+      ],
+      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web."
+    },
+    {
+      "kind": "chemfield_alias",
+      "alias": "chemfield",
+      "canonicalField": "chemfield:smartslag:composition",
+      "href": "chemfield-compositions.json",
+      "mapsTo": [
+        "composition_records",
+        "process_variables",
+        "source_provenance",
+        "origintrail_prepared_asset"
+      ],
+      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web."
+    }
+  ],
+  "factPolicy": {
+    "noInventedMeasurements": true,
+    "clayChemistryRule": "Noord-Holland clay chemistry is not marked measured unless a source contains location, depth, method, and composition values.",
+    "enrichmentRule": "Numeric enrichment versus Noord-Holland clay remains locked until measured clay composition records are attached.",
+    "units": {
+      "wt_pct_basis_points": "100 basis points = 1 wt%",
+      "ppm_mg_per_kg": "parts per million by mass"
+    }
+  },
+  "originTrail": {
+    "status": "prepared_not_published",
+    "namespace": "did:dkg:knitweb",
+    "publishBlocker": "No live OriginTrail DKG node credentials/config were present in the workspace during this update.",
+    "localIdentityRule": "sha256 over stable JSON in this static release; a live Knitweb/OriginTrail publisher can replace it with canonical CBOR CID while preserving record payloads.",
+    "sourceAuthorLinking": "Sources carry author/creator/publisher fields and records link to sourceIds."
+  },
+  "sources": [
+    {
+      "id": "source:smartslag-kivi-2026-local-dossier",
+      "type": "local_operator_dossier",
+      "title": "SmartSlag KIVI voordracht / technisch dossier Plant One",
+      "authors": [
+        "Edwin Hauwert",
+        "Fierig"
+      ],
+      "publisher": "SLAG B.V. i.s.m. Slakkenspoor",
+      "date": "2026-03-17",
+      "locator": "local:/Users/develuse/Documents/Admin/SLAG BV/Website/Slag/slag-chemistry.json",
+      "accessStatus": "local_source_in_workspace",
+      "usedFor": [
+        "BOF slag oxide ranges",
+        "process variables",
+        "SmartSlag glossary terms"
+      ],
+      "note": "Operator-curated local source. Batch-specific assay certificates should supersede this range for regulated reporting.",
+      "cid": "sha256:931527c86b90e5631f7aa355ff0aada1e0d7ded17eeb7ea7b4801d09e5e44c35",
+      "ual": "did:dkg:knitweb/sha256-931527c86b90e5631f7aa355ff0aada1e0d7ded17eeb7ea7b4801d09e5e44c35"
+    },
+    {
+      "id": "source:yildirim-prezzi-2011-steel-slag-review",
+      "type": "peer_reviewed_literature",
+      "title": "Chemical, Mineralogical, and Morphological Properties of Steel Slag",
+      "authors": [
+        "I. Z. Yildirim",
+        "M. Prezzi"
+      ],
+      "publisher": "Advances in Civil Engineering",
+      "date": "2011",
+      "doi": "10.1155/2011/463638",
+      "url": "https://doi.org/10.1155/2011/463638",
+      "accessStatus": "bibliographic_source_linked",
+      "usedFor": [
+        "BOF/steel slag composition context",
+        "mineralogical context"
+      ],
+      "note": "Used as general steel slag literature support; local Tata IJmuiden batches still require direct assay.",
+      "cid": "sha256:e4008981db334c868d5cc53e05623b9f196113cc6a867f9f5db53a77acff8c2f",
+      "ual": "did:dkg:knitweb/sha256-e4008981db334c868d5cc53e05623b9f196113cc6a867f9f5db53a77acff8c2f"
+    },
+    {
+      "id": "source:bro-geotop-gtm",
+      "type": "government_model_metadata",
+      "title": "GeoTOP (GTM)",
+      "authors": [
+        "TNO Geologische Dienst Nederland"
+      ],
+      "creator": "Rijkswaterstaat",
+      "publisher": "Basisregistratie Ondergrond / Ministerie van Volkshuisvesting en Ruimtelijke Ordening",
+      "dateModified": "2024-11-05",
+      "url": "https://basisregistratieondergrond.nl/inhoud-bro/registratieobjecten/modellen/geotop-gtm/",
+      "accessStatus": "public_metadata_checked_2026-06-28",
+      "usedFor": [
+        "North Holland lithology/depth model provenance",
+        "clay sampling target provenance"
+      ],
+      "note": "GeoTOP gives subsurface lithology in 100 x 100 x 0.5 m voxels to max 50 m below NAP; it is not an oxide chemistry assay source.",
+      "cid": "sha256:490c5f565be7d65350911a82e8a64ed268009fda66f8bd9a2a4a2e097dc0e951",
+      "ual": "did:dkg:knitweb/sha256-490c5f565be7d65350911a82e8a64ed268009fda66f8bd9a2a4a2e097dc0e951"
+    },
+    {
+      "id": "source:usgs-mcs-vanadium-2026",
+      "type": "government_mineral_statistics",
+      "title": "Mineral Commodity Summaries 2026: Vanadium",
+      "authors": [
+        "U.S. Geological Survey"
+      ],
+      "publisher": "U.S. Geological Survey",
+      "date": "2026",
+      "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-vanadium.pdf",
+      "accessStatus": "public_pdf_checked_2026-06-28",
+      "usedFor": [
+        "V2O5 market validation",
+        "vanadium product context"
+      ],
+      "note": "Used for market context only, not for local BOF or clay composition.",
+      "cid": "sha256:cde664f64c0a622a4e0792dbfbb7272788596cdb945e4bd266458d02bdcd4e6c",
+      "ual": "did:dkg:knitweb/sha256-cde664f64c0a622a4e0792dbfbb7272788596cdb945e4bd266458d02bdcd4e6c"
+    },
+    {
+      "id": "source:eu-critical-raw-materials-act-2024-1252",
+      "type": "law_policy_source",
+      "title": "Regulation (EU) 2024/1252 establishing a framework for ensuring a secure and sustainable supply of critical raw materials",
+      "authors": [
+        "European Parliament",
+        "Council of the European Union"
+      ],
+      "publisher": "Official Journal of the European Union",
+      "date": "2024-05-03",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1252/oj",
+      "accessStatus": "public_law_checked_2026-06-28",
+      "usedFor": [
+        "critical raw materials policy context"
+      ],
+      "note": "Policy context, not composition data.",
+      "cid": "sha256:d6f1f163b8e399cdee5901fe1ad187bd84e0dcba7cb0efc7fbe1704f4839394e",
+      "ual": "did:dkg:knitweb/sha256-d6f1f163b8e399cdee5901fe1ad187bd84e0dcba7cb0efc7fbe1704f4839394e"
+    }
+  ],
+  "materials": [
+    {
+      "id": "material:bof-ld-steel-slag",
+      "kind": "material",
+      "names": [
+        "BOF slak",
+        "LD-slak",
+        "basic oxygen furnace slag"
+      ],
+      "sourceIds": [
+        "source:smartslag-kivi-2026-local-dossier",
+        "source:yildirim-prezzi-2011-steel-slag-review"
+      ],
+      "cid": "sha256:ddc2735bd4874b73f44ed324aa60315030fdc8fa351b54d9a3b06bd560535728",
+      "ual": "did:dkg:knitweb/sha256-ddc2735bd4874b73f44ed324aa60315030fdc8fa351b54d9a3b06bd560535728"
+    },
+    {
+      "id": "material:noord-holland-clay",
+      "kind": "material",
+      "names": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay"
+      ],
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "cid": "sha256:381135320df84b6db78bd677b1d1e9c324e636760d838522315abdc84cd2f8ac",
+      "ual": "did:dkg:knitweb/sha256-381135320df84b6db78bd677b1d1e9c324e636760d838522315abdc84cd2f8ac"
+    }
+  ],
+  "records": [
+    {
+      "id": "record:bof-slag:ijmuiden:typical-range:v1",
+      "kind": "composition_record",
+      "materialId": "material:bof-ld-steel-slag",
+      "materialNames": [
+        "BOF slak",
+        "LD-slak",
+        "basic oxygen furnace slag",
+        "staalslak"
+      ],
+      "recordType": "operator_reference_range",
+      "measurementStatus": "range_from_local_operator_dossier_plus_literature_context",
+      "sourceIds": [
+        "source:smartslag-kivi-2026-local-dossier",
+        "source:yildirim-prezzi-2011-steel-slag-review"
+      ],
+      "site": {
+        "name": "Tata Steel IJmuiden / SLAG Plant One feedstock reference",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "not_in_public_dataset"
+      },
+      "depth": null,
+      "unitPolicy": "Major oxides are stored as wt_pct_basis_points where 100 bp = 1 wt%; trace scandium as ppm_mg_per_kg.",
+      "composition": {
+        "CaO": {
+          "unit": "wt_pct_basis_points",
+          "minBp": 4000,
+          "maxBp": 4500,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "status": "source_range"
+        },
+        "SiO2": {
+          "unit": "wt_pct_basis_points",
+          "minBp": 1200,
+          "maxBp": 1500,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "status": "source_range"
+        },
+        "FeO_Fe2O3": {
+          "unit": "wt_pct_basis_points",
+          "minBp": 1800,
+          "maxBp": 2500,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "status": "source_range"
+        },
+        "MgO": {
+          "unit": "wt_pct_basis_points",
+          "minBp": 500,
+          "maxBp": 800,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "status": "source_range"
+        },
+        "MnO": {
+          "unit": "wt_pct_basis_points",
+          "minBp": 300,
+          "maxBp": 500,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "status": "source_range"
+        },
+        "Al2O3": {
+          "unit": "wt_pct_basis_points",
+          "minBp": 200,
+          "maxBp": 400,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "status": "source_range"
+        },
+        "P2O5": {
+          "unit": "wt_pct_basis_points",
+          "minBp": 150,
+          "maxBp": 250,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "status": "source_range"
+        },
+        "V2O5": {
+          "unit": "wt_pct_basis_points",
+          "minBp": 80,
+          "maxBp": 150,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier"
+          ],
+          "status": "source_range"
+        },
+        "Cr2O3": {
+          "unit": "wt_pct_basis_points",
+          "minBp": 20,
+          "maxBp": 50,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier"
+          ],
+          "status": "source_range"
+        },
+        "TiO2": {
+          "unit": "wt_pct_basis_points",
+          "minBp": 30,
+          "maxBp": 70,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier"
+          ],
+          "status": "source_range"
+        },
+        "Sc2O3": {
+          "unit": "ppm_mg_per_kg",
+          "min": 40,
+          "max": 60,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier"
+          ],
+          "status": "operator_trace_estimate_requires_assay"
+        }
+      },
+      "provenance": {
+        "sourceAuthorLinkStatus": "source_and_author_linked_where_available",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Not a batch assay certificate; use as engineering range only."
+      },
+      "cid": "sha256:5b173241995dccabde96f1466bb524e530948e384738c33952c8761f76650f3a",
+      "ual": "did:dkg:knitweb/sha256-5b173241995dccabde96f1466bb524e530948e384738c33952c8761f76650f3a"
+    },
+    {
+      "id": "record:nh-clay:amsterdam-ijpolder:0-50cm:v1",
+      "kind": "composition_record",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "recordType": "sampling_target_pending_lab_measurement",
+      "measurementStatus": "not_measured_in_attached_source",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "site": {
+        "name": "Amsterdam Westelijk Havengebied / IJpolder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        0,
+        50
+      ],
+      "lithologyTarget": "near-coastal Holocene clay sampling target",
+      "composition": {},
+      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
+      "requiredAssayFields": [
+        "SiO2",
+        "Al2O3",
+        "Fe2O3",
+        "CaO",
+        "MgO",
+        "K2O",
+        "Na2O",
+        "TiO2",
+        "P2O5",
+        "V_ppm",
+        "Cr_ppm",
+        "MnO_or_Mn_ppm",
+        "LOI"
+      ],
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Sampling target, not a measured clay chemistry record."
+      },
+      "cid": "sha256:17f80d8149fce9557fe17bc3804e59aeb583caebb3225c1b239f5f34fc2b7b78",
+      "ual": "did:dkg:knitweb/sha256-17f80d8149fce9557fe17bc3804e59aeb583caebb3225c1b239f5f34fc2b7b78"
+    },
+    {
+      "id": "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
+      "kind": "composition_record",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "recordType": "sampling_target_pending_lab_measurement",
+      "measurementStatus": "not_measured_in_attached_source",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "site": {
+        "name": "Amsterdam Westelijk Havengebied / IJpolder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        200,
+        400
+      ],
+      "lithologyTarget": "deeper clay/peat-clay interval target",
+      "composition": {},
+      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
+      "requiredAssayFields": [
+        "SiO2",
+        "Al2O3",
+        "Fe2O3",
+        "CaO",
+        "MgO",
+        "K2O",
+        "Na2O",
+        "TiO2",
+        "P2O5",
+        "V_ppm",
+        "Cr_ppm",
+        "MnO_or_Mn_ppm",
+        "LOI"
+      ],
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Sampling target, not a measured clay chemistry record."
+      },
+      "cid": "sha256:1a13e51e9eaea8e3419bc0ab2d7de5925abfa9f35ee8bccd38ef83bc20286ea3",
+      "ual": "did:dkg:knitweb/sha256-1a13e51e9eaea8e3419bc0ab2d7de5925abfa9f35ee8bccd38ef83bc20286ea3"
+    },
+    {
+      "id": "record:nh-clay:beemster:0-50cm:v1",
+      "kind": "composition_record",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "recordType": "sampling_target_pending_lab_measurement",
+      "measurementStatus": "not_measured_in_attached_source",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "site": {
+        "name": "Beemster polder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        0,
+        50
+      ],
+      "lithologyTarget": "reclaimed marine clay topsoil target",
+      "composition": {},
+      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
+      "requiredAssayFields": [
+        "SiO2",
+        "Al2O3",
+        "Fe2O3",
+        "CaO",
+        "MgO",
+        "K2O",
+        "Na2O",
+        "TiO2",
+        "P2O5",
+        "V_ppm",
+        "Cr_ppm",
+        "MnO_or_Mn_ppm",
+        "LOI"
+      ],
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Sampling target, not a measured clay chemistry record."
+      },
+      "cid": "sha256:56007cdc89e93680ce6632454af95cacf2fc5f4cb326a035ed0cd193334f3c0a",
+      "ual": "did:dkg:knitweb/sha256-56007cdc89e93680ce6632454af95cacf2fc5f4cb326a035ed0cd193334f3c0a"
+    },
+    {
+      "id": "record:nh-clay:beemster:150-300cm:v1",
+      "kind": "composition_record",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "recordType": "sampling_target_pending_lab_measurement",
+      "measurementStatus": "not_measured_in_attached_source",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "site": {
+        "name": "Beemster polder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        150,
+        300
+      ],
+      "lithologyTarget": "subsoil marine clay target",
+      "composition": {},
+      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
+      "requiredAssayFields": [
+        "SiO2",
+        "Al2O3",
+        "Fe2O3",
+        "CaO",
+        "MgO",
+        "K2O",
+        "Na2O",
+        "TiO2",
+        "P2O5",
+        "V_ppm",
+        "Cr_ppm",
+        "MnO_or_Mn_ppm",
+        "LOI"
+      ],
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Sampling target, not a measured clay chemistry record."
+      },
+      "cid": "sha256:c9487af9d1aabf02214c82ed2834378e73692d5e2fe50dd709457376cbd91637",
+      "ual": "did:dkg:knitweb/sha256-c9487af9d1aabf02214c82ed2834378e73692d5e2fe50dd709457376cbd91637"
+    },
+    {
+      "id": "record:nh-clay:haarlemmermeer:0-50cm:v1",
+      "kind": "composition_record",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "recordType": "sampling_target_pending_lab_measurement",
+      "measurementStatus": "not_measured_in_attached_source",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "site": {
+        "name": "Haarlemmermeer polder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        0,
+        50
+      ],
+      "lithologyTarget": "polder clay topsoil target",
+      "composition": {},
+      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
+      "requiredAssayFields": [
+        "SiO2",
+        "Al2O3",
+        "Fe2O3",
+        "CaO",
+        "MgO",
+        "K2O",
+        "Na2O",
+        "TiO2",
+        "P2O5",
+        "V_ppm",
+        "Cr_ppm",
+        "MnO_or_Mn_ppm",
+        "LOI"
+      ],
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Sampling target, not a measured clay chemistry record."
+      },
+      "cid": "sha256:bcf364ffd45bb88e8185586799a34c450b48840ff514c66b6b31835600c2c39c",
+      "ual": "did:dkg:knitweb/sha256-bcf364ffd45bb88e8185586799a34c450b48840ff514c66b6b31835600c2c39c"
+    },
+    {
+      "id": "record:nh-clay:haarlemmermeer:200-400cm:v1",
+      "kind": "composition_record",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "recordType": "sampling_target_pending_lab_measurement",
+      "measurementStatus": "not_measured_in_attached_source",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "site": {
+        "name": "Haarlemmermeer polder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        200,
+        400
+      ],
+      "lithologyTarget": "subsoil clay/silt interval target",
+      "composition": {},
+      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
+      "requiredAssayFields": [
+        "SiO2",
+        "Al2O3",
+        "Fe2O3",
+        "CaO",
+        "MgO",
+        "K2O",
+        "Na2O",
+        "TiO2",
+        "P2O5",
+        "V_ppm",
+        "Cr_ppm",
+        "MnO_or_Mn_ppm",
+        "LOI"
+      ],
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Sampling target, not a measured clay chemistry record."
+      },
+      "cid": "sha256:f3cecc6231e944c238a9b2c751d75c34a0cbe6e3a850c414bc694116d52a61f8",
+      "ual": "did:dkg:knitweb/sha256-f3cecc6231e944c238a9b2c751d75c34a0cbe6e3a850c414bc694116d52a61f8"
+    },
+    {
+      "id": "record:nh-clay:wieringermeer:0-50cm:v1",
+      "kind": "composition_record",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "recordType": "sampling_target_pending_lab_measurement",
+      "measurementStatus": "not_measured_in_attached_source",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "site": {
+        "name": "Wieringermeer",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        0,
+        50
+      ],
+      "lithologyTarget": "young marine clay topsoil target",
+      "composition": {},
+      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
+      "requiredAssayFields": [
+        "SiO2",
+        "Al2O3",
+        "Fe2O3",
+        "CaO",
+        "MgO",
+        "K2O",
+        "Na2O",
+        "TiO2",
+        "P2O5",
+        "V_ppm",
+        "Cr_ppm",
+        "MnO_or_Mn_ppm",
+        "LOI"
+      ],
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Sampling target, not a measured clay chemistry record."
+      },
+      "cid": "sha256:10a22fda4a76a396b2d5c8b8362010d860795cf95d01523d291e43f3b9e81673",
+      "ual": "did:dkg:knitweb/sha256-10a22fda4a76a396b2d5c8b8362010d860795cf95d01523d291e43f3b9e81673"
+    },
+    {
+      "id": "record:nh-clay:wieringermeer:200-500cm:v1",
+      "kind": "composition_record",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "recordType": "sampling_target_pending_lab_measurement",
+      "measurementStatus": "not_measured_in_attached_source",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "site": {
+        "name": "Wieringermeer",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        200,
+        500
+      ],
+      "lithologyTarget": "deeper marine clay target",
+      "composition": {},
+      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
+      "requiredAssayFields": [
+        "SiO2",
+        "Al2O3",
+        "Fe2O3",
+        "CaO",
+        "MgO",
+        "K2O",
+        "Na2O",
+        "TiO2",
+        "P2O5",
+        "V_ppm",
+        "Cr_ppm",
+        "MnO_or_Mn_ppm",
+        "LOI"
+      ],
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Sampling target, not a measured clay chemistry record."
+      },
+      "cid": "sha256:d70c32e3d04419580788414bd8972a20615b5b63fcc361a99f13e4efc75f5bfe",
+      "ual": "did:dkg:knitweb/sha256-d70c32e3d04419580788414bd8972a20615b5b63fcc361a99f13e4efc75f5bfe"
+    },
+    {
+      "id": "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
+      "kind": "composition_record",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "recordType": "sampling_target_pending_lab_measurement",
+      "measurementStatus": "not_measured_in_attached_source",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "site": {
+        "name": "West-Friesland / Enkhuizen",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        0,
+        50
+      ],
+      "lithologyTarget": "regional clay topsoil target",
+      "composition": {},
+      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
+      "requiredAssayFields": [
+        "SiO2",
+        "Al2O3",
+        "Fe2O3",
+        "CaO",
+        "MgO",
+        "K2O",
+        "Na2O",
+        "TiO2",
+        "P2O5",
+        "V_ppm",
+        "Cr_ppm",
+        "MnO_or_Mn_ppm",
+        "LOI"
+      ],
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Sampling target, not a measured clay chemistry record."
+      },
+      "cid": "sha256:1788e37e290d6fe8a24b630369492d0bf320b4c61216d11595bce66b2ddb1a65",
+      "ual": "did:dkg:knitweb/sha256-1788e37e290d6fe8a24b630369492d0bf320b4c61216d11595bce66b2ddb1a65"
+    },
+    {
+      "id": "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1",
+      "kind": "composition_record",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "recordType": "sampling_target_pending_lab_measurement",
+      "measurementStatus": "not_measured_in_attached_source",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "site": {
+        "name": "West-Friesland / Enkhuizen",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        150,
+        350
+      ],
+      "lithologyTarget": "subsoil clay target",
+      "composition": {},
+      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
+      "requiredAssayFields": [
+        "SiO2",
+        "Al2O3",
+        "Fe2O3",
+        "CaO",
+        "MgO",
+        "K2O",
+        "Na2O",
+        "TiO2",
+        "P2O5",
+        "V_ppm",
+        "Cr_ppm",
+        "MnO_or_Mn_ppm",
+        "LOI"
+      ],
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Sampling target, not a measured clay chemistry record."
+      },
+      "cid": "sha256:34b1e4ec2d8c65d87ea8fe94b27ed48b01b4963146a54d00053d7b81937c8492",
+      "ual": "did:dkg:knitweb/sha256-34b1e4ec2d8c65d87ea8fe94b27ed48b01b4963146a54d00053d7b81937c8492"
+    }
+  ],
+  "variables": [
+    {
+      "id": "var:basicity:cao-sio2",
+      "label": "Basiciteit CaO/SiO2",
+      "unit": "ratio_x1000",
+      "formula": "CaO / SiO2",
+      "sourceIds": [
+        "source:smartslag-kivi-2026-local-dossier"
+      ],
+      "status": "derivable_from_bof_range",
+      "kind": "process_or_composition_variable",
+      "cid": "sha256:da366771975a8fbebe6abd916f13d9832becdd7ca39156447b64981af1ef50c4",
+      "ual": "did:dkg:knitweb/sha256-da366771975a8fbebe6abd916f13d9832becdd7ca39156447b64981af1ef50c4"
+    },
+    {
+      "id": "var:particle-size:max",
+      "label": "Korrelgrootte doel",
+      "unit": "micrometer_max",
+      "value": 5,
+      "sourceIds": [
+        "source:smartslag-kivi-2026-local-dossier"
+      ],
+      "status": "operator_parameter",
+      "kind": "process_or_composition_variable",
+      "cid": "sha256:9a58c78b889190b396faa6dfd950472c6be6e694104515b074e549b96e9a569b",
+      "ual": "did:dkg:knitweb/sha256-9a58c78b889190b396faa6dfd950472c6be6e694104515b074e549b96e9a569b"
+    },
+    {
+      "id": "var:density-cut",
+      "label": "Dichtheids-cut",
+      "unit": "g_per_cm3_x1000",
+      "value": 3900,
+      "sourceIds": [
+        "source:smartslag-kivi-2026-local-dossier"
+      ],
+      "status": "operator_parameter",
+      "kind": "process_or_composition_variable",
+      "cid": "sha256:66eb416b0771581152704ab13c0f850456385091514635bc348edd4cdfd103a9",
+      "ual": "did:dkg:knitweb/sha256-66eb416b0771581152704ab13c0f850456385091514635bc348edd4cdfd103a9"
+    },
+    {
+      "id": "var:ultrasound:low",
+      "label": "Ultrasoon cavitatie laag",
+      "unit": "kHz",
+      "value": 28,
+      "sourceIds": [
+        "source:smartslag-kivi-2026-local-dossier"
+      ],
+      "status": "operator_parameter",
+      "kind": "process_or_composition_variable",
+      "cid": "sha256:6c3e83786e9a0dcccf0bd14ed0e113921c8429917db91bb3afa23f36e23b0c77",
+      "ual": "did:dkg:knitweb/sha256-6c3e83786e9a0dcccf0bd14ed0e113921c8429917db91bb3afa23f36e23b0c77"
+    },
+    {
+      "id": "var:ultrasound:high",
+      "label": "Ultrasoon cavitatie hoog",
+      "unit": "kHz",
+      "value": 40,
+      "sourceIds": [
+        "source:smartslag-kivi-2026-local-dossier"
+      ],
+      "status": "operator_parameter",
+      "kind": "process_or_composition_variable",
+      "cid": "sha256:81e1aab223f01b90c8137ff5c15ae2429df7439cda902efbe218212b752a35d2",
+      "ual": "did:dkg:knitweb/sha256-81e1aab223f01b90c8137ff5c15ae2429df7439cda902efbe218212b752a35d2"
+    },
+    {
+      "id": "var:leach:pH",
+      "label": "Basische loging pH",
+      "unit": "pH_x100",
+      "value": 1100,
+      "sourceIds": [
+        "source:smartslag-kivi-2026-local-dossier"
+      ],
+      "status": "operator_parameter",
+      "kind": "process_or_composition_variable",
+      "cid": "sha256:b077ed72de14a3ebde8566370d10729171bd03db2822b6a4bf37cd447e102b1a",
+      "ual": "did:dkg:knitweb/sha256-b077ed72de14a3ebde8566370d10729171bd03db2822b6a4bf37cd447e102b1a"
+    },
+    {
+      "id": "var:leach:temperature",
+      "label": "Basische loging temperatuur",
+      "unit": "celsius",
+      "value": 80,
+      "sourceIds": [
+        "source:smartslag-kivi-2026-local-dossier"
+      ],
+      "status": "operator_parameter",
+      "kind": "process_or_composition_variable",
+      "cid": "sha256:c4e517e9c842236b65a316448d9868500ea19770e3dc773dc5dd3eb73e9d1cdf",
+      "ual": "did:dkg:knitweb/sha256-c4e517e9c842236b65a316448d9868500ea19770e3dc773dc5dd3eb73e9d1cdf"
+    },
+    {
+      "id": "var:autoclave:temperature",
+      "label": "Autoclaaf temperatuur",
+      "unit": "celsius",
+      "value": 150,
+      "sourceIds": [
+        "source:smartslag-kivi-2026-local-dossier"
+      ],
+      "status": "operator_parameter",
+      "kind": "process_or_composition_variable",
+      "cid": "sha256:2372c26e986666e016c0a107952ecfa56dfb02260bd25a113e34a5c147eaa350",
+      "ual": "did:dkg:knitweb/sha256-2372c26e986666e016c0a107952ecfa56dfb02260bd25a113e34a5c147eaa350"
+    },
+    {
+      "id": "var:clay-composition:measurement-required",
+      "label": "Noord-Hollandse klei meetplicht",
+      "unit": "boolean",
+      "value": true,
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "required_before_enrichment_claim",
+      "kind": "process_or_composition_variable",
+      "cid": "sha256:0e08bd89996d80b03dca7bf65298747a91704358a992ab21758a37f85ba38c9c",
+      "ual": "did:dkg:knitweb/sha256-0e08bd89996d80b03dca7bf65298747a91704358a992ab21758a37f85ba38c9c"
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "comparison:bof-vs-noord-holland-clay:v1",
+      "kind": "composition_comparison",
+      "leftRecordId": "record:bof-slag:ijmuiden:typical-range:v1",
+      "rightRecordSet": [
+        "record:nh-clay:amsterdam-ijpolder:0-50cm:v1",
+        "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
+        "record:nh-clay:beemster:0-50cm:v1",
+        "record:nh-clay:beemster:150-300cm:v1",
+        "record:nh-clay:haarlemmermeer:0-50cm:v1",
+        "record:nh-clay:haarlemmermeer:200-400cm:v1",
+        "record:nh-clay:wieringermeer:0-50cm:v1",
+        "record:nh-clay:wieringermeer:200-500cm:v1",
+        "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
+        "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1"
+      ],
+      "status": "numeric_enrichment_locked_pending_measured_clay_composition",
+      "availableConclusion": "BOF-slag oxide ranges are present; Noord-Holland clay chemistry values are not present in the attached source set, so enrichment factors are not asserted as fact.",
+      "requiredBeforeUnlock": [
+        "Attach lab method",
+        "Attach location coordinates or boring/sample id",
+        "Attach depth interval",
+        "Attach oxide and trace-element values",
+        "Link source author/lab/report"
+      ],
+      "cid": "sha256:ae72933acb9b27a3cbb0df2e4fb75dd29e72ee5b2b3405cdf01ed5355c6f52be",
+      "ual": "did:dkg:knitweb/sha256-ae72933acb9b27a3cbb0df2e4fb75dd29e72ee5b2b3405cdf01ed5355c6f52be"
+    }
+  ],
+  "origintrailAsset": {
+    "origintrail_id": "chemfield:smartslag:composition-web:v1",
+    "originator": "SLAG B.V. / ChemField OpenChem",
+    "linked_sources": [
+      {
+        "type": "local_operator_dossier",
+        "url": "local:/Users/develuse/Documents/Admin/SLAG BV/Website/Slag/slag-chemistry.json",
+        "title": "SmartSlag KIVI voordracht / technisch dossier Plant One",
+        "authors": [
+          "Edwin Hauwert",
+          "Fierig"
+        ]
+      },
+      {
+        "type": "peer_reviewed_literature",
+        "url": "https://doi.org/10.1155/2011/463638",
+        "title": "Chemical, Mineralogical, and Morphological Properties of Steel Slag",
+        "authors": [
+          "I. Z. Yildirim",
+          "M. Prezzi"
+        ]
+      },
+      {
+        "type": "government_model_metadata",
+        "url": "https://basisregistratieondergrond.nl/inhoud-bro/registratieobjecten/modellen/geotop-gtm/",
+        "title": "GeoTOP (GTM)",
+        "authors": [
+          "TNO Geologische Dienst Nederland"
+        ]
+      },
+      {
+        "type": "government_mineral_statistics",
+        "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-vanadium.pdf",
+        "title": "Mineral Commodity Summaries 2026: Vanadium",
+        "authors": [
+          "U.S. Geological Survey"
+        ]
+      },
+      {
+        "type": "law_policy_source",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/1252/oj",
+        "title": "Regulation (EU) 2024/1252 establishing a framework for ensuring a secure and sustainable supply of critical raw materials",
+        "authors": [
+          "European Parliament",
+          "Council of the European Union"
+        ]
+      }
+    ],
+    "assertion": [
+      {
+        "subject": "record:bof-slag:ijmuiden:typical-range:v1",
+        "predicate": "chemfield:hasMaterial",
+        "object": "material:bof-ld-steel-slag",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:bof-slag:ijmuiden:typical-range:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:smartslag-kivi-2026-local-dossier",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:bof-slag:ijmuiden:typical-range:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:yildirim-prezzi-2011-steel-slag-review",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:bof-slag:ijmuiden:typical-range:v1",
+        "predicate": "chemfield:hasMeasurementStatus",
+        "object": "range_from_local_operator_dossier_plus_literature_context",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:amsterdam-ijpolder:0-50cm:v1",
+        "predicate": "chemfield:hasMaterial",
+        "object": "material:noord-holland-clay",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:amsterdam-ijpolder:0-50cm:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:amsterdam-ijpolder:0-50cm:v1",
+        "predicate": "chemfield:hasMeasurementStatus",
+        "object": "not_measured_in_attached_source",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
+        "predicate": "chemfield:hasMaterial",
+        "object": "material:noord-holland-clay",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
+        "predicate": "chemfield:hasMeasurementStatus",
+        "object": "not_measured_in_attached_source",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:beemster:0-50cm:v1",
+        "predicate": "chemfield:hasMaterial",
+        "object": "material:noord-holland-clay",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:beemster:0-50cm:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:beemster:0-50cm:v1",
+        "predicate": "chemfield:hasMeasurementStatus",
+        "object": "not_measured_in_attached_source",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:beemster:150-300cm:v1",
+        "predicate": "chemfield:hasMaterial",
+        "object": "material:noord-holland-clay",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:beemster:150-300cm:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:beemster:150-300cm:v1",
+        "predicate": "chemfield:hasMeasurementStatus",
+        "object": "not_measured_in_attached_source",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:haarlemmermeer:0-50cm:v1",
+        "predicate": "chemfield:hasMaterial",
+        "object": "material:noord-holland-clay",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:haarlemmermeer:0-50cm:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:haarlemmermeer:0-50cm:v1",
+        "predicate": "chemfield:hasMeasurementStatus",
+        "object": "not_measured_in_attached_source",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:haarlemmermeer:200-400cm:v1",
+        "predicate": "chemfield:hasMaterial",
+        "object": "material:noord-holland-clay",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:haarlemmermeer:200-400cm:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:haarlemmermeer:200-400cm:v1",
+        "predicate": "chemfield:hasMeasurementStatus",
+        "object": "not_measured_in_attached_source",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:wieringermeer:0-50cm:v1",
+        "predicate": "chemfield:hasMaterial",
+        "object": "material:noord-holland-clay",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:wieringermeer:0-50cm:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:wieringermeer:0-50cm:v1",
+        "predicate": "chemfield:hasMeasurementStatus",
+        "object": "not_measured_in_attached_source",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:wieringermeer:200-500cm:v1",
+        "predicate": "chemfield:hasMaterial",
+        "object": "material:noord-holland-clay",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:wieringermeer:200-500cm:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:wieringermeer:200-500cm:v1",
+        "predicate": "chemfield:hasMeasurementStatus",
+        "object": "not_measured_in_attached_source",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
+        "predicate": "chemfield:hasMaterial",
+        "object": "material:noord-holland-clay",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
+        "predicate": "chemfield:hasMeasurementStatus",
+        "object": "not_measured_in_attached_source",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1",
+        "predicate": "chemfield:hasMaterial",
+        "object": "material:noord-holland-clay",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1",
+        "predicate": "chemfield:hasMeasurementStatus",
+        "object": "not_measured_in_attached_source",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:basicity:cao-sio2",
+        "predicate": "chemfield:hasVariableStatus",
+        "object": "derivable_from_bof_range",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:basicity:cao-sio2",
+        "predicate": "chemfield:hasSource",
+        "object": "source:smartslag-kivi-2026-local-dossier",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:particle-size:max",
+        "predicate": "chemfield:hasVariableStatus",
+        "object": "operator_parameter",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:particle-size:max",
+        "predicate": "chemfield:hasSource",
+        "object": "source:smartslag-kivi-2026-local-dossier",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:density-cut",
+        "predicate": "chemfield:hasVariableStatus",
+        "object": "operator_parameter",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:density-cut",
+        "predicate": "chemfield:hasSource",
+        "object": "source:smartslag-kivi-2026-local-dossier",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:ultrasound:low",
+        "predicate": "chemfield:hasVariableStatus",
+        "object": "operator_parameter",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:ultrasound:low",
+        "predicate": "chemfield:hasSource",
+        "object": "source:smartslag-kivi-2026-local-dossier",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:ultrasound:high",
+        "predicate": "chemfield:hasVariableStatus",
+        "object": "operator_parameter",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:ultrasound:high",
+        "predicate": "chemfield:hasSource",
+        "object": "source:smartslag-kivi-2026-local-dossier",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:leach:pH",
+        "predicate": "chemfield:hasVariableStatus",
+        "object": "operator_parameter",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:leach:pH",
+        "predicate": "chemfield:hasSource",
+        "object": "source:smartslag-kivi-2026-local-dossier",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:leach:temperature",
+        "predicate": "chemfield:hasVariableStatus",
+        "object": "operator_parameter",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:leach:temperature",
+        "predicate": "chemfield:hasSource",
+        "object": "source:smartslag-kivi-2026-local-dossier",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:autoclave:temperature",
+        "predicate": "chemfield:hasVariableStatus",
+        "object": "operator_parameter",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:autoclave:temperature",
+        "predicate": "chemfield:hasSource",
+        "object": "source:smartslag-kivi-2026-local-dossier",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:clay-composition:measurement-required",
+        "predicate": "chemfield:hasVariableStatus",
+        "object": "required_before_enrichment_claim",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:clay-composition:measurement-required",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "alias:fieldchem",
+        "predicate": "chemfield:resolvesTo",
+        "object": "chemfield:smartslag:composition",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "alias:openchem",
+        "predicate": "chemfield:resolvesTo",
+        "object": "chemfield:smartslag:composition",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "alias:webchem",
+        "predicate": "chemfield:resolvesTo",
+        "object": "chemfield:smartslag:composition",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "alias:chemweb",
+        "predicate": "chemfield:resolvesTo",
+        "object": "chemfield:smartslag:composition",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "alias:chemfield",
+        "predicate": "chemfield:resolvesTo",
+        "object": "chemfield:smartslag:composition",
+        "type": "Dataset",
+        "weight": 1
+      }
+    ],
+    "cid": "sha256:c9e8393092b33661abcb9c667e7b0678101ffea14bd1c2ea39bddee764435b0f",
+    "ual": "did:dkg:knitweb/sha256-c9e8393092b33661abcb9c667e7b0678101ffea14bd1c2ea39bddee764435b0f"
+  },
+  "@graph": [
+    {
+      "subject": "record:bof-slag:ijmuiden:typical-range:v1",
+      "predicate": "chemfield:hasMaterial",
+      "object": "material:bof-ld-steel-slag",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:bof-slag:ijmuiden:typical-range:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:smartslag-kivi-2026-local-dossier",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:bof-slag:ijmuiden:typical-range:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:yildirim-prezzi-2011-steel-slag-review",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:bof-slag:ijmuiden:typical-range:v1",
+      "predicate": "chemfield:hasMeasurementStatus",
+      "object": "range_from_local_operator_dossier_plus_literature_context",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:amsterdam-ijpolder:0-50cm:v1",
+      "predicate": "chemfield:hasMaterial",
+      "object": "material:noord-holland-clay",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:amsterdam-ijpolder:0-50cm:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:amsterdam-ijpolder:0-50cm:v1",
+      "predicate": "chemfield:hasMeasurementStatus",
+      "object": "not_measured_in_attached_source",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
+      "predicate": "chemfield:hasMaterial",
+      "object": "material:noord-holland-clay",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
+      "predicate": "chemfield:hasMeasurementStatus",
+      "object": "not_measured_in_attached_source",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:beemster:0-50cm:v1",
+      "predicate": "chemfield:hasMaterial",
+      "object": "material:noord-holland-clay",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:beemster:0-50cm:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:beemster:0-50cm:v1",
+      "predicate": "chemfield:hasMeasurementStatus",
+      "object": "not_measured_in_attached_source",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:beemster:150-300cm:v1",
+      "predicate": "chemfield:hasMaterial",
+      "object": "material:noord-holland-clay",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:beemster:150-300cm:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:beemster:150-300cm:v1",
+      "predicate": "chemfield:hasMeasurementStatus",
+      "object": "not_measured_in_attached_source",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:haarlemmermeer:0-50cm:v1",
+      "predicate": "chemfield:hasMaterial",
+      "object": "material:noord-holland-clay",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:haarlemmermeer:0-50cm:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:haarlemmermeer:0-50cm:v1",
+      "predicate": "chemfield:hasMeasurementStatus",
+      "object": "not_measured_in_attached_source",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:haarlemmermeer:200-400cm:v1",
+      "predicate": "chemfield:hasMaterial",
+      "object": "material:noord-holland-clay",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:haarlemmermeer:200-400cm:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:haarlemmermeer:200-400cm:v1",
+      "predicate": "chemfield:hasMeasurementStatus",
+      "object": "not_measured_in_attached_source",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:wieringermeer:0-50cm:v1",
+      "predicate": "chemfield:hasMaterial",
+      "object": "material:noord-holland-clay",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:wieringermeer:0-50cm:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:wieringermeer:0-50cm:v1",
+      "predicate": "chemfield:hasMeasurementStatus",
+      "object": "not_measured_in_attached_source",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:wieringermeer:200-500cm:v1",
+      "predicate": "chemfield:hasMaterial",
+      "object": "material:noord-holland-clay",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:wieringermeer:200-500cm:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:wieringermeer:200-500cm:v1",
+      "predicate": "chemfield:hasMeasurementStatus",
+      "object": "not_measured_in_attached_source",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
+      "predicate": "chemfield:hasMaterial",
+      "object": "material:noord-holland-clay",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
+      "predicate": "chemfield:hasMeasurementStatus",
+      "object": "not_measured_in_attached_source",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1",
+      "predicate": "chemfield:hasMaterial",
+      "object": "material:noord-holland-clay",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1",
+      "predicate": "chemfield:hasMeasurementStatus",
+      "object": "not_measured_in_attached_source",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:basicity:cao-sio2",
+      "predicate": "chemfield:hasVariableStatus",
+      "object": "derivable_from_bof_range",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:basicity:cao-sio2",
+      "predicate": "chemfield:hasSource",
+      "object": "source:smartslag-kivi-2026-local-dossier",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:particle-size:max",
+      "predicate": "chemfield:hasVariableStatus",
+      "object": "operator_parameter",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:particle-size:max",
+      "predicate": "chemfield:hasSource",
+      "object": "source:smartslag-kivi-2026-local-dossier",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:density-cut",
+      "predicate": "chemfield:hasVariableStatus",
+      "object": "operator_parameter",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:density-cut",
+      "predicate": "chemfield:hasSource",
+      "object": "source:smartslag-kivi-2026-local-dossier",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:ultrasound:low",
+      "predicate": "chemfield:hasVariableStatus",
+      "object": "operator_parameter",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:ultrasound:low",
+      "predicate": "chemfield:hasSource",
+      "object": "source:smartslag-kivi-2026-local-dossier",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:ultrasound:high",
+      "predicate": "chemfield:hasVariableStatus",
+      "object": "operator_parameter",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:ultrasound:high",
+      "predicate": "chemfield:hasSource",
+      "object": "source:smartslag-kivi-2026-local-dossier",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:leach:pH",
+      "predicate": "chemfield:hasVariableStatus",
+      "object": "operator_parameter",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:leach:pH",
+      "predicate": "chemfield:hasSource",
+      "object": "source:smartslag-kivi-2026-local-dossier",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:leach:temperature",
+      "predicate": "chemfield:hasVariableStatus",
+      "object": "operator_parameter",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:leach:temperature",
+      "predicate": "chemfield:hasSource",
+      "object": "source:smartslag-kivi-2026-local-dossier",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:autoclave:temperature",
+      "predicate": "chemfield:hasVariableStatus",
+      "object": "operator_parameter",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:autoclave:temperature",
+      "predicate": "chemfield:hasSource",
+      "object": "source:smartslag-kivi-2026-local-dossier",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:clay-composition:measurement-required",
+      "predicate": "chemfield:hasVariableStatus",
+      "object": "required_before_enrichment_claim",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:clay-composition:measurement-required",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "alias:fieldchem",
+      "predicate": "chemfield:resolvesTo",
+      "object": "chemfield:smartslag:composition",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "alias:openchem",
+      "predicate": "chemfield:resolvesTo",
+      "object": "chemfield:smartslag:composition",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "alias:webchem",
+      "predicate": "chemfield:resolvesTo",
+      "object": "chemfield:smartslag:composition",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "alias:chemweb",
+      "predicate": "chemfield:resolvesTo",
+      "object": "chemfield:smartslag:composition",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "alias:chemfield",
+      "predicate": "chemfield:resolvesTo",
+      "object": "chemfield:smartslag:composition",
+      "type": "Dataset",
+      "weight": 1
+    }
+  ],
+  "cid": "sha256:dbc1ac2340966ff74639047d4bb06ae8e9316e715d599d6d0875fb7e83fa1365",
+  "ual": "did:dkg:knitweb/sha256-dbc1ac2340966ff74639047d4bb06ae8e9316e715d599d6d0875fb7e83fa1365"
+}
