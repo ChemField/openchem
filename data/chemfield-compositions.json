@@ -23,9 +23,7 @@
         "source_provenance",
         "origintrail_prepared_asset"
       ],
-      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web.",
-      "cid": "sha256:c68a88a34f05f7df472bb5e3202ebdf1e13ec167a6ef1961382422746a46b8cb",
-      "ual": "did:dkg:knitweb/sha256-c68a88a34f05f7df472bb5e3202ebdf1e13ec167a6ef1961382422746a46b8cb"
+      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web."
     },
     {
       "kind": "chemfield_alias",
@@ -38,9 +36,7 @@
         "source_provenance",
         "origintrail_prepared_asset"
       ],
-      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web.",
-      "cid": "sha256:61b894fc518d052a4576d0f44f471d8a2f1fd6a00212c6604d7facb8b62db41f",
-      "ual": "did:dkg:knitweb/sha256-61b894fc518d052a4576d0f44f471d8a2f1fd6a00212c6604d7facb8b62db41f"
+      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web."
     },
     {
       "kind": "chemfield_alias",
@@ -53,9 +49,7 @@
         "source_provenance",
         "origintrail_prepared_asset"
       ],
-      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web.",
-      "cid": "sha256:de09368d6cb243709fcc7cfacde99e1957fdf9c0a1e1b0652f75ebc79c9b35b1",
-      "ual": "did:dkg:knitweb/sha256-de09368d6cb243709fcc7cfacde99e1957fdf9c0a1e1b0652f75ebc79c9b35b1"
+      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web."
     },
     {
       "kind": "chemfield_alias",
@@ -68,9 +62,7 @@
         "source_provenance",
         "origintrail_prepared_asset"
       ],
-      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web.",
-      "cid": "sha256:4ef5d9b82634d0f8411f3001e3bf401256f2e41bf8f87552b37d7f80a06157a9",
-      "ual": "did:dkg:knitweb/sha256-4ef5d9b82634d0f8411f3001e3bf401256f2e41bf8f87552b37d7f80a06157a9"
+      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web."
     },
     {
       "kind": "chemfield_alias",
@@ -83,9 +75,7 @@
         "source_provenance",
         "origintrail_prepared_asset"
       ],
-      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web.",
-      "cid": "sha256:13cf3dd83d401cf27350e63e1434268e510841e66a6f3c3ae6764b329630067f",
-      "ual": "did:dkg:knitweb/sha256-13cf3dd83d401cf27350e63e1434268e510841e66a6f3c3ae6764b329630067f"
+      "note": "A field/web can be resolved under multiple names; all aliases point to the same canonical composition web."
     }
   ],
   "factPolicy": {

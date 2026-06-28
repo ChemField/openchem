@@ -42,6 +42,8 @@ chemfield.json
 
 Each composition record carries source, author/creator/publisher fields, content hashes, and a prepared OriginTrail-style UAL. Noord-Holland clay records are sampling targets until measured location/depth chemistry is attached.
 
+The current `chemfield-composition-web-v1` schema is introduced with this dataset; no older OpenChem composition-web consumers are migrated in this PR.
+
 ## ClosedChem
 
 ClosedChem is the permissioned counterpart for opted-in closed P2P chemistry knitworks.

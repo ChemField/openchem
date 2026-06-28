@@ -438,17 +438,17 @@
     .data-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 18px; align-items: start; }
     .data-stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 16px; }
     .data-stat {
-      border: 1px solid rgba(10,25,28,.1);
-      background: rgba(255,255,255,.68);
+      border: 1px solid var(--line);
+      background: var(--panel);
       border-radius: 14px;
       padding: 14px;
     }
-    .data-stat strong { display: block; color: #082428; font-size: 24px; line-height: 1; }
-    .data-stat span { display: block; color: rgba(10,25,28,.58); font-size: 12px; margin-top: 7px; }
+    .data-stat strong { display: block; color: var(--text); font-size: 24px; line-height: 1; }
+    .data-stat span { display: block; color: var(--muted-2); font-size: 12px; margin-top: 7px; }
     .data-note {
       border: 1px solid rgba(245,158,11,.3);
       background: rgba(245,158,11,.12);
-      color: #3a2b04;
+      color: var(--brand-3);
       border-radius: 14px;
       padding: 14px;
       margin-top: 14px;
@@ -770,7 +770,7 @@ openhydrochem train leachbench_ready.csv \
               <div class="data-note" id="chemfieldFactPolicy">Numeric enrichment versus Noord-Holland clay remains locked until measured clay composition records are attached.</div>
               <div class="hero-actions" style="margin-top:18px;">
                 <a class="btn primary" href="data/chemfield-compositions.json">Open dataset</a>
-                <a class="btn" href="chemweb.json" style="color:#0a191c;background:#fff;border-color:rgba(10,25,28,.12);">Alias chemweb</a>
+                <a class="btn" href="chemweb.json">Alias chemweb</a>
               </div>
             </div>
             <pre class="data-output" id="chemfieldOutput" aria-live="polite">Loading data/chemfield-compositions.json...</pre>
