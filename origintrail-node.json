@@ -1,0 +1,41 @@
+{
+  "kind": "origintrail_laptop_gateway_manifest",
+  "schemaVersion": "origintrail-laptop-gateway-v1",
+  "status": "laptop_tunnel_required",
+  "updatedAt": "2026-06-28",
+  "publicProxy": "https://www.5mart.ml/Slag/origintrail-gateway.php",
+  "routes": {
+    "status": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=status",
+    "manifest": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=manifest",
+    "dataset": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=dataset",
+    "rewards": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=rewards",
+    "healthz": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=healthz"
+  },
+  "laptopService": {
+    "localHost": "127.0.0.1",
+    "localPort": 8788,
+    "sshReverseTunnel": "127.0.0.1:18788 -> 127.0.0.1:8788",
+    "cloudflaredQuickTunnel": "cloudflared tunnel --url http://127.0.0.1:8788 --no-autoupdate",
+    "activeTunnelConfig": "https://www.5mart.ml/Slag/origintrail-tunnel.json",
+    "runCommand": "node tools/origintrail-laptop-gateway.mjs",
+    "tunnelCommand": "ssh -N -R 127.0.0.1:18788:127.0.0.1:8788 5martml@5martm.ssh.transip.me"
+  },
+  "data": {
+    "canonicalField": "chemfield:smartslag:composition",
+    "dataset": "https://www.5mart.ml/Slag/chemfield-compositions.json",
+    "aliases": [
+      "fieldchem",
+      "openchem",
+      "webchem",
+      "chemweb",
+      "chemfield"
+    ]
+  },
+  "originTrail": {
+    "mode": "headless_laptop_gateway",
+    "nodeRole": "publisher_client_until_full_node_is_provisioned",
+    "privateKeyPolicy": "Operational private keys stay only in local laptop environment variables and are never stored on 5mart.",
+    "fullNodeNote": "A full DKG node still needs MySQL, Redis, Blazegraph/Java, ports, and materially more free disk than the current laptop test budget.",
+    "rewardEstimate": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=rewards"
+  }
+}
