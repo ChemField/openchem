@@ -3,7 +3,7 @@
   "alias": "openchem",
   "canonicalField": "chemfield:smartslag:composition",
   "href": "data/chemfield-compositions.json",
-  "targetCid": "sha256:dbc1ac2340966ff74639047d4bb06ae8e9316e715d599d6d0875fb7e83fa1365",
-  "targetUal": "did:dkg:knitweb/sha256-dbc1ac2340966ff74639047d4bb06ae8e9316e715d599d6d0875fb7e83fa1365",
-  "updatedAt": "2026-06-28"
+  "targetCid": "sha256:ad1351f27839c3e42fc262c5c2ba2ccb5d4961521db32666977e5517d374dac8",
+  "targetUal": "did:dkg:knitweb/sha256-ad1351f27839c3e42fc262c5c2ba2ccb5d4961521db32666977e5517d374dac8",
+  "updatedAt": "2026-06-29"
 }

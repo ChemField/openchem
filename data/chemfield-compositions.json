@@ -9,7 +9,7 @@
   "schemaVersion": "chemfield-composition-web-v1",
   "id": "chemfield:smartslag:composition-web:v1",
   "title": "SmartSlag BOF-slag compositie en Noord-Holland klei meetmatrix",
-  "updatedAt": "2026-06-28",
+  "updatedAt": "2026-06-29",
   "canonicalField": "chemfield:smartslag:composition",
   "aliases": [
     {
@@ -85,13 +85,14 @@
     "units": {
       "wt_pct_basis_points": "100 basis points = 1 wt%",
       "ppm_mg_per_kg": "parts per million by mass"
-    }
+    },
+    "massBalanceRule": "Noord-Holland clay mass balances are stored as 1000 kg dry-basis templates per location/depth. They are not chemical mass balances until measured oxide, trace, LOI/moisture and residual terms are attached and close to 100 wt%."
   },
   "originTrail": {
     "status": "prepared_not_published",
     "namespace": "did:dkg:knitweb",
     "publishBlocker": "No live OriginTrail DKG node credentials/config were present in the workspace during this update.",
-    "localIdentityRule": "sha256 over stable JSON in this static release; a live Knitweb/OriginTrail publisher can replace it with canonical CBOR CID while preserving record payloads.",
+    "localIdentityRule": "sha256 over stable JSON with cid/ual fields excluded in this static release; a live Knitweb/OriginTrail publisher can replace it with canonical CBOR CID while preserving record payloads.",
     "sourceAuthorLinking": "Sources carry author/creator/publisher fields and records link to sourceIds."
   },
   "sources": [
@@ -395,7 +396,7 @@
       ],
       "lithologyTarget": "near-coastal Holocene clay sampling target",
       "composition": {},
-      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "comparisonUse": "Use this record as a location/depth mass-balance template only; do not calculate numeric enrichment until lab XRF/ICP values and dry-basis closure are attached.",
       "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
       "requiredAssayFields": [
         "SiO2",
@@ -415,10 +416,36 @@
       "provenance": {
         "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
         "originTrailStatus": "prepared_not_published",
-        "factBoundary": "Sampling target, not a measured clay chemistry record."
+        "factBoundary": "Sampling target plus dry-basis mass-balance template; not a measured clay chemistry record."
       },
-      "cid": "sha256:17f80d8149fce9557fe17bc3804e59aeb583caebb3225c1b239f5f34fc2b7b78",
-      "ual": "did:dkg:knitweb/sha256-17f80d8149fce9557fe17bc3804e59aeb583caebb3225c1b239f5f34fc2b7b78"
+      "cid": "sha256:f87382c21b9641767ecbdf7c9847332c2cd867e5fca54b349659bfd261e2f8d3",
+      "ual": "did:dkg:knitweb/sha256-f87382c21b9641767ecbdf7c9847332c2cd867e5fca54b349659bfd261e2f8d3",
+      "massBalance": {
+        "id": "massbalance:nh-clay:amsterdam-ijpolder:0-50cm:1000kg-dry:v1",
+        "kind": "clay_dry_mass_balance_template",
+        "status": "structural_mass_balance_pending_lab_composition",
+        "basisDryMassKg": 1000,
+        "chemicalClosureStatus": "not_closed_no_lab_assay_attached",
+        "unassignedDryMassKg": 1000,
+        "requiredAssayFields": [
+          "SiO2",
+          "Al2O3",
+          "Fe2O3",
+          "CaO",
+          "MgO",
+          "K2O",
+          "Na2O",
+          "TiO2",
+          "P2O5",
+          "V_ppm",
+          "Cr_ppm",
+          "MnO_or_Mn_ppm",
+          "LOI"
+        ],
+        "sourceIds": [
+          "source:bro-geotop-gtm"
+        ]
+      }
     },
     {
       "id": "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
@@ -447,7 +474,7 @@
       ],
       "lithologyTarget": "deeper clay/peat-clay interval target",
       "composition": {},
-      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "comparisonUse": "Use this record as a location/depth mass-balance template only; do not calculate numeric enrichment until lab XRF/ICP values and dry-basis closure are attached.",
       "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
       "requiredAssayFields": [
         "SiO2",
@@ -467,10 +494,36 @@
       "provenance": {
         "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
         "originTrailStatus": "prepared_not_published",
-        "factBoundary": "Sampling target, not a measured clay chemistry record."
+        "factBoundary": "Sampling target plus dry-basis mass-balance template; not a measured clay chemistry record."
       },
-      "cid": "sha256:1a13e51e9eaea8e3419bc0ab2d7de5925abfa9f35ee8bccd38ef83bc20286ea3",
-      "ual": "did:dkg:knitweb/sha256-1a13e51e9eaea8e3419bc0ab2d7de5925abfa9f35ee8bccd38ef83bc20286ea3"
+      "cid": "sha256:d7fb0e6c773b26abc572c913d395546dd49dd65410137ef7a824d01b303b2aef",
+      "ual": "did:dkg:knitweb/sha256-d7fb0e6c773b26abc572c913d395546dd49dd65410137ef7a824d01b303b2aef",
+      "massBalance": {
+        "id": "massbalance:nh-clay:amsterdam-ijpolder:200-400cm:1000kg-dry:v1",
+        "kind": "clay_dry_mass_balance_template",
+        "status": "structural_mass_balance_pending_lab_composition",
+        "basisDryMassKg": 1000,
+        "chemicalClosureStatus": "not_closed_no_lab_assay_attached",
+        "unassignedDryMassKg": 1000,
+        "requiredAssayFields": [
+          "SiO2",
+          "Al2O3",
+          "Fe2O3",
+          "CaO",
+          "MgO",
+          "K2O",
+          "Na2O",
+          "TiO2",
+          "P2O5",
+          "V_ppm",
+          "Cr_ppm",
+          "MnO_or_Mn_ppm",
+          "LOI"
+        ],
+        "sourceIds": [
+          "source:bro-geotop-gtm"
+        ]
+      }
     },
     {
       "id": "record:nh-clay:beemster:0-50cm:v1",
@@ -499,7 +552,7 @@
       ],
       "lithologyTarget": "reclaimed marine clay topsoil target",
       "composition": {},
-      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "comparisonUse": "Use this record as a location/depth mass-balance template only; do not calculate numeric enrichment until lab XRF/ICP values and dry-basis closure are attached.",
       "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
       "requiredAssayFields": [
         "SiO2",
@@ -519,10 +572,36 @@
       "provenance": {
         "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
         "originTrailStatus": "prepared_not_published",
-        "factBoundary": "Sampling target, not a measured clay chemistry record."
+        "factBoundary": "Sampling target plus dry-basis mass-balance template; not a measured clay chemistry record."
       },
-      "cid": "sha256:56007cdc89e93680ce6632454af95cacf2fc5f4cb326a035ed0cd193334f3c0a",
-      "ual": "did:dkg:knitweb/sha256-56007cdc89e93680ce6632454af95cacf2fc5f4cb326a035ed0cd193334f3c0a"
+      "cid": "sha256:2a9c6bf0b1090874c76e318a17404a32cd4cccb870c7a23b85ded515d485ae0c",
+      "ual": "did:dkg:knitweb/sha256-2a9c6bf0b1090874c76e318a17404a32cd4cccb870c7a23b85ded515d485ae0c",
+      "massBalance": {
+        "id": "massbalance:nh-clay:beemster:0-50cm:1000kg-dry:v1",
+        "kind": "clay_dry_mass_balance_template",
+        "status": "structural_mass_balance_pending_lab_composition",
+        "basisDryMassKg": 1000,
+        "chemicalClosureStatus": "not_closed_no_lab_assay_attached",
+        "unassignedDryMassKg": 1000,
+        "requiredAssayFields": [
+          "SiO2",
+          "Al2O3",
+          "Fe2O3",
+          "CaO",
+          "MgO",
+          "K2O",
+          "Na2O",
+          "TiO2",
+          "P2O5",
+          "V_ppm",
+          "Cr_ppm",
+          "MnO_or_Mn_ppm",
+          "LOI"
+        ],
+        "sourceIds": [
+          "source:bro-geotop-gtm"
+        ]
+      }
     },
     {
       "id": "record:nh-clay:beemster:150-300cm:v1",
@@ -551,7 +630,7 @@
       ],
       "lithologyTarget": "subsoil marine clay target",
       "composition": {},
-      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "comparisonUse": "Use this record as a location/depth mass-balance template only; do not calculate numeric enrichment until lab XRF/ICP values and dry-basis closure are attached.",
       "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
       "requiredAssayFields": [
         "SiO2",
@@ -571,10 +650,36 @@
       "provenance": {
         "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
         "originTrailStatus": "prepared_not_published",
-        "factBoundary": "Sampling target, not a measured clay chemistry record."
+        "factBoundary": "Sampling target plus dry-basis mass-balance template; not a measured clay chemistry record."
       },
-      "cid": "sha256:c9487af9d1aabf02214c82ed2834378e73692d5e2fe50dd709457376cbd91637",
-      "ual": "did:dkg:knitweb/sha256-c9487af9d1aabf02214c82ed2834378e73692d5e2fe50dd709457376cbd91637"
+      "cid": "sha256:b9751586d15be33c6d908dafd40c5bf06ec78cde10b062870fe2ac2ff5cc6dfa",
+      "ual": "did:dkg:knitweb/sha256-b9751586d15be33c6d908dafd40c5bf06ec78cde10b062870fe2ac2ff5cc6dfa",
+      "massBalance": {
+        "id": "massbalance:nh-clay:beemster:150-300cm:1000kg-dry:v1",
+        "kind": "clay_dry_mass_balance_template",
+        "status": "structural_mass_balance_pending_lab_composition",
+        "basisDryMassKg": 1000,
+        "chemicalClosureStatus": "not_closed_no_lab_assay_attached",
+        "unassignedDryMassKg": 1000,
+        "requiredAssayFields": [
+          "SiO2",
+          "Al2O3",
+          "Fe2O3",
+          "CaO",
+          "MgO",
+          "K2O",
+          "Na2O",
+          "TiO2",
+          "P2O5",
+          "V_ppm",
+          "Cr_ppm",
+          "MnO_or_Mn_ppm",
+          "LOI"
+        ],
+        "sourceIds": [
+          "source:bro-geotop-gtm"
+        ]
+      }
     },
     {
       "id": "record:nh-clay:haarlemmermeer:0-50cm:v1",
@@ -603,7 +708,7 @@
       ],
       "lithologyTarget": "polder clay topsoil target",
       "composition": {},
-      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "comparisonUse": "Use this record as a location/depth mass-balance template only; do not calculate numeric enrichment until lab XRF/ICP values and dry-basis closure are attached.",
       "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
       "requiredAssayFields": [
         "SiO2",
@@ -623,10 +728,36 @@
       "provenance": {
         "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
         "originTrailStatus": "prepared_not_published",
-        "factBoundary": "Sampling target, not a measured clay chemistry record."
+        "factBoundary": "Sampling target plus dry-basis mass-balance template; not a measured clay chemistry record."
       },
-      "cid": "sha256:bcf364ffd45bb88e8185586799a34c450b48840ff514c66b6b31835600c2c39c",
-      "ual": "did:dkg:knitweb/sha256-bcf364ffd45bb88e8185586799a34c450b48840ff514c66b6b31835600c2c39c"
+      "cid": "sha256:5bd2d08bf02ebddc3ae27380168df546a47b3d93e607f91d49bccfab224d2bac",
+      "ual": "did:dkg:knitweb/sha256-5bd2d08bf02ebddc3ae27380168df546a47b3d93e607f91d49bccfab224d2bac",
+      "massBalance": {
+        "id": "massbalance:nh-clay:haarlemmermeer:0-50cm:1000kg-dry:v1",
+        "kind": "clay_dry_mass_balance_template",
+        "status": "structural_mass_balance_pending_lab_composition",
+        "basisDryMassKg": 1000,
+        "chemicalClosureStatus": "not_closed_no_lab_assay_attached",
+        "unassignedDryMassKg": 1000,
+        "requiredAssayFields": [
+          "SiO2",
+          "Al2O3",
+          "Fe2O3",
+          "CaO",
+          "MgO",
+          "K2O",
+          "Na2O",
+          "TiO2",
+          "P2O5",
+          "V_ppm",
+          "Cr_ppm",
+          "MnO_or_Mn_ppm",
+          "LOI"
+        ],
+        "sourceIds": [
+          "source:bro-geotop-gtm"
+        ]
+      }
     },
     {
       "id": "record:nh-clay:haarlemmermeer:200-400cm:v1",
@@ -655,7 +786,7 @@
       ],
       "lithologyTarget": "subsoil clay/silt interval target",
       "composition": {},
-      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "comparisonUse": "Use this record as a location/depth mass-balance template only; do not calculate numeric enrichment until lab XRF/ICP values and dry-basis closure are attached.",
       "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
       "requiredAssayFields": [
         "SiO2",
@@ -675,10 +806,36 @@
       "provenance": {
         "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
         "originTrailStatus": "prepared_not_published",
-        "factBoundary": "Sampling target, not a measured clay chemistry record."
+        "factBoundary": "Sampling target plus dry-basis mass-balance template; not a measured clay chemistry record."
       },
-      "cid": "sha256:f3cecc6231e944c238a9b2c751d75c34a0cbe6e3a850c414bc694116d52a61f8",
-      "ual": "did:dkg:knitweb/sha256-f3cecc6231e944c238a9b2c751d75c34a0cbe6e3a850c414bc694116d52a61f8"
+      "cid": "sha256:e9f0f0bb0b84052ed4bbd3c502ebf7c8c1d5d089250d7ad85c3131b0289c5dc6",
+      "ual": "did:dkg:knitweb/sha256-e9f0f0bb0b84052ed4bbd3c502ebf7c8c1d5d089250d7ad85c3131b0289c5dc6",
+      "massBalance": {
+        "id": "massbalance:nh-clay:haarlemmermeer:200-400cm:1000kg-dry:v1",
+        "kind": "clay_dry_mass_balance_template",
+        "status": "structural_mass_balance_pending_lab_composition",
+        "basisDryMassKg": 1000,
+        "chemicalClosureStatus": "not_closed_no_lab_assay_attached",
+        "unassignedDryMassKg": 1000,
+        "requiredAssayFields": [
+          "SiO2",
+          "Al2O3",
+          "Fe2O3",
+          "CaO",
+          "MgO",
+          "K2O",
+          "Na2O",
+          "TiO2",
+          "P2O5",
+          "V_ppm",
+          "Cr_ppm",
+          "MnO_or_Mn_ppm",
+          "LOI"
+        ],
+        "sourceIds": [
+          "source:bro-geotop-gtm"
+        ]
+      }
     },
     {
       "id": "record:nh-clay:wieringermeer:0-50cm:v1",
@@ -707,7 +864,7 @@
       ],
       "lithologyTarget": "young marine clay topsoil target",
       "composition": {},
-      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "comparisonUse": "Use this record as a location/depth mass-balance template only; do not calculate numeric enrichment until lab XRF/ICP values and dry-basis closure are attached.",
       "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
       "requiredAssayFields": [
         "SiO2",
@@ -727,10 +884,36 @@
       "provenance": {
         "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
         "originTrailStatus": "prepared_not_published",
-        "factBoundary": "Sampling target, not a measured clay chemistry record."
+        "factBoundary": "Sampling target plus dry-basis mass-balance template; not a measured clay chemistry record."
       },
-      "cid": "sha256:10a22fda4a76a396b2d5c8b8362010d860795cf95d01523d291e43f3b9e81673",
-      "ual": "did:dkg:knitweb/sha256-10a22fda4a76a396b2d5c8b8362010d860795cf95d01523d291e43f3b9e81673"
+      "cid": "sha256:740aeb00582b777677ead5d309b566a0d81d04a41959bf085d66481442b22142",
+      "ual": "did:dkg:knitweb/sha256-740aeb00582b777677ead5d309b566a0d81d04a41959bf085d66481442b22142",
+      "massBalance": {
+        "id": "massbalance:nh-clay:wieringermeer:0-50cm:1000kg-dry:v1",
+        "kind": "clay_dry_mass_balance_template",
+        "status": "structural_mass_balance_pending_lab_composition",
+        "basisDryMassKg": 1000,
+        "chemicalClosureStatus": "not_closed_no_lab_assay_attached",
+        "unassignedDryMassKg": 1000,
+        "requiredAssayFields": [
+          "SiO2",
+          "Al2O3",
+          "Fe2O3",
+          "CaO",
+          "MgO",
+          "K2O",
+          "Na2O",
+          "TiO2",
+          "P2O5",
+          "V_ppm",
+          "Cr_ppm",
+          "MnO_or_Mn_ppm",
+          "LOI"
+        ],
+        "sourceIds": [
+          "source:bro-geotop-gtm"
+        ]
+      }
     },
     {
       "id": "record:nh-clay:wieringermeer:200-500cm:v1",
@@ -759,7 +942,7 @@
       ],
       "lithologyTarget": "deeper marine clay target",
       "composition": {},
-      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "comparisonUse": "Use this record as a location/depth mass-balance template only; do not calculate numeric enrichment until lab XRF/ICP values and dry-basis closure are attached.",
       "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
       "requiredAssayFields": [
         "SiO2",
@@ -779,10 +962,36 @@
       "provenance": {
         "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
         "originTrailStatus": "prepared_not_published",
-        "factBoundary": "Sampling target, not a measured clay chemistry record."
+        "factBoundary": "Sampling target plus dry-basis mass-balance template; not a measured clay chemistry record."
       },
-      "cid": "sha256:d70c32e3d04419580788414bd8972a20615b5b63fcc361a99f13e4efc75f5bfe",
-      "ual": "did:dkg:knitweb/sha256-d70c32e3d04419580788414bd8972a20615b5b63fcc361a99f13e4efc75f5bfe"
+      "cid": "sha256:9d2ac155cade137bb0f0c69803d82cd4e8a103792e549af234cd2f7f663c2f22",
+      "ual": "did:dkg:knitweb/sha256-9d2ac155cade137bb0f0c69803d82cd4e8a103792e549af234cd2f7f663c2f22",
+      "massBalance": {
+        "id": "massbalance:nh-clay:wieringermeer:200-500cm:1000kg-dry:v1",
+        "kind": "clay_dry_mass_balance_template",
+        "status": "structural_mass_balance_pending_lab_composition",
+        "basisDryMassKg": 1000,
+        "chemicalClosureStatus": "not_closed_no_lab_assay_attached",
+        "unassignedDryMassKg": 1000,
+        "requiredAssayFields": [
+          "SiO2",
+          "Al2O3",
+          "Fe2O3",
+          "CaO",
+          "MgO",
+          "K2O",
+          "Na2O",
+          "TiO2",
+          "P2O5",
+          "V_ppm",
+          "Cr_ppm",
+          "MnO_or_Mn_ppm",
+          "LOI"
+        ],
+        "sourceIds": [
+          "source:bro-geotop-gtm"
+        ]
+      }
     },
     {
       "id": "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
@@ -811,7 +1020,7 @@
       ],
       "lithologyTarget": "regional clay topsoil target",
       "composition": {},
-      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "comparisonUse": "Use this record as a location/depth mass-balance template only; do not calculate numeric enrichment until lab XRF/ICP values and dry-basis closure are attached.",
       "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
       "requiredAssayFields": [
         "SiO2",
@@ -831,10 +1040,36 @@
       "provenance": {
         "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
         "originTrailStatus": "prepared_not_published",
-        "factBoundary": "Sampling target, not a measured clay chemistry record."
+        "factBoundary": "Sampling target plus dry-basis mass-balance template; not a measured clay chemistry record."
       },
-      "cid": "sha256:1788e37e290d6fe8a24b630369492d0bf320b4c61216d11595bce66b2ddb1a65",
-      "ual": "did:dkg:knitweb/sha256-1788e37e290d6fe8a24b630369492d0bf320b4c61216d11595bce66b2ddb1a65"
+      "cid": "sha256:976d4ba760d936ee09879073962f5cf3b770ddb28a4087019d404c51445a9fff",
+      "ual": "did:dkg:knitweb/sha256-976d4ba760d936ee09879073962f5cf3b770ddb28a4087019d404c51445a9fff",
+      "massBalance": {
+        "id": "massbalance:nh-clay:west-friesland-enkhuizen:0-50cm:1000kg-dry:v1",
+        "kind": "clay_dry_mass_balance_template",
+        "status": "structural_mass_balance_pending_lab_composition",
+        "basisDryMassKg": 1000,
+        "chemicalClosureStatus": "not_closed_no_lab_assay_attached",
+        "unassignedDryMassKg": 1000,
+        "requiredAssayFields": [
+          "SiO2",
+          "Al2O3",
+          "Fe2O3",
+          "CaO",
+          "MgO",
+          "K2O",
+          "Na2O",
+          "TiO2",
+          "P2O5",
+          "V_ppm",
+          "Cr_ppm",
+          "MnO_or_Mn_ppm",
+          "LOI"
+        ],
+        "sourceIds": [
+          "source:bro-geotop-gtm"
+        ]
+      }
     },
     {
       "id": "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1",
@@ -863,7 +1098,7 @@
       ],
       "lithologyTarget": "subsoil clay target",
       "composition": {},
-      "comparisonUse": "Do not calculate numeric enrichment against this record until lab XRF/ICP values are attached.",
+      "comparisonUse": "Use this record as a location/depth mass-balance template only; do not calculate numeric enrichment until lab XRF/ICP values and dry-basis closure are attached.",
       "missingCompositionReason": "The attached public source supports lithology/depth modelling, not measured oxide or trace-element chemistry for this named location/depth.",
       "requiredAssayFields": [
         "SiO2",
@@ -883,10 +1118,36 @@
       "provenance": {
         "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
         "originTrailStatus": "prepared_not_published",
-        "factBoundary": "Sampling target, not a measured clay chemistry record."
+        "factBoundary": "Sampling target plus dry-basis mass-balance template; not a measured clay chemistry record."
       },
-      "cid": "sha256:34b1e4ec2d8c65d87ea8fe94b27ed48b01b4963146a54d00053d7b81937c8492",
-      "ual": "did:dkg:knitweb/sha256-34b1e4ec2d8c65d87ea8fe94b27ed48b01b4963146a54d00053d7b81937c8492"
+      "cid": "sha256:2e6a92a880e413153fa0b79ccbf3296794e8717e4b23221eeb74f5b26cfeba3e",
+      "ual": "did:dkg:knitweb/sha256-2e6a92a880e413153fa0b79ccbf3296794e8717e4b23221eeb74f5b26cfeba3e",
+      "massBalance": {
+        "id": "massbalance:nh-clay:west-friesland-enkhuizen:150-350cm:1000kg-dry:v1",
+        "kind": "clay_dry_mass_balance_template",
+        "status": "structural_mass_balance_pending_lab_composition",
+        "basisDryMassKg": 1000,
+        "chemicalClosureStatus": "not_closed_no_lab_assay_attached",
+        "unassignedDryMassKg": 1000,
+        "requiredAssayFields": [
+          "SiO2",
+          "Al2O3",
+          "Fe2O3",
+          "CaO",
+          "MgO",
+          "K2O",
+          "Na2O",
+          "TiO2",
+          "P2O5",
+          "V_ppm",
+          "Cr_ppm",
+          "MnO_or_Mn_ppm",
+          "LOI"
+        ],
+        "sourceIds": [
+          "source:bro-geotop-gtm"
+        ]
+      }
     }
   ],
   "variables": [
@@ -1006,6 +1267,48 @@
       "kind": "process_or_composition_variable",
       "cid": "sha256:0e08bd89996d80b03dca7bf65298747a91704358a992ab21758a37f85ba38c9c",
       "ual": "did:dkg:knitweb/sha256-0e08bd89996d80b03dca7bf65298747a91704358a992ab21758a37f85ba38c9c"
+    },
+    {
+      "id": "var:clay-mass-balance:dry-basis",
+      "label": "Noord-Hollandse klei droge-massabasis",
+      "unit": "kg_dry_clay",
+      "value": 1000,
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "mass_balance_planning_basis_not_measured_chemistry",
+      "kind": "process_or_composition_variable",
+      "note": "Applies to each Noord-Holland clay location/depth template until measured lab composition closes the balance.",
+      "cid": "sha256:4d24eb2b9edbe98091f7c56ebe2cb89c5796c07cb0aec59891627c723ce892cf",
+      "ual": "did:dkg:knitweb/sha256-4d24eb2b9edbe98091f7c56ebe2cb89c5796c07cb0aec59891627c723ce892cf"
+    },
+    {
+      "id": "var:clay-mass-balance:closure-required",
+      "label": "Klei massabalans sluiting vereist",
+      "unit": "boolean",
+      "value": true,
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "required_before_enrichment_claim",
+      "kind": "process_or_composition_variable",
+      "note": "Numeric enrichment requires oxide, trace, LOI/moisture and residual terms that close to 100 wt% dry basis.",
+      "cid": "sha256:21b358470b54195e4cc8f59d9b74caff98089287ae8cbfc50a5202e846efcf81",
+      "ual": "did:dkg:knitweb/sha256-21b358470b54195e4cc8f59d9b74caff98089287ae8cbfc50a5202e846efcf81"
+    },
+    {
+      "id": "var:enrichment-factor:locked",
+      "label": "Verrijkingsfactor vergrendeld",
+      "unit": "boolean",
+      "value": true,
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "locked_pending_measured_clay_composition",
+      "kind": "process_or_composition_variable",
+      "note": "The BOF/clay comparison may show structural mass-balance coverage, but not numeric enrichment.",
+      "cid": "sha256:ba5ad3344ae31f27e5e1218ddc574cc1056d42722326f4f6d40bc0435bfc35d2",
+      "ual": "did:dkg:knitweb/sha256-ba5ad3344ae31f27e5e1218ddc574cc1056d42722326f4f6d40bc0435bfc35d2"
     }
   ],
   "comparisons": [
@@ -1026,16 +1329,31 @@
         "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1"
       ],
       "status": "numeric_enrichment_locked_pending_measured_clay_composition",
-      "availableConclusion": "BOF-slag oxide ranges are present; Noord-Holland clay chemistry values are not present in the attached source set, so enrichment factors are not asserted as fact.",
+      "availableConclusion": "BOF-slag has source-linked oxide ranges and a 1000 kg dry-basis reference mass balance. Noord-Holland clay now has 1000 kg dry-basis mass-balance templates for each listed location/depth, but measured clay chemistry is still absent, so numeric enrichment factors remain locked.",
       "requiredBeforeUnlock": [
         "Attach lab method",
         "Attach location coordinates or boring/sample id",
         "Attach depth interval",
         "Attach oxide and trace-element values",
+        "Attach LOI/moisture/residual terms and close the dry-basis mass balance",
         "Link source author/lab/report"
       ],
-      "cid": "sha256:ae72933acb9b27a3cbb0df2e4fb75dd29e72ee5b2b3405cdf01ed5355c6f52be",
-      "ual": "did:dkg:knitweb/sha256-ae72933acb9b27a3cbb0df2e4fb75dd29e72ee5b2b3405cdf01ed5355c6f52be"
+      "cid": "sha256:4fd3e6e60ddec708481b0578080527bc5033a8e7a98106572c526525c18df9a7",
+      "ual": "did:dkg:knitweb/sha256-4fd3e6e60ddec708481b0578080527bc5033a8e7a98106572c526525c18df9a7",
+      "massBalanceStatus": "clay_mass_balance_templates_added_numeric_enrichment_locked",
+      "bofReferenceMassBalanceId": "massbalance:bof-slag:ijmuiden:typical-range:1000kg-dry:v1",
+      "clayMassBalanceSet": [
+        "massbalance:nh-clay:amsterdam-ijpolder:0-50cm:1000kg-dry:v1",
+        "massbalance:nh-clay:amsterdam-ijpolder:200-400cm:1000kg-dry:v1",
+        "massbalance:nh-clay:beemster:0-50cm:1000kg-dry:v1",
+        "massbalance:nh-clay:beemster:150-300cm:1000kg-dry:v1",
+        "massbalance:nh-clay:haarlemmermeer:0-50cm:1000kg-dry:v1",
+        "massbalance:nh-clay:haarlemmermeer:200-400cm:1000kg-dry:v1",
+        "massbalance:nh-clay:wieringermeer:0-50cm:1000kg-dry:v1",
+        "massbalance:nh-clay:wieringermeer:200-500cm:1000kg-dry:v1",
+        "massbalance:nh-clay:west-friesland-enkhuizen:0-50cm:1000kg-dry:v1",
+        "massbalance:nh-clay:west-friesland-enkhuizen:150-350cm:1000kg-dry:v1"
+      ]
     }
   ],
   "origintrailAsset": {
@@ -1485,10 +1803,367 @@
         "object": "chemfield:smartslag:composition",
         "type": "Dataset",
         "weight": 1
+      },
+      {
+        "subject": "record:bof-slag:ijmuiden:typical-range:v1",
+        "predicate": "chemfield:hasMassBalance",
+        "object": "massbalance:bof-slag:ijmuiden:typical-range:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:bof-slag:ijmuiden:typical-range:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:smartslag-kivi-2026-local-dossier",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:bof-slag:ijmuiden:typical-range:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:yildirim-prezzi-2011-steel-slag-review",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasBofReferenceMassBalance",
+        "object": "massbalance:bof-slag:ijmuiden:typical-range:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasMassBalanceStatus",
+        "object": "clay_mass_balance_templates_added_numeric_enrichment_locked",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:amsterdam-ijpolder:0-50cm:v1",
+        "predicate": "chemfield:hasMassBalance",
+        "object": "massbalance:nh-clay:amsterdam-ijpolder:0-50cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:amsterdam-ijpolder:0-50cm:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:amsterdam-ijpolder:0-50cm:1000kg-dry:v1",
+        "predicate": "chemfield:hasClosureStatus",
+        "object": "not_closed_no_lab_assay_attached",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasClayMassBalance",
+        "object": "massbalance:nh-clay:amsterdam-ijpolder:0-50cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
+        "predicate": "chemfield:hasMassBalance",
+        "object": "massbalance:nh-clay:amsterdam-ijpolder:200-400cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:amsterdam-ijpolder:200-400cm:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:amsterdam-ijpolder:200-400cm:1000kg-dry:v1",
+        "predicate": "chemfield:hasClosureStatus",
+        "object": "not_closed_no_lab_assay_attached",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasClayMassBalance",
+        "object": "massbalance:nh-clay:amsterdam-ijpolder:200-400cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:beemster:0-50cm:v1",
+        "predicate": "chemfield:hasMassBalance",
+        "object": "massbalance:nh-clay:beemster:0-50cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:beemster:0-50cm:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:beemster:0-50cm:1000kg-dry:v1",
+        "predicate": "chemfield:hasClosureStatus",
+        "object": "not_closed_no_lab_assay_attached",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasClayMassBalance",
+        "object": "massbalance:nh-clay:beemster:0-50cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:beemster:150-300cm:v1",
+        "predicate": "chemfield:hasMassBalance",
+        "object": "massbalance:nh-clay:beemster:150-300cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:beemster:150-300cm:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:beemster:150-300cm:1000kg-dry:v1",
+        "predicate": "chemfield:hasClosureStatus",
+        "object": "not_closed_no_lab_assay_attached",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasClayMassBalance",
+        "object": "massbalance:nh-clay:beemster:150-300cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:haarlemmermeer:0-50cm:v1",
+        "predicate": "chemfield:hasMassBalance",
+        "object": "massbalance:nh-clay:haarlemmermeer:0-50cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:haarlemmermeer:0-50cm:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:haarlemmermeer:0-50cm:1000kg-dry:v1",
+        "predicate": "chemfield:hasClosureStatus",
+        "object": "not_closed_no_lab_assay_attached",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasClayMassBalance",
+        "object": "massbalance:nh-clay:haarlemmermeer:0-50cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:haarlemmermeer:200-400cm:v1",
+        "predicate": "chemfield:hasMassBalance",
+        "object": "massbalance:nh-clay:haarlemmermeer:200-400cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:haarlemmermeer:200-400cm:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:haarlemmermeer:200-400cm:1000kg-dry:v1",
+        "predicate": "chemfield:hasClosureStatus",
+        "object": "not_closed_no_lab_assay_attached",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasClayMassBalance",
+        "object": "massbalance:nh-clay:haarlemmermeer:200-400cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:wieringermeer:0-50cm:v1",
+        "predicate": "chemfield:hasMassBalance",
+        "object": "massbalance:nh-clay:wieringermeer:0-50cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:wieringermeer:0-50cm:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:wieringermeer:0-50cm:1000kg-dry:v1",
+        "predicate": "chemfield:hasClosureStatus",
+        "object": "not_closed_no_lab_assay_attached",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasClayMassBalance",
+        "object": "massbalance:nh-clay:wieringermeer:0-50cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:wieringermeer:200-500cm:v1",
+        "predicate": "chemfield:hasMassBalance",
+        "object": "massbalance:nh-clay:wieringermeer:200-500cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:wieringermeer:200-500cm:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:wieringermeer:200-500cm:1000kg-dry:v1",
+        "predicate": "chemfield:hasClosureStatus",
+        "object": "not_closed_no_lab_assay_attached",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasClayMassBalance",
+        "object": "massbalance:nh-clay:wieringermeer:200-500cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
+        "predicate": "chemfield:hasMassBalance",
+        "object": "massbalance:nh-clay:west-friesland-enkhuizen:0-50cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:west-friesland-enkhuizen:0-50cm:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:west-friesland-enkhuizen:0-50cm:1000kg-dry:v1",
+        "predicate": "chemfield:hasClosureStatus",
+        "object": "not_closed_no_lab_assay_attached",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasClayMassBalance",
+        "object": "massbalance:nh-clay:west-friesland-enkhuizen:0-50cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1",
+        "predicate": "chemfield:hasMassBalance",
+        "object": "massbalance:nh-clay:west-friesland-enkhuizen:150-350cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:west-friesland-enkhuizen:150-350cm:1000kg-dry:v1",
+        "predicate": "chemfield:usesSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "massbalance:nh-clay:west-friesland-enkhuizen:150-350cm:1000kg-dry:v1",
+        "predicate": "chemfield:hasClosureStatus",
+        "object": "not_closed_no_lab_assay_attached",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "comparison:bof-vs-noord-holland-clay:v1",
+        "predicate": "chemfield:hasClayMassBalance",
+        "object": "massbalance:nh-clay:west-friesland-enkhuizen:150-350cm:1000kg-dry:v1",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:clay-mass-balance:dry-basis",
+        "predicate": "chemfield:hasStatus",
+        "object": "mass_balance_planning_basis_not_measured_chemistry",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:clay-mass-balance:dry-basis",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:clay-mass-balance:closure-required",
+        "predicate": "chemfield:hasStatus",
+        "object": "required_before_enrichment_claim",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:clay-mass-balance:closure-required",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:enrichment-factor:locked",
+        "predicate": "chemfield:hasStatus",
+        "object": "locked_pending_measured_clay_composition",
+        "type": "Dataset",
+        "weight": 1
+      },
+      {
+        "subject": "var:enrichment-factor:locked",
+        "predicate": "chemfield:hasSource",
+        "object": "source:bro-geotop-gtm",
+        "type": "Dataset",
+        "weight": 1
       }
     ],
-    "cid": "sha256:c9e8393092b33661abcb9c667e7b0678101ffea14bd1c2ea39bddee764435b0f",
-    "ual": "did:dkg:knitweb/sha256-c9e8393092b33661abcb9c667e7b0678101ffea14bd1c2ea39bddee764435b0f"
+    "cid": "sha256:e5f7382bf7046fb63bdee835bc14912f00d9228b5041e36fb89d9f80e13913d0",
+    "ual": "did:dkg:knitweb/sha256-e5f7382bf7046fb63bdee835bc14912f00d9228b5041e36fb89d9f80e13913d0"
   },
   "@graph": [
     {
@@ -1889,8 +2564,2012 @@
       "object": "chemfield:smartslag:composition",
       "type": "Dataset",
       "weight": 1
+    },
+    {
+      "subject": "record:bof-slag:ijmuiden:typical-range:v1",
+      "predicate": "chemfield:hasMassBalance",
+      "object": "massbalance:bof-slag:ijmuiden:typical-range:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:bof-slag:ijmuiden:typical-range:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:smartslag-kivi-2026-local-dossier",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:bof-slag:ijmuiden:typical-range:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:yildirim-prezzi-2011-steel-slag-review",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasBofReferenceMassBalance",
+      "object": "massbalance:bof-slag:ijmuiden:typical-range:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasMassBalanceStatus",
+      "object": "clay_mass_balance_templates_added_numeric_enrichment_locked",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:amsterdam-ijpolder:0-50cm:v1",
+      "predicate": "chemfield:hasMassBalance",
+      "object": "massbalance:nh-clay:amsterdam-ijpolder:0-50cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:amsterdam-ijpolder:0-50cm:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:amsterdam-ijpolder:0-50cm:1000kg-dry:v1",
+      "predicate": "chemfield:hasClosureStatus",
+      "object": "not_closed_no_lab_assay_attached",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasClayMassBalance",
+      "object": "massbalance:nh-clay:amsterdam-ijpolder:0-50cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
+      "predicate": "chemfield:hasMassBalance",
+      "object": "massbalance:nh-clay:amsterdam-ijpolder:200-400cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:amsterdam-ijpolder:200-400cm:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:amsterdam-ijpolder:200-400cm:1000kg-dry:v1",
+      "predicate": "chemfield:hasClosureStatus",
+      "object": "not_closed_no_lab_assay_attached",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasClayMassBalance",
+      "object": "massbalance:nh-clay:amsterdam-ijpolder:200-400cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:beemster:0-50cm:v1",
+      "predicate": "chemfield:hasMassBalance",
+      "object": "massbalance:nh-clay:beemster:0-50cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:beemster:0-50cm:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:beemster:0-50cm:1000kg-dry:v1",
+      "predicate": "chemfield:hasClosureStatus",
+      "object": "not_closed_no_lab_assay_attached",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasClayMassBalance",
+      "object": "massbalance:nh-clay:beemster:0-50cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:beemster:150-300cm:v1",
+      "predicate": "chemfield:hasMassBalance",
+      "object": "massbalance:nh-clay:beemster:150-300cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:beemster:150-300cm:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:beemster:150-300cm:1000kg-dry:v1",
+      "predicate": "chemfield:hasClosureStatus",
+      "object": "not_closed_no_lab_assay_attached",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasClayMassBalance",
+      "object": "massbalance:nh-clay:beemster:150-300cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:haarlemmermeer:0-50cm:v1",
+      "predicate": "chemfield:hasMassBalance",
+      "object": "massbalance:nh-clay:haarlemmermeer:0-50cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:haarlemmermeer:0-50cm:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:haarlemmermeer:0-50cm:1000kg-dry:v1",
+      "predicate": "chemfield:hasClosureStatus",
+      "object": "not_closed_no_lab_assay_attached",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasClayMassBalance",
+      "object": "massbalance:nh-clay:haarlemmermeer:0-50cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:haarlemmermeer:200-400cm:v1",
+      "predicate": "chemfield:hasMassBalance",
+      "object": "massbalance:nh-clay:haarlemmermeer:200-400cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:haarlemmermeer:200-400cm:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:haarlemmermeer:200-400cm:1000kg-dry:v1",
+      "predicate": "chemfield:hasClosureStatus",
+      "object": "not_closed_no_lab_assay_attached",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasClayMassBalance",
+      "object": "massbalance:nh-clay:haarlemmermeer:200-400cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:wieringermeer:0-50cm:v1",
+      "predicate": "chemfield:hasMassBalance",
+      "object": "massbalance:nh-clay:wieringermeer:0-50cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:wieringermeer:0-50cm:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:wieringermeer:0-50cm:1000kg-dry:v1",
+      "predicate": "chemfield:hasClosureStatus",
+      "object": "not_closed_no_lab_assay_attached",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasClayMassBalance",
+      "object": "massbalance:nh-clay:wieringermeer:0-50cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:wieringermeer:200-500cm:v1",
+      "predicate": "chemfield:hasMassBalance",
+      "object": "massbalance:nh-clay:wieringermeer:200-500cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:wieringermeer:200-500cm:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:wieringermeer:200-500cm:1000kg-dry:v1",
+      "predicate": "chemfield:hasClosureStatus",
+      "object": "not_closed_no_lab_assay_attached",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasClayMassBalance",
+      "object": "massbalance:nh-clay:wieringermeer:200-500cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
+      "predicate": "chemfield:hasMassBalance",
+      "object": "massbalance:nh-clay:west-friesland-enkhuizen:0-50cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:west-friesland-enkhuizen:0-50cm:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:west-friesland-enkhuizen:0-50cm:1000kg-dry:v1",
+      "predicate": "chemfield:hasClosureStatus",
+      "object": "not_closed_no_lab_assay_attached",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasClayMassBalance",
+      "object": "massbalance:nh-clay:west-friesland-enkhuizen:0-50cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1",
+      "predicate": "chemfield:hasMassBalance",
+      "object": "massbalance:nh-clay:west-friesland-enkhuizen:150-350cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:west-friesland-enkhuizen:150-350cm:1000kg-dry:v1",
+      "predicate": "chemfield:usesSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "massbalance:nh-clay:west-friesland-enkhuizen:150-350cm:1000kg-dry:v1",
+      "predicate": "chemfield:hasClosureStatus",
+      "object": "not_closed_no_lab_assay_attached",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "comparison:bof-vs-noord-holland-clay:v1",
+      "predicate": "chemfield:hasClayMassBalance",
+      "object": "massbalance:nh-clay:west-friesland-enkhuizen:150-350cm:1000kg-dry:v1",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:clay-mass-balance:dry-basis",
+      "predicate": "chemfield:hasStatus",
+      "object": "mass_balance_planning_basis_not_measured_chemistry",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:clay-mass-balance:dry-basis",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:clay-mass-balance:closure-required",
+      "predicate": "chemfield:hasStatus",
+      "object": "required_before_enrichment_claim",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:clay-mass-balance:closure-required",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:enrichment-factor:locked",
+      "predicate": "chemfield:hasStatus",
+      "object": "locked_pending_measured_clay_composition",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "var:enrichment-factor:locked",
+      "predicate": "chemfield:hasSource",
+      "object": "source:bro-geotop-gtm",
+      "type": "Dataset",
+      "weight": 1
     }
   ],
-  "cid": "sha256:dbc1ac2340966ff74639047d4bb06ae8e9316e715d599d6d0875fb7e83fa1365",
-  "ual": "did:dkg:knitweb/sha256-dbc1ac2340966ff74639047d4bb06ae8e9316e715d599d6d0875fb7e83fa1365"
+  "cid": "sha256:ad1351f27839c3e42fc262c5c2ba2ccb5d4961521db32666977e5517d374dac8",
+  "ual": "did:dkg:knitweb/sha256-ad1351f27839c3e42fc262c5c2ba2ccb5d4961521db32666977e5517d374dac8",
+  "massBalances": [
+    {
+      "id": "massbalance:bof-slag:ijmuiden:typical-range:1000kg-dry:v1",
+      "kind": "bof_slag_reference_mass_balance_range",
+      "recordId": "record:bof-slag:ijmuiden:typical-range:v1",
+      "materialId": "material:bof-ld-steel-slag",
+      "site": {
+        "name": "Tata Steel IJmuiden / SLAG Plant One feedstock reference",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "not_in_public_dataset"
+      },
+      "sourceIds": [
+        "source:smartslag-kivi-2026-local-dossier",
+        "source:yildirim-prezzi-2011-steel-slag-review"
+      ],
+      "status": "source_range_mass_balance_reference",
+      "basis": {
+        "dryMassKg": 1000,
+        "unit": "kg_dry_slag",
+        "note": "Range conversion from stored BOF composition values; independent component ranges do not represent one closed assay."
+      },
+      "components": [
+        {
+          "component": "CaO",
+          "unit": "kg_per_1000kg_dry_basis",
+          "minKg": 400,
+          "maxKg": 450,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "sourceStatus": "source_range",
+          "conversion": "basis_points_to_wt_percent_to_kg_per_tonne"
+        },
+        {
+          "component": "SiO2",
+          "unit": "kg_per_1000kg_dry_basis",
+          "minKg": 120,
+          "maxKg": 150,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "sourceStatus": "source_range",
+          "conversion": "basis_points_to_wt_percent_to_kg_per_tonne"
+        },
+        {
+          "component": "FeO_Fe2O3",
+          "unit": "kg_per_1000kg_dry_basis",
+          "minKg": 180,
+          "maxKg": 250,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "sourceStatus": "source_range",
+          "conversion": "basis_points_to_wt_percent_to_kg_per_tonne"
+        },
+        {
+          "component": "MgO",
+          "unit": "kg_per_1000kg_dry_basis",
+          "minKg": 50,
+          "maxKg": 80,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "sourceStatus": "source_range",
+          "conversion": "basis_points_to_wt_percent_to_kg_per_tonne"
+        },
+        {
+          "component": "MnO",
+          "unit": "kg_per_1000kg_dry_basis",
+          "minKg": 30,
+          "maxKg": 50,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "sourceStatus": "source_range",
+          "conversion": "basis_points_to_wt_percent_to_kg_per_tonne"
+        },
+        {
+          "component": "Al2O3",
+          "unit": "kg_per_1000kg_dry_basis",
+          "minKg": 20,
+          "maxKg": 40,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "sourceStatus": "source_range",
+          "conversion": "basis_points_to_wt_percent_to_kg_per_tonne"
+        },
+        {
+          "component": "P2O5",
+          "unit": "kg_per_1000kg_dry_basis",
+          "minKg": 15,
+          "maxKg": 25,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier",
+            "source:yildirim-prezzi-2011-steel-slag-review"
+          ],
+          "sourceStatus": "source_range",
+          "conversion": "basis_points_to_wt_percent_to_kg_per_tonne"
+        },
+        {
+          "component": "V2O5",
+          "unit": "kg_per_1000kg_dry_basis",
+          "minKg": 8,
+          "maxKg": 15,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier"
+          ],
+          "sourceStatus": "source_range",
+          "conversion": "basis_points_to_wt_percent_to_kg_per_tonne"
+        },
+        {
+          "component": "Cr2O3",
+          "unit": "kg_per_1000kg_dry_basis",
+          "minKg": 2,
+          "maxKg": 5,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier"
+          ],
+          "sourceStatus": "source_range",
+          "conversion": "basis_points_to_wt_percent_to_kg_per_tonne"
+        },
+        {
+          "component": "TiO2",
+          "unit": "kg_per_1000kg_dry_basis",
+          "minKg": 3,
+          "maxKg": 7,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier"
+          ],
+          "sourceStatus": "source_range",
+          "conversion": "basis_points_to_wt_percent_to_kg_per_tonne"
+        },
+        {
+          "component": "Sc2O3",
+          "unit": "kg_per_1000kg_dry_basis",
+          "minKg": 0.04,
+          "maxKg": 0.06,
+          "sourceIds": [
+            "source:smartslag-kivi-2026-local-dossier"
+          ],
+          "sourceStatus": "operator_trace_estimate_requires_assay",
+          "conversion": "ppm_mg_per_kg_to_kg_per_tonne"
+        }
+      ],
+      "rangeClosure": {
+        "sumIndependentMinKg": 828.04,
+        "sumIndependentMaxKg": 1072.06,
+        "closureStatus": "range_not_closed_independent_component_ranges",
+        "closureNote": "Minimum and maximum component ranges are independent literature/operator ranges; they should not be interpreted as a single closed 1000 kg batch."
+      },
+      "provenance": {
+        "sourceAuthorLinkStatus": "source_author_links_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Computed conversion of existing source ranges to kg per tonne; not a new measurement."
+      },
+      "cid": "sha256:bc4f7a2e867ed2b285572675ac6ff53f3acaae9c86a8ede63f862810b1d902d4",
+      "ual": "did:dkg:knitweb/sha256-bc4f7a2e867ed2b285572675ac6ff53f3acaae9c86a8ede63f862810b1d902d4"
+    },
+    {
+      "id": "massbalance:nh-clay:amsterdam-ijpolder:0-50cm:1000kg-dry:v1",
+      "kind": "clay_dry_mass_balance_template",
+      "recordId": "record:nh-clay:amsterdam-ijpolder:0-50cm:v1",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "site": {
+        "name": "Amsterdam Westelijk Havengebied / IJpolder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        0,
+        50
+      ],
+      "lithologyTarget": "near-coastal Holocene clay sampling target",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "structural_mass_balance_pending_lab_composition",
+      "basis": {
+        "dryMassKg": 1000,
+        "unit": "kg_dry_clay",
+        "note": "Planning basis for comparing one tonne dry clay sampling target with one tonne BOF slag; not a measured oxide total."
+      },
+      "knownStructuralTerms": [
+        {
+          "term": "location",
+          "value": "Amsterdam Westelijk Havengebied / IJpolder",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "targetDepthIntervalCm",
+          "value": [
+            0,
+            50
+          ],
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "lithologyTarget",
+          "value": "near-coastal Holocene clay sampling target",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "basisDryMassKg",
+          "value": 1000,
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        }
+      ],
+      "chemicalClosure": {
+        "measuredOxideTotalKg": null,
+        "measuredTraceTotalKg": null,
+        "measuredLoiKg": null,
+        "unassignedDryMassKg": 1000,
+        "closureStatus": "not_closed_no_lab_assay_attached",
+        "closureRule": "Measured oxide wt_pct plus LOI/moisture/residual terms must close to 100 wt% dry basis before numeric enrichment is unlocked."
+      },
+      "requiredAssayFields": [
+        {
+          "component": "SiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Al2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Fe2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "CaO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MgO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "K2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Na2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "TiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "P2O5",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "V_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Cr_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MnO_or_Mn_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "LOI",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        }
+      ],
+      "comparisonLock": "Do not calculate numeric BOF-vs-clay enrichment from this mass balance until measured clay composition values with method, source, author/lab, location and depth are attached.",
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Mass-balance template only; public source supports lithology/depth target provenance, not measured chemistry."
+      },
+      "cid": "sha256:12885692f13ca3f4869d1be2ed4462aaf1bf7d07bf08f355c44c53b06fa8021a",
+      "ual": "did:dkg:knitweb/sha256-12885692f13ca3f4869d1be2ed4462aaf1bf7d07bf08f355c44c53b06fa8021a"
+    },
+    {
+      "id": "massbalance:nh-clay:amsterdam-ijpolder:200-400cm:1000kg-dry:v1",
+      "kind": "clay_dry_mass_balance_template",
+      "recordId": "record:nh-clay:amsterdam-ijpolder:200-400cm:v1",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "site": {
+        "name": "Amsterdam Westelijk Havengebied / IJpolder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        200,
+        400
+      ],
+      "lithologyTarget": "deeper clay/peat-clay interval target",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "structural_mass_balance_pending_lab_composition",
+      "basis": {
+        "dryMassKg": 1000,
+        "unit": "kg_dry_clay",
+        "note": "Planning basis for comparing one tonne dry clay sampling target with one tonne BOF slag; not a measured oxide total."
+      },
+      "knownStructuralTerms": [
+        {
+          "term": "location",
+          "value": "Amsterdam Westelijk Havengebied / IJpolder",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "targetDepthIntervalCm",
+          "value": [
+            200,
+            400
+          ],
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "lithologyTarget",
+          "value": "deeper clay/peat-clay interval target",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "basisDryMassKg",
+          "value": 1000,
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        }
+      ],
+      "chemicalClosure": {
+        "measuredOxideTotalKg": null,
+        "measuredTraceTotalKg": null,
+        "measuredLoiKg": null,
+        "unassignedDryMassKg": 1000,
+        "closureStatus": "not_closed_no_lab_assay_attached",
+        "closureRule": "Measured oxide wt_pct plus LOI/moisture/residual terms must close to 100 wt% dry basis before numeric enrichment is unlocked."
+      },
+      "requiredAssayFields": [
+        {
+          "component": "SiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Al2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Fe2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "CaO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MgO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "K2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Na2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "TiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "P2O5",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "V_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Cr_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MnO_or_Mn_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "LOI",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        }
+      ],
+      "comparisonLock": "Do not calculate numeric BOF-vs-clay enrichment from this mass balance until measured clay composition values with method, source, author/lab, location and depth are attached.",
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Mass-balance template only; public source supports lithology/depth target provenance, not measured chemistry."
+      },
+      "cid": "sha256:b89c8487d7fe6a0633a7e46936b1797250500349ca542bbb776bb54b87af0644",
+      "ual": "did:dkg:knitweb/sha256-b89c8487d7fe6a0633a7e46936b1797250500349ca542bbb776bb54b87af0644"
+    },
+    {
+      "id": "massbalance:nh-clay:beemster:0-50cm:1000kg-dry:v1",
+      "kind": "clay_dry_mass_balance_template",
+      "recordId": "record:nh-clay:beemster:0-50cm:v1",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "site": {
+        "name": "Beemster polder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        0,
+        50
+      ],
+      "lithologyTarget": "reclaimed marine clay topsoil target",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "structural_mass_balance_pending_lab_composition",
+      "basis": {
+        "dryMassKg": 1000,
+        "unit": "kg_dry_clay",
+        "note": "Planning basis for comparing one tonne dry clay sampling target with one tonne BOF slag; not a measured oxide total."
+      },
+      "knownStructuralTerms": [
+        {
+          "term": "location",
+          "value": "Beemster polder",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "targetDepthIntervalCm",
+          "value": [
+            0,
+            50
+          ],
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "lithologyTarget",
+          "value": "reclaimed marine clay topsoil target",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "basisDryMassKg",
+          "value": 1000,
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        }
+      ],
+      "chemicalClosure": {
+        "measuredOxideTotalKg": null,
+        "measuredTraceTotalKg": null,
+        "measuredLoiKg": null,
+        "unassignedDryMassKg": 1000,
+        "closureStatus": "not_closed_no_lab_assay_attached",
+        "closureRule": "Measured oxide wt_pct plus LOI/moisture/residual terms must close to 100 wt% dry basis before numeric enrichment is unlocked."
+      },
+      "requiredAssayFields": [
+        {
+          "component": "SiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Al2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Fe2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "CaO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MgO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "K2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Na2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "TiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "P2O5",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "V_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Cr_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MnO_or_Mn_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "LOI",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        }
+      ],
+      "comparisonLock": "Do not calculate numeric BOF-vs-clay enrichment from this mass balance until measured clay composition values with method, source, author/lab, location and depth are attached.",
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Mass-balance template only; public source supports lithology/depth target provenance, not measured chemistry."
+      },
+      "cid": "sha256:b225e49a97622979399e138abc50a14d5c78a7e35f1176399ae308a5361754db",
+      "ual": "did:dkg:knitweb/sha256-b225e49a97622979399e138abc50a14d5c78a7e35f1176399ae308a5361754db"
+    },
+    {
+      "id": "massbalance:nh-clay:beemster:150-300cm:1000kg-dry:v1",
+      "kind": "clay_dry_mass_balance_template",
+      "recordId": "record:nh-clay:beemster:150-300cm:v1",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "site": {
+        "name": "Beemster polder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        150,
+        300
+      ],
+      "lithologyTarget": "subsoil marine clay target",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "structural_mass_balance_pending_lab_composition",
+      "basis": {
+        "dryMassKg": 1000,
+        "unit": "kg_dry_clay",
+        "note": "Planning basis for comparing one tonne dry clay sampling target with one tonne BOF slag; not a measured oxide total."
+      },
+      "knownStructuralTerms": [
+        {
+          "term": "location",
+          "value": "Beemster polder",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "targetDepthIntervalCm",
+          "value": [
+            150,
+            300
+          ],
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "lithologyTarget",
+          "value": "subsoil marine clay target",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "basisDryMassKg",
+          "value": 1000,
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        }
+      ],
+      "chemicalClosure": {
+        "measuredOxideTotalKg": null,
+        "measuredTraceTotalKg": null,
+        "measuredLoiKg": null,
+        "unassignedDryMassKg": 1000,
+        "closureStatus": "not_closed_no_lab_assay_attached",
+        "closureRule": "Measured oxide wt_pct plus LOI/moisture/residual terms must close to 100 wt% dry basis before numeric enrichment is unlocked."
+      },
+      "requiredAssayFields": [
+        {
+          "component": "SiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Al2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Fe2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "CaO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MgO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "K2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Na2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "TiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "P2O5",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "V_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Cr_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MnO_or_Mn_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "LOI",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        }
+      ],
+      "comparisonLock": "Do not calculate numeric BOF-vs-clay enrichment from this mass balance until measured clay composition values with method, source, author/lab, location and depth are attached.",
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Mass-balance template only; public source supports lithology/depth target provenance, not measured chemistry."
+      },
+      "cid": "sha256:226f328781d3cf4880e3b80649fd5dd4d9a5e7f8341891ded5a03ba0ceb6f38b",
+      "ual": "did:dkg:knitweb/sha256-226f328781d3cf4880e3b80649fd5dd4d9a5e7f8341891ded5a03ba0ceb6f38b"
+    },
+    {
+      "id": "massbalance:nh-clay:haarlemmermeer:0-50cm:1000kg-dry:v1",
+      "kind": "clay_dry_mass_balance_template",
+      "recordId": "record:nh-clay:haarlemmermeer:0-50cm:v1",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "site": {
+        "name": "Haarlemmermeer polder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        0,
+        50
+      ],
+      "lithologyTarget": "polder clay topsoil target",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "structural_mass_balance_pending_lab_composition",
+      "basis": {
+        "dryMassKg": 1000,
+        "unit": "kg_dry_clay",
+        "note": "Planning basis for comparing one tonne dry clay sampling target with one tonne BOF slag; not a measured oxide total."
+      },
+      "knownStructuralTerms": [
+        {
+          "term": "location",
+          "value": "Haarlemmermeer polder",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "targetDepthIntervalCm",
+          "value": [
+            0,
+            50
+          ],
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "lithologyTarget",
+          "value": "polder clay topsoil target",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "basisDryMassKg",
+          "value": 1000,
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        }
+      ],
+      "chemicalClosure": {
+        "measuredOxideTotalKg": null,
+        "measuredTraceTotalKg": null,
+        "measuredLoiKg": null,
+        "unassignedDryMassKg": 1000,
+        "closureStatus": "not_closed_no_lab_assay_attached",
+        "closureRule": "Measured oxide wt_pct plus LOI/moisture/residual terms must close to 100 wt% dry basis before numeric enrichment is unlocked."
+      },
+      "requiredAssayFields": [
+        {
+          "component": "SiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Al2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Fe2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "CaO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MgO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "K2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Na2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "TiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "P2O5",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "V_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Cr_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MnO_or_Mn_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "LOI",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        }
+      ],
+      "comparisonLock": "Do not calculate numeric BOF-vs-clay enrichment from this mass balance until measured clay composition values with method, source, author/lab, location and depth are attached.",
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Mass-balance template only; public source supports lithology/depth target provenance, not measured chemistry."
+      },
+      "cid": "sha256:5d3ad5ab3e09e91505fd117385b153695df146aab51ba938b4b7b85ba99afed7",
+      "ual": "did:dkg:knitweb/sha256-5d3ad5ab3e09e91505fd117385b153695df146aab51ba938b4b7b85ba99afed7"
+    },
+    {
+      "id": "massbalance:nh-clay:haarlemmermeer:200-400cm:1000kg-dry:v1",
+      "kind": "clay_dry_mass_balance_template",
+      "recordId": "record:nh-clay:haarlemmermeer:200-400cm:v1",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "site": {
+        "name": "Haarlemmermeer polder",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        200,
+        400
+      ],
+      "lithologyTarget": "subsoil clay/silt interval target",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "structural_mass_balance_pending_lab_composition",
+      "basis": {
+        "dryMassKg": 1000,
+        "unit": "kg_dry_clay",
+        "note": "Planning basis for comparing one tonne dry clay sampling target with one tonne BOF slag; not a measured oxide total."
+      },
+      "knownStructuralTerms": [
+        {
+          "term": "location",
+          "value": "Haarlemmermeer polder",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "targetDepthIntervalCm",
+          "value": [
+            200,
+            400
+          ],
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "lithologyTarget",
+          "value": "subsoil clay/silt interval target",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "basisDryMassKg",
+          "value": 1000,
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        }
+      ],
+      "chemicalClosure": {
+        "measuredOxideTotalKg": null,
+        "measuredTraceTotalKg": null,
+        "measuredLoiKg": null,
+        "unassignedDryMassKg": 1000,
+        "closureStatus": "not_closed_no_lab_assay_attached",
+        "closureRule": "Measured oxide wt_pct plus LOI/moisture/residual terms must close to 100 wt% dry basis before numeric enrichment is unlocked."
+      },
+      "requiredAssayFields": [
+        {
+          "component": "SiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Al2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Fe2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "CaO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MgO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "K2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Na2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "TiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "P2O5",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "V_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Cr_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MnO_or_Mn_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "LOI",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        }
+      ],
+      "comparisonLock": "Do not calculate numeric BOF-vs-clay enrichment from this mass balance until measured clay composition values with method, source, author/lab, location and depth are attached.",
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Mass-balance template only; public source supports lithology/depth target provenance, not measured chemistry."
+      },
+      "cid": "sha256:e9509746eeb3dbbb3588cdeed1a247a78f0336990f088780d5e0ece9e1804ace",
+      "ual": "did:dkg:knitweb/sha256-e9509746eeb3dbbb3588cdeed1a247a78f0336990f088780d5e0ece9e1804ace"
+    },
+    {
+      "id": "massbalance:nh-clay:wieringermeer:0-50cm:1000kg-dry:v1",
+      "kind": "clay_dry_mass_balance_template",
+      "recordId": "record:nh-clay:wieringermeer:0-50cm:v1",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "site": {
+        "name": "Wieringermeer",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        0,
+        50
+      ],
+      "lithologyTarget": "young marine clay topsoil target",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "structural_mass_balance_pending_lab_composition",
+      "basis": {
+        "dryMassKg": 1000,
+        "unit": "kg_dry_clay",
+        "note": "Planning basis for comparing one tonne dry clay sampling target with one tonne BOF slag; not a measured oxide total."
+      },
+      "knownStructuralTerms": [
+        {
+          "term": "location",
+          "value": "Wieringermeer",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "targetDepthIntervalCm",
+          "value": [
+            0,
+            50
+          ],
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "lithologyTarget",
+          "value": "young marine clay topsoil target",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "basisDryMassKg",
+          "value": 1000,
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        }
+      ],
+      "chemicalClosure": {
+        "measuredOxideTotalKg": null,
+        "measuredTraceTotalKg": null,
+        "measuredLoiKg": null,
+        "unassignedDryMassKg": 1000,
+        "closureStatus": "not_closed_no_lab_assay_attached",
+        "closureRule": "Measured oxide wt_pct plus LOI/moisture/residual terms must close to 100 wt% dry basis before numeric enrichment is unlocked."
+      },
+      "requiredAssayFields": [
+        {
+          "component": "SiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Al2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Fe2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "CaO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MgO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "K2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Na2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "TiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "P2O5",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "V_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Cr_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MnO_or_Mn_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "LOI",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        }
+      ],
+      "comparisonLock": "Do not calculate numeric BOF-vs-clay enrichment from this mass balance until measured clay composition values with method, source, author/lab, location and depth are attached.",
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Mass-balance template only; public source supports lithology/depth target provenance, not measured chemistry."
+      },
+      "cid": "sha256:cc484c4c5c4419c68032ee8459f57f1256bd530b8a01c8649b36ac87540394fb",
+      "ual": "did:dkg:knitweb/sha256-cc484c4c5c4419c68032ee8459f57f1256bd530b8a01c8649b36ac87540394fb"
+    },
+    {
+      "id": "massbalance:nh-clay:wieringermeer:200-500cm:1000kg-dry:v1",
+      "kind": "clay_dry_mass_balance_template",
+      "recordId": "record:nh-clay:wieringermeer:200-500cm:v1",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "site": {
+        "name": "Wieringermeer",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        200,
+        500
+      ],
+      "lithologyTarget": "deeper marine clay target",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "structural_mass_balance_pending_lab_composition",
+      "basis": {
+        "dryMassKg": 1000,
+        "unit": "kg_dry_clay",
+        "note": "Planning basis for comparing one tonne dry clay sampling target with one tonne BOF slag; not a measured oxide total."
+      },
+      "knownStructuralTerms": [
+        {
+          "term": "location",
+          "value": "Wieringermeer",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "targetDepthIntervalCm",
+          "value": [
+            200,
+            500
+          ],
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "lithologyTarget",
+          "value": "deeper marine clay target",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "basisDryMassKg",
+          "value": 1000,
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        }
+      ],
+      "chemicalClosure": {
+        "measuredOxideTotalKg": null,
+        "measuredTraceTotalKg": null,
+        "measuredLoiKg": null,
+        "unassignedDryMassKg": 1000,
+        "closureStatus": "not_closed_no_lab_assay_attached",
+        "closureRule": "Measured oxide wt_pct plus LOI/moisture/residual terms must close to 100 wt% dry basis before numeric enrichment is unlocked."
+      },
+      "requiredAssayFields": [
+        {
+          "component": "SiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Al2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Fe2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "CaO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MgO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "K2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Na2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "TiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "P2O5",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "V_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Cr_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MnO_or_Mn_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "LOI",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        }
+      ],
+      "comparisonLock": "Do not calculate numeric BOF-vs-clay enrichment from this mass balance until measured clay composition values with method, source, author/lab, location and depth are attached.",
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Mass-balance template only; public source supports lithology/depth target provenance, not measured chemistry."
+      },
+      "cid": "sha256:89f2dff793964fb8191195d6d142b6e53919a47cbe6183103d1874c537a022a5",
+      "ual": "did:dkg:knitweb/sha256-89f2dff793964fb8191195d6d142b6e53919a47cbe6183103d1874c537a022a5"
+    },
+    {
+      "id": "massbalance:nh-clay:west-friesland-enkhuizen:0-50cm:1000kg-dry:v1",
+      "kind": "clay_dry_mass_balance_template",
+      "recordId": "record:nh-clay:west-friesland-enkhuizen:0-50cm:v1",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "site": {
+        "name": "West-Friesland / Enkhuizen",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        0,
+        50
+      ],
+      "lithologyTarget": "regional clay topsoil target",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "structural_mass_balance_pending_lab_composition",
+      "basis": {
+        "dryMassKg": 1000,
+        "unit": "kg_dry_clay",
+        "note": "Planning basis for comparing one tonne dry clay sampling target with one tonne BOF slag; not a measured oxide total."
+      },
+      "knownStructuralTerms": [
+        {
+          "term": "location",
+          "value": "West-Friesland / Enkhuizen",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "targetDepthIntervalCm",
+          "value": [
+            0,
+            50
+          ],
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "lithologyTarget",
+          "value": "regional clay topsoil target",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "basisDryMassKg",
+          "value": 1000,
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        }
+      ],
+      "chemicalClosure": {
+        "measuredOxideTotalKg": null,
+        "measuredTraceTotalKg": null,
+        "measuredLoiKg": null,
+        "unassignedDryMassKg": 1000,
+        "closureStatus": "not_closed_no_lab_assay_attached",
+        "closureRule": "Measured oxide wt_pct plus LOI/moisture/residual terms must close to 100 wt% dry basis before numeric enrichment is unlocked."
+      },
+      "requiredAssayFields": [
+        {
+          "component": "SiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Al2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Fe2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "CaO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MgO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "K2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Na2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "TiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "P2O5",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "V_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Cr_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MnO_or_Mn_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "LOI",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        }
+      ],
+      "comparisonLock": "Do not calculate numeric BOF-vs-clay enrichment from this mass balance until measured clay composition values with method, source, author/lab, location and depth are attached.",
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Mass-balance template only; public source supports lithology/depth target provenance, not measured chemistry."
+      },
+      "cid": "sha256:3837a9c85c5dde5bb7d729586feb6770e101a1cbf3966d668aab4d640b6d4ef0",
+      "ual": "did:dkg:knitweb/sha256-3837a9c85c5dde5bb7d729586feb6770e101a1cbf3966d668aab4d640b6d4ef0"
+    },
+    {
+      "id": "massbalance:nh-clay:west-friesland-enkhuizen:150-350cm:1000kg-dry:v1",
+      "kind": "clay_dry_mass_balance_template",
+      "recordId": "record:nh-clay:west-friesland-enkhuizen:150-350cm:v1",
+      "materialId": "material:noord-holland-clay",
+      "materialNames": [
+        "Noord-Hollandse klei",
+        "Hollandse klei",
+        "North Holland clay",
+        "marine clay"
+      ],
+      "site": {
+        "name": "West-Friesland / Enkhuizen",
+        "province": "Noord-Holland",
+        "country": "NL",
+        "coordinateStatus": "location_name_only_until_sampling_plan_is_surveyed"
+      },
+      "targetDepthIntervalCm": [
+        150,
+        350
+      ],
+      "lithologyTarget": "subsoil clay target",
+      "sourceIds": [
+        "source:bro-geotop-gtm"
+      ],
+      "status": "structural_mass_balance_pending_lab_composition",
+      "basis": {
+        "dryMassKg": 1000,
+        "unit": "kg_dry_clay",
+        "note": "Planning basis for comparing one tonne dry clay sampling target with one tonne BOF slag; not a measured oxide total."
+      },
+      "knownStructuralTerms": [
+        {
+          "term": "location",
+          "value": "West-Friesland / Enkhuizen",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "targetDepthIntervalCm",
+          "value": [
+            150,
+            350
+          ],
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "lithologyTarget",
+          "value": "subsoil clay target",
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        },
+        {
+          "term": "basisDryMassKg",
+          "value": 1000,
+          "sourceIds": [
+            "source:bro-geotop-gtm"
+          ]
+        }
+      ],
+      "chemicalClosure": {
+        "measuredOxideTotalKg": null,
+        "measuredTraceTotalKg": null,
+        "measuredLoiKg": null,
+        "unassignedDryMassKg": 1000,
+        "closureStatus": "not_closed_no_lab_assay_attached",
+        "closureRule": "Measured oxide wt_pct plus LOI/moisture/residual terms must close to 100 wt% dry basis before numeric enrichment is unlocked."
+      },
+      "requiredAssayFields": [
+        {
+          "component": "SiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Al2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Fe2O3",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "CaO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MgO",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "K2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Na2O",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "TiO2",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "P2O5",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "V_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "Cr_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "MnO_or_Mn_ppm",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        },
+        {
+          "component": "LOI",
+          "requiredFor": "BOF-versus-Noord-Holland-clay enrichment factor and dry-mass closure",
+          "valueStatus": "pending_lab_measurement"
+        }
+      ],
+      "comparisonLock": "Do not calculate numeric BOF-vs-clay enrichment from this mass balance until measured clay composition values with method, source, author/lab, location and depth are attached.",
+      "provenance": {
+        "sourceAuthorLinkStatus": "model_source_linked_author_supplier_present",
+        "originTrailStatus": "prepared_not_published",
+        "factBoundary": "Mass-balance template only; public source supports lithology/depth target provenance, not measured chemistry."
+      },
+      "cid": "sha256:0c057e16097112be84126e928e20d87c654c36a467f17efd9537c9b014986174",
+      "ual": "did:dkg:knitweb/sha256-0c057e16097112be84126e928e20d87c654c36a467f17efd9537c9b014986174"
+    }
+  ]
 }

@@ -746,7 +746,7 @@ openhydrochem train leachbench_ready.csv \
         <div class="section-head">
           <div class="kicker">ChemField data</div>
           <h2>Een brongekoppelde composition web voor SmartSlag.</h2>
-          <p>De 5mart ChemWeb-data staat als OpenChem dataset klaar met aliases voor fieldchem, openchem, webchem, chemweb en chemfield. BOF-slagwaarden zijn brongekoppelde ranges; Noord-Hollandse klei is als meetmatrix opgenomen totdat echte locatie-, diepte- en labcompositie beschikbaar is.</p>
+          <p>De 5mart ChemWeb-data staat als OpenChem dataset klaar met aliases voor fieldchem, openchem, webchem, chemweb en chemfield. BOF-slagwaarden zijn brongekoppelde ranges met een 1000 kg droge-basis referentie; Noord-Hollandse klei is per locatie en diepte als massabalans-template opgenomen totdat echte labcompositie beschikbaar is.</p>
         </div>
 
         <div class="paper-card data-panel">
@@ -981,26 +981,32 @@ openhydrochem train leachbench_ready.csv \
         const data = await res.json();
         const aliases = (data.aliases || []).map(a => a.alias);
         const clayRecords = (data.records || []).filter(r => r.materialId === 'material:noord-holland-clay');
+        const massBalances = data.massBalances || [];
+        const clayMassBalances = massBalances.filter(m => m.kind === 'clay_dry_mass_balance_template');
+        const bofMassBalance = massBalances.find(m => m.id === data.comparisons?.[0]?.bofReferenceMassBalanceId);
         const bofRecord = (data.records || []).find(r => r.materialId === 'material:bof-ld-steel-slag');
         chemfieldAliases.innerHTML = aliases.map(a => `<span class="tag" style="color:#0a191c;">${a}.json</span>`).join('');
         chemfieldStats.innerHTML = `
           <div class="data-stat"><strong>${(data.records || []).length}</strong><span>composition records</span></div>
           <div class="data-stat"><strong>${(data.variables || []).length}</strong><span>variables</span></div>
           <div class="data-stat"><strong>${(data.sources || []).length}</strong><span>sources</span></div>
-          <div class="data-stat"><strong>${clayRecords.length}</strong><span>clay targets</span></div>
+          <div class="data-stat"><strong>${clayMassBalances.length}</strong><span>clay mass balances</span></div>
         `;
-        chemfieldFactPolicy.textContent = data.factPolicy?.enrichmentRule || '';
+        chemfieldFactPolicy.textContent = data.factPolicy?.massBalanceRule || data.factPolicy?.enrichmentRule || '';
         chemfieldOutput.textContent = JSON.stringify({
           id: data.id,
           cid: data.cid,
           ual: data.ual,
           aliases,
           originTrail: data.originTrail,
+          massBalanceStatus: data.comparisons?.[0]?.massBalanceStatus,
           bofComposition: bofRecord?.composition,
+          bofMassBalanceKgPerTonne: bofMassBalance?.components,
           clayMeasurementStatus: clayRecords.map(r => ({
             location: r.site?.name,
             targetDepthIntervalCm: r.targetDepthIntervalCm,
             status: r.measurementStatus,
+            massBalance: r.massBalance,
             sourceIds: r.sourceIds
           }))
         }, null, 2);
