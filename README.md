@@ -19,7 +19,7 @@ This repository is ready for GitHub Pages from the `main` branch root.
 Project URL after Pages is enabled:
 
 ```text
-https://knitweb.github.io/openchem/
+https://chemfield.github.io/openchem/
 ```
 
 ## License
