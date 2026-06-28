@@ -22,6 +22,22 @@ Project URL after Pages is enabled:
 https://chemfield.github.io/openchem/
 ```
 
+## ClosedChem
+
+ClosedChem is the permissioned counterpart for opted-in closed P2P chemistry knitworks.
+
+ClosedChem assimilates OpenChem one way:
+
+```text
+OpenChem -> ClosedChem
+```
+
+Repository:
+
+```text
+https://github.com/ChemField/closedchem
+```
+
 ## License
 
 Apache License 2.0.
