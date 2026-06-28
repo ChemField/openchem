@@ -4,3 +4,8 @@ dist/
 build/
 .cache/
 *.log
+.env
+.env.*
+!.env.example
+*.local.env
+.origintrail-laptop.env

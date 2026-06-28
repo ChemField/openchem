@@ -1,0 +1,6 @@
+{
+  "kind": "origintrail_laptop_gateway_tunnel",
+  "updatedAt": "2026-06-28T00:00:00Z",
+  "activeTunnelBaseUrl": "https://example.trycloudflare.com",
+  "note": "Deploy as origintrail-tunnel.json on 5mart. This file may contain an ephemeral quick tunnel URL and should be refreshed whenever the laptop tunnel restarts."
+}
