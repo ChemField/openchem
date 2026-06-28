@@ -1,0 +1,11 @@
+{
+  "kind": "chemfield_alias_pointer",
+  "alias": "webchem",
+  "canonicalField": "chemfield:smartslag:composition",
+  "href": "data/chemfield-compositions.json",
+  "targetCid": "sha256:dbc1ac2340966ff74639047d4bb06ae8e9316e715d599d6d0875fb7e83fa1365",
+  "targetUal": "did:dkg:knitweb/sha256-dbc1ac2340966ff74639047d4bb06ae8e9316e715d599d6d0875fb7e83fa1365",
+  "updatedAt": "2026-06-28",
+  "cid": "sha256:f82a9ea7f5603b50406ee9a0f71097af80d95fa29f2c4e7dd44604ea8c72adfa",
+  "ual": "did:dkg:knitweb/sha256-f82a9ea7f5603b50406ee9a0f71097af80d95fa29f2c4e7dd44604ea8c72adfa"
+}
