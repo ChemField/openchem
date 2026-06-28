@@ -79,9 +79,12 @@ https://www.5mart.ml/Slag/origintrail-node.json
 https://www.5mart.ml/Slag/origintrail-gateway.php?route=status
 https://www.5mart.ml/Slag/origintrail-gateway.php?route=manifest
 https://www.5mart.ml/Slag/origintrail-gateway.php?route=dataset
+https://www.5mart.ml/Slag/origintrail-gateway.php?route=rewards
 ```
 
 Only set `ORIGINTRAIL_OPERATIONAL_PRIVATE_KEY` in the local `.origintrail-laptop.env` file on the laptop. Do not upload wallet secrets to 5mart or commit them to Git.
+
+The `rewards` route is a scenario calculator, not a yield promise. OriginTrail Core Node income depends on paid DKG activity, node ask, stake/delegation, uptime, proofs, operator fee, and the selected chain.
 
 ## ClosedChem
 

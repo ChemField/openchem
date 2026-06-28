@@ -8,6 +8,7 @@
     "status": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=status",
     "manifest": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=manifest",
     "dataset": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=dataset",
+    "rewards": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=rewards",
     "healthz": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=healthz"
   },
   "laptopService": {
@@ -34,6 +35,7 @@
     "mode": "headless_laptop_gateway",
     "nodeRole": "publisher_client_until_full_node_is_provisioned",
     "privateKeyPolicy": "Operational private keys stay only in local laptop environment variables and are never stored on 5mart.",
-    "fullNodeNote": "A full DKG node still needs MySQL, Redis, Blazegraph/Java, ports, and materially more free disk than the current laptop test budget."
+    "fullNodeNote": "A full DKG node still needs MySQL, Redis, Blazegraph/Java, ports, and materially more free disk than the current laptop test budget.",
+    "rewardEstimate": "https://www.5mart.ml/Slag/origintrail-gateway.php?route=rewards"
   }
 }

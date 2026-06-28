@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 $route = $_GET['route'] ?? 'status';
-$allowedRoutes = ['status', 'manifest', 'dataset', 'healthz'];
+$allowedRoutes = ['status', 'manifest', 'dataset', 'rewards', 'healthz'];
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');

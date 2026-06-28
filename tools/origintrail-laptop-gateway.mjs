@@ -14,6 +14,11 @@ const datasetUrl = process.env.CHEMFIELD_DATA_URL || 'https://www.5mart.ml/Slag/
 const nodeEndpoint = process.env.ORIGINTRAIL_NODE_ENDPOINT || '';
 const operationalWalletAddress = process.env.ORIGINTRAIL_OPERATIONAL_WALLET_ADDRESS || '';
 const operationalPrivateKeyPresent = Boolean(process.env.ORIGINTRAIL_OPERATIONAL_PRIVATE_KEY);
+const rewardStakeTrac = Number(process.env.ORIGINTRAIL_REWARD_STAKE_TRAC || 50000);
+const rewardVpsCostsEur = (process.env.ORIGINTRAIL_REWARD_VPS_COSTS_EUR || '40,60,100')
+  .split(',')
+  .map((value) => Number(value.trim()))
+  .filter((value) => Number.isFinite(value) && value > 0);
 const startedAt = new Date().toISOString();
 
 function sendJson(res, statusCode, payload) {
@@ -86,6 +91,7 @@ async function manifestPayload() {
       status: `${publicProxy}?route=status`,
       manifest: `${publicProxy}?route=manifest`,
       dataset: `${publicProxy}?route=dataset`,
+      rewards: `${publicProxy}?route=rewards`,
       healthz: `${publicProxy}?route=healthz`,
     },
     data: {
@@ -96,6 +102,89 @@ async function manifestPayload() {
       rootUal: status.dataset.rootUal,
     },
     originTrail: status.originTrail,
+  };
+}
+
+function round(value, decimals = 2) {
+  const factor = 10 ** decimals;
+  return Math.round(value * factor) / factor;
+}
+
+async function tracPricePayload() {
+  const envEur = Number(process.env.ORIGINTRAIL_REWARD_PRICE_EUR || '');
+  const envUsd = Number(process.env.ORIGINTRAIL_REWARD_PRICE_USD || '');
+  if (Number.isFinite(envEur) && envEur > 0 && Number.isFinite(envUsd) && envUsd > 0) {
+    return { eur: envEur, usd: envUsd, source: 'local_env', fetchedAt: new Date().toISOString() };
+  }
+
+  try {
+    const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=origintrail&vs_currencies=usd,eur', {
+      signal: AbortSignal.timeout(3500),
+      headers: { accept: 'application/json' },
+    });
+    if (response.ok) {
+      const payload = await response.json();
+      const eur = Number(payload?.origintrail?.eur);
+      const usd = Number(payload?.origintrail?.usd);
+      if (Number.isFinite(eur) && eur > 0 && Number.isFinite(usd) && usd > 0) {
+        return { eur, usd, source: 'coingecko_simple_price', fetchedAt: new Date().toISOString() };
+      }
+    }
+  } catch {
+    // Keep the gateway useful offline; the source field makes the fallback explicit.
+  }
+
+  return {
+    eur: 0.237521,
+    usd: 0.270365,
+    source: 'fallback_snapshot_2026-06-29',
+    fetchedAt: new Date().toISOString(),
+  };
+}
+
+async function rewardsPayload() {
+  const price = await tracPricePayload();
+  const aprScenarios = [
+    { label: 'testnet_or_gateway', apr: 0, note: 'Headless gateway/testnet route: no economic node rewards.' },
+    { label: 'low_activity', apr: 0.03, note: 'Illustrative low mainnet activity case.' },
+    { label: 'base_case', apr: 0.05, note: 'Illustrative conservative break-even case.' },
+    { label: 'strong_activity', apr: 0.1, note: 'Illustrative higher activity/delegation case, not guaranteed.' },
+  ];
+
+  return {
+    ok: true,
+    service: 'openchem-origintrail-laptop-gateway',
+    kind: 'origintrail_full_node_reward_estimate',
+    schemaVersion: 'origintrail-reward-estimate-v1',
+    now: new Date().toISOString(),
+    caveat: 'OriginTrail Core Node rewards are not fixed APR. Rewards depend on paid DKG activity, node ask, stake/delegation, uptime, proofs, operator fee, and network selection.',
+    sourceBasis: [
+      'OriginTrail docs describe Core Nodes as hosting public DKG data, serving knowledge assets, participating in random-sampling proofs, and token incentives.',
+      'Docs mention a Core Node minimum stake example of 50,000 TRAC and dashboard fields for node ask, operator fee, stake, and reward statistics.',
+      'Node price factor / Lambda controls which paid jobs a data holder accepts; this calculator is therefore a scenario model, not a promise.',
+    ],
+    assumptions: {
+      stakeTrac: rewardStakeTrac,
+      minimumCoreNodeStakeTrac: 50000,
+      price,
+      vpsCostsEur: rewardVpsCostsEur,
+    },
+    scenarios: aprScenarios.map((scenario) => {
+      const monthlyTrac = rewardStakeTrac * scenario.apr / 12;
+      return {
+        ...scenario,
+        monthlyTrac: round(monthlyTrac, 4),
+        monthlyEur: round(monthlyTrac * price.eur, 2),
+        monthlyUsd: round(monthlyTrac * price.usd, 2),
+      };
+    }),
+    breakEven: rewardVpsCostsEur.map((monthlyCostEur) => ({
+      monthlyCostEur,
+      requiredMonthlyTrac: round(monthlyCostEur / price.eur, 2),
+      requiredAprOnStake: round((monthlyCostEur / price.eur) * 12 / rewardStakeTrac, 4),
+      requiredAprPercent: round((monthlyCostEur / price.eur) * 12 / rewardStakeTrac * 100, 2),
+    })),
+    recommendation: 'Use the MacBook route as a publisher/client test. Do not buy VPS capacity for rewards alone until the staking dashboard or indexer shows enough current reward history for the target chain/node class.',
   };
 }
 
@@ -125,6 +214,11 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'GET' && url.pathname === '/dataset') {
       const dataset = await readDataset();
       sendJson(res, 200, dataset.data);
+      return;
+    }
+
+    if (req.method === 'GET' && url.pathname === '/rewards') {
+      sendJson(res, 200, await rewardsPayload());
       return;
     }
 
