@@ -1,0 +1,1523 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "chemfield": "https://chemfield.github.io/openchem/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "kind": "chemfield-kg-source-catalog",
+  "schemaVersion": "chemfield-kg-source-catalog-v1",
+  "id": "chemfield:kg-source-catalog:v1",
+  "title": "ChemField external knowledge-graph & linked-data source catalog",
+  "updatedAt": "2026-07-05",
+  "canonicalField": "chemfield:kg-sources",
+  "originTrail": {
+    "status": "prepared_not_published",
+    "namespace": "did:dkg:knitweb",
+    "publishBlocker": "Publish to the DKG via the 5mart.ml laptop gateway once OriginTrail node credentials are present.",
+    "localIdentityRule": "sha256 over stable JSON (sort_keys, compact) with cid/ual excluded; identical to the composition-web rule.",
+    "sourceLinking": "Every source is linked in origintrailAsset.linked_sources with its own cid/ual.",
+    "gateway": "https://www.5mart.ml/Slag/origintrail-gateway.php"
+  },
+  "counts": {
+    "sources": 16,
+    "redistributable": 12,
+    "referenceOnly": 4
+  },
+  "sources": [
+    {
+      "id": "kg:materials-project",
+      "type": "materials_database",
+      "title": "Materials Project",
+      "maintainer": "Lawrence Berkeley National Laboratory",
+      "homepage": "https://next-gen.materialsproject.org/",
+      "api": "https://api.materialsproject.org/",
+      "identifierScheme": "mp-id",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": "redistributable",
+      "licenseExceptions": "GNoME-derived subset is CC-BY-NC-4.0 (non-commercial) and MUST be excluded from ChemField redistribution.",
+      "relevance": "high",
+      "accessStatus": "open_api",
+      "usedFor": [
+        "crystal structures",
+        "thermodynamics",
+        "V/Cr Pourbaix (Eh-pH) speciation",
+        "slag-relevant oxide stability"
+      ],
+      "chemfieldUse": "Primary turnkey machine-accessible source for V/Cr redox speciation via MPRester.get_pourbaix_entries(); build node-per-species field/1 graphs.",
+      "note": "pymatgen + mp-api. Cite Materials Project per CC-BY.",
+      "cid": "sha256:ca4dc26cf4d5e33d21c8947425435b193459ef0bac593f80d8d5d807c9712539",
+      "ual": "did:dkg:knitweb/sha256-ca4dc26cf4d5e33d21c8947425435b193459ef0bac593f80d8d5d807c9712539"
+    },
+    {
+      "id": "kg:optimade",
+      "type": "federated_api_standard",
+      "title": "OPTIMADE federation",
+      "maintainer": "OPTIMADE consortium",
+      "homepage": "https://www.optimade.org/",
+      "api": "https://www.optimade.org/providers-dashboard/",
+      "identifierScheme": "provider-native + OPTIMADE id",
+      "license": "per-provider (mostly open)",
+      "licenseUrl": "https://www.optimade.org/",
+      "distribution": "redistributable",
+      "licenseExceptions": "Each federated provider carries its own licence; verify per provider before redistribution.",
+      "relevance": "high",
+      "accessStatus": "open_api",
+      "usedFor": [
+        "federated inorganic crystal structures",
+        "metal oxides",
+        "slag phases"
+      ],
+      "chemfieldUse": "Single uniform REST entrypoint across AFLOW/OQMD/COD/JARVIS/NOMAD/Materials Cloud/Alexandria for inorganic structures.",
+      "note": "26M+ structures across ~19 available providers; counts refreshed into snapshotStats.",
+      "cid": "sha256:aec5e21aa16ec6cc59d8aced725998ea359a10a1804529d68986759334e10dd2",
+      "ual": "did:dkg:knitweb/sha256-aec5e21aa16ec6cc59d8aced725998ea359a10a1804529d68986759334e10dd2"
+    },
+    {
+      "id": "kg:matkg",
+      "type": "text_mined_knowledge_graph",
+      "title": "MatKG / MatKG-2",
+      "maintainer": "Venugopal & Olivetti (MIT)",
+      "homepage": "https://github.com/superlouis/MatKG",
+      "api": null,
+      "identifierScheme": "MatKG entity id + Wikidata/DBpedia links",
+      "license": "CC (open)",
+      "licenseUrl": "https://www.nature.com/articles/s41597-024-03039-z",
+      "distribution": "redistributable",
+      "relevance": "high",
+      "accessStatus": "download",
+      "usedFor": [
+        "material-property-process relation network",
+        "literature-mined triples"
+      ],
+      "chemfieldUse": "Filter triples on vanadium/chromium/slag/leaching to seed thematic 3D force-graph subgraphs. RDF/CSV -> field/1 JSON.",
+      "note": "70k entities / 5.4M triples. DOI 10.1038/s41597-024-03039-z. Links to Wikidata/DBpedia/Materials Project.",
+      "cid": "sha256:cb5cf1b2894d2b30e875290b922372bc1d0ab8ebc5c56195ad98677db2328739",
+      "ual": "did:dkg:knitweb/sha256-cb5cf1b2894d2b30e875290b922372bc1d0ab8ebc5c56195ad98677db2328739"
+    },
+    {
+      "id": "kg:cod",
+      "type": "crystal_structure_database",
+      "title": "Crystallography Open Database (COD)",
+      "maintainer": "COD advisory board",
+      "homepage": "https://www.crystallography.net/cod/",
+      "api": "https://www.crystallography.net/cod/optimade/",
+      "identifierScheme": "COD id",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "distribution": "redistributable",
+      "relevance": "high",
+      "accessStatus": "open_api",
+      "usedFor": [
+        "mineral and metal-oxide crystal structures",
+        "slag mineralogy"
+      ],
+      "chemfieldUse": "CC0 mineral/oxide structures for ore & slag phases; 3D structure via Mol*. Also reachable through OPTIMADE.",
+      "note": "500k+ entries; public domain.",
+      "cid": "sha256:c2114ef61b168eb2921d1d44a43cd446dff2e8a44b1dcc70d38821a3255c7f69",
+      "ual": "did:dkg:knitweb/sha256-c2114ef61b168eb2921d1d44a43cd446dff2e8a44b1dcc70d38821a3255c7f69"
+    },
+    {
+      "id": "kg:wikidata",
+      "type": "encyclopedic_knowledge_graph",
+      "title": "Wikidata",
+      "maintainer": "Wikimedia Foundation",
+      "homepage": "https://www.wikidata.org/",
+      "api": "https://query.wikidata.org/sparql",
+      "identifierScheme": "Q-id",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "distribution": "redistributable",
+      "relevance": "medium-high",
+      "accessStatus": "open_sparql",
+      "usedFor": [
+        "chemical elements",
+        "minerals",
+        "compounds",
+        "identifier crosswalk (CAS/InChIKey/PubChem CID)"
+      ],
+      "chemfieldUse": "SPARQL -> JSON backbone skeleton of elements/minerals/metals; owl:sameAs targets for field/1 nodes.",
+      "note": "CC0. Identifier hub via P231/P235/P662.",
+      "cid": "sha256:edc94c0331f5a84943687d9b3e20c77c79a409b4dc2a8e74edc56bad33d6d94c",
+      "ual": "did:dkg:knitweb/sha256-edc94c0331f5a84943687d9b3e20c77c79a409b4dc2a8e74edc56bad33d6d94c"
+    },
+    {
+      "id": "kg:pubchemrdf",
+      "type": "chemistry_rdf",
+      "title": "PubChemRDF",
+      "maintainer": "NIH / NCBI",
+      "homepage": "https://pubchem.ncbi.nlm.nih.gov/docs/rdf",
+      "api": "https://pubchem.ncbi.nlm.nih.gov/rest/rdf/",
+      "identifierScheme": "PubChem CID + InChIKey",
+      "license": "public-domain",
+      "licenseUrl": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+      "distribution": "redistributable",
+      "relevance": "medium",
+      "accessStatus": "download_and_rest",
+      "usedFor": [
+        "compounds",
+        "substances",
+        "InChIKey resolution"
+      ],
+      "chemfieldUse": "InChIKey <-> CID resolution and sameAs links; ingest only relevant inorganic/aqueous-ion subsets (dataset is huge, ~80B triples).",
+      "note": "US-Gov public domain. No official own SPARQL endpoint (use IDSM/ChemWebRDF).",
+      "cid": "sha256:e3f4990a3a3c74d525f2099931d09b715b53fa8d608d99dc4a82b3d6d8084f3f",
+      "ual": "did:dkg:knitweb/sha256-e3f4990a3a3c74d525f2099931d09b715b53fa8d608d99dc4a82b3d6d8084f3f"
+    },
+    {
+      "id": "kg:chebi",
+      "type": "chemistry_ontology",
+      "title": "ChEBI",
+      "maintainer": "EMBL-EBI",
+      "homepage": "https://www.ebi.ac.uk/chebi/",
+      "api": "https://www.ebi.ac.uk/rdf/services/sparql",
+      "identifierScheme": "CHEBI id",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": "redistributable",
+      "relevance": "medium",
+      "accessStatus": "open_sparql",
+      "usedFor": [
+        "chemical entity classification",
+        "roles (is_a/has_role)"
+      ],
+      "chemfieldUse": "Typing/classification overlay for species; ontology graph loads directly into force-graph.",
+      "note": "195k+ entries. Attribution required.",
+      "cid": "sha256:feacc25c2d007e098413572dd46088d063df096300fd5961b17e7976bee0bb33",
+      "ual": "did:dkg:knitweb/sha256-feacc25c2d007e098413572dd46088d063df096300fd5961b17e7976bee0bb33"
+    },
+    {
+      "id": "kg:rruff",
+      "type": "mineral_spectral_database",
+      "title": "RRUFF / Raman Open Database",
+      "maintainer": "University of Arizona / COD",
+      "homepage": "https://rruff.info/",
+      "api": "https://raman-db.crystallography.net/",
+      "identifierScheme": "RRUFF id",
+      "license": "open (attribution)",
+      "licenseUrl": "https://rruff.info/about/about_general.php",
+      "distribution": "redistributable",
+      "relevance": "medium-high",
+      "accessStatus": "download",
+      "usedFor": [
+        "mineral Raman/XRD/chemistry",
+        "ore & slag minerals"
+      ],
+      "chemfieldUse": "High-quality mineral records with spectra & cell parameters for ore/slag mineralogy; ROD shares the COD model.",
+      "note": "Smaller but curated.",
+      "cid": "sha256:41a3a3ce8df183f1c008e78e15f7dc8683b0748f7e3d899568bab694ce0cc87b",
+      "ual": "did:dkg:knitweb/sha256-41a3a3ce8df183f1c008e78e15f7dc8683b0748f7e3d899568bab694ce0cc87b"
+    },
+    {
+      "id": "kg:the-world-avatar",
+      "type": "dynamic_knowledge_graph",
+      "title": "The World Avatar (J-Park Simulator)",
+      "maintainer": "CMCL / University of Cambridge (CoMo/CARES)",
+      "homepage": "https://theworldavatar.io/",
+      "api": null,
+      "identifierScheme": "OntoSpecies/OntoKin IRIs",
+      "license": "open",
+      "licenseUrl": "https://github.com/cambridge-cares/TheWorldAvatar",
+      "distribution": "reference_only",
+      "relevance": "high",
+      "accessStatus": "sparql_and_agents",
+      "usedFor": [
+        "species (OntoSpecies)",
+        "reaction kinetics (OntoKin)",
+        "quantum chemistry (OntoCompChem)"
+      ],
+      "chemfieldUse": "Architecture inspiration for ChemField's field/1 layer (cross-domain ontologies + agents + content-linking); reference ontology patterns, do not vendor.",
+      "note": "Most ambitious chemistry-KG initiative; verify OntoSpecies counts at the source.",
+      "cid": "sha256:7a6cc8effadef3f2bbadf60824051ced977f4971e80b3e4500dd799df39c9d5f",
+      "ual": "did:dkg:knitweb/sha256-7a6cc8effadef3f2bbadf60824051ced977f4971e80b3e4500dd799df39c9d5f"
+    },
+    {
+      "id": "kg:emmo",
+      "type": "domain_ontology",
+      "title": "EMMO + domain-electrochemistry + MSEO",
+      "maintainer": "EMMC / EMMO authors",
+      "homepage": "https://emmo-repo.github.io/",
+      "api": "https://w3id.org/emmo",
+      "identifierScheme": "EMMO IRI (w3id.org/emmo)",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "distribution": "redistributable",
+      "licenseExceptions": "MSEO is MIT-licensed; EMMO core is CC-BY-4.0.",
+      "relevance": "high",
+      "accessStatus": "download_owl",
+      "usedFor": [
+        "upper ontology for species/phase/process/property",
+        "electrochemistry domain terms"
+      ],
+      "chemfieldUse": "Semantic backbone to type field/1 terms consistently; EMMO v1.0.0 (Feb 2025) + domain-electrochemistry.",
+      "note": "OWL/RDF. Reusable building blocks: OntoTrans, MarketPlace, OYSTER, CHAMEO.",
+      "cid": "sha256:f1769351e1e3fd549193594c8e9dd6321198e5f36689ce3365c40ad356481cab",
+      "ual": "did:dkg:knitweb/sha256-f1769351e1e3fd549193594c8e9dd6321198e5f36689ce3365c40ad356481cab"
+    },
+    {
+      "id": "kg:phreeqc",
+      "type": "thermodynamic_speciation_database",
+      "title": "PHREEQC thermodynamic databases",
+      "maintainer": "U.S. Geological Survey",
+      "homepage": "https://www.usgs.gov/software/phreeqc-version-3",
+      "api": null,
+      "identifierScheme": "species/phase name + log K",
+      "license": "public-domain",
+      "licenseUrl": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+      "distribution": "redistributable",
+      "relevance": "high",
+      "accessStatus": "download",
+      "usedFor": [
+        "aqueous speciation",
+        "leaching thermodynamics (log K)",
+        "mineral/gas phases"
+      ],
+      "chemfieldUse": "Wrap .dat databases (llnl/minteq/wateq4f/pitzer/sit) as field/1 nodes: species, phases, reactions, log K. Tabular -> graph. Primary leaching-speciation source.",
+      "note": "Public domain (USGS). R-package phreeqc. Activity models differ per DB.",
+      "cid": "sha256:af9f54646d04150f8986e0ead50aecf4be72354c5f58b52d4ebbaf81e037323b",
+      "ual": "did:dkg:knitweb/sha256-af9f54646d04150f8986e0ead50aecf4be72354c5f58b52d4ebbaf81e037323b"
+    },
+    {
+      "id": "kg:gems",
+      "type": "thermodynamic_speciation_database",
+      "title": "GEMS / GEM-Selektor (PSI)",
+      "maintainer": "Paul Scherrer Institute",
+      "homepage": "https://gems.web.psi.ch/",
+      "api": "https://github.com/gemshub/GEMS3K",
+      "identifierScheme": "DATACH/DATABR species",
+      "license": "GPL-3.0 (software); data licences separate",
+      "licenseUrl": "https://gems.web.psi.ch/",
+      "distribution": "reference_only",
+      "licenseExceptions": "GEMS3K solver is GPL-3.0: invoke as a separate process; do NOT link into Apache-2.0 code. Thermodata (PSI-Nagra TDB, Cemdata) carry their own licences.",
+      "relevance": "high",
+      "accessStatus": "download",
+      "usedFor": [
+        "Gibbs-energy-minimisation speciation",
+        "slag/leaching thermodynamics",
+        "redox/sorption"
+      ],
+      "chemfieldUse": "Slag & leaching equilibrium thermodynamics; call GEMS3K/xGEMS out-of-process to avoid GPL contamination of Apache code.",
+      "note": "GUI GPL-3.0 since v3.6.0. Python via xGEMS.",
+      "cid": "sha256:e600eeab8c037f031ecf343616e874f4b03c2a0350b0a959b328f029b615f690",
+      "ual": "did:dkg:knitweb/sha256-e600eeab8c037f031ecf343616e874f4b03c2a0350b0a959b328f029b615f690"
+    },
+    {
+      "id": "kg:usgs-mrdata",
+      "type": "mineral_resource_database",
+      "title": "USGS Mineral Resources Online Spatial Data (MRDATA)",
+      "maintainer": "U.S. Geological Survey",
+      "homepage": "https://mrdata.usgs.gov/",
+      "api": "https://mrdata.usgs.gov/services/",
+      "identifierScheme": "MRDS dep_id",
+      "license": "public-domain",
+      "licenseUrl": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+      "distribution": "redistributable",
+      "relevance": "medium",
+      "accessStatus": "download_and_wms",
+      "usedFor": [
+        "mineral occurrences",
+        "critical raw materials",
+        "ore deposits"
+      ],
+      "chemfieldUse": "Build ore/deposit subgraphs (e.g. vanadium-bearing deposits) linking geology to composition; US-gov public domain.",
+      "note": "Mostly geospatial/tabular; construct graph from records.",
+      "cid": "sha256:44e1d8d9c4a723e5dd18806e7a28b4e1a83020a40beca05ee59a681c9d1c1dd5",
+      "ual": "did:dkg:knitweb/sha256-44e1d8d9c4a723e5dd18806e7a28b4e1a83020a40beca05ee59a681c9d1c1dd5"
+    },
+    {
+      "id": "kg:hetionet",
+      "type": "biomedical_knowledge_graph",
+      "title": "Hetionet",
+      "maintainer": "Himmelstein et al.",
+      "homepage": "https://het.io/",
+      "api": "https://neo4j.het.io/",
+      "identifierScheme": "Hetionet node id",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "distribution": "redistributable",
+      "relevance": "low",
+      "accessStatus": "download_and_neo4j",
+      "usedFor": [
+        "compound nodes (exemplar)",
+        "KG construction patterns"
+      ],
+      "chemfieldUse": "Reference exemplar for KG build & Neo4j->3D pipeline; low direct hydrometallurgy relevance.",
+      "note": "47,031 nodes / 2.25M edges. CC0. DOI 10.7554/eLife.26726.",
+      "cid": "sha256:d1ee72135a04f944f188ccf8b1b898b4ce1fa992bf15cf4e0753a464aeeae28e",
+      "ual": "did:dkg:knitweb/sha256-d1ee72135a04f944f188ccf8b1b898b4ce1fa992bf15cf4e0753a464aeeae28e"
+    },
+    {
+      "id": "kg:factsage",
+      "type": "thermochemical_database",
+      "title": "FactSage / FACT (FToxid slag data)",
+      "maintainer": "Thermfact / GTT-Technologies",
+      "homepage": "https://www.factsage.com/",
+      "api": null,
+      "identifierScheme": "CALPHAD-assessed phases",
+      "license": "commercial",
+      "licenseUrl": "https://www.factsage.com/",
+      "distribution": "reference_only",
+      "relevance": "high",
+      "accessStatus": "commercial",
+      "usedFor": [
+        "slag-metal equilibria (FToxid)",
+        "Eh-pH / Predom",
+        "hydrometallurgy"
+      ],
+      "chemfieldUse": "Highest-quality slag thermochemistry BUT proprietary: cite and link only; never vendor or redistribute derived data.",
+      "note": "Commercial (FactSage 8.4). Isolate behind licence.",
+      "cid": "sha256:bbd645c24cde4afa7f43231fa9b64c91d3badf12903cc1bf5b9d92f520f8cf90",
+      "ual": "did:dkg:knitweb/sha256-bbd645c24cde4afa7f43231fa9b64c91d3badf12903cc1bf5b9d92f520f8cf90"
+    },
+    {
+      "id": "kg:icsd",
+      "type": "crystal_structure_database",
+      "title": "Inorganic Crystal Structure Database (ICSD)",
+      "maintainer": "FIZ Karlsruhe",
+      "homepage": "https://icsd.products.fiz-karlsruhe.de/",
+      "api": null,
+      "identifierScheme": "ICSD collection code",
+      "license": "commercial",
+      "licenseUrl": "https://icsd.products.fiz-karlsruhe.de/",
+      "distribution": "reference_only",
+      "relevance": "medium",
+      "accessStatus": "commercial",
+      "usedFor": [
+        "comprehensive inorganic crystal structures"
+      ],
+      "chemfieldUse": "Most complete inorganic structures BUT licence excludes open reuse: reference only; prefer COD/OPTIMADE for redistributable data.",
+      "note": "Commercial (FIZ Karlsruhe).",
+      "cid": "sha256:e28b2b2869a07b3feba65a2f613b44f7f86253d6d54a4016758ad396eb6494e1",
+      "ual": "did:dkg:knitweb/sha256-e28b2b2869a07b3feba65a2f613b44f7f86253d6d54a4016758ad396eb6494e1"
+    }
+  ],
+  "visualizationStack": [
+    {
+      "id": "viz:3d-force-graph",
+      "title": "3d-force-graph (Vasturiano)",
+      "license": "MIT",
+      "role": "primary_open_3d_renderer",
+      "url": "https://github.com/vasturiano/3d-force-graph",
+      "reads": "JSON {nodes,links}",
+      "note": "MVP start; ngraph engine for large graphs; VR/AR bindings."
+    },
+    {
+      "id": "viz:pygraphistry",
+      "title": "Graphistry / PyGraphistry",
+      "license": "BSD (client)",
+      "role": "gpu_scale",
+      "url": "https://github.com/graphistry/pygraphistry",
+      "reads": "dataframes/CSV",
+      "note": "GPU; UMAP; scale beyond ~50k edges."
+    },
+    {
+      "id": "viz:graphxr",
+      "title": "Kineviz GraphXR",
+      "license": "commercial (free tier)",
+      "role": "vr_neo4j",
+      "url": "https://www.kineviz.com/graphxr",
+      "reads": "Neo4j/CSV/JSON/API",
+      "note": "Strongest commercial 3D/VR graph tool."
+    },
+    {
+      "id": "viz:molstar",
+      "title": "Mol* / NGL",
+      "license": "MIT",
+      "role": "molecular_structure_3d",
+      "url": "https://molstar.org/",
+      "reads": "PDB/mmCIF/SDF",
+      "note": "3D molecular structures (NOT knowledge-graph viz); complementary."
+    },
+    {
+      "id": "viz:pykeen",
+      "title": "PyKEEN + Embedding Projector",
+      "license": "MIT",
+      "role": "embedding_3d",
+      "url": "https://github.com/pykeen/pykeen",
+      "reads": "triples",
+      "note": "KG embeddings (RotatE) -> UMAP/t-SNE 3D for V/Cr similarity."
+    }
+  ],
+  "snapshotStats": {},
+  "@graph": [
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:materials-project",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:materials-project",
+      "predicate": "chemfield:hasLicense",
+      "object": "CC-BY-4.0",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:materials-project",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "open_api",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:materials-project",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:materials-project",
+      "predicate": "chemfield:hasRelevance",
+      "object": "high",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:materials-project",
+      "predicate": "chemfield:providesData",
+      "object": "crystal structures",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:materials-project",
+      "predicate": "chemfield:providesData",
+      "object": "thermodynamics",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:materials-project",
+      "predicate": "chemfield:providesData",
+      "object": "V/Cr Pourbaix (Eh-pH) speciation",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:materials-project",
+      "predicate": "chemfield:providesData",
+      "object": "slag-relevant oxide stability",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:optimade",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:optimade",
+      "predicate": "chemfield:hasLicense",
+      "object": "per-provider (mostly open)",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:optimade",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "open_api",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:optimade",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:optimade",
+      "predicate": "chemfield:hasRelevance",
+      "object": "high",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:optimade",
+      "predicate": "chemfield:providesData",
+      "object": "federated inorganic crystal structures",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:optimade",
+      "predicate": "chemfield:providesData",
+      "object": "metal oxides",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:optimade",
+      "predicate": "chemfield:providesData",
+      "object": "slag phases",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:matkg",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:matkg",
+      "predicate": "chemfield:hasLicense",
+      "object": "CC (open)",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:matkg",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "download",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:matkg",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:matkg",
+      "predicate": "chemfield:hasRelevance",
+      "object": "high",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:matkg",
+      "predicate": "chemfield:providesData",
+      "object": "material-property-process relation network",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:matkg",
+      "predicate": "chemfield:providesData",
+      "object": "literature-mined triples",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:cod",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:cod",
+      "predicate": "chemfield:hasLicense",
+      "object": "CC0-1.0",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:cod",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "open_api",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:cod",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:cod",
+      "predicate": "chemfield:hasRelevance",
+      "object": "high",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:cod",
+      "predicate": "chemfield:providesData",
+      "object": "mineral and metal-oxide crystal structures",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:cod",
+      "predicate": "chemfield:providesData",
+      "object": "slag mineralogy",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:wikidata",
+      "predicate": "chemfield:hasLicense",
+      "object": "CC0-1.0",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:wikidata",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "open_sparql",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:wikidata",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:wikidata",
+      "predicate": "chemfield:hasRelevance",
+      "object": "medium-high",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:wikidata",
+      "predicate": "chemfield:providesData",
+      "object": "chemical elements",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:wikidata",
+      "predicate": "chemfield:providesData",
+      "object": "minerals",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:wikidata",
+      "predicate": "chemfield:providesData",
+      "object": "compounds",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:wikidata",
+      "predicate": "chemfield:providesData",
+      "object": "identifier crosswalk (CAS/InChIKey/PubChem CID)",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:pubchemrdf",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:pubchemrdf",
+      "predicate": "chemfield:hasLicense",
+      "object": "public-domain",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:pubchemrdf",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "download_and_rest",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:pubchemrdf",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:pubchemrdf",
+      "predicate": "chemfield:hasRelevance",
+      "object": "medium",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:pubchemrdf",
+      "predicate": "chemfield:providesData",
+      "object": "compounds",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:pubchemrdf",
+      "predicate": "chemfield:providesData",
+      "object": "substances",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:pubchemrdf",
+      "predicate": "chemfield:providesData",
+      "object": "InChIKey resolution",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:chebi",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:chebi",
+      "predicate": "chemfield:hasLicense",
+      "object": "CC-BY-4.0",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:chebi",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "open_sparql",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:chebi",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:chebi",
+      "predicate": "chemfield:hasRelevance",
+      "object": "medium",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:chebi",
+      "predicate": "chemfield:providesData",
+      "object": "chemical entity classification",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:chebi",
+      "predicate": "chemfield:providesData",
+      "object": "roles (is_a/has_role)",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:rruff",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:rruff",
+      "predicate": "chemfield:hasLicense",
+      "object": "open (attribution)",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:rruff",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "download",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:rruff",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:rruff",
+      "predicate": "chemfield:hasRelevance",
+      "object": "medium-high",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:rruff",
+      "predicate": "chemfield:providesData",
+      "object": "mineral Raman/XRD/chemistry",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:rruff",
+      "predicate": "chemfield:providesData",
+      "object": "ore & slag minerals",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:the-world-avatar",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:the-world-avatar",
+      "predicate": "chemfield:hasLicense",
+      "object": "open",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:the-world-avatar",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "sparql_and_agents",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:the-world-avatar",
+      "predicate": "chemfield:hasDistribution",
+      "object": "reference_only",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:the-world-avatar",
+      "predicate": "chemfield:hasRelevance",
+      "object": "high",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:the-world-avatar",
+      "predicate": "chemfield:providesData",
+      "object": "species (OntoSpecies)",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:the-world-avatar",
+      "predicate": "chemfield:providesData",
+      "object": "reaction kinetics (OntoKin)",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:the-world-avatar",
+      "predicate": "chemfield:providesData",
+      "object": "quantum chemistry (OntoCompChem)",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:emmo",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:emmo",
+      "predicate": "chemfield:hasLicense",
+      "object": "CC-BY-4.0",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:emmo",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "download_owl",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:emmo",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:emmo",
+      "predicate": "chemfield:hasRelevance",
+      "object": "high",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:emmo",
+      "predicate": "chemfield:providesData",
+      "object": "upper ontology for species/phase/process/property",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:emmo",
+      "predicate": "chemfield:providesData",
+      "object": "electrochemistry domain terms",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:phreeqc",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:phreeqc",
+      "predicate": "chemfield:hasLicense",
+      "object": "public-domain",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:phreeqc",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "download",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:phreeqc",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:phreeqc",
+      "predicate": "chemfield:hasRelevance",
+      "object": "high",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:phreeqc",
+      "predicate": "chemfield:providesData",
+      "object": "aqueous speciation",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:phreeqc",
+      "predicate": "chemfield:providesData",
+      "object": "leaching thermodynamics (log K)",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:phreeqc",
+      "predicate": "chemfield:providesData",
+      "object": "mineral/gas phases",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:gems",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:gems",
+      "predicate": "chemfield:hasLicense",
+      "object": "GPL-3.0 (software); data licences separate",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:gems",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "download",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:gems",
+      "predicate": "chemfield:hasDistribution",
+      "object": "reference_only",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:gems",
+      "predicate": "chemfield:hasRelevance",
+      "object": "high",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:gems",
+      "predicate": "chemfield:providesData",
+      "object": "Gibbs-energy-minimisation speciation",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:gems",
+      "predicate": "chemfield:providesData",
+      "object": "slag/leaching thermodynamics",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:gems",
+      "predicate": "chemfield:providesData",
+      "object": "redox/sorption",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:usgs-mrdata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:usgs-mrdata",
+      "predicate": "chemfield:hasLicense",
+      "object": "public-domain",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:usgs-mrdata",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "download_and_wms",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:usgs-mrdata",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:usgs-mrdata",
+      "predicate": "chemfield:hasRelevance",
+      "object": "medium",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:usgs-mrdata",
+      "predicate": "chemfield:providesData",
+      "object": "mineral occurrences",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:usgs-mrdata",
+      "predicate": "chemfield:providesData",
+      "object": "critical raw materials",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:usgs-mrdata",
+      "predicate": "chemfield:providesData",
+      "object": "ore deposits",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:hetionet",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:hetionet",
+      "predicate": "chemfield:hasLicense",
+      "object": "CC0-1.0",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:hetionet",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "download_and_neo4j",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:hetionet",
+      "predicate": "chemfield:hasDistribution",
+      "object": "redistributable",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:hetionet",
+      "predicate": "chemfield:hasRelevance",
+      "object": "low",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:hetionet",
+      "predicate": "chemfield:providesData",
+      "object": "compound nodes (exemplar)",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:hetionet",
+      "predicate": "chemfield:providesData",
+      "object": "KG construction patterns",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:factsage",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:factsage",
+      "predicate": "chemfield:hasLicense",
+      "object": "commercial",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:factsage",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "commercial",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:factsage",
+      "predicate": "chemfield:hasDistribution",
+      "object": "reference_only",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:factsage",
+      "predicate": "chemfield:hasRelevance",
+      "object": "high",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:factsage",
+      "predicate": "chemfield:providesData",
+      "object": "slag-metal equilibria (FToxid)",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:factsage",
+      "predicate": "chemfield:providesData",
+      "object": "Eh-pH / Predom",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:factsage",
+      "predicate": "chemfield:providesData",
+      "object": "hydrometallurgy",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "chemfield:kg-source-catalog:v1",
+      "predicate": "chemfield:hasSource",
+      "object": "kg:icsd",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:icsd",
+      "predicate": "chemfield:hasLicense",
+      "object": "commercial",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:icsd",
+      "predicate": "chemfield:hasAccessStatus",
+      "object": "commercial",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:icsd",
+      "predicate": "chemfield:hasDistribution",
+      "object": "reference_only",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:icsd",
+      "predicate": "chemfield:hasRelevance",
+      "object": "medium",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "kg:icsd",
+      "predicate": "chemfield:providesData",
+      "object": "comprehensive inorganic crystal structures",
+      "type": "Dataset",
+      "weight": 1
+    }
+  ],
+  "origintrailAsset": {
+    "origintrail_id": "chemfield:kg-source-catalog:v1",
+    "originator": "ChemField OpenChem",
+    "namespace": "did:dkg:knitweb",
+    "assertion": "Curated catalog of external chemical knowledge-graph / linked-data sources for ChemField. Each source carries a stable cid/ual; redistributable sources may seed field/1 graphs, reference_only sources are cited but never vendored.",
+    "redistributableSourceIds": [
+      "kg:materials-project",
+      "kg:optimade",
+      "kg:matkg",
+      "kg:cod",
+      "kg:wikidata",
+      "kg:pubchemrdf",
+      "kg:chebi",
+      "kg:rruff",
+      "kg:emmo",
+      "kg:phreeqc",
+      "kg:usgs-mrdata",
+      "kg:hetionet"
+    ],
+    "referenceOnlySourceIds": [
+      "kg:the-world-avatar",
+      "kg:gems",
+      "kg:factsage",
+      "kg:icsd"
+    ],
+    "linked_sources": [
+      {
+        "id": "kg:materials-project",
+        "type": "materials_database",
+        "title": "Materials Project",
+        "url": "https://api.materialsproject.org/",
+        "homepage": "https://next-gen.materialsproject.org/",
+        "maintainer": "Lawrence Berkeley National Laboratory",
+        "license": "CC-BY-4.0",
+        "distribution": "redistributable",
+        "cid": "sha256:ca4dc26cf4d5e33d21c8947425435b193459ef0bac593f80d8d5d807c9712539",
+        "ual": "did:dkg:knitweb/sha256-ca4dc26cf4d5e33d21c8947425435b193459ef0bac593f80d8d5d807c9712539"
+      },
+      {
+        "id": "kg:optimade",
+        "type": "federated_api_standard",
+        "title": "OPTIMADE federation",
+        "url": "https://www.optimade.org/providers-dashboard/",
+        "homepage": "https://www.optimade.org/",
+        "maintainer": "OPTIMADE consortium",
+        "license": "per-provider (mostly open)",
+        "distribution": "redistributable",
+        "cid": "sha256:aec5e21aa16ec6cc59d8aced725998ea359a10a1804529d68986759334e10dd2",
+        "ual": "did:dkg:knitweb/sha256-aec5e21aa16ec6cc59d8aced725998ea359a10a1804529d68986759334e10dd2"
+      },
+      {
+        "id": "kg:matkg",
+        "type": "text_mined_knowledge_graph",
+        "title": "MatKG / MatKG-2",
+        "url": "https://github.com/superlouis/MatKG",
+        "homepage": "https://github.com/superlouis/MatKG",
+        "maintainer": "Venugopal & Olivetti (MIT)",
+        "license": "CC (open)",
+        "distribution": "redistributable",
+        "cid": "sha256:cb5cf1b2894d2b30e875290b922372bc1d0ab8ebc5c56195ad98677db2328739",
+        "ual": "did:dkg:knitweb/sha256-cb5cf1b2894d2b30e875290b922372bc1d0ab8ebc5c56195ad98677db2328739"
+      },
+      {
+        "id": "kg:cod",
+        "type": "crystal_structure_database",
+        "title": "Crystallography Open Database (COD)",
+        "url": "https://www.crystallography.net/cod/optimade/",
+        "homepage": "https://www.crystallography.net/cod/",
+        "maintainer": "COD advisory board",
+        "license": "CC0-1.0",
+        "distribution": "redistributable",
+        "cid": "sha256:c2114ef61b168eb2921d1d44a43cd446dff2e8a44b1dcc70d38821a3255c7f69",
+        "ual": "did:dkg:knitweb/sha256-c2114ef61b168eb2921d1d44a43cd446dff2e8a44b1dcc70d38821a3255c7f69"
+      },
+      {
+        "id": "kg:wikidata",
+        "type": "encyclopedic_knowledge_graph",
+        "title": "Wikidata",
+        "url": "https://query.wikidata.org/sparql",
+        "homepage": "https://www.wikidata.org/",
+        "maintainer": "Wikimedia Foundation",
+        "license": "CC0-1.0",
+        "distribution": "redistributable",
+        "cid": "sha256:edc94c0331f5a84943687d9b3e20c77c79a409b4dc2a8e74edc56bad33d6d94c",
+        "ual": "did:dkg:knitweb/sha256-edc94c0331f5a84943687d9b3e20c77c79a409b4dc2a8e74edc56bad33d6d94c"
+      },
+      {
+        "id": "kg:pubchemrdf",
+        "type": "chemistry_rdf",
+        "title": "PubChemRDF",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/rest/rdf/",
+        "homepage": "https://pubchem.ncbi.nlm.nih.gov/docs/rdf",
+        "maintainer": "NIH / NCBI",
+        "license": "public-domain",
+        "distribution": "redistributable",
+        "cid": "sha256:e3f4990a3a3c74d525f2099931d09b715b53fa8d608d99dc4a82b3d6d8084f3f",
+        "ual": "did:dkg:knitweb/sha256-e3f4990a3a3c74d525f2099931d09b715b53fa8d608d99dc4a82b3d6d8084f3f"
+      },
+      {
+        "id": "kg:chebi",
+        "type": "chemistry_ontology",
+        "title": "ChEBI",
+        "url": "https://www.ebi.ac.uk/rdf/services/sparql",
+        "homepage": "https://www.ebi.ac.uk/chebi/",
+        "maintainer": "EMBL-EBI",
+        "license": "CC-BY-4.0",
+        "distribution": "redistributable",
+        "cid": "sha256:feacc25c2d007e098413572dd46088d063df096300fd5961b17e7976bee0bb33",
+        "ual": "did:dkg:knitweb/sha256-feacc25c2d007e098413572dd46088d063df096300fd5961b17e7976bee0bb33"
+      },
+      {
+        "id": "kg:rruff",
+        "type": "mineral_spectral_database",
+        "title": "RRUFF / Raman Open Database",
+        "url": "https://raman-db.crystallography.net/",
+        "homepage": "https://rruff.info/",
+        "maintainer": "University of Arizona / COD",
+        "license": "open (attribution)",
+        "distribution": "redistributable",
+        "cid": "sha256:41a3a3ce8df183f1c008e78e15f7dc8683b0748f7e3d899568bab694ce0cc87b",
+        "ual": "did:dkg:knitweb/sha256-41a3a3ce8df183f1c008e78e15f7dc8683b0748f7e3d899568bab694ce0cc87b"
+      },
+      {
+        "id": "kg:the-world-avatar",
+        "type": "dynamic_knowledge_graph",
+        "title": "The World Avatar (J-Park Simulator)",
+        "url": "https://theworldavatar.io/",
+        "homepage": "https://theworldavatar.io/",
+        "maintainer": "CMCL / University of Cambridge (CoMo/CARES)",
+        "license": "open",
+        "distribution": "reference_only",
+        "cid": "sha256:7a6cc8effadef3f2bbadf60824051ced977f4971e80b3e4500dd799df39c9d5f",
+        "ual": "did:dkg:knitweb/sha256-7a6cc8effadef3f2bbadf60824051ced977f4971e80b3e4500dd799df39c9d5f"
+      },
+      {
+        "id": "kg:emmo",
+        "type": "domain_ontology",
+        "title": "EMMO + domain-electrochemistry + MSEO",
+        "url": "https://w3id.org/emmo",
+        "homepage": "https://emmo-repo.github.io/",
+        "maintainer": "EMMC / EMMO authors",
+        "license": "CC-BY-4.0",
+        "distribution": "redistributable",
+        "cid": "sha256:f1769351e1e3fd549193594c8e9dd6321198e5f36689ce3365c40ad356481cab",
+        "ual": "did:dkg:knitweb/sha256-f1769351e1e3fd549193594c8e9dd6321198e5f36689ce3365c40ad356481cab"
+      },
+      {
+        "id": "kg:phreeqc",
+        "type": "thermodynamic_speciation_database",
+        "title": "PHREEQC thermodynamic databases",
+        "url": "https://www.usgs.gov/software/phreeqc-version-3",
+        "homepage": "https://www.usgs.gov/software/phreeqc-version-3",
+        "maintainer": "U.S. Geological Survey",
+        "license": "public-domain",
+        "distribution": "redistributable",
+        "cid": "sha256:af9f54646d04150f8986e0ead50aecf4be72354c5f58b52d4ebbaf81e037323b",
+        "ual": "did:dkg:knitweb/sha256-af9f54646d04150f8986e0ead50aecf4be72354c5f58b52d4ebbaf81e037323b"
+      },
+      {
+        "id": "kg:gems",
+        "type": "thermodynamic_speciation_database",
+        "title": "GEMS / GEM-Selektor (PSI)",
+        "url": "https://github.com/gemshub/GEMS3K",
+        "homepage": "https://gems.web.psi.ch/",
+        "maintainer": "Paul Scherrer Institute",
+        "license": "GPL-3.0 (software); data licences separate",
+        "distribution": "reference_only",
+        "cid": "sha256:e600eeab8c037f031ecf343616e874f4b03c2a0350b0a959b328f029b615f690",
+        "ual": "did:dkg:knitweb/sha256-e600eeab8c037f031ecf343616e874f4b03c2a0350b0a959b328f029b615f690"
+      },
+      {
+        "id": "kg:usgs-mrdata",
+        "type": "mineral_resource_database",
+        "title": "USGS Mineral Resources Online Spatial Data (MRDATA)",
+        "url": "https://mrdata.usgs.gov/services/",
+        "homepage": "https://mrdata.usgs.gov/",
+        "maintainer": "U.S. Geological Survey",
+        "license": "public-domain",
+        "distribution": "redistributable",
+        "cid": "sha256:44e1d8d9c4a723e5dd18806e7a28b4e1a83020a40beca05ee59a681c9d1c1dd5",
+        "ual": "did:dkg:knitweb/sha256-44e1d8d9c4a723e5dd18806e7a28b4e1a83020a40beca05ee59a681c9d1c1dd5"
+      },
+      {
+        "id": "kg:hetionet",
+        "type": "biomedical_knowledge_graph",
+        "title": "Hetionet",
+        "url": "https://neo4j.het.io/",
+        "homepage": "https://het.io/",
+        "maintainer": "Himmelstein et al.",
+        "license": "CC0-1.0",
+        "distribution": "redistributable",
+        "cid": "sha256:d1ee72135a04f944f188ccf8b1b898b4ce1fa992bf15cf4e0753a464aeeae28e",
+        "ual": "did:dkg:knitweb/sha256-d1ee72135a04f944f188ccf8b1b898b4ce1fa992bf15cf4e0753a464aeeae28e"
+      },
+      {
+        "id": "kg:factsage",
+        "type": "thermochemical_database",
+        "title": "FactSage / FACT (FToxid slag data)",
+        "url": "https://www.factsage.com/",
+        "homepage": "https://www.factsage.com/",
+        "maintainer": "Thermfact / GTT-Technologies",
+        "license": "commercial",
+        "distribution": "reference_only",
+        "cid": "sha256:bbd645c24cde4afa7f43231fa9b64c91d3badf12903cc1bf5b9d92f520f8cf90",
+        "ual": "did:dkg:knitweb/sha256-bbd645c24cde4afa7f43231fa9b64c91d3badf12903cc1bf5b9d92f520f8cf90"
+      },
+      {
+        "id": "kg:icsd",
+        "type": "crystal_structure_database",
+        "title": "Inorganic Crystal Structure Database (ICSD)",
+        "url": "https://icsd.products.fiz-karlsruhe.de/",
+        "homepage": "https://icsd.products.fiz-karlsruhe.de/",
+        "maintainer": "FIZ Karlsruhe",
+        "license": "commercial",
+        "distribution": "reference_only",
+        "cid": "sha256:e28b2b2869a07b3feba65a2f613b44f7f86253d6d54a4016758ad396eb6494e1",
+        "ual": "did:dkg:knitweb/sha256-e28b2b2869a07b3feba65a2f613b44f7f86253d6d54a4016758ad396eb6494e1"
+      }
+    ],
+    "cid": "sha256:eb40d21df3a1cafea0396be966a2f172a87b66e97ffdae89fdee7f1b8adae5e3",
+    "ual": "did:dkg:knitweb/sha256-eb40d21df3a1cafea0396be966a2f172a87b66e97ffdae89fdee7f1b8adae5e3"
+  },
+  "cid": "sha256:eff9ad3d617d500c92b6cd82b8092384a33cd15502486c944927b7282fc62c76",
+  "ual": "did:dkg:knitweb/sha256-eff9ad3d617d500c92b6cd82b8092384a33cd15502486c944927b7282fc62c76"
+}
