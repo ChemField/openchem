@@ -1,0 +1,9 @@
+{
+  "kind": "chemfield_alias_pointer",
+  "alias": "kg-sources",
+  "canonicalField": "chemfield:kg-sources",
+  "href": "data/chemfield-kg-sources.json",
+  "targetCid": "sha256:eff9ad3d617d500c92b6cd82b8092384a33cd15502486c944927b7282fc62c76",
+  "targetUal": "did:dkg:knitweb/sha256-eff9ad3d617d500c92b6cd82b8092384a33cd15502486c944927b7282fc62c76",
+  "updatedAt": "2026-07-05"
+}

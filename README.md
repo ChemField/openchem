@@ -86,6 +86,50 @@ Only set `ORIGINTRAIL_OPERATIONAL_PRIVATE_KEY` in the local `.origintrail-laptop
 
 The `rewards` route is a scenario calculator, not a yield promise. OriginTrail Core Node income depends on paid DKG activity, node ask, stake/delegation, uptime, proofs, operator fee, and the selected chain.
 
+## External knowledge-graph source catalog
+
+ChemField draws on public chemical knowledge graphs and linked-data sources
+(Materials Project, OPTIMADE, MatKG, COD, Wikidata, PubChemRDF, ChEBI, RRUFF,
+EMMO, PHREEQC/GEMS, USGS MRDATA, …). These are curated in:
+
+```text
+data/kg-sources.seed.json          # human-curated seed (identity, licence, access)
+data/chemfield-kg-sources.json     # built catalog — OriginTrail-prepared asset
+kg-sources.json                    # root alias pointer (cid/ual of the catalog)
+```
+
+Every source is **linked to OriginTrail**: the builder computes a stable
+`cid = sha256(canonical(descriptor))` and `ual = did:dkg:knitweb/sha256-<cid>`
+per source (identical canonicalisation to the composition web) and links all of
+them into `origintrailAsset.linked_sources`, ready to publish to the DKG through
+the 5mart.ml gateway. The catalog also carries a `@graph` of provenance triples
+so it renders directly in `3d-force-graph`.
+
+Licence posture is explicit: `distribution: "redistributable"` (open, attribution
+kept — may seed field/1 graphs) vs `"reference_only"` (commercial/closed/GPL/
+share-alike — cite and link, never vendor). Volatile live metrics live in
+`snapshotStats`, separate from the stable source identity.
+
+Build and validate:
+
+```sh
+python3 tools/build_kg_sources.py --date 2026-07-05   # rebuild catalog + pointer
+python3 tools/build_kg_sources.py --check --date ...  # CI drift guard
+```
+
+### Regular data refresh (automation)
+
+`tools/refresh_kg_sources.py` probes public no-auth endpoints (OPTIMADE providers,
+COD structure count, …), writes the live metrics into `snapshotStats`, and
+rebuilds so the catalog root cid/ual advance. Each probe is best-effort — a
+network failure keeps the prior value and records `refreshStatus:"unreachable"`.
+
+The GitHub Actions workflow `.github/workflows/refresh-kg-sources.yml` runs this
+**weekly (Mon 06:00 UTC)** and on `workflow_dispatch`, committing only when the
+catalog changed. `.github/workflows/ci.yml` fails any push/PR that leaves the
+catalog stale. Add a new live metric by appending a probe to `PROBES` in
+`refresh_kg_sources.py`; add a new source by editing the seed and rebuilding.
+
 ## ClosedChem
 
 ClosedChem is the permissioned counterpart for opted-in closed P2P chemistry knitworks.
