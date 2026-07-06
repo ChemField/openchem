@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ChemField — V/Cr speciation field graph (3D)</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%2780%27 font-size=%2780%27%3E%F0%9F%A7%AA%3C/text%3E%3C/svg%3E">
   <style>
     :root { color-scheme: dark; }
     html, body { margin: 0; height: 100%; background: #0e1116; color: #e6edf3;
@@ -60,7 +61,7 @@
         .nodeLabel(n => `<b>${n.label || n.name}</b><br/>${n.kind}${n.oxidationState != null ? ' · ox ' + n.oxidationState : ''}${n.phase ? ' · ' + n.phase : ''}`)
         .nodeOpacity(0.95)
         .linkColor(() => 'rgba(150,170,190,0.28)')
-        .linklabel(l => l.label)
+        .linkLabel(l => l.label)
         .linkDirectionalParticles(l => l.label === 'hasElement' ? 2 : 0)
         .linkDirectionalParticleWidth(1.5)
         .onNodeClick(n => {
