@@ -155,6 +155,29 @@ python3 tools/build_species_graph.py --check --date ...   # CI drift guard
 Thermodynamic enrichment (Pourbaix boundaries, log K) is the next live step —
 pulled from Materials Project `get_pourbaix_entries()` and PHREEQC, never invented.
 
+## Slag Run — production chain (playable)
+
+Upstream of the Speciation Quest: a resource-management game of recovering
+vanadium from real Dutch steel slag. Apply for a **state research budget** (4
+game-weeks = 4 days), then **acquire** feed (order graded *Ekoliet* 0/8mm, or
+forage the Amsterdamse Bos paths / Zeeland Oosterschelde bank protection),
+**comminute** it (hand hammer / €2000 hammer mill → 2mm / €200 ball mill + €500
+V-Cr media → 0.1mm), and **leach** it. Two real tradeoffs drive play:
+
+- **Recovery ∝ fineness** — finer particles leach more vanadium.
+- **Leach time ∝ size** — at 20 °C, 1 game-day (1 week) per 0.1 mm of the
+  coarsest feed. So hand-hammered 8 mm needs 80 leach-days; ball-milled 0.1 mm
+  needs 1. Fine milling trades mill-time for a huge leach-time saving.
+
+```text
+data/production-chain.json   # economy + material config
+slag-run.html                # the game (feeds V2O5 into speciation-quest.html)
+tools/build_production.py     # balance-check: strategies affordable + yield > 0
+docs/vanadium-recovery-from-steel-slag.md   # the real process this game models
+```
+
+Winning mints a signed `field/1` production record (SHA-256 → `cid`/`ual`).
+
 ## MOLGANG: Speciation Quest (playable)
 
 An educational browser game built directly on the speciation graph — its rules
