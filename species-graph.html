@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ChemField — V/Cr speciation field graph (3D)</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; height: 100%; background: #0e1116; color: #e6edf3;
+      font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    #graph { position: fixed; inset: 0; }
+    .panel { position: fixed; z-index: 5; background: rgba(20,26,34,.86);
+      border: 1px solid #2a3441; border-radius: 10px; padding: 12px 14px; backdrop-filter: blur(6px); }
+    #legend { top: 12px; left: 12px; max-width: 240px; }
+    #legend h1 { font-size: 15px; margin: 0 0 8px; }
+    #legend .sub { color: #9aa7b4; font-size: 12px; margin-bottom: 10px; }
+    .row { display: flex; align-items: center; gap: 8px; margin: 3px 0; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; flex: 0 0 auto; }
+    #info { bottom: 12px; left: 12px; max-width: 340px; display: none; }
+    #info code { color: #7ee787; word-break: break-all; font-size: 11px; }
+    #info .close { float: right; cursor: pointer; color: #9aa7b4; }
+    a { color: #58a6ff; }
+    .muted { color: #9aa7b4; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div id="graph"></div>
+
+  <div id="legend" class="panel">
+    <h1>V / Cr speciation</h1>
+    <div class="sub">Structural field graph · nodes = species · coloured by oxidation state · each node OriginTrail-anchored. <span class="muted">Reference facts only — no invented thermodynamics.</span></div>
+    <div class="row"><span class="dot" style="background:#8e44ad"></span> +2</div>
+    <div class="row"><span class="dot" style="background:#27ae60"></span> +3</div>
+    <div class="row"><span class="dot" style="background:#2980b9"></span> +4</div>
+    <div class="row"><span class="dot" style="background:#f39c12"></span> +5</div>
+    <div class="row"><span class="dot" style="background:#e74c3c"></span> +6</div>
+    <div class="row"><span class="dot" style="background:#ecf0f1"></span> element</div>
+    <div class="row"><span class="dot" style="background:#34495e"></span> source</div>
+    <div class="sub" style="margin-top:10px" id="stats"></div>
+  </div>
+
+  <div id="info" class="panel">
+    <span class="close" onclick="document.getElementById('info').style.display='none'">✕</span>
+    <div id="info-body"></div>
+  </div>
+
+  <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
+  <script>
+    const DATA_URL = 'data/chemfield-species-graph.json';
+    fetch(DATA_URL).then(r => r.json()).then(doc => {
+      const g = doc.forceGraph;
+      document.getElementById('stats').textContent =
+        `${doc.counts.species} species · ${doc.counts.elements} elements · ${doc.counts.sources} sources · root ${doc.cid.slice(0, 18)}…`;
+
+      const Graph = ForceGraph3D()(document.getElementById('graph'))
+        .graphData(g)
+        .backgroundColor('#0e1116')
+        .nodeColor(n => n.color || '#95a5a6')
+        .nodeVal(n => n.val || 4)
+        .nodeLabel(n => `<b>${n.label || n.name}</b><br/>${n.kind}${n.oxidationState != null ? ' · ox ' + n.oxidationState : ''}${n.phase ? ' · ' + n.phase : ''}`)
+        .nodeOpacity(0.95)
+        .linkColor(() => 'rgba(150,170,190,0.28)')
+        .linklabel(l => l.label)
+        .linkDirectionalParticles(l => l.label === 'hasElement' ? 2 : 0)
+        .linkDirectionalParticleWidth(1.5)
+        .onNodeClick(n => {
+          const info = document.getElementById('info');
+          const b = document.getElementById('info-body');
+          const rows = [
+            `<b>${n.label || n.name}</b> <span class="muted">(${n.kind})</span>`,
+            n.oxidationState != null ? `Oxidation state: <b>${n.oxidationState > 0 ? '+' : ''}${n.oxidationState}</b>` : '',
+            n.phase ? `Phase: ${n.phase}` : '',
+            (n.tags && n.tags.length) ? `Tags: ${n.tags.join(', ')}` : '',
+            n.ual ? `OriginTrail UAL:<br/><code>${n.ual}</code>` : '',
+          ].filter(Boolean);
+          b.innerHTML = rows.join('<br/>');
+          info.style.display = 'block';
+        });
+
+      // gentle auto-rotate until the user interacts
+      let angle = 0, spin = true;
+      document.getElementById('graph').addEventListener('pointerdown', () => spin = false);
+      (function frame() {
+        if (spin) { angle += 0.0016; const d = 340;
+          Graph.cameraPosition({ x: d * Math.sin(angle), z: d * Math.cos(angle) }); }
+        requestAnimationFrame(frame);
+      })();
+    }).catch(e => {
+      document.getElementById('graph').innerHTML =
+        '<p style="padding:24px">Could not load ' + DATA_URL + ': ' + e + '</p>';
+    });
+  </script>
+</body>
+</html>

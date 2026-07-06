@@ -1,0 +1,25 @@
+{
+  "kind": "chemfield-species-graph-seed",
+  "schemaVersion": "chemfield-species-graph-seed-v1",
+  "note": "Curated STRUCTURAL speciation for vanadium and chromium (species identity, formula, oxidation state, phase) — textbook reference facts, NOT thermodynamic measurements. No free energies or Pourbaix boundaries are asserted here; those are enrichment targets pulled live from Materials Project (get_pourbaix_entries) and PHREEQC log K. Directly supports the VANELEX thesis (V2O5 electrolyte recovered from BOF steel slag). tools/build_species_graph.py compiles this into a 3d-force-graph field/1 graph with per-node cid/ual and OriginTrail linkage.",
+  "focus": ["vanadium", "chromium", "steel-slag valorisation"],
+  "elements": [
+    {"id": "element:V", "symbol": "V", "name": "Vanadium", "atomicNumber": 23, "sourceIds": ["kg:wikidata", "kg:usgs-mrdata"]},
+    {"id": "element:Cr", "symbol": "Cr", "name": "Chromium", "atomicNumber": 24, "sourceIds": ["kg:wikidata", "kg:usgs-mrdata"]}
+  ],
+  "species": [
+    {"id": "species:V2+aq", "element": "V", "formula": "V(2+)", "name": "vanadium(II) aqua ion", "oxidationState": 2, "phase": "aqueous", "color": "#8e44ad", "sourceIds": ["kg:phreeqc", "kg:wikidata"], "note": "Violet; strongly reducing."},
+    {"id": "species:V3+aq", "element": "V", "formula": "V(3+)", "name": "vanadium(III) aqua ion", "oxidationState": 3, "phase": "aqueous", "color": "#27ae60", "sourceIds": ["kg:phreeqc", "kg:wikidata"], "note": "Green; VRFB negative-side couple V(2+)/V(3+)."},
+    {"id": "species:VO2+aq", "element": "V", "formula": "VO(2+)", "name": "vanadyl / oxovanadium(IV)", "oxidationState": 4, "phase": "aqueous", "color": "#2980b9", "sourceIds": ["kg:phreeqc", "kg:wikidata"], "note": "Blue; dominant V(IV) aqueous species at low pH."},
+    {"id": "species:VO2+cat_aq", "element": "V", "formula": "VO2(+)", "name": "dioxovanadium(V) cation", "oxidationState": 5, "phase": "aqueous", "color": "#f1c40f", "sourceIds": ["kg:phreeqc", "kg:wikidata"], "note": "Yellow; V(V) at low pH; VRFB positive-side couple VO(2+)/VO2(+)."},
+    {"id": "species:vanadate_aq", "element": "V", "formula": "VO4(3-)", "name": "orthovanadate (and protonated forms)", "oxidationState": 5, "phase": "aqueous", "color": "#f39c12", "sourceIds": ["kg:phreeqc", "kg:wikidata"], "note": "V(V) at higher pH; H2VO4-/HVO4(2-)/VO4(3-) speciation is pH-dependent."},
+    {"id": "species:V2O3", "element": "V", "formula": "V2O3", "name": "vanadium(III) oxide", "oxidationState": 3, "phase": "solid", "color": "#1e8449", "sourceIds": ["kg:materials-project", "kg:cod"], "note": "Metal-insulator transition oxide."},
+    {"id": "species:VO2s", "element": "V", "formula": "VO2", "name": "vanadium(IV) oxide", "oxidationState": 4, "phase": "solid", "color": "#1f618d", "sourceIds": ["kg:materials-project", "kg:cod"], "note": "Thermochromic MIT near 68 C."},
+    {"id": "species:V2O5", "element": "V", "formula": "V2O5", "name": "vanadium(V) oxide", "oxidationState": 5, "phase": "solid", "color": "#e67e22", "sourceIds": ["kg:materials-project", "kg:cod", "kg:usgs-mrdata"], "tags": ["vanelex", "vrfb-electrolyte-precursor"], "note": "Target product: V2O5 recovered from BOF steel slag, dissolved into VRFB electrolyte."},
+    {"id": "species:Cr2+aq", "element": "Cr", "formula": "Cr(2+)", "name": "chromium(II) aqua ion", "oxidationState": 2, "phase": "aqueous", "color": "#5dade2", "sourceIds": ["kg:phreeqc", "kg:wikidata"], "note": "Blue; strongly reducing (chromous)."},
+    {"id": "species:Cr3+aq", "element": "Cr", "formula": "Cr(3+)", "name": "chromium(III) aqua ion", "oxidationState": 3, "phase": "aqueous", "color": "#52be80", "sourceIds": ["kg:phreeqc", "kg:wikidata"], "note": "Green/violet; low toxicity, dominant benign Cr species."},
+    {"id": "species:chromate_aq", "element": "Cr", "formula": "CrO4(2-)", "name": "chromate", "oxidationState": 6, "phase": "aqueous", "color": "#f4d03f", "sourceIds": ["kg:phreeqc", "kg:wikidata"], "note": "Yellow; Cr(VI), toxic/carcinogenic; dominant in alkaline conditions."},
+    {"id": "species:dichromate_aq", "element": "Cr", "formula": "Cr2O7(2-)", "name": "dichromate", "oxidationState": 6, "phase": "aqueous", "color": "#e67e22", "sourceIds": ["kg:phreeqc", "kg:wikidata"], "note": "Orange; Cr(VI) condensed form, favoured at lower pH / higher concentration."},
+    {"id": "species:Cr2O3", "element": "Cr", "formula": "Cr2O3", "name": "chromium(III) oxide", "oxidationState": 3, "phase": "solid", "color": "#239b56", "sourceIds": ["kg:materials-project", "kg:cod"], "note": "Chromia; refractory green oxide, common in slag."}
+  ]
+}

@@ -1,0 +1,1057 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "chemfield": "https://chemfield.github.io/openchem/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "kind": "chemfield-species-graph",
+  "schemaVersion": "chemfield-species-graph-v1",
+  "id": "chemfield:species-graph:v-cr:v1",
+  "title": "ChemField V/Cr speciation field graph",
+  "updatedAt": "2026-07-05",
+  "canonicalField": "chemfield:speciation:v-cr",
+  "factPolicy": {
+    "noInventedMeasurements": true,
+    "assertedScope": "species identity, oxidation state, phase (structural reference facts)",
+    "enrichmentPending": "free energies / Pourbaix boundaries from Materials Project + PHREEQC log K"
+  },
+  "originTrail": {
+    "status": "prepared_not_published",
+    "namespace": "did:dkg:knitweb",
+    "sourceLinking": "linked_sources reference the cid/ual minted in data/chemfield-kg-sources.json",
+    "gateway": "https://www.5mart.ml/Slag/origintrail-gateway.php"
+  },
+  "counts": {
+    "nodes": 20,
+    "links": 44,
+    "species": 13,
+    "elements": 2,
+    "sources": 5
+  },
+  "forceGraph": {
+    "nodes": [
+      {
+        "id": "element:V",
+        "name": "V",
+        "label": "Vanadium",
+        "group": "element",
+        "kind": "element",
+        "val": 8,
+        "color": "#ecf0f1",
+        "cid": "sha256:08e94aad987337d9fe7b29c087c696e7cf47ebce1fdfdd2d8096150b54c5e80d",
+        "ual": "did:dkg:knitweb/sha256-08e94aad987337d9fe7b29c087c696e7cf47ebce1fdfdd2d8096150b54c5e80d"
+      },
+      {
+        "id": "element:Cr",
+        "name": "Cr",
+        "label": "Chromium",
+        "group": "element",
+        "kind": "element",
+        "val": 8,
+        "color": "#ecf0f1",
+        "cid": "sha256:2b72459205f6d3606f7876fa42877347bb3e15565b2f62b75c01d5e956e50c05",
+        "ual": "did:dkg:knitweb/sha256-2b72459205f6d3606f7876fa42877347bb3e15565b2f62b75c01d5e956e50c05"
+      },
+      {
+        "id": "species:V2+aq",
+        "name": "V(2+)",
+        "label": "vanadium(II) aqua ion",
+        "group": "ox2",
+        "kind": "species",
+        "element": "V",
+        "oxidationState": 2,
+        "phase": "aqueous",
+        "color": "#8e44ad",
+        "val": 5,
+        "tags": [],
+        "cid": "sha256:d9ff2ebec7a5ecf3d43234b7425d6407d06c1e29d9eb9cc1762a656ebd467781",
+        "ual": "did:dkg:knitweb/sha256-d9ff2ebec7a5ecf3d43234b7425d6407d06c1e29d9eb9cc1762a656ebd467781"
+      },
+      {
+        "id": "species:V3+aq",
+        "name": "V(3+)",
+        "label": "vanadium(III) aqua ion",
+        "group": "ox3",
+        "kind": "species",
+        "element": "V",
+        "oxidationState": 3,
+        "phase": "aqueous",
+        "color": "#27ae60",
+        "val": 5,
+        "tags": [],
+        "cid": "sha256:2a6fc2fd507955e3ad8fc62f11e1ecfde421acec7e95aad5cd5570bcae5358c2",
+        "ual": "did:dkg:knitweb/sha256-2a6fc2fd507955e3ad8fc62f11e1ecfde421acec7e95aad5cd5570bcae5358c2"
+      },
+      {
+        "id": "species:VO2+aq",
+        "name": "VO(2+)",
+        "label": "vanadyl / oxovanadium(IV)",
+        "group": "ox4",
+        "kind": "species",
+        "element": "V",
+        "oxidationState": 4,
+        "phase": "aqueous",
+        "color": "#2980b9",
+        "val": 5,
+        "tags": [],
+        "cid": "sha256:9603c097e1fee40be975dbb648a8633c5e57b4d84b093b12d85922c5a57416b2",
+        "ual": "did:dkg:knitweb/sha256-9603c097e1fee40be975dbb648a8633c5e57b4d84b093b12d85922c5a57416b2"
+      },
+      {
+        "id": "species:VO2+cat_aq",
+        "name": "VO2(+)",
+        "label": "dioxovanadium(V) cation",
+        "group": "ox5",
+        "kind": "species",
+        "element": "V",
+        "oxidationState": 5,
+        "phase": "aqueous",
+        "color": "#f1c40f",
+        "val": 5,
+        "tags": [],
+        "cid": "sha256:a04f25edce4d3ef36fb11d55a809df333c748392c9af7f98be1de775bdfad408",
+        "ual": "did:dkg:knitweb/sha256-a04f25edce4d3ef36fb11d55a809df333c748392c9af7f98be1de775bdfad408"
+      },
+      {
+        "id": "species:vanadate_aq",
+        "name": "VO4(3-)",
+        "label": "orthovanadate (and protonated forms)",
+        "group": "ox5",
+        "kind": "species",
+        "element": "V",
+        "oxidationState": 5,
+        "phase": "aqueous",
+        "color": "#f39c12",
+        "val": 5,
+        "tags": [],
+        "cid": "sha256:8f4fe694e9f418c42efecc393d4fe407fb5f4df0abe31b530cb89ccac89d9354",
+        "ual": "did:dkg:knitweb/sha256-8f4fe694e9f418c42efecc393d4fe407fb5f4df0abe31b530cb89ccac89d9354"
+      },
+      {
+        "id": "species:V2O3",
+        "name": "V2O3",
+        "label": "vanadium(III) oxide",
+        "group": "ox3",
+        "kind": "species",
+        "element": "V",
+        "oxidationState": 3,
+        "phase": "solid",
+        "color": "#1e8449",
+        "val": 6,
+        "tags": [],
+        "cid": "sha256:bc433278b08e6b82d475e0ae57368289f072215f2c577e71f2032fd1e0796a5c",
+        "ual": "did:dkg:knitweb/sha256-bc433278b08e6b82d475e0ae57368289f072215f2c577e71f2032fd1e0796a5c"
+      },
+      {
+        "id": "species:VO2s",
+        "name": "VO2",
+        "label": "vanadium(IV) oxide",
+        "group": "ox4",
+        "kind": "species",
+        "element": "V",
+        "oxidationState": 4,
+        "phase": "solid",
+        "color": "#1f618d",
+        "val": 6,
+        "tags": [],
+        "cid": "sha256:c525d850d76d720f82ed15fb9eaea149464782e67c8dfe8e6fd53cb4b6ad3439",
+        "ual": "did:dkg:knitweb/sha256-c525d850d76d720f82ed15fb9eaea149464782e67c8dfe8e6fd53cb4b6ad3439"
+      },
+      {
+        "id": "species:V2O5",
+        "name": "V2O5",
+        "label": "vanadium(V) oxide",
+        "group": "ox5",
+        "kind": "species",
+        "element": "V",
+        "oxidationState": 5,
+        "phase": "solid",
+        "color": "#e67e22",
+        "val": 6,
+        "tags": [
+          "vanelex",
+          "vrfb-electrolyte-precursor"
+        ],
+        "cid": "sha256:29d0c89a030ec67a34e5c1307465a22772c569108a600795a261bc5ce2bcd8d2",
+        "ual": "did:dkg:knitweb/sha256-29d0c89a030ec67a34e5c1307465a22772c569108a600795a261bc5ce2bcd8d2"
+      },
+      {
+        "id": "species:Cr2+aq",
+        "name": "Cr(2+)",
+        "label": "chromium(II) aqua ion",
+        "group": "ox2",
+        "kind": "species",
+        "element": "Cr",
+        "oxidationState": 2,
+        "phase": "aqueous",
+        "color": "#5dade2",
+        "val": 5,
+        "tags": [],
+        "cid": "sha256:30436317406ecea83a2538231c20adf402d70d51c538c3f4c4867e7e33bf3ef9",
+        "ual": "did:dkg:knitweb/sha256-30436317406ecea83a2538231c20adf402d70d51c538c3f4c4867e7e33bf3ef9"
+      },
+      {
+        "id": "species:Cr3+aq",
+        "name": "Cr(3+)",
+        "label": "chromium(III) aqua ion",
+        "group": "ox3",
+        "kind": "species",
+        "element": "Cr",
+        "oxidationState": 3,
+        "phase": "aqueous",
+        "color": "#52be80",
+        "val": 5,
+        "tags": [],
+        "cid": "sha256:48567939b05f4035fa632ce29f4002aed6874e8a6cce6710f0a49bd6704f3caf",
+        "ual": "did:dkg:knitweb/sha256-48567939b05f4035fa632ce29f4002aed6874e8a6cce6710f0a49bd6704f3caf"
+      },
+      {
+        "id": "species:chromate_aq",
+        "name": "CrO4(2-)",
+        "label": "chromate",
+        "group": "ox6",
+        "kind": "species",
+        "element": "Cr",
+        "oxidationState": 6,
+        "phase": "aqueous",
+        "color": "#f4d03f",
+        "val": 5,
+        "tags": [],
+        "cid": "sha256:f32ea45ea8b8a03f17ea41cbcf0b31e5842b0c940f2dce3613c218f743bfdc07",
+        "ual": "did:dkg:knitweb/sha256-f32ea45ea8b8a03f17ea41cbcf0b31e5842b0c940f2dce3613c218f743bfdc07"
+      },
+      {
+        "id": "species:dichromate_aq",
+        "name": "Cr2O7(2-)",
+        "label": "dichromate",
+        "group": "ox6",
+        "kind": "species",
+        "element": "Cr",
+        "oxidationState": 6,
+        "phase": "aqueous",
+        "color": "#e67e22",
+        "val": 5,
+        "tags": [],
+        "cid": "sha256:e72a67370bacd0df05ff9eaa5ae4d7b46f27d6cd62b726f936b3e04ddf01b714",
+        "ual": "did:dkg:knitweb/sha256-e72a67370bacd0df05ff9eaa5ae4d7b46f27d6cd62b726f936b3e04ddf01b714"
+      },
+      {
+        "id": "species:Cr2O3",
+        "name": "Cr2O3",
+        "label": "chromium(III) oxide",
+        "group": "ox3",
+        "kind": "species",
+        "element": "Cr",
+        "oxidationState": 3,
+        "phase": "solid",
+        "color": "#239b56",
+        "val": 6,
+        "tags": [],
+        "cid": "sha256:434bd35093d06dba4ae4457f04a1b39349fa3a89c26ba551aa3d00cccefefb3d",
+        "ual": "did:dkg:knitweb/sha256-434bd35093d06dba4ae4457f04a1b39349fa3a89c26ba551aa3d00cccefefb3d"
+      },
+      {
+        "id": "kg:cod",
+        "name": "cod",
+        "label": "Crystallography Open Database (COD)",
+        "group": "source",
+        "kind": "source",
+        "val": 7,
+        "color": "#34495e",
+        "ual": "did:dkg:knitweb/sha256-c2114ef61b168eb2921d1d44a43cd446dff2e8a44b1dcc70d38821a3255c7f69"
+      },
+      {
+        "id": "kg:materials-project",
+        "name": "materials-project",
+        "label": "Materials Project",
+        "group": "source",
+        "kind": "source",
+        "val": 7,
+        "color": "#34495e",
+        "ual": "did:dkg:knitweb/sha256-ca4dc26cf4d5e33d21c8947425435b193459ef0bac593f80d8d5d807c9712539"
+      },
+      {
+        "id": "kg:phreeqc",
+        "name": "phreeqc",
+        "label": "PHREEQC thermodynamic databases",
+        "group": "source",
+        "kind": "source",
+        "val": 7,
+        "color": "#34495e",
+        "ual": "did:dkg:knitweb/sha256-af9f54646d04150f8986e0ead50aecf4be72354c5f58b52d4ebbaf81e037323b"
+      },
+      {
+        "id": "kg:usgs-mrdata",
+        "name": "usgs-mrdata",
+        "label": "USGS Mineral Resources Online Spatial Data (MRDATA)",
+        "group": "source",
+        "kind": "source",
+        "val": 7,
+        "color": "#34495e",
+        "ual": "did:dkg:knitweb/sha256-44e1d8d9c4a723e5dd18806e7a28b4e1a83020a40beca05ee59a681c9d1c1dd5"
+      },
+      {
+        "id": "kg:wikidata",
+        "name": "wikidata",
+        "label": "Wikidata",
+        "group": "source",
+        "kind": "source",
+        "val": 7,
+        "color": "#34495e",
+        "ual": "did:dkg:knitweb/sha256-edc94c0331f5a84943687d9b3e20c77c79a409b4dc2a8e74edc56bad33d6d94c"
+      }
+    ],
+    "links": [
+      {
+        "source": "element:V",
+        "target": "kg:wikidata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "element:V",
+        "target": "kg:usgs-mrdata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "element:Cr",
+        "target": "kg:wikidata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "element:Cr",
+        "target": "kg:usgs-mrdata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:V2+aq",
+        "target": "element:V",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:V2+aq",
+        "target": "kg:phreeqc",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:V2+aq",
+        "target": "kg:wikidata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:V3+aq",
+        "target": "element:V",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:V3+aq",
+        "target": "kg:phreeqc",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:V3+aq",
+        "target": "kg:wikidata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:VO2+aq",
+        "target": "element:V",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:VO2+aq",
+        "target": "kg:phreeqc",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:VO2+aq",
+        "target": "kg:wikidata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:VO2+cat_aq",
+        "target": "element:V",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:VO2+cat_aq",
+        "target": "kg:phreeqc",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:VO2+cat_aq",
+        "target": "kg:wikidata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:vanadate_aq",
+        "target": "element:V",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:vanadate_aq",
+        "target": "kg:phreeqc",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:vanadate_aq",
+        "target": "kg:wikidata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:V2O3",
+        "target": "element:V",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:V2O3",
+        "target": "kg:materials-project",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:V2O3",
+        "target": "kg:cod",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:VO2s",
+        "target": "element:V",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:VO2s",
+        "target": "kg:materials-project",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:VO2s",
+        "target": "kg:cod",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:V2O5",
+        "target": "element:V",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:V2O5",
+        "target": "kg:materials-project",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:V2O5",
+        "target": "kg:cod",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:V2O5",
+        "target": "kg:usgs-mrdata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:Cr2+aq",
+        "target": "element:Cr",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:Cr2+aq",
+        "target": "kg:phreeqc",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:Cr2+aq",
+        "target": "kg:wikidata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:Cr3+aq",
+        "target": "element:Cr",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:Cr3+aq",
+        "target": "kg:phreeqc",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:Cr3+aq",
+        "target": "kg:wikidata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:chromate_aq",
+        "target": "element:Cr",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:chromate_aq",
+        "target": "kg:phreeqc",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:chromate_aq",
+        "target": "kg:wikidata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:dichromate_aq",
+        "target": "element:Cr",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:dichromate_aq",
+        "target": "kg:phreeqc",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:dichromate_aq",
+        "target": "kg:wikidata",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:Cr2O3",
+        "target": "element:Cr",
+        "label": "hasElement"
+      },
+      {
+        "source": "species:Cr2O3",
+        "target": "kg:materials-project",
+        "label": "attestedBy"
+      },
+      {
+        "source": "species:Cr2O3",
+        "target": "kg:cod",
+        "label": "attestedBy"
+      }
+    ]
+  },
+  "@graph": [
+    {
+      "subject": "element:V",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "element:V",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:usgs-mrdata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "element:Cr",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "element:Cr",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:usgs-mrdata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2+aq",
+      "predicate": "chemfield:hasElement",
+      "object": "element:V",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2+aq",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "2",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2+aq",
+      "predicate": "chemfield:hasPhase",
+      "object": "aqueous",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2+aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:phreeqc",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2+aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V3+aq",
+      "predicate": "chemfield:hasElement",
+      "object": "element:V",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V3+aq",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "3",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V3+aq",
+      "predicate": "chemfield:hasPhase",
+      "object": "aqueous",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V3+aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:phreeqc",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V3+aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2+aq",
+      "predicate": "chemfield:hasElement",
+      "object": "element:V",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2+aq",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "4",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2+aq",
+      "predicate": "chemfield:hasPhase",
+      "object": "aqueous",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2+aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:phreeqc",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2+aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2+cat_aq",
+      "predicate": "chemfield:hasElement",
+      "object": "element:V",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2+cat_aq",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "5",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2+cat_aq",
+      "predicate": "chemfield:hasPhase",
+      "object": "aqueous",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2+cat_aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:phreeqc",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2+cat_aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:vanadate_aq",
+      "predicate": "chemfield:hasElement",
+      "object": "element:V",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:vanadate_aq",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "5",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:vanadate_aq",
+      "predicate": "chemfield:hasPhase",
+      "object": "aqueous",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:vanadate_aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:phreeqc",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:vanadate_aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2O3",
+      "predicate": "chemfield:hasElement",
+      "object": "element:V",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2O3",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "3",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2O3",
+      "predicate": "chemfield:hasPhase",
+      "object": "solid",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2O3",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:materials-project",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2O3",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:cod",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2s",
+      "predicate": "chemfield:hasElement",
+      "object": "element:V",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2s",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "4",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2s",
+      "predicate": "chemfield:hasPhase",
+      "object": "solid",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2s",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:materials-project",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:VO2s",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:cod",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2O5",
+      "predicate": "chemfield:hasElement",
+      "object": "element:V",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2O5",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "5",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2O5",
+      "predicate": "chemfield:hasPhase",
+      "object": "solid",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2O5",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:materials-project",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2O5",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:cod",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:V2O5",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:usgs-mrdata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr2+aq",
+      "predicate": "chemfield:hasElement",
+      "object": "element:Cr",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr2+aq",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "2",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr2+aq",
+      "predicate": "chemfield:hasPhase",
+      "object": "aqueous",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr2+aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:phreeqc",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr2+aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr3+aq",
+      "predicate": "chemfield:hasElement",
+      "object": "element:Cr",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr3+aq",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "3",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr3+aq",
+      "predicate": "chemfield:hasPhase",
+      "object": "aqueous",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr3+aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:phreeqc",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr3+aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:chromate_aq",
+      "predicate": "chemfield:hasElement",
+      "object": "element:Cr",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:chromate_aq",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "6",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:chromate_aq",
+      "predicate": "chemfield:hasPhase",
+      "object": "aqueous",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:chromate_aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:phreeqc",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:chromate_aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:dichromate_aq",
+      "predicate": "chemfield:hasElement",
+      "object": "element:Cr",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:dichromate_aq",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "6",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:dichromate_aq",
+      "predicate": "chemfield:hasPhase",
+      "object": "aqueous",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:dichromate_aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:phreeqc",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:dichromate_aq",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:wikidata",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr2O3",
+      "predicate": "chemfield:hasElement",
+      "object": "element:Cr",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr2O3",
+      "predicate": "chemfield:hasOxidationState",
+      "object": "3",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr2O3",
+      "predicate": "chemfield:hasPhase",
+      "object": "solid",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr2O3",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:materials-project",
+      "type": "Dataset",
+      "weight": 1
+    },
+    {
+      "subject": "species:Cr2O3",
+      "predicate": "chemfield:attestedBy",
+      "object": "kg:cod",
+      "type": "Dataset",
+      "weight": 1
+    }
+  ],
+  "origintrailAsset": {
+    "origintrail_id": "chemfield:species-graph:v-cr:v1",
+    "originator": "ChemField OpenChem",
+    "namespace": "did:dkg:knitweb",
+    "assertion": "Structural speciation graph for vanadium and chromium (species identity, oxidation state, phase). Reference facts only; thermodynamic values are enriched live from the linked sources. Provenance chains to data/chemfield-kg-sources.json UALs.",
+    "linked_sources": [
+      {
+        "id": "kg:cod",
+        "title": "Crystallography Open Database (COD)",
+        "ual": "did:dkg:knitweb/sha256-c2114ef61b168eb2921d1d44a43cd446dff2e8a44b1dcc70d38821a3255c7f69"
+      },
+      {
+        "id": "kg:materials-project",
+        "title": "Materials Project",
+        "ual": "did:dkg:knitweb/sha256-ca4dc26cf4d5e33d21c8947425435b193459ef0bac593f80d8d5d807c9712539"
+      },
+      {
+        "id": "kg:phreeqc",
+        "title": "PHREEQC thermodynamic databases",
+        "ual": "did:dkg:knitweb/sha256-af9f54646d04150f8986e0ead50aecf4be72354c5f58b52d4ebbaf81e037323b"
+      },
+      {
+        "id": "kg:usgs-mrdata",
+        "title": "USGS Mineral Resources Online Spatial Data (MRDATA)",
+        "ual": "did:dkg:knitweb/sha256-44e1d8d9c4a723e5dd18806e7a28b4e1a83020a40beca05ee59a681c9d1c1dd5"
+      },
+      {
+        "id": "kg:wikidata",
+        "title": "Wikidata",
+        "ual": "did:dkg:knitweb/sha256-edc94c0331f5a84943687d9b3e20c77c79a409b4dc2a8e74edc56bad33d6d94c"
+      }
+    ],
+    "cid": "sha256:008249d4a916f577c4f2744d8a23c6ac564fa5409eb2948e41c3d0436dc14a4b",
+    "ual": "did:dkg:knitweb/sha256-008249d4a916f577c4f2744d8a23c6ac564fa5409eb2948e41c3d0436dc14a4b"
+  },
+  "cid": "sha256:fe97f43bd5667ee0367b9202dd3e161ed5ae3f53e482b1e78d95ceee9e0d14e3",
+  "ual": "did:dkg:knitweb/sha256-fe97f43bd5667ee0367b9202dd3e161ed5ae3f53e482b1e78d95ceee9e0d14e3"
+}

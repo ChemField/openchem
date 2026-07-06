@@ -130,6 +130,31 @@ catalog changed. `.github/workflows/ci.yml` fails any push/PR that leaves the
 catalog stale. Add a new live metric by appending a probe to `PROBES` in
 `refresh_kg_sources.py`; add a new source by editing the seed and rebuilding.
 
+## V/Cr speciation field graph (3D)
+
+The first field/1 graph built on the catalog: vanadium & chromium speciation
+(species identity, oxidation state, phase) — structural reference facts only, no
+invented thermodynamics. Directly supports the VANELEX thesis (V₂O₅ recovered
+from BOF steel slag → VRFB electrolyte).
+
+```text
+data/species-graph.seed.json        # curated V/Cr species
+data/chemfield-species-graph.json   # built graph (forceGraph + @graph + OriginTrail asset)
+species-graph.html                  # 3d-force-graph viewer (GitHub Pages)
+```
+
+Every node carries a `cid`/`ual`, and the graph's `origintrailAsset.linked_sources`
+chains straight back to the UALs minted in `data/chemfield-kg-sources.json`
+(Materials Project, PHREEQC, COD, Wikidata, USGS MRDATA). Rebuild:
+
+```sh
+python3 tools/build_species_graph.py --date 2026-07-06
+python3 tools/build_species_graph.py --check --date ...   # CI drift guard
+```
+
+Thermodynamic enrichment (Pourbaix boundaries, log K) is the next live step —
+pulled from Materials Project `get_pourbaix_entries()` and PHREEQC, never invented.
+
 ## ClosedChem
 
 ClosedChem is the permissioned counterpart for opted-in closed P2P chemistry knitworks.
