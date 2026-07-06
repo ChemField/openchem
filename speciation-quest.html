@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MOLGANG: Speciation Quest — ChemField</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(1200px 800px at 70% -10%, #16202c, #0b0f14);
+      color: #e6edf3; font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .wrap { max-width: 780px; margin: 0 auto; padding: 22px 18px 60px; }
+    h1 { font-size: 22px; margin: 0 0 2px; }
+    .tag { color: #9aa7b4; font-size: 13px; }
+    .card { background: rgba(22,29,38,.85); border: 1px solid #2a3441; border-radius: 14px; padding: 18px; margin: 16px 0; }
+    .levels { display: flex; flex-wrap: wrap; gap: 8px; }
+    .lvlbtn { background: #1b2530; border: 1px solid #2a3441; color: #cdd9e5; border-radius: 9px; padding: 8px 12px; cursor: pointer; font-size: 13px; }
+    .lvlbtn.active { border-color: #58a6ff; color: #fff; background: #223146; }
+    .lvlbtn.done::after { content: " ✓"; color: #7ee787; }
+    .story { color: #b7c2cd; font-size: 14px; margin: 6px 0 0; }
+    .species { display: flex; align-items: center; gap: 16px; margin: 14px 0; }
+    .orb { width: 78px; height: 78px; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center;
+      font-weight: 700; font-size: 18px; color: #08121b; box-shadow: 0 0 34px -6px currentColor; }
+    .species .meta b { font-size: 19px; }
+    .pill { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; border: 1px solid #3a4757; color: #b7c2cd; margin-right: 6px; }
+    .goal { color: #9aa7b4; font-size: 13px; }
+    .goal b { color: #e6edf3; }
+    .moves { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+    .move { flex: 1 1 46%; text-align: left; background: #1a2431; border: 1px solid #33414f; color: #e6edf3;
+      border-radius: 10px; padding: 11px 13px; cursor: pointer; transition: .12s; }
+    .move:hover { border-color: #58a6ff; transform: translateY(-1px); }
+    .move .k { font-size: 12px; color: #9aa7b4; }
+    .move .t { font-weight: 600; }
+    .trail { font-size: 13px; color: #9aa7b4; margin-top: 12px; word-break: break-word; }
+    .trail b { color: #cdd9e5; }
+    .hud { display: flex; gap: 18px; font-size: 13px; color: #9aa7b4; margin-top: 4px; }
+    .hud b { color: #e6edf3; }
+    .toast { min-height: 20px; font-size: 13px; color: #f0b37e; margin-top: 8px; }
+    .win { border-color: #2ea043; background: rgba(35,80,45,.35); }
+    .win h2 { margin: 0 0 6px; color: #7ee787; }
+    code { color: #7ee787; word-break: break-all; font-size: 11.5px; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .btn { background: #223146; border: 1px solid #345; color: #fff; border-radius: 9px; padding: 9px 14px; cursor: pointer; }
+    .btn.ghost { background: transparent; }
+    a { color: #58a6ff; }
+    .foot { color: #6b7885; font-size: 12px; margin-top: 26px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>MOLGANG · Speciation Quest</h1>
+    <div class="tag">Transmuteer species langs echte oxidatietoestanden. Regels = de ChemField V/Cr-speciatiegraaf. Geen verzonnen chemie.</div>
+
+    <div class="card">
+      <div class="levels" id="levels"></div>
+      <p class="story" id="story"></p>
+    </div>
+
+    <div class="card" id="board">
+      <div class="species">
+        <div class="orb" id="orb">–</div>
+        <div class="meta">
+          <b id="spFormula">–</b> <span id="spName" class="goal"></span><br/>
+          <span class="pill" id="spOx">–</span><span class="pill" id="spPhase">–</span>
+        </div>
+      </div>
+      <div class="goal">Doel: <b id="goal">–</b></div>
+      <div class="moves" id="moves"></div>
+      <div class="toast" id="toast"></div>
+      <div class="hud"><span>Zetten: <b id="steps">0</b></span><span>Par: <b id="par">–</b></span></div>
+      <div class="trail" id="trail"></div>
+    </div>
+
+    <div class="card win" id="win" style="display:none">
+      <h2 id="winTitle">Level voltooid!</h2>
+      <div id="winMsg" class="story"></div>
+      <div class="hud" style="margin-top:8px"><span>Zetten: <b id="winSteps">0</b> / par <b id="winPar">0</b></span><span id="winRank"></span></div>
+      <p class="goal" style="margin-top:12px">Ondertekend voltooiingsrecord (field/1, OriginTrail-klaar):</p>
+      <div>UAL: <code id="winUal">–</code></div>
+      <div class="row">
+        <button class="btn" id="nextBtn">Volgend level →</button>
+        <button class="btn ghost" id="retryBtn">Opnieuw</button>
+        <button class="btn ghost" id="copyBtn">Kopieer record</button>
+      </div>
+    </div>
+
+    <div class="foot">
+      Data: <a href="data/chemfield-species-graph.json">chemfield-species-graph.json</a> ·
+      3D-graaf: <a href="species-graph.html">species-graph.html</a> ·
+      bronnen: <a href="data/chemfield-kg-sources.json">kg-sources</a>
+    </div>
+  </div>
+
+  <script>
+  const OX_COLOR = {2:'#8e44ad',3:'#27ae60',4:'#2980b9',5:'#f39c12',6:'#e74c3c'};
+  const MOVE_META = {
+    oxidise:    {k:'⬆ Oxideer',  verb:'oxidatie'},
+    reduce:     {k:'⬇ Reduceer', verb:'reductie'},
+    precipitate:{k:'⬛ Precipiteer', verb:'neerslag'},
+    dissolve:   {k:'💧 Los op',  verb:'oplossing'},
+  };
+  let SP = {}, LEVELS = [], cur = null, level = null, steps = 0, path = [];
+  const done = JSON.parse(localStorage.getItem('cf_quest_done') || '{}');
+
+  const $ = id => document.getElementById(id);
+  const short = s => s.split(':').pop();
+
+  function neighbours(sid) {
+    const s = SP[sid], same = Object.values(SP).filter(o => o.element === s.element);
+    const out = [];
+    const higher = same.filter(o => o.phase === s.phase && o.ox > s.ox);
+    if (higher.length) { const nx = Math.min(...higher.map(o=>o.ox));
+      higher.filter(o=>o.ox===nx).forEach(o => out.push({move:'oxidise', t:o.id, dE:o.ox-s.ox})); }
+    const lower = same.filter(o => o.phase === s.phase && o.ox < s.ox);
+    if (lower.length) { const pv = Math.max(...lower.map(o=>o.ox));
+      lower.filter(o=>o.ox===pv).forEach(o => out.push({move:'reduce', t:o.id, dE:s.ox-o.ox})); }
+    if (s.phase === 'aqueous') same.filter(o=>o.phase==='solid'&&o.ox===s.ox).forEach(o=>out.push({move:'precipitate',t:o.id,dE:0}));
+    else same.filter(o=>o.phase==='aqueous'&&o.ox===s.ox).forEach(o=>out.push({move:'dissolve',t:o.id,dE:0}));
+    return out;
+  }
+
+  function renderSpecies() {
+    const s = SP[cur], c = s.color || OX_COLOR[s.ox] || '#95a5a6';
+    const orb = $('orb'); orb.textContent = s.formula; orb.style.background = c; orb.style.color = c;
+    $('spFormula').textContent = s.formula; $('spName').textContent = s.label;
+    $('spOx').textContent = 'oxidatie ' + (s.ox>0?'+':'') + s.ox; $('spPhase').textContent = s.phase;
+    $('steps').textContent = steps;
+    $('trail').innerHTML = 'Pad: ' + path.map(p => '<b>'+SP[p].formula+'</b>').join(' → ');
+  }
+
+  function renderMoves() {
+    const box = $('moves'); box.innerHTML = '';
+    neighbours(cur).forEach(mv => {
+      const t = SP[mv.t], m = MOVE_META[mv.move];
+      const b = document.createElement('button'); b.className = 'move';
+      const eln = mv.dE ? ` · ${mv.dE} e⁻ ${m.verb}` : '';
+      b.innerHTML = `<div class="k">${m.k}${eln}</div><div class="t">→ ${t.formula} <span class="goal">(${t.label})</span></div>`;
+      b.onclick = () => doMove(mv);
+      box.appendChild(b);
+    });
+  }
+
+  function doMove(mv) {
+    cur = mv.t; steps++; path.push(cur); $('toast').textContent = '';
+    if (cur === level.target) return win();
+    renderSpecies(); renderMoves();
+  }
+
+  async function sha256Hex(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+  function canonical(o){ return JSON.stringify(sortKeys(o)); }
+  function sortKeys(o){ if(Array.isArray(o)) return o.map(sortKeys);
+    if(o&&typeof o==='object'){const r={};Object.keys(o).sort().forEach(k=>r[k]=sortKeys(o[k]));return r;} return o; }
+
+  async function win() {
+    $('board').style.display = 'none';
+    const w = $('win'); w.style.display = 'block';
+    $('winTitle').textContent = level.title + ' ✓';
+    $('winMsg').textContent = level.winMessage || '';
+    $('winSteps').textContent = steps; $('winPar').textContent = level.par;
+    $('winRank').textContent = steps <= level.par ? '★ par of beter' : '';
+    const record = { kind:'chemfield-quest-completion', schemaVersion:'chemfield-quest-completion-v1',
+      level: level.id, element: level.element, target: level.target,
+      path: path.slice(), moves: steps, par: level.par, optimal: steps <= level.par };
+    const cid = 'sha256:' + await sha256Hex(canonical(record));
+    const ual = 'did:dkg:knitweb/sha256-' + cid.split('sha256:')[1];
+    record.cid = cid; record.ual = ual;
+    $('winUal').textContent = ual;
+    $('copyBtn').onclick = () => navigator.clipboard.writeText(JSON.stringify(record, null, 2));
+    done[level.id] = { moves: steps, par: level.par, ual };
+    localStorage.setItem('cf_quest_done', JSON.stringify(done));
+    renderLevels();
+    const idx = LEVELS.indexOf(level);
+    $('nextBtn').style.display = idx < LEVELS.length-1 ? 'inline-block' : 'none';
+    $('nextBtn').onclick = () => start(LEVELS[idx+1]);
+    $('retryBtn').onclick = () => start(level);
+  }
+
+  function start(lvl) {
+    level = lvl; cur = lvl.start; steps = 0; path = [cur];
+    $('win').style.display = 'none'; $('board').style.display = 'block';
+    $('story').textContent = lvl.story; $('par').textContent = lvl.par;
+    $('goal').textContent = SP[lvl.target].formula + ' (' + SP[lvl.target].label + ')';
+    $('toast').textContent = '';
+    renderLevels(); renderSpecies(); renderMoves();
+  }
+
+  function renderLevels() {
+    const box = $('levels'); box.innerHTML = '';
+    LEVELS.forEach(l => {
+      const b = document.createElement('button');
+      b.className = 'lvlbtn' + (level && l.id===level.id ? ' active':'') + (done[l.id] ? ' done':'');
+      b.textContent = l.order + '. ' + l.title;
+      b.onclick = () => start(l); box.appendChild(b);
+    });
+  }
+
+  Promise.all([
+    fetch('data/chemfield-species-graph.json').then(r=>r.json()),
+    fetch('data/quest-levels.json').then(r=>r.json()),
+  ]).then(([g, q]) => {
+    g.forceGraph.nodes.filter(n=>n.kind==='species').forEach(n => {
+      SP[n.id] = { id:n.id, element:n.element, ox:+n.oxidationState, phase:n.phase, formula:n.name, label:n.label, color:n.color };
+    });
+    LEVELS = q.levels.sort((a,b)=>a.order-b.order);
+    start(LEVELS[0]);
+  }).catch(e => { $('board').innerHTML = '<p>Kon data niet laden: '+e+'</p>'; });
+  </script>
+</body>
+</html>

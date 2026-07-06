@@ -155,6 +155,32 @@ python3 tools/build_species_graph.py --check --date ...   # CI drift guard
 Thermodynamic enrichment (Pourbaix boundaries, log K) is the next live step —
 pulled from Materials Project `get_pourbaix_entries()` and PHREEQC, never invented.
 
+## MOLGANG: Speciation Quest (playable)
+
+An educational browser game built directly on the speciation graph — its rules
+*are* the data, so it can never teach chemistry the graph doesn't contain.
+
+```text
+data/quest-levels.json     # level definitions (start/target species, story, par)
+speciation-quest.html      # the game (self-contained, no build step)
+tools/build_quest.py       # validates every level is solvable against the graph
+```
+
+Transmute a species along real oxidation-state transitions with four moves —
+**oxidise / reduce / precipitate / dissolve** — each derived from the graph
+(next existing oxidation state in-phase; phase change at equal state). Levels:
+
+1. **Vanadium uit staalslak** — V(III) → V₂O₅ (the VANELEX electrolyte precursor).
+2. **Chroom onschadelijk maken** — toxic Cr(VI) chromate → benign Cr₂O₃.
+3. **Laad de VRFB** — V₂O₅ down the ladder to charged V(II) negative electrolyte.
+
+Winning mints a signed `field/1` completion record (client-side SHA-256 →
+`cid`/`ual`), consistent with ChemField's verifiable-facts model. Validate:
+
+```sh
+python3 tools/build_quest.py       # all levels solvable
+```
+
 ## ClosedChem
 
 ClosedChem is the permissioned counterpart for opted-in closed P2P chemistry knitworks.
