@@ -1,0 +1,14 @@
+# githfield.yml — links this repo's docs & backlog into githfield (product-management field)
+field:   chemfield
+name:    "ChemField · OpenChem"
+accent:  "#3fb6a8"
+summary: Signed steel-slag composition dataset + recovery chemistry
+homepage: https://chemfield.github.io
+backlog:
+  labels: []
+  group_by: "nacht-"
+docs:
+  - { title: "Vanadium recovery from steel slag", path: "docs/vanadium-recovery-from-steel-slag.md", stage: research }
+  - { title: "Slag-run game design",              path: "docs/slag-run-game-design.md",              stage: design }
+  - { title: "Dataset validation (CI)",           path: "docs/ci-validate.md",                       stage: reference }
+  - { title: "5mart deploy",                      path: "docs/deploy-5mart.md",                       stage: reference }
