@@ -1,0 +1,46 @@
+{
+  "kind": "chemfield-quest-levels",
+  "schemaVersion": "chemfield-quest-levels-v1",
+  "note": "Level definitions for MOLGANG: Speciation Quest. Start/target reference species ids in data/chemfield-species-graph.json; tools/build_quest.py validates that every referenced species exists and that the target is reachable via oxidise/reduce/precipitate/dissolve moves. Educational, on-brand with VANELEX (V) and Cr(VI) remediation.",
+  "moves": {
+    "oxidise": "Move to the next-higher oxidation state that exists for this element in the current phase (loses electrons).",
+    "reduce": "Move to the next-lower oxidation state that exists for this element in the current phase (gains electrons).",
+    "precipitate": "Same oxidation state, aqueous -> solid oxide.",
+    "dissolve": "Same oxidation state, solid -> aqueous."
+  },
+  "levels": [
+    {
+      "id": "level:v-from-slag",
+      "order": 1,
+      "title": "Vanadium uit staalslak",
+      "element": "V",
+      "start": "species:V3+aq",
+      "target": "species:V2O5",
+      "par": 3,
+      "story": "Uit BOF-staalslak geloogd vanadium zit als V(III) in oplossing. Oxideer het naar V(V) en sla het neer als V2O5 — de grondstof voor VRFB-batterij-elektrolyt (VANELEX).",
+      "winMessage": "V2O5 gewonnen! Dit is de VANELEX-elektrolytprecursor."
+    },
+    {
+      "id": "level:cr-detox",
+      "order": 2,
+      "title": "Chroom onschadelijk maken",
+      "element": "Cr",
+      "start": "species:chromate_aq",
+      "target": "species:Cr2O3",
+      "par": 2,
+      "story": "Chromaat is Cr(VI): giftig en kankerverwekkend. Reduceer het naar het onschadelijke Cr(III) en leg het vast als stabiel Cr2O3 — de kern van chroom-VI-sanering.",
+      "winMessage": "Cr(VI) geneutraliseerd naar stabiel Cr2O3. Milieurisico weggenomen."
+    },
+    {
+      "id": "level:charge-vrfb",
+      "order": 3,
+      "title": "Laad de VRFB (negatieve elektrolyt)",
+      "element": "V",
+      "start": "species:V2O5",
+      "target": "species:V2+aq",
+      "par": 4,
+      "story": "Los V2O5 op en elektro-reduceer het helemaal langs de vanadiumladder V(V)->V(IV)->V(III)->V(II). Het geladen V(II) is de negatieve elektrolyt van een vanadium-redox-flowbatterij.",
+      "winMessage": "Geladen V(II)-elektrolyt gereed — de negatieve tank van de VRFB is opgeladen."
+    }
+  ]
+}
