@@ -88,6 +88,8 @@ The `rewards` route is a scenario calculator, not a yield promise. OriginTrail C
 
 ## External knowledge-graph source catalog
 
+> Achtergrond/keuzes: [`docs/kg-visualization-and-data-sources.md`](docs/kg-visualization-and-data-sources.md) — geannoteerde lijst van 3D-graafviz-tools (3d-force-graph, Graphistry, GraphXR) en chemie-KG-bronnen (Materials Project/Pourbaix, OPTIMADE, MatKG, COD, PHREEQC/GEMS), met licentie-aandachtspunten.
+
 ChemField draws on public chemical knowledge graphs and linked-data sources
 (Materials Project, OPTIMADE, MatKG, COD, Wikidata, PubChemRDF, ChEBI, RRUFF,
 EMMO, PHREEQC/GEMS, USGS MRDATA, …). These are curated in:
