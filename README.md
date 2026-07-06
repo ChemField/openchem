@@ -1,6 +1,20 @@
 # OpenChem
 
+[![CI](https://github.com/ChemField/openchem/actions/workflows/ci.yml/badge.svg)](https://github.com/ChemField/openchem/actions/workflows/ci.yml)
+
 Static landing page for the OpenHydroChem / ChemExtract AI project.
+
+## Validate the dataset
+
+```sh
+npm run validate      # of: make validate  /  node tools/validate.mjs
+```
+
+Controleert `data/chemfield-compositions.json`: cid/ual-vorm & -consistentie,
+referentiële integriteit, alias-pointers (`chemfield.json` …) → huidige root-CID/UAL,
+elk Noord-Holland clay-record **locked** (`not_measured`) met een
+`clay_dry_mass_balance_template`, en mass-balance-links in de OriginTrail-assertion-graph.
+Draait in CI op elke PR — rood = geen merge. De workflow staat klaar in `ci/ci.yml`; verplaats die naar `.github/workflows/ci.yml` (vereist `workflow`-scope, owner-stap) om CI te activeren.
 
 ## Local preview
 

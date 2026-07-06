@@ -1,0 +1,10 @@
+{
+  "name": "openchem",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ChemField composition dataset, aliases, validation and the 5mart/OriginTrail publication path",
+  "scripts": {
+    "validate": "node tools/validate.mjs"
+  }
+}
