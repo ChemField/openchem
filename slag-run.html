@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MOLGANG · Slag Run — van staalslak naar vanadium</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(1100px 760px at 72% -12%, #1a1410, #0b0f14);
+      color: #e6edf3; font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .wrap { max-width: 800px; margin: 0 auto; padding: 20px 18px 60px; }
+    h1 { font-size: 22px; margin: 0 0 2px; }
+    .tag { color: #9aa7b4; font-size: 13px; }
+    .hud { position: sticky; top: 0; z-index: 5; display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0;
+      background: rgba(11,15,20,.9); padding: 10px 0; backdrop-filter: blur(6px); }
+    .stat { background: #161d26; border: 1px solid #2a3441; border-radius: 10px; padding: 8px 14px; font-size: 14px; }
+    .stat b { font-size: 17px; }
+    .stat .lab { color: #9aa7b4; font-size: 11px; display: block; }
+    .card { background: rgba(22,29,38,.85); border: 1px solid #2a3441; border-radius: 14px; padding: 16px 18px; margin: 14px 0; }
+    .card h2 { font-size: 16px; margin: 0 0 4px; }
+    .card .desc { color: #9aa7b4; font-size: 13px; margin: 0 0 10px; }
+    .opts { display: flex; flex-wrap: wrap; gap: 10px; }
+    .opt { flex: 1 1 46%; text-align: left; background: #1a2431; border: 1px solid #33414f; color: #e6edf3;
+      border-radius: 10px; padding: 11px 13px; cursor: pointer; transition: .12s; }
+    .opt:hover:not(:disabled) { border-color: #e08a3c; transform: translateY(-1px); }
+    .opt:disabled { opacity: .4; cursor: not-allowed; }
+    .opt .t { font-weight: 600; }
+    .opt .m { color: #9aa7b4; font-size: 12px; margin-top: 3px; }
+    .opt .c { color: #e0a04c; font-size: 12px; }
+    .inv { font-size: 13px; color: #b7c2cd; }
+    .inv .b { display: inline-block; background: #202b38; border: 1px solid #33414f; border-radius: 8px; padding: 3px 8px; margin: 3px 4px 0 0; }
+    #log { font-size: 13px; color: #9aa7b4; max-height: 190px; overflow: auto; margin-top: 8px; }
+    #log div { padding: 2px 0; border-bottom: 1px solid #1a222c; }
+    #log .day { color: #e0a04c; }
+    .btn { background: #223146; border: 1px solid #345; color: #fff; border-radius: 9px; padding: 9px 14px; cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn.go { background: #2ea043; border-color: #2ea043; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+    a { color: #58a6ff; }
+    code { color: #7ee787; word-break: break-all; font-size: 11.5px; }
+    .foot { color: #6b7885; font-size: 12px; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>MOLGANG · Slag Run</h1>
+    <div class="tag">Win staalslak, vermaal het, loog het vanadium eruit — en raffineer het in de Speciation Quest tot VRFB-elektrolyt.</div>
+
+    <div class="hud" id="hud"></div>
+
+    <div class="card">
+      <h2 id="stageTitle">1 · Onderzoeksbudget</h2>
+      <p class="desc" id="stageDesc"></p>
+      <div class="opts" id="opts"></div>
+      <div class="inv" id="inv"></div>
+    </div>
+
+    <div class="card" id="finishCard" style="display:none">
+      <h2>Productie afgerond 🔋</h2>
+      <div class="desc" id="finishMsg"></div>
+      <div>Ondertekend productierecord (field/1, OriginTrail-klaar):</div>
+      <div>UAL: <code id="ual">–</code></div>
+      <div class="row">
+        <a class="btn go" href="speciation-quest.html">→ Raffineer in de Speciation Quest</a>
+        <button class="btn" id="copyBtn">Kopieer record</button>
+        <button class="btn" id="resetBtn">Opnieuw</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:14px">Logboek</h2>
+      <div id="log"></div>
+    </div>
+
+    <div class="foot">
+      Config: <a href="data/production-chain.json">production-chain.json</a> ·
+      Ontwerp: <a href="docs/slag-run-game-design.md">game-design</a> ·
+      Chemie: <a href="docs/vanadium-recovery-from-steel-slag.md">procesdoc</a> ·
+      Raffinage: <a href="speciation-quest.html">Speciation Quest</a>
+    </div>
+  </div>
+
+  <script>
+  let CFG = null;
+  const S = { day: 0, eur: 0, hasGrant: false, buckets: [], mills: {}, v2o5: 0, strength: 20 };
+  const $ = id => document.getElementById(id);
+  const fmt = n => (Math.round(n * 100) / 100).toLocaleString('nl-NL');
+
+  function log(msg, day) {
+    const d = document.createElement('div');
+    d.innerHTML = (day ? `<span class="day">Dag ${S.day}</span> · ` : '') + msg;
+    $('log').prepend(d);
+  }
+  function advance(days) { S.day += days; }
+  function labour(kind, n) {
+    const gain = (CFG.player.strengthPerLabourAction || 0.5) * n;
+    S.strength += gain;
+    return gain;
+  }
+
+  function recovery(sizeMm) {
+    const pts = [...CFG.leach.yieldBySizeMm].sort((a, b) => a.sizeMm - b.sizeMm);
+    if (sizeMm <= pts[0].sizeMm) return pts[0].recovery;
+    if (sizeMm >= pts[pts.length - 1].sizeMm) return pts[pts.length - 1].recovery;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const a = pts[i], b = pts[i + 1];
+      if (sizeMm >= a.sizeMm && sizeMm <= b.sizeMm) {
+        const f = (sizeMm - a.sizeMm) / (b.sizeMm - a.sizeMm);
+        return a.recovery + f * (b.recovery - a.recovery);
+      }
+    }
+    return pts[0].recovery;
+  }
+
+  function renderHud() {
+    $('hud').innerHTML =
+      `<div class="stat"><span class="lab">Speeldag</span><b>${S.day}</b></div>` +
+      `<div class="stat"><span class="lab">Budget</span><b>€${fmt(S.eur)}</b></div>` +
+      `<div class="stat"><span class="lab">Kracht</span><b>${fmt(S.strength)}</b></div>` +
+      `<div class="stat"><span class="lab">Emmers</span><b>${S.buckets.length}</b></div>` +
+      `<div class="stat"><span class="lab">V₂O₅</span><b>${fmt(S.v2o5 * 1000)} g</b></div>`;
+  }
+
+  function bucketSummary() {
+    if (!S.buckets.length) return '<span class="inv">Nog geen staalslak in voorraad.</span>';
+    const groups = {};
+    S.buckets.forEach(b => { const k = `${b.name} · ${b.sizeMm}mm`; groups[k] = (groups[k] || 0) + 1; });
+    return 'Voorraad: ' + Object.entries(groups).map(([k, n]) => `<span class="b">${n}× ${k}</span>`).join('');
+  }
+
+  function opt(label, meta, cost, enabled, fn) {
+    const b = document.createElement('button');
+    b.className = 'opt'; b.disabled = !enabled;
+    b.innerHTML = `<div class="t">${label}</div><div class="m">${meta}</div>` + (cost ? `<div class="c">${cost}</div>` : '');
+    if (enabled) b.onclick = fn;
+    return b;
+  }
+
+  function render() {
+    renderHud();
+    const box = $('opts'); box.innerHTML = '';
+    const milledButUnleached = S.buckets.length > 0;
+
+    if (!S.hasGrant) {
+      $('stageTitle').textContent = '1 · Onderzoeksbudget aanvragen';
+      $('stageDesc').innerHTML = CFG.research.flavor;
+      box.appendChild(opt('Vraag onderzoeksbudget aan',
+        `Toekenning na ${CFG.research.leadTimeDays} weken`, `+€${fmt(CFG.research.grantEur)}`,
+        true, () => {
+          advance(CFG.research.leadTimeDays);
+          S.eur += CFG.research.grantEur; S.hasGrant = true;
+          log(`Onderzoeksbudget toegekend: <b>€${fmt(CFG.research.grantEur)}</b>.`, true);
+          render();
+        }));
+    }
+
+    CFG.feedstocks.forEach(f => {
+      if (f.requiresBudget) {
+        [1, 2, 4].forEach(q => {
+          const cost = q * f.pricePerBucketEur;
+          box.appendChild(opt(`Bestel ${q}× ${f.name}`,
+            `${f.bucketKg}kg · 0/8mm · levertijd ${f.deliveryDays}d`, `−€${fmt(cost)}`,
+            S.hasGrant && S.eur >= cost, () => {
+              S.eur -= cost; advance(f.deliveryDays);
+              for (let i = 0; i < q; i++) S.buckets.push({ name: f.name, kg: f.bucketKg, sizeMm: f.startSizeMm, vFrac: f.vanadiumMassFraction });
+              log(`${q}× ${f.name} geleverd (${fmt(q * f.bucketKg)}kg, 0/8mm).`, true);
+              render();
+            }));
+        });
+      } else {
+        box.appendChild(opt(`Foerageer: ${f.name}`,
+          `${f.maxBuckets}× ${f.bucketKg}kg · start ${f.startSizeMm}mm · reis ${f.travelDays}d · +spiermassa`, 'gratis',
+          true, () => {
+            advance(f.travelDays);
+            for (let i = 0; i < f.maxBuckets; i++) S.buckets.push({ name: f.name, kg: f.bucketKg, sizeMm: f.startSizeMm, vFrac: f.vanadiumMassFraction });
+            const g = labour(f.labour, f.maxBuckets);
+            log(`Gefoerageerd bij ${f.name}: ${f.maxBuckets}× ${f.bucketKg}kg (${f.startSizeMm}mm). Kracht +${fmt(g)}.`, true);
+            render();
+          }));
+      }
+    });
+
+    CFG.comminution.forEach(m => {
+      const total = m.costEur + m.mediaCostEur;
+      if (!S.mills[m.id]) {
+        box.appendChild(opt(`Koop ${m.name}`,
+          `tot ${m.outputSizeMm}mm · ${m.daysPerBucket}d/emmer${m.mediaNote ? ' · ' + m.mediaNote : ''}`,
+          total ? `−€${fmt(total)}` : 'gratis',
+          m.costEur === 0 || S.eur >= total, () => {
+            S.eur -= total; S.mills[m.id] = m;
+            log(`Aangeschaft: <b>${m.name}</b>${total ? ` (−€${fmt(total)})` : ''}.`, true);
+            render();
+          }));
+      }
+    });
+
+    Object.values(S.mills).forEach(m => {
+      const grindable = S.buckets.filter(b => b.sizeMm > m.outputSizeMm);
+      if (grindable.length) {
+        box.appendChild(opt(`Vermaal ${grindable.length} emmer(s) → ${m.outputSizeMm}mm`,
+          `${m.name} · ${m.daysPerBucket}d per emmer${m.id === 'mill:hand-hammer' ? ' · +spiermassa' : ''}`, `${fmt(grindable.length * m.daysPerBucket)}d`,
+          true, () => {
+            advance(grindable.length * m.daysPerBucket);
+            grindable.forEach(b => b.sizeMm = m.outputSizeMm);
+            let extra = '';
+            if (m.id === 'mill:hand-hammer') { const g = labour('hammer', grindable.length); extra = ` Kracht +${fmt(g)}.`; }
+            log(`${grindable.length} emmer(s) vermalen tot ${m.outputSizeMm}mm met de ${m.name}.${extra}`, true);
+            render();
+          }));
+      }
+    });
+
+    if (milledButUnleached) {
+      const preview = S.buckets.reduce((s, b) => s + b.kg * b.vFrac * recovery(b.sizeMm), 0) * CFG.product.v_to_v2o5_factor;
+      const maxSize = Math.max(...S.buckets.map(b => b.sizeMm));
+      const leachDays = Math.round(maxSize / 0.1 * CFG.leach.timeModel.daysPer0_1mmAt20C);
+      box.appendChild(opt(`Loog ${S.buckets.length} emmer(s)`,
+        `~${fmt(preview * 1000)} g V₂O₅ · grofste ${maxSize}mm → ${leachDays} dagen bij 20°C`, `${leachDays}d`,
+        true, () => {
+          advance(leachDays);
+          let v = 0;
+          S.buckets.forEach(b => v += b.kg * b.vFrac * recovery(b.sizeMm));
+          const v2o5 = v * CFG.product.v_to_v2o5_factor;
+          S.v2o5 += v2o5;
+          log(`Geloogd (${leachDays}d, grofste ${maxSize}mm): <b>${fmt(v2o5 * 1000)} g V₂O₅</b> uit ${S.buckets.length} emmer(s).`, true);
+          S.buckets = [];
+          render();
+        }));
+    }
+
+    if (S.v2o5 > 0 && S.buckets.length === 0) {
+      box.appendChild(opt('Rond productie af', `${fmt(S.v2o5 * 1000)} g V₂O₅ gereed`, '→ raffinage', true, finish));
+    }
+
+    $('inv').innerHTML = bucketSummary();
+  }
+
+  async function sha256Hex(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+  const sortKeys = o => Array.isArray(o) ? o.map(sortKeys) : (o && typeof o === 'object'
+    ? Object.keys(o).sort().reduce((r, k) => (r[k] = sortKeys(o[k]), r), {}) : o);
+
+  async function finish() {
+    const kwh = S.v2o5 * CFG.product.kwhPerKgV2O5;
+    $('finishCard').style.display = 'block';
+    $('finishMsg').innerHTML = `In <b>${S.day} speeldagen</b>, met kracht <b>${fmt(S.strength)}</b> en een resterend budget van <b>€${fmt(S.eur)}</b> ` +
+      `heb je <b>${fmt(S.v2o5 * 1000)} g V₂O₅</b> geproduceerd — goed voor ~<b>${fmt(kwh)} kWh</b> VRFB-elektrolyt. ` +
+      `Raffineer het nu in de Speciation Quest.`;
+    const record = { kind: 'chemfield-slag-run-record', schemaVersion: 'chemfield-slag-run-record-v1',
+      days: S.day, budgetLeftEur: Math.round(S.eur * 100) / 100, strength: Math.round(S.strength * 100) / 100,
+      v2o5_g: Math.round(S.v2o5 * 1000 * 100) / 100, kwh: Math.round(kwh * 1000) / 1000 };
+    const cid = 'sha256:' + await sha256Hex(JSON.stringify(sortKeys(record)));
+    record.cid = cid; record.ual = 'did:dkg:knitweb/sha256-' + cid.split('sha256:')[1];
+    $('ual').textContent = record.ual;
+    localStorage.setItem('cf_slagrun_v2o5_g', String(record.v2o5_g));
+    $('copyBtn').onclick = () => navigator.clipboard.writeText(JSON.stringify(record, null, 2));
+    $('finishCard').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  $('resetBtn').onclick = () => location.reload();
+
+  fetch('data/production-chain.json').then(r => r.json()).then(cfg => {
+    CFG = cfg;
+    S.strength = cfg.player.strengthStart;
+    log('Missie: win vanadium uit staalslak. Vraag eerst een onderzoeksbudget aan — of ga meteen gratis foerageren.');
+    render();
+  }).catch(e => { $('opts').innerHTML = 'Kon config niet laden: ' + e; });
+  </script>
+</body>
+</html>

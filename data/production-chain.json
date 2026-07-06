@@ -1,0 +1,160 @@
+{
+  "kind": "chemfield-production-chain",
+  "schemaVersion": "chemfield-production-chain-v1",
+  "note": "Economy + material config for the Slag Run game (upstream of the Speciation Quest). Time is measured in game-days; 1 week = 1 game-day. Numbers are gameplay-tuned but grounded in real hydrometallurgy (finer comminution -> more surface area -> higher recovery AND faster leaching) and the real Dutch context (Ekoliet 0/8mm steel-slag aggregate; steel slag in Amsterdamse Bos path foundations and Zeeland/Oosterschelde bank protection). Blocks player/tanks/agitation/largeEquipment are forward-looking mechanics specced in docs/slag-run-game-design.md and tracked in the backlog; the v1 game + validator use research/feedstocks/comminution/leach/product.",
+  "time": {"unit": "day", "note": "1 real week = 1 game-day"},
+  "research": {
+    "grantEur": 3000,
+    "leadTimeDays": 4,
+    "title": "Onderzoeksbudget staalslak-valorisatie",
+    "flavor": "Big Chemistry Startup (Oost NL) — aanvraag voor vanadium-terugwinning uit staalslak. Toekenning duurt 4 weken.",
+    "note": "Grant unlocks ordering graded ekoliet feedstock; foraging is free without it."
+  },
+  "feedstocks": [
+    {
+      "id": "feed:ekoliet",
+      "name": "Ekoliet 0/8mm",
+      "requiresBudget": true,
+      "bucketKg": 12.5,
+      "gradingMm": "0/8",
+      "startSizeMm": 8,
+      "pricePerBucketEur": 45,
+      "deliveryDays": 2,
+      "vanadiumMassFraction": 0.012,
+      "note": "Gecertificeerd Nederlands staalslak-granulaat (0/8mm), consistente V-graad; besteld op onderzoeksbudget."
+    },
+    {
+      "id": "feed:amsterdamse-bos",
+      "name": "Amsterdamse Bos (paden)",
+      "requiresBudget": false,
+      "bucketKg": 5,
+      "gradingMm": "onregelmatig",
+      "startSizeMm": 16,
+      "travelDays": 1,
+      "maxBuckets": 3,
+      "labour": "dig",
+      "vanadiumMassFraction": 0.009,
+      "note": "Staalslak uit padfunderingen opgraven; korte reis, kleine oogst, grovere brokken. Graven bouwt spiermassa."
+    },
+    {
+      "id": "feed:zeeland-waterwal",
+      "name": "Zeeland waterwallen (Oosterschelde)",
+      "requiresBudget": false,
+      "bucketKg": 5,
+      "gradingMm": "onregelmatig",
+      "startSizeMm": 24,
+      "travelDays": 3,
+      "maxBuckets": 6,
+      "labour": "haul",
+      "vanadiumMassFraction": 0.010,
+      "note": "Slak van de oeverbestorting oppakken; lange reis, grotere oogst, sterk verweerde grove brokken. Sjouwen bouwt spiermassa."
+    }
+  ],
+  "comminution": [
+    {
+      "id": "mill:hand-hammer",
+      "name": "Handhamer",
+      "costEur": 0,
+      "mediaCostEur": 0,
+      "outputSizeMm": 8,
+      "daysPerBucket": 1.5,
+      "labour": "hammer",
+      "note": "Gratis, traag, blijft grof (~8mm). Hameren bouwt spiermassa."
+    },
+    {
+      "id": "mill:hammer-mill",
+      "name": "Hamermolen",
+      "costEur": 2000,
+      "mediaCostEur": 0,
+      "outputSizeMm": 2,
+      "daysPerBucket": 0.25,
+      "note": "Snel, kapitaalintensief, tot 2mm."
+    },
+    {
+      "id": "mill:ball-mill",
+      "name": "Balmolen + V/Cr-maalballen",
+      "costEur": 200,
+      "mediaCostEur": 500,
+      "mediaNote": "vanadium-chromium maalballen",
+      "outputSizeMm": 0.1,
+      "daysPerBucket": 1.0,
+      "note": "Goedkoop apparaat, dure media; traag maar fijn tot 0.1mm."
+    },
+    {
+      "id": "mill:large-hammer-mill",
+      "name": "Grote hamermolen",
+      "costEur": 6000,
+      "mediaCostEur": 0,
+      "outputSizeMm": 2,
+      "daysPerBucket": 0.1,
+      "tier": "industrial",
+      "note": "Hoge doorzet tot 2mm; verlaagt maaltijd per emmer sterk."
+    },
+    {
+      "id": "mill:large-ball-mill",
+      "name": "Grote balmolen",
+      "costEur": 10000,
+      "mediaCostEur": 500,
+      "mediaNote": "vanadium-chromium maalballen",
+      "outputSizeMm": 0.1,
+      "daysPerBucket": 0.4,
+      "tier": "industrial",
+      "note": "Hoge doorzet tot 0.1mm; combineert fijnheid met snelheid."
+    }
+  ],
+  "leach": {
+    "note": "Recovery vs. particle size (surface-area driven). Interpolated between points; finer = higher.",
+    "yieldBySizeMm": [
+      {"sizeMm": 24, "recovery": 0.20},
+      {"sizeMm": 8, "recovery": 0.35},
+      {"sizeMm": 2, "recovery": 0.65},
+      {"sizeMm": 0.5, "recovery": 0.82},
+      {"sizeMm": 0.1, "recovery": 0.92}
+    ],
+    "timeModel": {
+      "daysPer0_1mmAt20C": 1,
+      "referenceTempC": 20,
+      "note": "Leach time scales with particle size: at 20 C the batch needs 1 game-day (1 week) per 0.1mm of the coarsest feed. So 0.1mm -> 1 day, 2mm -> 20 days, 8mm -> 80 days. Fine milling trades mill-time for a massive leach-time saving."
+    }
+  },
+  "tanks": [
+    {"id": "tank:flat-80l", "name": "Platte loogbak 80L", "litres": 80, "dims_cm": [100, 60, 20], "material": "flexibel kunststof",
+     "liftableMaxFillL": 40, "note": "Lange bak; boven 40L vulling te slap/zwaar om op te tillen -> geen tilagitatie."},
+    {"id": "tank:tall-40l", "name": "Bak 40L", "litres": 40, "dims_cm": [50, 40, 40], "material": "flexibel kunststof",
+     "liftableMaxFillL": 40, "note": "Halve lengte, hoger; volledige vulling nog optilbaar."}
+  ],
+  "agitation": {
+    "note": "Manual lift-agitation speeds/improves leaching but sloshes: some leachate is lost and the site is contaminated. Liftability is gated by fill volume (tank.liftableMaxFillL) AND player strength vs the filled weight (see player + physics).",
+    "leachTimeMultiplierWhenAgitated": 0.7,
+    "recoveryBonusWhenAgitated": 0.05,
+    "slosh": {"leachateLossFraction": 0.03, "contaminationPerLift": 1,
+              "note": "Per manual agitation: ~3% leachate loss + 1 site-contamination point (cleanup cost / reputation)."}
+  },
+  "player": {
+    "strengthStart": 20,
+    "strengthPerLabourAction": 0.5,
+    "strengthCapNote": "Muscle mass grows with physical labour: digging (Amsterdamse Bos), hauling (Zeeland), hammering (hand hammer), and lifting tanks each add strength. Higher strength raises the mass you can lift.",
+    "liftForceModel": "Max liftable mass (kg) ~ strength; a filled tank's mass = tank empty mass + fill_litres * bulk_density. Gravity g = 9.81 m/s^2 used for the effort/energy readout."
+  },
+  "physics": {
+    "gravity_m_s2": 9.81,
+    "slagBulkDensity_kg_per_l": 1.8,
+    "leachateDensity_kg_per_l": 1.15,
+    "note": "Bulk density of granular steel slag ~1.6-2.0 kg/L; pregnant leach solution ~1.1-1.2 kg/L. Used to turn fill volume into a liftable weight the player's strength is checked against."
+  },
+  "autoclave": {
+    "id": "equip:autoclave",
+    "name": "Autoclaaf (druk/temp-loging)",
+    "costEur": 7000,
+    "leachTempC": 150,
+    "note": "Pressure/temperature leaching: sharply higher recovery and far shorter leach time than 20 C atmospheric, without manual lift-agitation. Alternative capital-intensive route to the fine-mill+agitate path.",
+    "recoveryFloor": 0.9,
+    "leachTimeDaysPerBatch": 1
+  },
+  "product": {
+    "v_to_v2o5_factor": 1.785,
+    "note": "Recovered V mass -> V2O5 mass (stoichiometric). V2O5 output feeds the Speciation Quest electrolyte refinement.",
+    "kwhPerKgV2O5": 0.9,
+    "kwhNote": "Rough VRFB electrolyte capacity proxy for scoring."
+  }
+}
