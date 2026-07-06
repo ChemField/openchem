@@ -1,0 +1,42 @@
+{
+  "comment": "Canonical files in ChemField/openchem and their public path on 5mart (/Slag/). This manifest is the single source of truth for both sync and verify; add a file here to include it in the reproducible deploy.",
+  "remoteBase": "/Slag",
+  "publicBase": "https://www.5mart.ml/Slag",
+  "files": [
+    {
+      "repo": "data/chemfield-compositions.json",
+      "remote": "chemfield-compositions.json"
+    },
+    {
+      "repo": "chemfield.json",
+      "remote": "chemfield.json"
+    },
+    {
+      "repo": "openchem.json",
+      "remote": "openchem.json"
+    },
+    {
+      "repo": "webchem.json",
+      "remote": "webchem.json"
+    },
+    {
+      "repo": "chemweb.json",
+      "remote": "chemweb.json"
+    },
+    {
+      "repo": "fieldchem.json",
+      "remote": "fieldchem.json"
+    },
+    {
+      "repo": "origintrail-node.json",
+      "remote": "origintrail-node.json"
+    },
+    {
+      "repo": "5mart/origintrail-gateway.php",
+      "remote": "origintrail-gateway.php",
+      "verify": "route",
+      "route": "origintrail-gateway.php?route=status",
+      "optional": true
+    }
+  ]
+}
