@@ -6,7 +6,7 @@ summary: Signed steel-slag composition dataset + recovery chemistry
 homepage: https://chemfield.github.io
 backlog:
   labels: []
-  group_by: "nacht-"
+  group_by: ""
 docs:
   - { title: "Vanadium recovery from steel slag", path: "docs/vanadium-recovery-from-steel-slag.md", stage: research }
   - { title: "Slag-run game design",              path: "docs/slag-run-game-design.md",              stage: design }
