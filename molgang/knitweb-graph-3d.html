@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Knitweb — 3D kennisgraaf (WebXR)</title>
+<style>
+html,body{margin:0;height:100%;background:#0e1117;color:#e8edf4;font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;overflow:hidden}
+.bar{position:fixed;top:10px;left:14px;z-index:10000;display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:#161b22ee;border:1px solid #2a3340;border-radius:12px;padding:8px 14px}
+.seg{display:flex;border:1px solid #2a3340;border-radius:9px;overflow:hidden}
+.seg button{background:#1b212b;color:#aab6c6;border:0;padding:6px 12px;font-size:13px;cursor:pointer}
+.seg button.on{background:#caa64a;color:#16130a;font-weight:700}
+.tg{display:flex;align-items:center;gap:9px}.sw{position:relative;display:inline-block;width:44px;height:25px}.sw input{opacity:0;width:0;height:0}
+.sl{position:absolute;cursor:pointer;inset:0;background:#39414e;border-radius:25px;transition:.2s}.sl:before{content:"";position:absolute;height:19px;width:19px;left:3px;bottom:3px;background:#cfd8e3;border-radius:50%;transition:.2s}
+#kw:checked+.sl{background:#2e8b57}input:checked+.sl:before{transform:translateX(19px)}
+.bar label{font-size:13.5px;color:#c5cfdb;user-select:none}.bar .t{font-weight:700}.bar .hint{font-size:12px;color:#7f8b9c}
+#graph{position:fixed;inset:0;width:100vw;height:100vh;z-index:1}
+#panel{position:fixed;top:16px;right:18px;width:300px;z-index:10000;background:#161b22f2;border:1px solid #2a3340;border-radius:12px;padding:14px 16px;box-shadow:0 6px 24px #0009}
+#panel .k{color:#ffd479;font-size:11px;font-weight:700;text-transform:uppercase}#panel h3{margin:3px 0 0;font-size:16px}#panel p{margin:8px 0 0;font-size:13px;line-height:1.5;color:#c5cfdb}
+.chips{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}.chip{background:#222b36;border:1px solid #313c4a;color:#aebccd;font-size:11.5px;padding:3px 8px;border-radius:20px}
+.kwt{color:#7f8b9c;font-size:11px;margin-top:10px}select{background:#1b212b;color:#cfd8e3;border:1px solid #2a3340;border-radius:7px;padding:4px 8px;font-size:13px;cursor:pointer}
+#vrbtn{position:fixed;bottom:18px;right:18px;z-index:10001}
+#vrbtn button{background:#2e8b57;color:#fff;border:0;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 12px #0006}
+#vrbtn button:disabled{background:#39414e;cursor:not-allowed}
+#xr-hint{position:fixed;bottom:60px;right:18px;z-index:10000;max-width:260px;background:#161b22f2;border:1px solid #2a3340;border-radius:10px;padding:10px 14px;font-size:12px;color:#c5cfdb;display:none}
+@media (min-width:721px){#panel{top:72px}}@media (max-width:720px){.bar{top:10px;left:10px;right:10px;gap:8px;padding:8px 10px;max-height:34vh;overflow:auto}.bar .t{width:100%}.bar .hint{display:none}.seg{max-width:100%}.seg button{padding:6px 8px}#panel{left:10px;right:10px;top:auto;bottom:12px;width:auto;max-height:30vh;overflow:auto;padding:12px 14px}#panel h3{font-size:15px}#panel p{font-size:12.5px}#vrbtn,#vrbtn button,#vrbtn a{top:126px!important;bottom:auto!important}#xr-hint{left:10px;right:10px;top:176px;bottom:auto;max-width:none}}
+</style>
+</head>
+<body>
+<div id="graph"></div>
+<div class="bar">
+ <span class="t">Knitweb · 3D</span>
+ <div class="seg" id="seg"><button data-v="plugins" class="on">Plugins</button><button data-v="begrippen">Begrippen</button><button data-v="live">Live chem-web</button></div>
+ <div class="tg"><label class="sw"><input type="checkbox" id="kw" checked><span class="sl"></span></label><label for="kw" style="cursor:pointer">Trefwoorden <b id="kwst">aan</b></label></div>
+ <div class="tg"><label for="lang">Taal</label><select id="lang"><option value="en">EN</option><option value="ru">RU</option><option value="zh">中文</option><option value="ar">AR</option></select></div>
+ <span class="hint">sleep node · scroll=zoom · klik=centreer · sleep achtergrond=roteer</span>
+</div>
+<div id="panel"><span class="k" id="pk">start</span><h3 id="pt">3D kennisgraaf</h3>
+<p id="pp">Hover een node voor details, een lijn voor de relatie. Klik een node om te centreren. Kies <b>Live chem-web</b> om de echte knitweb-kennisgraaf te laden. Zet een VR-headset op en klik op <b>VR</b> om nodes met controllers vast te pakken en te verplaatsen.</p></div>
+<div id="vrbtn"><button id="enter-vr" disabled>VR laden…</button></div>
+<div id="xr-hint">In VR: richt controller op een node en trek de <b>trigger</b> om te selecteren. Houd de <b>grip-knop</b> ingedrukt om een node vast te pakken en te verplaatsen.</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { VRButton } from 'three/addons/webxr/VRButton.js';
+import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
+
+// Inline DATA preserved from original file
+var DATA={"plugins":{"nodes":[{"id":"vBank","name":"vBank","color":"#ffd479","val":20,"group":"governance hub","kw":"governance|poll/ranked/liquid|tally|treasury|crowdfunding|quorum|personhood-gated|emission-policy","desc":"governance hub — every domain knitweb is admitted, parameterized & funded via vBank voting"},{"id":"Knitweb","name":"Knitweb","color":"#ffd479","val":12,"group":"substrate","kw":"content-addressed|canonical-CBOR|peer-to-peer|CIDv1|knit/weave|integer-money|Byzantine-resilient|serverless","desc":"the content-addressed P2P Web (CIDv1) — the shared substrate every knitweb rides"},{"id":"Pulse","name":"Pulse","color":"#6aa3d6","val":12,"group":"core","kw":"engine|heartbeat/epoch|secp256k1|Braid·Knit·Fiber|PoUW|gossip-mesh|settlement|pure-Python","desc":"engine / heartbeat — settlement ledger, PoUW-minted PLS, p2p mesh"},{"id":"Lens","name":"Lens","color":"#b07fd0","val":12,"group":"core","kw":"retrieve→distill|provenance-cited|calibrated-confidence|abstention|RLM|MeTTa-inspired|hallucination-gate|PoUW-job","desc":"reasoning lobe — retrieve+distill, provenance-cited, calibrated confidence"},{"id":"Monitor","name":"Monitor","color":"#46c4ad","val":12,"group":"core","kw":"observability|dashboard|health/liveness|explorer|state-root|trustless-verify|metrics|reputation","desc":"observability — health, explorer, trustless state-root"},{"id":"molgang","name":"molgang","color":"#2b7bba","val":8,"group":"Science & knowledge","kw":"chemistry|molecules|reactions|knowledge-graph|multilingual|knit-to-earn|NPC-agents|serverless","desc":"chemistry — molecules & reactions"},{"id":"bioweave","name":"bioweave","color":"#2b7bba","val":10,"group":"Science & knowledge","kw":"biology|taxonomy|species|genomics|phylogeny|ecology|provenance|open-data","desc":"biology & taxonomy of life"},{"id":"theoremgang","name":"theoremgang","color":"#2b7bba","val":8,"group":"Science & knowledge","kw":"mathematics|proofs|theorems|formal-verification|axioms|conjectures","desc":"mathematics — proofs & theorems"}],"links":[{"source":"vBank","target":"Knitweb","rel":"governs","color":"#46526a"},{"source":"Knitweb","target":"Pulse","rel":"powers","color":"#46526a"},{"source":"Knitweb","target":"Lens","rel":"extends","color":"#46526a"},{"source":"Knitweb","target":"Monitor","rel":"observed-by","color":"#46526a"},{"source":"Pulse","target":"molgang","rel":"runs","color":"#46526a"},{"source":"Lens","target":"bioweave","rel":"reasons-over","color":"#46526a"},{"source":"Lens","target":"theoremgang","rel":"reasons-over","color":"#46526a"}]},"begrippen":{"nodes":[{"id":"water","name":"water","color":"#2b7bba","val":8,"group":"molecule","kw":"H2O|polair|vloeistof","desc":"water (H2O)"},{"id":"zuurstof","name":"zuurstof","color":"#6aa3d6","val":10,"group":"element","kw":"O|niet-metaal|gas","desc":"zuurstof (O)"},{"id":"waterstof","name":"waterstof","color":"#6aa3d6","val":10,"group":"element","kw":"H|niet-metaal|gas","desc":"waterstof (H)"}],"links":[{"source":"water","target":"zuurstof","rel":"contains","color":"#46526a"},{"source":"water","target":"waterstof","rel":"contains","color":"#46526a"}]}};
+
+function nm(n){return (n&&n.ml&&n.ml[LANG])||(n&&n.name)||'';}
+var REL_I18N={"part-of":{"en":"part of","ru":"часть","zh":"部分","ar":"جزء من"},"is-a":{"en":"is a","ru":"это","zh":"是一种","ar":"هو"},"measured-by":{"en":"measured by","ru":"измеряется","zh":"由…测量","ar":"يُقاس بـ"},"example-of":{"en":"example of","ru":"пример","zh":"例子","ar":"مثال على"},"produces":{"en":"produces","ru":"производит","zh":"产生","ar":"يُنتج"},"reacts-with":{"en":"reacts with","ru":"реагирует с","zh":"与…反应","ar":"يتفاعل مع"},"produced-by":{"en":"produced by","ru":"производится","zh":"由…产生","ar":"يُنتَج بواسطة"},"contains":{"en":"contains","ru":"содержит","zh":"包含","ar":"يحتوي على"},"catalyzes-formation-of":{"en":"catalyzes formation of","ru":"катализирует образование","zh":"催化生成","ar":"يحفز تكوين"}};
+function rl(r){var t=REL_I18N[r];return (t&&t[LANG])||r||'';}
+function lc(x){return (x&&x.name)?nm(x):x;}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function chips(t,kw,sep){if(!kw)return '';return '<div class="kwt">'+t+'</div><div class="chips">'+kw.split(sep||'|').map(function(k){return '<span class="chip">'+esc(k)+'</span>';}).join('')+'</div>';}
+
+var LANG='en',KWON=true,Graph=null,cur='plugins';
+var pk=document.getElementById('pk'),pt=document.getElementById('pt'),pp=document.getElementById('pp');
+function showNode(n){if(!n)return;window._lastNode=n;pk.textContent=n.group;pt.textContent=nm(n);var body=esc(n.desc);if(KWON&&n.kw)body+=chips('steekwoorden',n.kw);if(KWON&&n.ml){var L=['en','ru','zh','ar'].filter(function(k){return n.ml[k];}).map(function(k){return k+': '+n.ml[k];}).join('|');body+=chips('talen',L);}pp.innerHTML=body;}
+function showLink(l){if(!l)return;var a=lc(l.source),b=lc(l.target);pk.textContent='relatie';pt.textContent=a+'  '+(l.rel?'·':'')+'  '+b;pp.innerHTML='<b style="color:#ffd479">'+esc(rl(l.rel))+'</b>'+(l.phrase?' — '+esc(l.phrase):'');}
+function authColor(by){var h=0,s=String(by||'?');for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%360;return 'hsl('+h+',55%,58%)';}
+function setView(v){cur=v;[].forEach.call(document.querySelectorAll('#seg button'),function(b){b.className=b.dataset.v===v?'on':'';});if(Graph&&DATA[v]){Graph.graphData(DATA[v]);setTimeout(function(){try{Graph.zoomToFit(700,55);}catch(e){}},350);}}
+function loadLive(){pp.innerHTML='live chem-web laden…';var cfg=window.MOLGANG_GRAPH_ENDPOINTS;var paths=(Array.isArray(cfg)&&cfg.length?cfg:['explorer-graph.json','molgang/explorer-graph.json','/molgang/explorer-graph.json']).slice();
+ (function tryp(i){if(i>=paths.length){pp.innerHTML='&#9888; geen explorer-graph.json gevonden (live chem-web niet beschikbaar hier)';return;}
+  fetch(paths[i]).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(d){
+   var deg={};(d.edges||[]).forEach(function(e){deg[e.s]=(deg[e.s]||0)+1;deg[e.t]=(deg[e.t]||0)+1;});
+   var nodes=(d.nodes||[]).map(function(n){return {id:n.id,name:n.lab||n.id,color:authColor(n.by),val:3+Math.min(deg[n.id]||0,9),group:'chem-concept · by '+(n.by||'?'),desc:n.def||'',ml:n.ml};});
+   var ids={};nodes.forEach(function(n){ids[n.id]=1;});
+   var links=(d.edges||[]).filter(function(e){return ids[e.s]&&ids[e.t];}).map(function(e){return {source:e.s,target:e.t,rel:e.r,color:'#46526a'};});
+   DATA.live={nodes:nodes,links:links};setView('live');pp.innerHTML='live chem-web ✓ — '+nodes.length+' concepten · '+links.length+' links'+(d.name?' ('+esc(d.name)+')':'');
+  }).catch(function(){tryp(i+1);});})(0);}
+
+document.getElementById('kw').addEventListener('change',function(){KWON=this.checked;var st=document.getElementById('kwst');if(st)st.textContent=KWON?'aan':'uit';if(window._lastNode)showNode(window._lastNode);});
+document.getElementById('lang').addEventListener('change',function(){LANG=this.value;if(window._lastNode)showNode(window._lastNode);});
+[].forEach.call(document.querySelectorAll('#seg button'),function(b){b.addEventListener('click',function(){var v=b.dataset.v;if(v==='live'&&!DATA.live){loadLive();}else{setView(v);}});});
+
+// WebXR state
+var renderer=null,scene=null,camera=null,controllers=[],controllerGrips=[],rays=[],xrHitTestSource=null;
+var grabbedNode=null,hoveredObj=null,raycaster=new THREE.Raycaster(),tempMatrix=new THREE.Matrix4();
+
+function getNodeObject(node){
+  // 3d-force-graph stores node objects under __threeObj on the node data
+  return node && node.__threeObj;
+}
+
+function intersectControllers(){
+  if(!scene)return null;
+  var candidates=[];
+  // Collect all node meshes from the graph
+  var gdata=Graph.graphData();
+  var nodeMeshes=[];
+  (gdata.nodes||[]).forEach(function(n){var obj=getNodeObject(n);if(obj)nodeMeshes.push(obj);});
+  for(var i=0;i<controllers.length;i++){
+    var c=controllers[i];if(!c.visible)continue;
+    tempMatrix.identity().extractRotation(c.matrixWorld);
+    raycaster.ray.origin.setFromMatrixPosition(c.matrixWorld);
+    raycaster.ray.direction.set(0,0,-1).applyMatrix4(tempMatrix);
+    var hits=raycaster.intersectObjects(nodeMeshes,false);
+    if(hits.length)candidates.push({controller:c,index:i,distance:hits[0].distance,object:hits[0].object,point:hits[0].point});
+  }
+  if(!candidates.length)return null;
+  candidates.sort(function(a,b){return a.distance-b.distance;});
+  return candidates[0];
+}
+
+function updateRays(){
+  for(var i=0;i<controllers.length;i++){
+    var c=controllers[i],r=rays[i];if(!c||!r)continue;
+    if(c.visible){
+      r.visible=true;
+      r.position.copy(c.position);
+      r.quaternion.copy(c.quaternion);
+    }else{
+      r.visible=false;
+    }
+  }
+}
+
+function highlightObject(obj,on){
+  if(!obj)return;
+  // Save original emissive if not saved
+  if(on){
+    if(obj.material && !obj.userData._origEmissive){
+      obj.userData._origEmissive=obj.material.emissive?obj.material.emissive.clone():new THREE.Color(0,0,0);
+      obj.material.emissive=new THREE.Color(0.3,0.3,0.15);
+    }
+  }else{
+    if(obj.material && obj.userData._origEmissive){
+      obj.material.emissive.copy(obj.userData._origEmissive);
+      delete obj.userData._origEmissive;
+    }
+  }
+}
+
+function findNodeByObject(obj){
+  var gdata=Graph.graphData();
+  for(var i=0;i<gdata.nodes.length;i++){
+    var n=gdata.nodes[i];
+    if(getNodeObject(n)===obj)return n;
+  }
+  return null;
+}
+
+function setupVR(){
+  if(!renderer)return;
+  renderer.xr.enabled=true;
+  var hint=document.getElementById('xr-hint');
+  var btn=VRButton.createButton(renderer);
+  btn.style.position='fixed';
+  btn.style.bottom='18px';
+  btn.style.right='18px';
+  btn.style.zIndex='10001';
+  document.getElementById('vrbtn').innerHTML='';
+  document.getElementById('vrbtn').appendChild(btn);
+  if(navigator.xr&&navigator.xr.isSessionSupported){
+    navigator.xr.isSessionSupported('immersive-vr').then(function(ok){hint.style.display=ok?'block':'none';}).catch(function(){hint.style.display='none';});
+  }else{
+    hint.style.display='none';
+  }
+
+  // Controllers
+  var controllerModelFactory=new XRControllerModelFactory();
+  for(var i=0;i<2;i++){
+    var controller=renderer.xr.getController(i);
+    controller.addEventListener('selectstart',onSelectStart);
+    controller.addEventListener('selectend',onSelectEnd);
+    controller.addEventListener('squeezestart',onSqueezeStart);
+    controller.addEventListener('squeezeend',onSqueezeEnd);
+    scene.add(controller);
+    controllers.push(controller);
+
+    // Ray line
+    var geometry=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0),new THREE.Vector3(0,0,-2)]);
+    var material=new THREE.LineBasicMaterial({color:0xffd479,transparent:true,opacity:0.6});
+    var line=new THREE.Line(geometry,material);
+    line.name='ray-'+i;
+    line.visible=false;
+    controller.add(line);
+    rays.push(line);
+
+    // Controller grip/model
+    var grip=renderer.xr.getControllerGrip(i);
+    grip.add(controllerModelFactory.createControllerModel(grip));
+    scene.add(grip);
+    controllerGrips.push(grip);
+  }
+
+  // Animation loop hook: 3d-force-graph handles its own loop, but we can add a pre-render hook
+  var origRender=renderer.render.bind(renderer);
+  renderer.setAnimationLoop(function(time,frame){
+    updateRays();
+    var hit=intersectControllers();
+    if(hoveredObj && (!hit || hit.object!==hoveredObj)){
+      highlightObject(hoveredObj,false);hoveredObj=null;
+    }
+    if(hit){
+      hoveredObj=hit.object;
+      highlightObject(hoveredObj,true);
+      var n=findNodeByObject(hoveredObj);
+      if(n)showNode(n);
+    }
+    // If grabbing a node, update its position to controller ray tip
+    if(grabbedNode && grabbedNode.__threeObj && controllers[grabbedNode._grabbingController]){
+      var c=controllers[grabbedNode._grabbingController];
+      tempMatrix.identity().extractRotation(c.matrixWorld);
+      var dir=new THREE.Vector3(0,0,-1).applyMatrix4(tempMatrix);
+      var origin=new THREE.Vector3().setFromMatrixPosition(c.matrixWorld);
+      var tip=origin.clone().add(dir.multiplyScalar(grabbedNode._grabDistance||1.5));
+      grabbedNode.fx=tip.x;grabbedNode.fy=tip.y;grabbedNode.fz=tip.z;
+    }
+    origRender(scene,camera);
+  });
+}
+
+function onSelectStart(e){
+  var c=e.target,idx=controllers.indexOf(c);
+  var hit=intersectControllers();
+  if(hit && hit.controller===c){
+    var n=findNodeByObject(hit.object);
+    if(n){
+      // Center camera / select node
+      var d=160,r=1+d/Math.hypot(n.x||1,n.y||1,n.z||1);
+      Graph.cameraPosition({x:(n.x||0)*r,y:(n.y||0)*r,z:(n.z||0)*r||d},n,1500);
+      showNode(n);
+    }
+  }
+}
+function onSelectEnd(e){}
+
+function onSqueezeStart(e){
+  var c=e.target,idx=controllers.indexOf(c);
+  var hit=intersectControllers();
+  if(hit && hit.controller===c){
+    var n=findNodeByObject(hit.object);
+    if(n){
+      grabbedNode=n;
+      n._grabbingController=idx;
+      n._grabDistance=hit.distance;
+      // Fix node position while dragging (fx/fy/fz pin it for force-graph)
+      n.fx=n.x;n.fy=n.y;n.fz=n.z;
+      // Warm up graph so it reacts
+      Graph.warmup && Graph.warmup(1);
+    }
+  }
+}
+function onSqueezeEnd(e){
+  if(grabbedNode){
+    // Release node: remove fixed positions
+    grabbedNode.fx=undefined;grabbedNode.fy=undefined;grabbedNode.fz=undefined;
+    grabbedNode._grabbingController=undefined;
+    grabbedNode._grabDistance=undefined;
+    grabbedNode=null;
+  }
+}
+
+function initGraph(){
+  if(typeof ForceGraph3D==='undefined'){pp.innerHTML='&#9888; 3d-force-graph niet geladen';return;}
+  var el=document.getElementById('graph');
+  Graph=ForceGraph3D()(el).width(window.innerWidth).height(window.innerHeight).backgroundColor('#0e1117').graphData(DATA.plugins)
+    .nodeColor(function(n){return n.color;}).nodeVal(function(n){return n.val;}).nodeOpacity(0.95).nodeResolution(16)
+    .nodeLabel(function(n){return '<b>'+esc(nm(n))+'</b>';})
+    .linkColor(function(l){return l.color;}).linkOpacity(0.5).linkWidth(0.9).linkHoverPrecision(10)
+    .linkLabel(function(l){return l.rel?('<b style="color:#ffd479">'+esc(rl(l.rel))+'</b>'+(l.phrase?' &mdash; '+esc(l.phrase):'')):'';})
+    .onNodeHover(showNode).onLinkHover(showLink)
+    .onNodeClick(function(node){var d=160,r=1+d/Math.hypot(node.x||1,node.y||1,node.z||1);Graph.cameraPosition({x:(node.x||0)*r,y:(node.y||0)*r,z:(node.z||0)*r||d},node,1500);showNode(node);});
+  window.addEventListener('resize',function(){Graph.width(window.innerWidth).height(window.innerHeight);});
+  setTimeout(function(){try{Graph.zoomToFit(700,60);}catch(e){}},700);
+
+  // Access Three.js internals for WebXR
+  try{
+    renderer=Graph.renderer();
+    scene=Graph.scene();
+    camera=Graph.camera();
+    if(renderer && scene && camera && 'xr' in renderer){
+      setupVR();
+    }else{
+      document.getElementById('enter-vr').textContent='VR niet beschikbaar';
+    }
+  }catch(err){
+    console.warn('WebXR setup failed',err);
+    document.getElementById('enter-vr').textContent='VR niet beschikbaar';
+  }
+}
+
+// Load 3d-force-graph from CDN, then init
+var s=document.createElement('script');
+s.src='https://unpkg.com/3d-force-graph@1.73.3/dist/3d-force-graph.min.js';
+s.onload=initGraph;
+s.onerror=function(){pp.innerHTML='&#9888; Kan 3d-force-graph niet laden van CDN';};
+document.head.appendChild(s);
+</script>
+</body>
+</html>
