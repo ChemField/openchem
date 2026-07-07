@@ -2,7 +2,10 @@
   "kind": "chemfield-production-chain",
   "schemaVersion": "chemfield-production-chain-v1",
   "note": "Economy + material config for the Slag Run game (upstream of the Speciation Quest). Time is measured in game-days; 1 week = 1 game-day. Numbers are gameplay-tuned but grounded in real hydrometallurgy (finer comminution -> more surface area -> higher recovery AND faster leaching) and the real Dutch context (Ekoliet 0/8mm steel-slag aggregate; steel slag in Amsterdamse Bos path foundations and Zeeland/Oosterschelde bank protection). Blocks player/tanks/agitation/largeEquipment are forward-looking mechanics specced in docs/slag-run-game-design.md and tracked in the backlog; the v1 game + validator use research/feedstocks/comminution/leach/product.",
-  "time": {"unit": "day", "note": "1 real week = 1 game-day"},
+  "time": {
+    "unit": "day",
+    "note": "1 real week = 1 game-day"
+  },
   "research": {
     "grantEur": 3000,
     "leadTimeDays": 4,
@@ -46,7 +49,7 @@
       "travelDays": 3,
       "maxBuckets": 6,
       "labour": "haul",
-      "vanadiumMassFraction": 0.010,
+      "vanadiumMassFraction": 0.01,
       "note": "Slak van de oeverbestorting oppakken; lange reis, grotere oogst, sterk verweerde grove brokken. Sjouwen bouwt spiermassa."
     }
   ],
@@ -105,11 +108,26 @@
   "leach": {
     "note": "Recovery vs. particle size (surface-area driven). Interpolated between points; finer = higher.",
     "yieldBySizeMm": [
-      {"sizeMm": 24, "recovery": 0.20},
-      {"sizeMm": 8, "recovery": 0.35},
-      {"sizeMm": 2, "recovery": 0.65},
-      {"sizeMm": 0.5, "recovery": 0.82},
-      {"sizeMm": 0.1, "recovery": 0.92}
+      {
+        "sizeMm": 24,
+        "recovery": 0.2
+      },
+      {
+        "sizeMm": 8,
+        "recovery": 0.35
+      },
+      {
+        "sizeMm": 2,
+        "recovery": 0.65
+      },
+      {
+        "sizeMm": 0.5,
+        "recovery": 0.82
+      },
+      {
+        "sizeMm": 0.1,
+        "recovery": 0.92
+      }
     ],
     "timeModel": {
       "daysPer0_1mmAt20C": 1,
@@ -118,17 +136,44 @@
     }
   },
   "tanks": [
-    {"id": "tank:flat-80l", "name": "Platte loogbak 80L", "litres": 80, "dims_cm": [100, 60, 20], "material": "flexibel kunststof",
-     "liftableMaxFillL": 40, "note": "Lange bak; boven 40L vulling te slap/zwaar om op te tillen -> geen tilagitatie."},
-    {"id": "tank:tall-40l", "name": "Bak 40L", "litres": 40, "dims_cm": [50, 40, 40], "material": "flexibel kunststof",
-     "liftableMaxFillL": 40, "note": "Halve lengte, hoger; volledige vulling nog optilbaar."}
+    {
+      "id": "tank:flat-80l",
+      "name": "Platte loogbak 80L",
+      "litres": 80,
+      "dims_cm": [
+        100,
+        60,
+        20
+      ],
+      "material": "flexibel kunststof",
+      "liftableMaxFillL": 40,
+      "note": "Lange bak; boven 40L vulling te slap/zwaar om op te tillen -> geen tilagitatie. emptyKg = ontwerpwaarde (leeg vat, flexibel kunststof).",
+      "emptyKg": 3.5
+    },
+    {
+      "id": "tank:tall-40l",
+      "name": "Bak 40L",
+      "litres": 40,
+      "dims_cm": [
+        50,
+        40,
+        40
+      ],
+      "material": "flexibel kunststof",
+      "liftableMaxFillL": 40,
+      "note": "Halve lengte, hoger; volledige vulling nog optilbaar. emptyKg = ontwerpwaarde (leeg vat, flexibel kunststof).",
+      "emptyKg": 2.0
+    }
   ],
   "agitation": {
     "note": "Manual lift-agitation speeds/improves leaching but sloshes: some leachate is lost and the site is contaminated. Liftability is gated by fill volume (tank.liftableMaxFillL) AND player strength vs the filled weight (see player + physics).",
     "leachTimeMultiplierWhenAgitated": 0.7,
     "recoveryBonusWhenAgitated": 0.05,
-    "slosh": {"leachateLossFraction": 0.03, "contaminationPerLift": 1,
-              "note": "Per manual agitation: ~3% leachate loss + 1 site-contamination point (cleanup cost / reputation)."}
+    "slosh": {
+      "leachateLossFraction": 0.03,
+      "contaminationPerLift": 1,
+      "note": "Per manual agitation: ~3% leachate loss + 1 site-contamination point (cleanup cost / reputation)."
+    }
   },
   "player": {
     "strengthStart": 20,
