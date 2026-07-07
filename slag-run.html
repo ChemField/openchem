@@ -83,7 +83,7 @@
 
   <script>
   let CFG = null;
-  const S = { day: 0, eur: 0, hasGrant: false, buckets: [], mills: {}, v2o5: 0, strength: 20 };
+  const S = { day: 0, eur: 0, hasGrant: false, buckets: [], mills: {}, v2o5: 0, strength: 20, contamination: 0 };
   const $ = id => document.getElementById(id);
   const fmt = n => (Math.round(n * 100) / 100).toLocaleString('nl-NL');
 
@@ -132,7 +132,8 @@
       `<div class="stat"><span class="lab">Kracht</span><b>${fmt(S.strength)}</b></div>` +
       `<div class="stat"><span class="lab">Max tilbaar</span><b>${fmt(S.strength)} kg</b></div>` +
       `<div class="stat"><span class="lab">Emmers</span><b>${S.buckets.length}</b></div>` +
-      `<div class="stat"><span class="lab">V₂O₅</span><b>${fmt(S.v2o5 * 1000)} g</b></div>`;
+      `<div class="stat"><span class="lab">V₂O₅</span><b>${fmt(S.v2o5 * 1000)} g</b></div>` +
+      `<div class="stat"><span class="lab">Contaminatie</span><b>${S.contamination}</b></div>`;
   }
 
   function bucketSummary() {
@@ -261,23 +262,43 @@
           return;
         }
         const maxSize = Math.max(...batch.map(b => b.sizeMm));
-        const leachDays = Math.round(maxSize / 0.1 * CFG.leach.timeModel.daysPer0_1mmAt20C);
-        const preview = batch.reduce((s, b) => s + b.kg * b.vFrac * recovery(b.sizeMm), 0) * CFG.product.v_to_v2o5_factor;
+        const baseDays = Math.round(maxSize / 0.1 * CFG.leach.timeModel.daysPer0_1mmAt20C);
         const filledM = filledMass(t, fill, 'leachate');
-        const agit = fill <= t.liftableMaxFillL && canLift(filledM);
-        box.appendChild(opt(`Loog batch in ${t.name} (${batch.length} emmer(s), ${fmt(fill)}L)`,
-          `~${fmt(preview * 1000)} g V₂O₅ · grofste ${maxSize}mm → ${leachDays}d bij 20°C · ` +
-          (agit ? 'tilagitatie mogelijk' : `vulling ${fmt(fill)}L > ${t.liftableMaxFillL}L tilbaar of te zwaar → geen agitatie`),
-          `${leachDays}d`, true, () => {
-            advance(leachDays);
-            let v = 0;
-            batch.forEach(b => v += b.kg * b.vFrac * recovery(b.sizeMm));
-            const v2o5 = v * CFG.product.v_to_v2o5_factor;
-            S.v2o5 += v2o5;
-            batch.forEach(b => { const i = S.buckets.indexOf(b); if (i >= 0) S.buckets.splice(i, 1); });
-            log(`Geloogd in ${t.name} (${batch.length} emmer(s), ${fmt(fill)}L, ${leachDays}d${agit ? ', met tilagitatie' : ', zonder agitatie'}): <b>${fmt(v2o5 * 1000)} g V₂O₅</b>.`, true);
-            render();
-          }));
+        const canAgitate = fill <= t.liftableMaxFillL && canLift(filledM);
+        const AG = CFG.agitation;
+
+        // Til-agitatie trade-off (#17): sneller + meer recovery, maar sloshing → leachate-
+        // verlies + contaminatie. Alleen als het vat tilbaar is (fill-cap + krachtcheck #15).
+        const runLeach = (agitated) => {
+          const days = agitated ? Math.round(baseDays * AG.leachTimeMultiplierWhenAgitated) : baseDays;
+          advance(days);
+          const bonus = agitated ? AG.recoveryBonusWhenAgitated : 0;
+          let v = 0;
+          batch.forEach(b => v += b.kg * b.vFrac * Math.min(1, recovery(b.sizeMm) + bonus));
+          let v2o5 = v * CFG.product.v_to_v2o5_factor;
+          batch.forEach(b => { const i = S.buckets.indexOf(b); if (i >= 0) S.buckets.splice(i, 1); });
+          let extra = '';
+          if (agitated) {
+            const lost = fill * AG.slosh.leachateLossFraction;
+            S.contamination += AG.slosh.contaminationPerLift;
+            extra = ` Til-agitatie: −${fmt(lost)}L leachate gemorst, +${AG.slosh.contaminationPerLift} contaminatiepunt.`;
+          }
+          S.v2o5 += v2o5;
+          log(`Geloogd in ${t.name} (${batch.length} emmer(s), ${fmt(fill)}L, ${days}d${agitated ? ', met tilagitatie' : ', rustig'}): <b>${fmt(v2o5 * 1000)} g V₂O₅</b>.${extra}`, true);
+          render();
+        };
+
+        const prevBase = batch.reduce((s, b) => s + b.kg * b.vFrac * recovery(b.sizeMm), 0) * CFG.product.v_to_v2o5_factor;
+        box.appendChild(opt(`Loog rustig in ${t.name} (${batch.length} emmer(s), ${fmt(fill)}L)`,
+          `~${fmt(prevBase * 1000)} g V₂O₅ · grofste ${maxSize}mm → ${baseDays}d bij 20°C · geen sloshing`,
+          `${baseDays}d`, true, () => runLeach(false)));
+        if (canAgitate) {
+          const prevAg = batch.reduce((s, b) => s + b.kg * b.vFrac * Math.min(1, recovery(b.sizeMm) + AG.recoveryBonusWhenAgitated), 0) * CFG.product.v_to_v2o5_factor;
+          const agDays = Math.round(baseDays * AG.leachTimeMultiplierWhenAgitated);
+          box.appendChild(opt(`Loog + til-agiteer in ${t.name}`,
+            `~${fmt(prevAg * 1000)} g V₂O₅ (+${fmt(AG.recoveryBonusWhenAgitated * 100)}% recovery) · ×${AG.leachTimeMultiplierWhenAgitated} tijd → ${agDays}d · morst ${fmt(AG.slosh.leachateLossFraction * 100)}% + ${AG.slosh.contaminationPerLift} contaminatie`,
+            `${agDays}d`, true, () => runLeach(true)));
+        }
       });
     }
 
@@ -303,6 +324,7 @@
       `Raffineer het nu in de Speciation Quest.`;
     const record = { kind: 'chemfield-slag-run-record', schemaVersion: 'chemfield-slag-run-record-v1',
       days: S.day, budgetLeftEur: Math.round(S.eur * 100) / 100, strength: Math.round(S.strength * 100) / 100,
+      contamination: S.contamination,
       v2o5_g: Math.round(S.v2o5 * 1000 * 100) / 100, kwh: Math.round(kwh * 1000) / 1000 };
     const cid = 'sha256:' + await sha256Hex(JSON.stringify(sortKeys(record)));
     record.cid = cid; record.ual = 'did:dkg:knitweb/sha256-' + cid.split('sha256:')[1];
