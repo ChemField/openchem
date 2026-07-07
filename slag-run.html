@@ -99,6 +99,18 @@
     return gain;
   }
 
+  // --- physics: gravity + human-strength lift check (#15) -----------------
+  // Gevuld vat-massa = leeg vat + liters × bulk-dichtheid. Je kunt een vat alleen
+  // handmatig tillen/keren als je kracht ≥ die massa. g=9.81 voor de inspanning.
+  function density(kind) {
+    return kind === 'leachate' ? CFG.physics.leachateDensity_kg_per_l : CFG.physics.slagBulkDensity_kg_per_l;
+  }
+  function filledMass(tank, fillL, kind) {
+    return (tank.emptyKg || 0) + fillL * density(kind);
+  }
+  function canLift(massKg) { return S.strength >= massKg; }
+  function liftEffortN(massKg) { return massKg * CFG.physics.gravity_m_s2; }
+
   function recovery(sizeMm) {
     const pts = [...CFG.leach.yieldBySizeMm].sort((a, b) => a.sizeMm - b.sizeMm);
     if (sizeMm <= pts[0].sizeMm) return pts[0].recovery;
@@ -118,6 +130,7 @@
       `<div class="stat"><span class="lab">Speeldag</span><b>${S.day}</b></div>` +
       `<div class="stat"><span class="lab">Budget</span><b>€${fmt(S.eur)}</b></div>` +
       `<div class="stat"><span class="lab">Kracht</span><b>${fmt(S.strength)}</b></div>` +
+      `<div class="stat"><span class="lab">Max tilbaar</span><b>${fmt(S.strength)} kg</b></div>` +
       `<div class="stat"><span class="lab">Emmers</span><b>${S.buckets.length}</b></div>` +
       `<div class="stat"><span class="lab">V₂O₅</span><b>${fmt(S.v2o5 * 1000)} g</b></div>`;
   }
@@ -210,6 +223,26 @@
           }));
       }
     });
+
+    // Handmatige tilcontrole (#15): per vat, gevuld tot z'n tilbare max met pregnant
+    // leachate. Alleen inschakelbaar als kracht ≥ gevulde massa; arbeid maakt je sterker
+    // en ontgrendelt zwaardere vaten. Alle getallen uit production-chain.json.
+    if (S.buckets.length > 0 && Array.isArray(CFG.tanks)) {
+      CFG.tanks.forEach(t => {
+        const fillL = t.liftableMaxFillL;
+        const mass = filledMass(t, fillL, 'leachate');
+        const N = liftEffortN(mass);
+        const able = canLift(mass);
+        box.appendChild(opt(`Til & keer ${t.name} (tot ${fillL}L)`,
+          `${fmt(mass)} kg gevuld (${t.emptyKg}kg leeg + ${fillL}L × ${density('leachate')} kg/L) · inspanning ${fmt(N)} N bij g=${CFG.physics.gravity_m_s2} · vereist kracht ≥ ${fmt(mass)}`,
+          able ? 'handmatig · +spiermassa' : `kracht ${fmt(S.strength)} < ${fmt(mass)} kg`,
+          able, () => {
+            const g = labour('lift', 1);
+            log(`${t.name} handmatig getild en gekeerd (${fmt(mass)}kg, ${fmt(N)}N inspanning). Kracht +${fmt(g)}.`, true);
+            render();
+          }));
+      });
+    }
 
     if (milledButUnleached) {
       const preview = S.buckets.reduce((s, b) => s + b.kg * b.vFrac * recovery(b.sizeMm), 0) * CFG.product.v_to_v2o5_factor;
