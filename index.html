@@ -531,6 +531,8 @@
         <span>OpenHydroChem</span>
       </a>
       <div class="nav-links" aria-label="Secties">
+        <a href="#knowledge-graph">Kennisgraaf</a>
+        <a href="#play">Speel</a>
         <a href="#platform">Platform</a>
         <a href="#process-cards">Process cards</a>
         <a href="#demo">Demo</a>
@@ -556,8 +558,9 @@
             OpenHydroChem zet papers, patenten, labrapporten en proceslogs om in gestandaardiseerde process cards, benchmarks en voorspellende modellen voor hydrometallurgie en elektrochemie.
           </p>
           <div class="hero-actions">
-            <a class="btn primary" href="#demo">Bekijk process-card demo</a>
-            <a class="btn" href="#platform">Ontdek de stack</a>
+            <a class="btn primary" href="#knowledge-graph">🕸️ Verken de 3D kennisgraaf</a>
+            <a class="btn" href="#play">🎮 Speel MOLGANG</a>
+            <a class="btn" href="#demo">Process-card demo</a>
           </div>
           <p class="mini-note">Apache-2.0 core. Local-first. Bouwt voort op bestaande chemie-, materiaal- en simulatiepakketten.</p>
 
@@ -595,6 +598,63 @@ model = cards.train_yield_predictor(
         </aside>
       </div>
     </header>
+
+    <!-- THE product: the 3D ChemField chem-web knowledge graph -->
+    <section id="knowledge-graph" class="paper-section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Het product · knowledge graph</div>
+          <h2>De 3D ChemField chem-web — een levend, content-addressed kennisnetwerk.</h2>
+          <p>Geen statische dataset maar een <strong>peer-to-peer kennisgraaf</strong>: begrippen (knits) en relaties (fibers) op de content-addressed knitweb-substraat (CIDv1). Draai, klik een node, of zet een VR-headset op. Dit ís OpenHydroChem — de chemie-kennis zelf, decentraal en verifieerbaar.</p>
+        </div>
+        <div style="border:1px solid rgba(10,25,28,.14);border-radius:16px;overflow:hidden;background:#0e1117;box-shadow:0 20px 60px rgba(10,25,28,.18);">
+          <iframe src="molgang/knitweb-graph-3d.html#live" title="ChemField 3D chem-web knowledge graph"
+            loading="lazy" allow="xr-spatial-tracking; fullscreen; gyroscope; accelerometer"
+            style="display:block;width:100%;height:min(68vh,560px);border:0;"></iframe>
+        </div>
+        <div class="hero-actions" style="margin-top:16px;">
+          <a class="btn primary" href="molgang/knitweb-graph-3d.html#live" target="_blank" rel="noreferrer">🕸️ Open de chem-web (volledig scherm · VR)</a>
+          <a class="btn" href="species-graph.html">🧪 3D V/Cr speciatie-graaf</a>
+          <a class="btn" href="data/chemfield-kg-sources.json">KG-bronnen (OriginTrail)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- The game, prominently: MOLGANG · The Bench -->
+    <section id="play">
+      <div class="container">
+        <div class="section-head center">
+          <div class="kicker">Speel het · MOLGANG</div>
+          <h2>Loop een echt chemielab binnen en verdien aan kennis.</h2>
+          <p>MOLGANG is de speelbare kant van de graaf: bouw moleculen, laat het P2P-netwerk ze via BFT-quorum bevestigen, en verdien <strong>PLS</strong> (proof-of-useful-work). Draait volledig in je browser — WebGL + WebXR, geen installatie.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card" style="border:1px solid rgba(55,214,168,.35);">
+            <div class="icon">🏛</div>
+            <h3>The Bench <span class="tag" style="background:#37d6a8;color:#05221a;">flagship</span></h3>
+            <p>First-person: loop door het lab, sta aan de bench, en zie een molecuul op de turntable ontstaan onder de plafondlampen. PBR-materialen, fume hood, glaswerk, cinematic beeld.</p>
+            <div class="hero-actions" style="margin-top:12px;"><a class="btn primary" href="molgang/lab-immersive.html">🏛 Speel The Bench</a></div>
+          </article>
+          <article class="card">
+            <div class="icon">🧪</div>
+            <h3>Reactive 3D Lab</h3>
+            <p>Bouw een molecuul, dien 'm in (propose), en laat seeded-bots via BFT-quorum settelen tot een woven Fiber-CID — met PLS-beloning en PoUW-certificaat.</p>
+            <div class="hero-actions" style="margin-top:12px;"><a class="btn" href="molgang/lab-3d.html">🧪 Open de reactieve lab</a></div>
+          </article>
+          <article class="card">
+            <div class="icon">🔬</div>
+            <h3>Analytical Lab</h3>
+            <p>Assay staalslak, ferrovanadium, messing en erts met een handheld-XRF en ICP-OES — RVS316 + borosilicaatglas, thematisch rond staalslak→vanadium.</p>
+            <div class="hero-actions" style="margin-top:12px;"><a class="btn" href="molgang/lab-analyze.html">🔬 Open de analytische lab</a></div>
+          </article>
+        </div>
+        <div class="hero-actions" style="margin-top:18px;justify-content:center;">
+          <a class="btn" href="molgang/">🍸 MOLGANG bar (serverless P2P)</a>
+          <a class="btn" href="speciation-quest.html">🎮 Speciation Quest</a>
+          <a class="btn" href="slag-run.html">🏭 Slag Run</a>
+        </div>
+      </div>
+    </section>
 
     <section id="platform">
       <div class="container">
