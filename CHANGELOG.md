@@ -1,5 +1,6 @@
 # Changelog
 
+- Slag Run: til-agitatie trade-off — bij een tilbaar loogvat kun je kiezen tussen rustig loging of til-agiteren (×0.7 tijd, +0.05 recovery) tegen sloshing: 3% leachate-verlies + 1 contaminatiepunt per batch. Gegated door fill-cap én de krachtcheck (#15). Parameters uit `agitation`-config; contaminatie in HUD + finish-record. Closes #17
 - Slag Run: kies-een-loogvat per batch (80L plat / 40L) met capaciteits- en agitatie-caps — vulvolume = batch_kg × L/S (`leach.liquidSolidRatio_l_per_kg`=3), batchgrootte begrensd door tankvolume; boven `liftableMaxFillL` (of te zwaar om te tillen, zie #15) geen handmatige agitatie. Closes #16
 - Slag Run: zwaartekracht + spierkracht-tilcontrole — gevuld vat-massa = `emptyKg` + liters × dichtheid (slag 1.8 / leachate 1.15 kg/L); handmatig tillen/keren alleen als kracht ≥ massa, met g=9.81 inspanning-readout (N). Arbeid ontgrendelt zwaardere vaten. Getallen uit `data/production-chain.json` (`physics`/`tanks.emptyKg`). Closes #15
 - Docs: `docs/kg-visualization-and-data-sources.md` — research-referentie 3D-KG-visualisatie + chemie-databronnen (voor `species-graph.html` / kg-sources-catalogus).
