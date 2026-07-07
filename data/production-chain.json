@@ -133,7 +133,9 @@
       "daysPer0_1mmAt20C": 1,
       "referenceTempC": 20,
       "note": "Leach time scales with particle size: at 20 C the batch needs 1 game-day (1 week) per 0.1mm of the coarsest feed. So 0.1mm -> 1 day, 2mm -> 20 days, 8mm -> 80 days. Fine milling trades mill-time for a massive leach-time saving."
-    }
+    },
+    "liquidSolidRatio_l_per_kg": 3,
+    "liquidSolidNote": "Vulvolume per batch ≈ slag_kg × L/S. Ontwerpwaarde 3 L/kg (bench-loging staalslak ~2–10 L/kg); begrenst batchgrootte op tankvolume. Zie docs/vanadium-recovery-from-steel-slag.md (L/S-lever)."
   },
   "tanks": [
     {

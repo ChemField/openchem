@@ -244,22 +244,41 @@
       });
     }
 
-    if (milledButUnleached) {
-      const preview = S.buckets.reduce((s, b) => s + b.kg * b.vFrac * recovery(b.sizeMm), 0) * CFG.product.v_to_v2o5_factor;
-      const maxSize = Math.max(...S.buckets.map(b => b.sizeMm));
-      const leachDays = Math.round(maxSize / 0.1 * CFG.leach.timeModel.daysPer0_1mmAt20C);
-      box.appendChild(opt(`Loog ${S.buckets.length} emmer(s)`,
-        `~${fmt(preview * 1000)} g V₂O₅ · grofste ${maxSize}mm → ${leachDays} dagen bij 20°C`, `${leachDays}d`,
-        true, () => {
-          advance(leachDays);
-          let v = 0;
-          S.buckets.forEach(b => v += b.kg * b.vFrac * recovery(b.sizeMm));
-          const v2o5 = v * CFG.product.v_to_v2o5_factor;
-          S.v2o5 += v2o5;
-          log(`Geloogd (${leachDays}d, grofste ${maxSize}mm): <b>${fmt(v2o5 * 1000)} g V₂O₅</b> uit ${S.buckets.length} emmer(s).`, true);
-          S.buckets = [];
-          render();
-        }));
+    // Loogbatch per gekozen vat (#16): vulvolume = batch_kg × L/S; capaciteit begrensd
+    // door tankvolume; boven liftableMaxFillL (of te zwaar om te tillen) is er geen
+    // handmatige agitatie. Kies een vat per batch; resterende emmers wachten op de volgende.
+    if (milledButUnleached && Array.isArray(CFG.tanks)) {
+      const ratio = CFG.leach.liquidSolidRatio_l_per_kg;
+      CFG.tanks.forEach(t => {
+        const batch = [];
+        let fill = 0;
+        for (const b of S.buckets) {                     // greedy: vul tot tankvolume
+          const add = b.kg * ratio;
+          if (fill + add <= t.litres) { batch.push(b); fill += add; }
+        }
+        if (!batch.length) {
+          box.appendChild(opt(`Loog in ${t.name}`, `geen emmer past — 1 emmer ≈ ${fmt(S.buckets[0].kg * ratio)}L > ${t.litres}L tank`, '', false, () => {}));
+          return;
+        }
+        const maxSize = Math.max(...batch.map(b => b.sizeMm));
+        const leachDays = Math.round(maxSize / 0.1 * CFG.leach.timeModel.daysPer0_1mmAt20C);
+        const preview = batch.reduce((s, b) => s + b.kg * b.vFrac * recovery(b.sizeMm), 0) * CFG.product.v_to_v2o5_factor;
+        const filledM = filledMass(t, fill, 'leachate');
+        const agit = fill <= t.liftableMaxFillL && canLift(filledM);
+        box.appendChild(opt(`Loog batch in ${t.name} (${batch.length} emmer(s), ${fmt(fill)}L)`,
+          `~${fmt(preview * 1000)} g V₂O₅ · grofste ${maxSize}mm → ${leachDays}d bij 20°C · ` +
+          (agit ? 'tilagitatie mogelijk' : `vulling ${fmt(fill)}L > ${t.liftableMaxFillL}L tilbaar of te zwaar → geen agitatie`),
+          `${leachDays}d`, true, () => {
+            advance(leachDays);
+            let v = 0;
+            batch.forEach(b => v += b.kg * b.vFrac * recovery(b.sizeMm));
+            const v2o5 = v * CFG.product.v_to_v2o5_factor;
+            S.v2o5 += v2o5;
+            batch.forEach(b => { const i = S.buckets.indexOf(b); if (i >= 0) S.buckets.splice(i, 1); });
+            log(`Geloogd in ${t.name} (${batch.length} emmer(s), ${fmt(fill)}L, ${leachDays}d${agit ? ', met tilagitatie' : ', zonder agitatie'}): <b>${fmt(v2o5 * 1000)} g V₂O₅</b>.`, true);
+            render();
+          }));
+      });
     }
 
     if (S.v2o5 > 0 && S.buckets.length === 0) {
