@@ -187,6 +187,31 @@
     }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
     .mini-note { margin-top: 18px; color: var(--muted-2); font-size: 14px; }
+    .mini-note.center { text-align: center; margin-left: auto; margin-right: auto; }
+
+    /* Live 3D knowledge-graph embed — THE product, front and centre. */
+    .kg-embed {
+      position: relative; border-radius: 18px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 24px 70px rgba(0,0,0,.45), inset 0 0 0 1px rgba(57,224,178,.08);
+      background: #0e1117; aspect-ratio: 16 / 9;
+    }
+    @media (max-width: 720px) { .kg-embed { aspect-ratio: 4 / 5; } }
+    .kg-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    .kg-overlay { position: absolute; right: 14px; bottom: 14px; z-index: 2; }
+    .kg-overlay .btn { backdrop-filter: blur(6px); }
+
+    /* Prominent game cards. */
+    .play-card { text-align: left; }
+    .play-card .icon { font-size: 30px; width: auto; height: auto; background: none; }
+    .play-card.feature {
+      border-color: rgba(57,224,178,.5);
+      box-shadow: 0 0 0 1px rgba(57,224,178,.25), 0 18px 50px rgba(0,0,0,.35);
+    }
+    .paper-section .play-card { background: rgba(8,36,40,.06); border-color: rgba(8,36,40,.12); }
+    .paper-section .play-card h3 { color: #082428; }
+    .paper-section .play-card p { color: rgba(10,25,28,.72); }
+    .paper-section .play-card.feature { border-color: rgba(8,123,104,.5); box-shadow: 0 0 0 1px rgba(8,123,104,.25); }
     .hero-card {
       border: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(255,255,255,.105), rgba(255,255,255,.055));
@@ -531,10 +556,10 @@
         <span>OpenHydroChem</span>
       </a>
       <div class="nav-links" aria-label="Secties">
+        <a href="#knowledge-graph">Kennisgraaf</a>
+        <a href="#play">Speel</a>
         <a href="#platform">Platform</a>
-        <a href="#process-cards">Process cards</a>
         <a href="#demo">Demo</a>
-        <a href="#stack">Stack</a>
         <a href="#chemfield-data">ChemField data</a>
         <a href="#closedchem">ClosedChem</a>
         <a href="#roadmap">Roadmap</a>
@@ -595,6 +620,60 @@ model = cards.train_yield_predictor(
         </aside>
       </div>
     </header>
+
+    <!-- THE product: the live 3D knowledge graph (Knitweb) — front and centre. -->
+    <section id="knowledge-graph">
+      <div class="container">
+        <div class="section-head center">
+          <div class="kicker">De kennisgraaf · HET product</div>
+          <h2>Chemie als een levend, geweven <span class="gradient-text">3D-kennisweb</span>.</h2>
+          <p>Geen losse dataset — een content-geadresseerde, peer-to-peer <strong>knowledge graph</strong>: elk feit een <em>knit</em>, elke relatie een <em>fiber</em>, brongekoppeld en peer-gevalideerd. Draai, zoom en klik door de fabric hieronder — of open ’m volledig (ook in VR).</p>
+        </div>
+
+        <div class="kg-embed">
+          <iframe src="molgang/knitweb-graph-3d.html" title="Knitweb — live 3D-kennisgraaf (WebXR)"
+                  loading="lazy" allow="xr-spatial-tracking; fullscreen"></iframe>
+          <div class="kg-overlay">
+            <a class="btn primary" href="molgang/knitweb-graph-3d.html" target="_blank" rel="noopener">↗ Open volledig / VR</a>
+          </div>
+        </div>
+        <p class="mini-note center">Force-directed WebGL/WebXR · schakel tussen <strong>Plugins</strong>, <strong>Begrippen</strong> en de <strong>live chem-web</strong> in de graaf.</p>
+      </div>
+    </section>
+
+    <!-- Prominent game promo: learn the chemistry by playing it. -->
+    <section id="play" class="paper-section">
+      <div class="container">
+        <div class="section-head center">
+          <div class="kicker">Speel de chemie</div>
+          <h2>Leer uitloging &amp; speciatie door het te <span style="color:#087b68;">spelen</span>.</h2>
+          <p>MOLGANG is een serverloze peer-to-peer scheikundegame op dezelfde fabric: bouw moleculen, valideer met peers, verdien PLS. Slag Run zet de échte staalslak→vanadium-route om in een fabrieksgame.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card play-card feature">
+            <div class="icon">🏭</div>
+            <h3>Slag Run</h3>
+            <p>Run de staalslak-valorisatie: leach, roost, autoclaaf, precipiteer en calcineer tot V₂O₅-grade — met echte massabalans en Cr(VI)-veiligheid.</p>
+            <div class="hero-actions" style="margin-top:14px;"><a class="btn primary" href="slag-run.html">▶ Speel Slag Run</a></div>
+          </article>
+          <article class="card play-card">
+            <div class="icon">🍸</div>
+            <h3>MOLGANG — the bar</h3>
+            <p>Serverloze P2P-scheikundegame: loop binnen, claim de faucet, bouw bindingen (knits), peers stemmen met pulses, jij verdient PLS.</p>
+            <div class="hero-actions" style="margin-top:14px;"><a class="btn" href="molgang/">▶ Open MOLGANG</a></div>
+          </article>
+          <article class="card play-card">
+            <div class="icon">⚗️</div>
+            <h3>Speciation Quest</h3>
+            <p>Stuur V/Cr-speciatie via pH en redox naar de gewenste vorm — met een 3D-speciatiediagram dat live meebeweegt.</p>
+            <div class="hero-actions" style="margin-top:14px;">
+              <a class="btn" href="speciation-quest.html">▶ Speel Quest</a>
+              <a class="btn" href="species-graph.html">3D V/Cr</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <section id="platform">
       <div class="container">
