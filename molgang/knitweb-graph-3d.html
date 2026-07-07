@@ -281,6 +281,9 @@ function initGraph(){
     .linkLabel(function(l){return l.rel?('<b style="color:#ffd479">'+esc(rl(l.rel))+'</b>'+(l.phrase?' &mdash; '+esc(l.phrase):'')):'';})
     .onNodeHover(showNode).onLinkHover(showLink)
     .onNodeClick(function(node){var d=160,r=1+d/Math.hypot(node.x||1,node.y||1,node.z||1);Graph.cameraPosition({x:(node.x||0)*r,y:(node.y||0)*r,z:(node.z||0)*r||d},node,1500);showNode(node);});
+  // Field-graph spacing standard (shared with FinField): stronger charge
+  // repulsion + explicit link distance so the web breathes instead of clumping.
+  try{ Graph.d3Force('charge').strength(function(n){return (n.val>6?-150:-78);}); Graph.d3Force('link').distance(48); }catch(e){}
   window.addEventListener('resize',function(){Graph.width(window.innerWidth).height(window.innerHeight);});
   setTimeout(function(){try{Graph.zoomToFit(700,60);}catch(e){}},700);
   // Embed/deep-link: #live auto-loads the live chem-field; #node=<id> is a wiki-style
