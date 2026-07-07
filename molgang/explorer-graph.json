@@ -1,1862 +1,2330 @@
 {
- "name": "chem-field · molgang knowledge graph",
- "nodes": [
-  {
-   "id": "element:Al",
-   "lab": "Aluminium",
-   "by": "element",
-   "def": "element · Al · Z=13 · cid bafyreicjoigcv4fmi5i36…"
-  },
-  {
-   "id": "element:Br",
-   "lab": "Bromine",
-   "by": "element",
-   "def": "element · Br · Z=35 · cid bafyreifun4bhfuhtsm5zl…"
-  },
-  {
-   "id": "element:C",
-   "lab": "Carbon",
-   "by": "element",
-   "def": "element · C · Z=6 · cid bafyreibic2gmyanvsnd4p…"
-  },
-  {
-   "id": "element:Ca",
-   "lab": "Calcium",
-   "by": "element",
-   "def": "element · Ca · Z=20 · cid bafyreid64vee6na6nwp7u…"
-  },
-  {
-   "id": "element:Cl",
-   "lab": "Chlorine",
-   "by": "element",
-   "def": "element · Cl · Z=17 · cid bafyreig4ile47szshc3ef…"
-  },
-  {
-   "id": "element:Cr",
-   "lab": "Chromium",
-   "by": "element",
-   "def": "element · Cr · Z=24 · cid bafyreicqtzlushgtrd2si…"
-  },
-  {
-   "id": "element:F",
-   "lab": "Fluorine",
-   "by": "element",
-   "def": "element · F · Z=9 · cid bafyreif37ea22u7kgzmlq…"
-  },
-  {
-   "id": "element:Fe",
-   "lab": "Iron",
-   "by": "element",
-   "def": "element · Fe · Z=26 · cid bafyreihsxydeyk3n2xs4p…"
-  },
-  {
-   "id": "element:H",
-   "lab": "Hydrogen",
-   "by": "element",
-   "def": "element · H · Z=1 · cid bafyreiffvp33w7m7eg72r…"
-  },
-  {
-   "id": "element:He",
-   "lab": "Helium",
-   "by": "element",
-   "def": "element · He · Z=2 · cid bafyreibsyin7ixiwo3g7f…"
-  },
-  {
-   "id": "element:I",
-   "lab": "Iodine",
-   "by": "element",
-   "def": "element · I · Z=53 · cid bafyreien5ddsdnxfvyjkn…"
-  },
-  {
-   "id": "element:K",
-   "lab": "Potassium",
-   "by": "element",
-   "def": "element · K · Z=19 · cid bafyreigzivpo4gmb6vf5f…"
-  },
-  {
-   "id": "element:Mg",
-   "lab": "Magnesium",
-   "by": "element",
-   "def": "element · Mg · Z=12 · cid bafyreiftagfjjgzolzna4…"
-  },
-  {
-   "id": "element:Mn",
-   "lab": "Manganese",
-   "by": "element",
-   "def": "element · Mn · Z=25 · cid bafyreiepxckakvjdlaudm…"
-  },
-  {
-   "id": "element:N",
-   "lab": "Nitrogen",
-   "by": "element",
-   "def": "element · N · Z=7 · cid bafyreibdnynxw4ofwbim2…"
-  },
-  {
-   "id": "element:Na",
-   "lab": "Sodium",
-   "by": "element",
-   "def": "element · Na · Z=11 · cid bafyreieoe2iqipz4smidk…"
-  },
-  {
-   "id": "element:O",
-   "lab": "Oxygen",
-   "by": "element",
-   "def": "element · O · Z=8 · cid bafyreibsvja2g5hby2osx…"
-  },
-  {
-   "id": "element:P",
-   "lab": "Phosphorus",
-   "by": "element",
-   "def": "element · P · Z=15 · cid bafyreiborh5wqbrcx5nsl…"
-  },
-  {
-   "id": "element:S",
-   "lab": "Sulfur",
-   "by": "element",
-   "def": "element · S · Z=16 · cid bafyreifyyk4caantldye5…"
-  },
-  {
-   "id": "element:Si",
-   "lab": "Silicon",
-   "by": "element",
-   "def": "element · Si · Z=14 · cid bafyreigxymskqnomh3qqu…"
-  },
-  {
-   "id": "element:Ti",
-   "lab": "Titanium",
-   "by": "element",
-   "def": "element · Ti · Z=22 · cid bafyreicbx7abzwwpjwn5p…"
-  },
-  {
-   "id": "element:V",
-   "lab": "Vanadium",
-   "by": "element",
-   "def": "element · V · Z=23 · cid bafyreig56y6sx3zx4z7ey…"
-  },
-  {
-   "id": "element:Zn",
-   "lab": "Zinc",
-   "by": "element",
-   "def": "element · Zn · Z=30 · cid bafyreidxotvrrl3mbzj66…"
-  },
-  {
-   "id": "molecule:Al2O3",
-   "lab": "Aluminium oxide",
-   "by": "molecule",
-   "def": "molecule · Al2O3 · cid bafyreicwwagz444gcap57…"
-  },
-  {
-   "id": "molecule:C6H12O6",
-   "lab": "Glucose",
-   "by": "molecule",
-   "def": "molecule · C6H12O6 · cid bafyreiax7ixv4rifi4ahp…"
-  },
-  {
-   "id": "molecule:CH4",
-   "lab": "Methane",
-   "by": "molecule",
-   "def": "molecule · CH4 · cid bafyreih2sehtuaxv5q4mx…"
-  },
-  {
-   "id": "molecule:CO",
-   "lab": "Carbon monoxide",
-   "by": "molecule",
-   "def": "molecule · CO · cid bafyreiaajbsobn4gto3sm…"
-  },
-  {
-   "id": "molecule:CO2",
-   "lab": "Carbon dioxide",
-   "by": "molecule",
-   "def": "molecule · CO2 · cid bafyreignozakvme4esmdj…"
-  },
-  {
-   "id": "molecule:CaCO3",
-   "lab": "Calcium carbonate",
-   "by": "molecule",
-   "def": "molecule · CaCO3 · cid bafyreih5ufmczskk23fer…"
-  },
-  {
-   "id": "molecule:CaO",
-   "lab": "Calcium oxide",
-   "by": "molecule",
-   "def": "molecule · CaO · cid bafyreigogwhhkrzve4rhe…"
-  },
-  {
-   "id": "molecule:Cr2O3",
-   "lab": "Chromium(III) oxide",
-   "by": "molecule",
-   "def": "molecule · Cr2O3 · cid bafyreigk3iep2ljb3mrnh…"
-  },
-  {
-   "id": "molecule:Fe2O3",
-   "lab": "Iron(III) oxide",
-   "by": "molecule",
-   "def": "molecule · Fe2O3 · cid bafyreiegdbybcikylivqg…"
-  },
-  {
-   "id": "molecule:FeO",
-   "lab": "Iron(II) oxide",
-   "by": "molecule",
-   "def": "molecule · FeO · cid bafyreibixlbhpbi7pz6lf…"
-  },
-  {
-   "id": "molecule:H2",
-   "lab": "Hydrogen gas",
-   "by": "molecule",
-   "def": "molecule · H2 · cid bafyreigzpbr2yx2ntjpdi…"
-  },
-  {
-   "id": "molecule:H2O",
-   "lab": "Water",
-   "by": "molecule",
-   "def": "molecule · H2O · cid bafyreiemtadgdmf7h7elj…"
-  },
-  {
-   "id": "molecule:H2O2",
-   "lab": "Hydrogen peroxide",
-   "by": "molecule",
-   "def": "molecule · H2O2 · cid bafyreielv3lmj43kbvc4r…"
-  },
-  {
-   "id": "molecule:H2S",
-   "lab": "Hydrogen sulfide",
-   "by": "molecule",
-   "def": "molecule · H2S · cid bafyreigw3evlmkzes3jai…"
-  },
-  {
-   "id": "molecule:H2SO4",
-   "lab": "Sulfuric acid",
-   "by": "molecule",
-   "def": "molecule · H2SO4 · cid bafyreifg7p7fovdtgjt42…"
-  },
-  {
-   "id": "molecule:H3PO4",
-   "lab": "Phosphoric acid",
-   "by": "molecule",
-   "def": "molecule · H3PO4 · cid bafyreigb2dmogq2tswxdq…"
-  },
-  {
-   "id": "molecule:HCl",
-   "lab": "Hydrochloric acid",
-   "by": "molecule",
-   "def": "molecule · HCl · cid bafyreidq745gdpwxqsom6…"
-  },
-  {
-   "id": "molecule:HNO3",
-   "lab": "Nitric acid",
-   "by": "molecule",
-   "def": "molecule · HNO3 · cid bafyreifu6hy4ixzftepql…"
-  },
-  {
-   "id": "molecule:KBr",
-   "lab": "Potassium bromide",
-   "by": "molecule",
-   "def": "molecule · KBr · cid bafyreicbab7q4xyvigtoy…"
-  },
-  {
-   "id": "molecule:KCl",
-   "lab": "Potassium chloride",
-   "by": "molecule",
-   "def": "molecule · KCl · cid bafyreid4kvdzijkt2ys6q…"
-  },
-  {
-   "id": "molecule:KI",
-   "lab": "Potassium iodide",
-   "by": "molecule",
-   "def": "molecule · KI · cid bafyreiavxutr5glrcdyni…"
-  },
-  {
-   "id": "molecule:KOH",
-   "lab": "Potassium hydroxide",
-   "by": "molecule",
-   "def": "molecule · KOH · cid bafyreigtcfkri7wdy7c2v…"
-  },
-  {
-   "id": "molecule:MgO",
-   "lab": "Magnesium oxide",
-   "by": "molecule",
-   "def": "molecule · MgO · cid bafyreie2xr2mkwwpebi6y…"
-  },
-  {
-   "id": "molecule:MnO",
-   "lab": "Manganese(II) oxide",
-   "by": "molecule",
-   "def": "molecule · MnO · cid bafyreibrrg7epsba3gsjy…"
-  },
-  {
-   "id": "molecule:N2",
-   "lab": "Nitrogen gas",
-   "by": "molecule",
-   "def": "molecule · N2 · cid bafyreibhbsckgb4w5jr4g…"
-  },
-  {
-   "id": "molecule:NH3",
-   "lab": "Ammonia",
-   "by": "molecule",
-   "def": "molecule · NH3 · cid bafyreiay3w4jeg6hnlvrx…"
-  },
-  {
-   "id": "molecule:NO2",
-   "lab": "Nitrogen dioxide",
-   "by": "molecule",
-   "def": "molecule · NO2 · cid bafyreib2iv5y2yd76xode…"
-  },
-  {
-   "id": "molecule:NaCl",
-   "lab": "Table salt",
-   "by": "molecule",
-   "def": "molecule · NaCl · cid bafyreif34ktf4apxr5tqz…"
-  },
-  {
-   "id": "molecule:NaF",
-   "lab": "Sodium fluoride",
-   "by": "molecule",
-   "def": "molecule · NaF · cid bafyreid733itiussyqqph…"
-  },
-  {
-   "id": "molecule:NaOH",
-   "lab": "Sodium hydroxide",
-   "by": "molecule",
-   "def": "molecule · NaOH · cid bafyreiglli7yvpxc2garl…"
-  },
-  {
-   "id": "molecule:O2",
-   "lab": "Oxygen gas",
-   "by": "molecule",
-   "def": "molecule · O2 · cid bafyreibjies7u4shy3ymi…"
-  },
-  {
-   "id": "molecule:SO2",
-   "lab": "Sulfur dioxide",
-   "by": "molecule",
-   "def": "molecule · SO2 · cid bafyreie6cek3q775sknx4…"
-  },
-  {
-   "id": "molecule:SiO2",
-   "lab": "Silicon dioxide",
-   "by": "molecule",
-   "def": "molecule · SiO2 · cid bafyreihgul2zya4ew6lnj…"
-  },
-  {
-   "id": "molecule:TiO2",
-   "lab": "Titanium dioxide",
-   "by": "molecule",
-   "def": "molecule · TiO2 · cid bafyreigiquuecwd5urvww…"
-  },
-  {
-   "id": "molecule:V2O3",
-   "lab": "Vanadium(III) oxide",
-   "by": "molecule",
-   "def": "molecule · V2O3 · cid bafyreiftjoej7eawmpf7k…"
-  },
-  {
-   "id": "molecule:V2O5",
-   "lab": "Vanadium(V) oxide",
-   "by": "molecule",
-   "def": "molecule · V2O5 · cid bafyreieg33thn6minsdb3…"
-  },
-  {
-   "id": "molecule:ZnO",
-   "lab": "Zinc oxide",
-   "by": "molecule",
-   "def": "molecule · ZnO · cid bafyreig23k74c4u44gcjv…"
-  },
-  {
-   "id": "reaction-word:combustion-carbon",
-   "lab": "Combustion of carbon",
-   "by": "reaction-word",
-   "def": "reaction · combustion-carbon · cid bafyreibgwp2xk74egbt4t…"
-  },
-  {
-   "id": "reaction-word:combustion-hydrogen",
-   "lab": "Combustion of hydrogen",
-   "by": "reaction-word",
-   "def": "reaction · combustion-hydrogen · cid bafyreif3oyfaxkijen4rb…"
-  },
-  {
-   "id": "reaction-word:combustion-methane",
-   "lab": "Combustion of methane",
-   "by": "reaction-word",
-   "def": "reaction · combustion-methane · cid bafyreiglcplu2xrfoe42k…"
-  },
-  {
-   "id": "reaction-word:decomposition-limestone",
-   "lab": "Decomposition of limestone",
-   "by": "reaction-word",
-   "def": "reaction · decomposition-limestone · cid bafyreidw7zd7dpzujj6pf…"
-  },
-  {
-   "id": "reaction-word:neutralisation-hcl-naoh",
-   "lab": "Neutralisation of hydrochloric acid",
-   "by": "reaction-word",
-   "def": "reaction · neutralisation-hcl-naoh · cid bafyreigm7cxgf3vim3u7j…"
-  },
-  {
-   "id": "reaction-word:roast-vanadium",
-   "lab": "Oxidative roast of vanadium oxide",
-   "by": "reaction-word",
-   "def": "reaction · roast-vanadium · cid bafyreiazo42qn6q5gnl3p…"
-  },
-  {
-   "id": "reaction-word:synthesis-ammonia",
-   "lab": "Haber synthesis of ammonia",
-   "by": "reaction-word",
-   "def": "reaction · synthesis-ammonia · cid bafyreidef7ps3hiq4hoap…"
-  },
-  {
-   "id": "reaction-word:synthesis-sulfur-dioxide",
-   "lab": "Burning sulfur",
-   "by": "reaction-word",
-   "def": "reaction · synthesis-sulfur-dioxide · cid bafyreic4chzgz3x4bdfby…"
-  },
-  {
-   "id": "reaction-word:thermite-iron",
-   "lab": "Thermite reduction of iron oxide",
-   "by": "reaction-word",
-   "def": "reaction · thermite-iron · cid bafyreighcg4r2qz46cpyw…"
-  },
-  {
-   "id": "reaction:combustion-carbon",
-   "lab": "combustion-carbon",
-   "by": "reaction",
-   "def": "reaction-knowledge (conservation-gated) · cid bafyreidervwjoftptk7mr…"
-  },
-  {
-   "id": "reaction:combustion-hydrogen",
-   "lab": "combustion-hydrogen",
-   "by": "reaction",
-   "def": "reaction-knowledge (conservation-gated) · cid bafyreicodbc3fiaqtcnlq…"
-  },
-  {
-   "id": "reaction:combustion-methane",
-   "lab": "combustion-methane",
-   "by": "reaction",
-   "def": "reaction-knowledge (conservation-gated) · cid bafyreigp7mljlkluscfcs…"
-  },
-  {
-   "id": "reaction:decomposition-limestone",
-   "lab": "decomposition-limestone",
-   "by": "reaction",
-   "def": "reaction-knowledge (conservation-gated) · cid bafyreihsijq54dcyhlws6…"
-  },
-  {
-   "id": "reaction:neutralisation-hcl-naoh",
-   "lab": "neutralisation-hcl-naoh",
-   "by": "reaction",
-   "def": "reaction-knowledge (conservation-gated) · cid bafyreiayirsi7vedionr7…"
-  },
-  {
-   "id": "reaction:roast-vanadium",
-   "lab": "roast-vanadium",
-   "by": "reaction",
-   "def": "reaction-knowledge (conservation-gated) · cid bafyreidxgheey4bf33gve…"
-  },
-  {
-   "id": "reaction:synthesis-ammonia",
-   "lab": "synthesis-ammonia",
-   "by": "reaction",
-   "def": "reaction-knowledge (conservation-gated) · cid bafyreifby7zajfnxboqd2…"
-  },
-  {
-   "id": "reaction:synthesis-sulfur-dioxide",
-   "lab": "synthesis-sulfur-dioxide",
-   "by": "reaction",
-   "def": "reaction-knowledge (conservation-gated) · cid bafyreiavan2wz6wlvtpcw…"
-  },
-  {
-   "id": "reaction:thermite-iron",
-   "lab": "thermite-iron",
-   "by": "reaction",
-   "def": "reaction-knowledge (conservation-gated) · cid bafyreicgpvyj6c56hhkef…"
-  },
-  {
-   "id": "word:CID",
-   "lab": "CID",
-   "by": "word",
-   "def": "identifier · cid bafyreifgf23g2dvbfifek…"
-  },
-  {
-   "id": "word:Fiber",
-   "lab": "Fiber",
-   "by": "word",
-   "def": "record · cid bafyreie2c475ef52h4kit…"
-  },
-  {
-   "id": "word:Knit",
-   "lab": "Knit",
-   "by": "word",
-   "def": "action · cid bafyreigiqtsevhpkm5s7e…"
-  },
-  {
-   "id": "word:Knitweb",
-   "lab": "Knitweb",
-   "by": "word",
-   "def": "protocol · cid bafyreieubanaquqd4rtjn…"
-  },
-  {
-   "id": "word:MOLGANG",
-   "lab": "MOLGANG",
-   "by": "word",
-   "def": "game · cid bafyreidi2ujtuy3hmh5d3…"
-  },
-  {
-   "id": "word:PLS",
-   "lab": "PLS",
-   "by": "word",
-   "def": "currency · cid bafyreibd426cgp6teemt4…"
-  },
-  {
-   "id": "word:PoUW",
-   "lab": "PoUW",
-   "by": "word",
-   "def": "mechanism · cid bafyreibihn3g3wb4awt54…"
-  },
-  {
-   "id": "word:Pulse",
-   "lab": "Pulse",
-   "by": "word",
-   "def": "network · cid bafyreidnzs5nx27mtjg4j…"
-  },
-  {
-   "id": "word:Slag Run",
-   "lab": "Slag Run",
-   "by": "word",
-   "def": "game · cid bafyreifqd2tjxdlrhao5b…"
-  },
-  {
-   "id": "word:Web",
-   "lab": "Web",
-   "by": "word",
-   "def": "fabric · cid bafyreib5pv4mkhi6afk5x…"
-  },
-  {
-   "id": "word:attestation",
-   "lab": "attestation",
-   "by": "word",
-   "def": "proof · cid bafyreiftsb3aksbyzhsji…"
-  },
-  {
-   "id": "word:ballot",
-   "lab": "ballot",
-   "by": "word",
-   "def": "vote · cid bafyreidwa2dszbzfajrhf…"
-  },
-  {
-   "id": "word:bar",
-   "lab": "bar",
-   "by": "word",
-   "def": "venue · cid bafyreifvnagmqpi2ywedd…"
-  },
-  {
-   "id": "word:certificate",
-   "lab": "certificate",
-   "by": "word",
-   "def": "reward · cid bafyreigj7xglju3wh3bjb…"
-  },
-  {
-   "id": "word:faucet",
-   "lab": "faucet",
-   "by": "word",
-   "def": "mechanism · cid bafyreig3kpn5fybdiofeb…"
-  },
-  {
-   "id": "word:level",
-   "lab": "level",
-   "by": "word",
-   "def": "progression · cid bafyreihrc3cbo4tn5v74d…"
-  },
-  {
-   "id": "word:propose",
-   "lab": "propose",
-   "by": "word",
-   "def": "action · cid bafyreibiphlyju7h4nfag…"
-  },
-  {
-   "id": "word:provenance",
-   "lab": "provenance",
-   "by": "word",
-   "def": "principle · cid bafyreiaaqvx2r3wfhtdfe…"
-  },
-  {
-   "id": "word:quorum",
-   "lab": "quorum",
-   "by": "word",
-   "def": "consensus · cid bafyreifsfr77f5lm53bll…"
-  },
-  {
-   "id": "word:settlement",
-   "lab": "settlement",
-   "by": "word",
-   "def": "outcome · cid bafyreibuhnvjrhq42r7pk…"
-  },
-  {
-   "id": "word:silk",
-   "lab": "silk",
-   "by": "word",
-   "def": "resource · cid bafyreiatydivv56dwbrni…"
-  },
-  {
-   "id": "word:spider",
-   "lab": "spider",
-   "by": "word",
-   "def": "worker · cid bafyreic4gpi5j4vqhlxjn…"
-  },
-  {
-   "id": "word:stake",
-   "lab": "stake",
-   "by": "word",
-   "def": "action · cid bafyreidquzismxxffysij…"
-  },
-  {
-   "id": "word:wallet",
-   "lab": "wallet",
-   "by": "word",
-   "def": "account · cid bafyreia3mj5wo6ii3n5ym…"
-  },
-  {
-   "id": "word:energy",
-   "lab": "energy",
-   "by": "word",
-   "def": "energy · the capacity to do work; released or absorbed in chemical & nuclear change"
-  },
-  {
-   "id": "word:nuclear-energy",
-   "lab": "nuclear energy",
-   "by": "word",
-   "def": "nuclear energy · energy released by nuclear fission or fusion"
-  },
-  {
-   "id": "knit:molgang",
-   "lab": "molgang",
-   "by": "field",
-   "def": "molgang · the chemistry game — every term you play with is woven into this knit"
-  }
- ],
- "edges": [
-  {
-   "s": "molecule:Al2O3",
-   "t": "element:Al",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:Al2O3",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:C6H12O6",
-   "t": "element:C",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:C6H12O6",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:C6H12O6",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:CH4",
-   "t": "element:C",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:CH4",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:CO",
-   "t": "element:C",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:CO",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:CO2",
-   "t": "element:C",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:CO2",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:CaCO3",
-   "t": "element:C",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:CaCO3",
-   "t": "element:Ca",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:CaCO3",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:CaO",
-   "t": "element:Ca",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:CaO",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:Cr2O3",
-   "t": "element:Cr",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:Cr2O3",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:Fe2O3",
-   "t": "element:Fe",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:Fe2O3",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:FeO",
-   "t": "element:Fe",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:FeO",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H2",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H2O",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H2O",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H2O2",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H2O2",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H2S",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H2S",
-   "t": "element:S",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H2SO4",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H2SO4",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H2SO4",
-   "t": "element:S",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H3PO4",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H3PO4",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:H3PO4",
-   "t": "element:P",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:HCl",
-   "t": "element:Cl",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:HCl",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:HNO3",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:HNO3",
-   "t": "element:N",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:HNO3",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:KBr",
-   "t": "element:Br",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:KBr",
-   "t": "element:K",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:KCl",
-   "t": "element:Cl",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:KCl",
-   "t": "element:K",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:KI",
-   "t": "element:I",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:KI",
-   "t": "element:K",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:KOH",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:KOH",
-   "t": "element:K",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:KOH",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:MgO",
-   "t": "element:Mg",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:MgO",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:MnO",
-   "t": "element:Mn",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:MnO",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:N2",
-   "t": "element:N",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:NH3",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:NH3",
-   "t": "element:N",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:NO2",
-   "t": "element:N",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:NO2",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:NaCl",
-   "t": "element:Cl",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:NaCl",
-   "t": "element:Na",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:NaF",
-   "t": "element:F",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:NaF",
-   "t": "element:Na",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:NaOH",
-   "t": "element:H",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:NaOH",
-   "t": "element:Na",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:NaOH",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:O2",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:SO2",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:SO2",
-   "t": "element:S",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:SiO2",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:SiO2",
-   "t": "element:Si",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:TiO2",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:TiO2",
-   "t": "element:Ti",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:V2O3",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:V2O3",
-   "t": "element:V",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:V2O5",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:V2O5",
-   "t": "element:V",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:ZnO",
-   "t": "element:O",
-   "r": "hasElement"
-  },
-  {
-   "s": "molecule:ZnO",
-   "t": "element:Zn",
-   "r": "hasElement"
-  },
-  {
-   "s": "word:Web",
-   "t": "word:Knitweb",
-   "r": "part-of"
-  },
-  {
-   "s": "word:Knit",
-   "t": "word:Web",
-   "r": "acts-on"
-  },
-  {
-   "s": "word:Pulse",
-   "t": "word:Knitweb",
-   "r": "part-of"
-  },
-  {
-   "s": "word:Fiber",
-   "t": "word:Web",
-   "r": "woven-into"
-  },
-  {
-   "s": "word:spider",
-   "t": "word:Fiber",
-   "r": "weaves"
-  },
-  {
-   "s": "word:PLS",
-   "t": "word:Pulse",
-   "r": "currency-of"
-  },
-  {
-   "s": "word:MOLGANG",
-   "t": "word:Knitweb",
-   "r": "runs-on"
-  },
-  {
-   "s": "word:propose",
-   "t": "word:bar",
-   "r": "happens-in"
-  },
-  {
-   "s": "word:quorum",
-   "t": "word:propose",
-   "r": "settles"
-  },
-  {
-   "s": "word:silk",
-   "t": "word:propose",
-   "r": "fuels"
-  },
-  {
-   "s": "word:bar",
-   "t": "word:MOLGANG",
-   "r": "part-of"
-  },
-  {
-   "s": "word:attestation",
-   "t": "word:Fiber",
-   "r": "signs"
-  },
-  {
-   "s": "word:CID",
-   "t": "word:Fiber",
-   "r": "addresses"
-  },
-  {
-   "s": "word:provenance",
-   "t": "word:CID",
-   "r": "traced-by"
-  },
-  {
-   "s": "word:settlement",
-   "t": "word:quorum",
-   "r": "follows"
-  },
-  {
-   "s": "word:PoUW",
-   "t": "word:PLS",
-   "r": "earns"
-  },
-  {
-   "s": "word:certificate",
-   "t": "word:PoUW",
-   "r": "proves"
-  },
-  {
-   "s": "word:faucet",
-   "t": "word:PLS",
-   "r": "mints"
-  },
-  {
-   "s": "word:wallet",
-   "t": "word:PLS",
-   "r": "holds"
-  },
-  {
-   "s": "word:ballot",
-   "t": "word:quorum",
-   "r": "feeds"
-  },
-  {
-   "s": "word:stake",
-   "t": "word:PLS",
-   "r": "locks"
-  },
-  {
-   "s": "word:level",
-   "t": "word:certificate",
-   "r": "unlocks"
-  },
-  {
-   "s": "word:Slag Run",
-   "t": "word:MOLGANG",
-   "r": "part-of"
-  },
-  {
-   "s": "reaction-word:combustion-carbon",
-   "t": "reaction:combustion-carbon",
-   "r": "describes"
-  },
-  {
-   "s": "reaction:combustion-carbon",
-   "t": "element:C",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:combustion-carbon",
-   "t": "molecule:O2",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:combustion-carbon",
-   "t": "molecule:CO2",
-   "r": "produces"
-  },
-  {
-   "s": "reaction-word:combustion-hydrogen",
-   "t": "reaction:combustion-hydrogen",
-   "r": "describes"
-  },
-  {
-   "s": "reaction:combustion-hydrogen",
-   "t": "molecule:H2",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:combustion-hydrogen",
-   "t": "molecule:O2",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:combustion-hydrogen",
-   "t": "molecule:H2O",
-   "r": "produces"
-  },
-  {
-   "s": "reaction-word:combustion-methane",
-   "t": "reaction:combustion-methane",
-   "r": "describes"
-  },
-  {
-   "s": "reaction:combustion-methane",
-   "t": "molecule:CH4",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:combustion-methane",
-   "t": "molecule:O2",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:combustion-methane",
-   "t": "molecule:CO2",
-   "r": "produces"
-  },
-  {
-   "s": "reaction:combustion-methane",
-   "t": "molecule:H2O",
-   "r": "produces"
-  },
-  {
-   "s": "reaction-word:decomposition-limestone",
-   "t": "reaction:decomposition-limestone",
-   "r": "describes"
-  },
-  {
-   "s": "reaction:decomposition-limestone",
-   "t": "molecule:CaCO3",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:decomposition-limestone",
-   "t": "molecule:CaO",
-   "r": "produces"
-  },
-  {
-   "s": "reaction:decomposition-limestone",
-   "t": "molecule:CO2",
-   "r": "produces"
-  },
-  {
-   "s": "reaction-word:neutralisation-hcl-naoh",
-   "t": "reaction:neutralisation-hcl-naoh",
-   "r": "describes"
-  },
-  {
-   "s": "reaction:neutralisation-hcl-naoh",
-   "t": "molecule:HCl",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:neutralisation-hcl-naoh",
-   "t": "molecule:NaOH",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:neutralisation-hcl-naoh",
-   "t": "molecule:NaCl",
-   "r": "produces"
-  },
-  {
-   "s": "reaction:neutralisation-hcl-naoh",
-   "t": "molecule:H2O",
-   "r": "produces"
-  },
-  {
-   "s": "reaction-word:roast-vanadium",
-   "t": "reaction:roast-vanadium",
-   "r": "describes"
-  },
-  {
-   "s": "reaction:roast-vanadium",
-   "t": "molecule:V2O3",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:roast-vanadium",
-   "t": "molecule:O2",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:roast-vanadium",
-   "t": "molecule:V2O5",
-   "r": "produces"
-  },
-  {
-   "s": "reaction-word:synthesis-ammonia",
-   "t": "reaction:synthesis-ammonia",
-   "r": "describes"
-  },
-  {
-   "s": "reaction:synthesis-ammonia",
-   "t": "molecule:N2",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:synthesis-ammonia",
-   "t": "molecule:H2",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:synthesis-ammonia",
-   "t": "molecule:NH3",
-   "r": "produces"
-  },
-  {
-   "s": "reaction-word:synthesis-sulfur-dioxide",
-   "t": "reaction:synthesis-sulfur-dioxide",
-   "r": "describes"
-  },
-  {
-   "s": "reaction:synthesis-sulfur-dioxide",
-   "t": "element:S",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:synthesis-sulfur-dioxide",
-   "t": "molecule:O2",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:synthesis-sulfur-dioxide",
-   "t": "molecule:SO2",
-   "r": "produces"
-  },
-  {
-   "s": "reaction-word:thermite-iron",
-   "t": "reaction:thermite-iron",
-   "r": "describes"
-  },
-  {
-   "s": "reaction:thermite-iron",
-   "t": "molecule:Fe2O3",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:thermite-iron",
-   "t": "element:Al",
-   "r": "consumes"
-  },
-  {
-   "s": "reaction:thermite-iron",
-   "t": "element:Fe",
-   "r": "produces"
-  },
-  {
-   "s": "reaction:thermite-iron",
-   "t": "molecule:Al2O3",
-   "r": "produces"
-  },
-  {
-   "s": "word:nuclear-energy",
-   "t": "word:energy",
-   "r": "isA"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Al",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Br",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:C",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Ca",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Cl",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Cr",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:F",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Fe",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:H",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:He",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:I",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:K",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Mg",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Mn",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:N",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Na",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:O",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:P",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:S",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Si",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Ti",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:V",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "element:Zn",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:Al2O3",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:C6H12O6",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:CH4",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:CO",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:CO2",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:CaCO3",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:CaO",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:Cr2O3",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:Fe2O3",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:FeO",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:H2",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:H2O",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:H2O2",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:H2S",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:H2SO4",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:H3PO4",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:HCl",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:HNO3",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:KBr",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:KCl",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:KI",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:KOH",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:MgO",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:MnO",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:N2",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:NH3",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:NO2",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:NaCl",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:NaF",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:NaOH",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:O2",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:SO2",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:SiO2",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:TiO2",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:V2O3",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:V2O5",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "molecule:ZnO",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction-word:combustion-carbon",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction-word:combustion-hydrogen",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction-word:combustion-methane",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction-word:decomposition-limestone",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction-word:neutralisation-hcl-naoh",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction-word:roast-vanadium",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction-word:synthesis-ammonia",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction-word:synthesis-sulfur-dioxide",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction-word:thermite-iron",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction:combustion-carbon",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction:combustion-hydrogen",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction:combustion-methane",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction:decomposition-limestone",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction:neutralisation-hcl-naoh",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction:roast-vanadium",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction:synthesis-ammonia",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction:synthesis-sulfur-dioxide",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "reaction:thermite-iron",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:CID",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:Fiber",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:Knit",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:Knitweb",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:MOLGANG",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:PLS",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:PoUW",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:Pulse",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:Slag Run",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:Web",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:attestation",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:ballot",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:bar",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:certificate",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:faucet",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:level",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:propose",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:provenance",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:quorum",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:settlement",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:silk",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:spider",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:stake",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:wallet",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:energy",
-   "r": "usesTerm"
-  },
-  {
-   "s": "knit:molgang",
-   "t": "word:nuclear-energy",
-   "r": "usesTerm"
-  }
- ]
+  "name": "chem-field \u00b7 molgang + chemistry species",
+  "nodes": [
+    {
+      "id": "element:Al",
+      "lab": "Aluminium",
+      "by": "element",
+      "def": "element \u00b7 Al \u00b7 Z=13 \u00b7 cid bafyreicjoigcv4fmi5i36\u2026"
+    },
+    {
+      "id": "element:Br",
+      "lab": "Bromine",
+      "by": "element",
+      "def": "element \u00b7 Br \u00b7 Z=35 \u00b7 cid bafyreifun4bhfuhtsm5zl\u2026"
+    },
+    {
+      "id": "element:C",
+      "lab": "Carbon",
+      "by": "element",
+      "def": "element \u00b7 C \u00b7 Z=6 \u00b7 cid bafyreibic2gmyanvsnd4p\u2026"
+    },
+    {
+      "id": "element:Ca",
+      "lab": "Calcium",
+      "by": "element",
+      "def": "element \u00b7 Ca \u00b7 Z=20 \u00b7 cid bafyreid64vee6na6nwp7u\u2026"
+    },
+    {
+      "id": "element:Cl",
+      "lab": "Chlorine",
+      "by": "element",
+      "def": "element \u00b7 Cl \u00b7 Z=17 \u00b7 cid bafyreig4ile47szshc3ef\u2026"
+    },
+    {
+      "id": "element:Cr",
+      "lab": "Chromium",
+      "by": "element",
+      "def": "element \u00b7 Cr \u00b7 Z=24 \u00b7 cid bafyreicqtzlushgtrd2si\u2026"
+    },
+    {
+      "id": "element:F",
+      "lab": "Fluorine",
+      "by": "element",
+      "def": "element \u00b7 F \u00b7 Z=9 \u00b7 cid bafyreif37ea22u7kgzmlq\u2026"
+    },
+    {
+      "id": "element:Fe",
+      "lab": "Iron",
+      "by": "element",
+      "def": "element \u00b7 Fe \u00b7 Z=26 \u00b7 cid bafyreihsxydeyk3n2xs4p\u2026"
+    },
+    {
+      "id": "element:H",
+      "lab": "Hydrogen",
+      "by": "element",
+      "def": "element \u00b7 H \u00b7 Z=1 \u00b7 cid bafyreiffvp33w7m7eg72r\u2026"
+    },
+    {
+      "id": "element:He",
+      "lab": "Helium",
+      "by": "element",
+      "def": "element \u00b7 He \u00b7 Z=2 \u00b7 cid bafyreibsyin7ixiwo3g7f\u2026"
+    },
+    {
+      "id": "element:I",
+      "lab": "Iodine",
+      "by": "element",
+      "def": "element \u00b7 I \u00b7 Z=53 \u00b7 cid bafyreien5ddsdnxfvyjkn\u2026"
+    },
+    {
+      "id": "element:K",
+      "lab": "Potassium",
+      "by": "element",
+      "def": "element \u00b7 K \u00b7 Z=19 \u00b7 cid bafyreigzivpo4gmb6vf5f\u2026"
+    },
+    {
+      "id": "element:Mg",
+      "lab": "Magnesium",
+      "by": "element",
+      "def": "element \u00b7 Mg \u00b7 Z=12 \u00b7 cid bafyreiftagfjjgzolzna4\u2026"
+    },
+    {
+      "id": "element:Mn",
+      "lab": "Manganese",
+      "by": "element",
+      "def": "element \u00b7 Mn \u00b7 Z=25 \u00b7 cid bafyreiepxckakvjdlaudm\u2026"
+    },
+    {
+      "id": "element:N",
+      "lab": "Nitrogen",
+      "by": "element",
+      "def": "element \u00b7 N \u00b7 Z=7 \u00b7 cid bafyreibdnynxw4ofwbim2\u2026"
+    },
+    {
+      "id": "element:Na",
+      "lab": "Sodium",
+      "by": "element",
+      "def": "element \u00b7 Na \u00b7 Z=11 \u00b7 cid bafyreieoe2iqipz4smidk\u2026"
+    },
+    {
+      "id": "element:O",
+      "lab": "Oxygen",
+      "by": "element",
+      "def": "element \u00b7 O \u00b7 Z=8 \u00b7 cid bafyreibsvja2g5hby2osx\u2026"
+    },
+    {
+      "id": "element:P",
+      "lab": "Phosphorus",
+      "by": "element",
+      "def": "element \u00b7 P \u00b7 Z=15 \u00b7 cid bafyreiborh5wqbrcx5nsl\u2026"
+    },
+    {
+      "id": "element:S",
+      "lab": "Sulfur",
+      "by": "element",
+      "def": "element \u00b7 S \u00b7 Z=16 \u00b7 cid bafyreifyyk4caantldye5\u2026"
+    },
+    {
+      "id": "element:Si",
+      "lab": "Silicon",
+      "by": "element",
+      "def": "element \u00b7 Si \u00b7 Z=14 \u00b7 cid bafyreigxymskqnomh3qqu\u2026"
+    },
+    {
+      "id": "element:Ti",
+      "lab": "Titanium",
+      "by": "element",
+      "def": "element \u00b7 Ti \u00b7 Z=22 \u00b7 cid bafyreicbx7abzwwpjwn5p\u2026"
+    },
+    {
+      "id": "element:V",
+      "lab": "Vanadium",
+      "by": "element",
+      "def": "element \u00b7 V \u00b7 Z=23 \u00b7 cid bafyreig56y6sx3zx4z7ey\u2026"
+    },
+    {
+      "id": "element:Zn",
+      "lab": "Zinc",
+      "by": "element",
+      "def": "element \u00b7 Zn \u00b7 Z=30 \u00b7 cid bafyreidxotvrrl3mbzj66\u2026"
+    },
+    {
+      "id": "molecule:Al2O3",
+      "lab": "Aluminium oxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 Al2O3 \u00b7 cid bafyreicwwagz444gcap57\u2026"
+    },
+    {
+      "id": "molecule:C6H12O6",
+      "lab": "Glucose",
+      "by": "molecule",
+      "def": "molecule \u00b7 C6H12O6 \u00b7 cid bafyreiax7ixv4rifi4ahp\u2026"
+    },
+    {
+      "id": "molecule:CH4",
+      "lab": "Methane",
+      "by": "molecule",
+      "def": "molecule \u00b7 CH4 \u00b7 cid bafyreih2sehtuaxv5q4mx\u2026"
+    },
+    {
+      "id": "molecule:CO",
+      "lab": "Carbon monoxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 CO \u00b7 cid bafyreiaajbsobn4gto3sm\u2026"
+    },
+    {
+      "id": "molecule:CO2",
+      "lab": "Carbon dioxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 CO2 \u00b7 cid bafyreignozakvme4esmdj\u2026"
+    },
+    {
+      "id": "molecule:CaCO3",
+      "lab": "Calcium carbonate",
+      "by": "molecule",
+      "def": "molecule \u00b7 CaCO3 \u00b7 cid bafyreih5ufmczskk23fer\u2026"
+    },
+    {
+      "id": "molecule:CaO",
+      "lab": "Calcium oxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 CaO \u00b7 cid bafyreigogwhhkrzve4rhe\u2026"
+    },
+    {
+      "id": "molecule:Cr2O3",
+      "lab": "Chromium(III) oxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 Cr2O3 \u00b7 cid bafyreigk3iep2ljb3mrnh\u2026"
+    },
+    {
+      "id": "molecule:Fe2O3",
+      "lab": "Iron(III) oxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 Fe2O3 \u00b7 cid bafyreiegdbybcikylivqg\u2026"
+    },
+    {
+      "id": "molecule:FeO",
+      "lab": "Iron(II) oxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 FeO \u00b7 cid bafyreibixlbhpbi7pz6lf\u2026"
+    },
+    {
+      "id": "molecule:H2",
+      "lab": "Hydrogen gas",
+      "by": "molecule",
+      "def": "molecule \u00b7 H2 \u00b7 cid bafyreigzpbr2yx2ntjpdi\u2026"
+    },
+    {
+      "id": "molecule:H2O",
+      "lab": "Water",
+      "by": "molecule",
+      "def": "molecule \u00b7 H2O \u00b7 cid bafyreiemtadgdmf7h7elj\u2026"
+    },
+    {
+      "id": "molecule:H2O2",
+      "lab": "Hydrogen peroxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 H2O2 \u00b7 cid bafyreielv3lmj43kbvc4r\u2026"
+    },
+    {
+      "id": "molecule:H2S",
+      "lab": "Hydrogen sulfide",
+      "by": "molecule",
+      "def": "molecule \u00b7 H2S \u00b7 cid bafyreigw3evlmkzes3jai\u2026"
+    },
+    {
+      "id": "molecule:H2SO4",
+      "lab": "Sulfuric acid",
+      "by": "molecule",
+      "def": "molecule \u00b7 H2SO4 \u00b7 cid bafyreifg7p7fovdtgjt42\u2026"
+    },
+    {
+      "id": "molecule:H3PO4",
+      "lab": "Phosphoric acid",
+      "by": "molecule",
+      "def": "molecule \u00b7 H3PO4 \u00b7 cid bafyreigb2dmogq2tswxdq\u2026"
+    },
+    {
+      "id": "molecule:HCl",
+      "lab": "Hydrochloric acid",
+      "by": "molecule",
+      "def": "molecule \u00b7 HCl \u00b7 cid bafyreidq745gdpwxqsom6\u2026"
+    },
+    {
+      "id": "molecule:HNO3",
+      "lab": "Nitric acid",
+      "by": "molecule",
+      "def": "molecule \u00b7 HNO3 \u00b7 cid bafyreifu6hy4ixzftepql\u2026"
+    },
+    {
+      "id": "molecule:KBr",
+      "lab": "Potassium bromide",
+      "by": "molecule",
+      "def": "molecule \u00b7 KBr \u00b7 cid bafyreicbab7q4xyvigtoy\u2026"
+    },
+    {
+      "id": "molecule:KCl",
+      "lab": "Potassium chloride",
+      "by": "molecule",
+      "def": "molecule \u00b7 KCl \u00b7 cid bafyreid4kvdzijkt2ys6q\u2026"
+    },
+    {
+      "id": "molecule:KI",
+      "lab": "Potassium iodide",
+      "by": "molecule",
+      "def": "molecule \u00b7 KI \u00b7 cid bafyreiavxutr5glrcdyni\u2026"
+    },
+    {
+      "id": "molecule:KOH",
+      "lab": "Potassium hydroxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 KOH \u00b7 cid bafyreigtcfkri7wdy7c2v\u2026"
+    },
+    {
+      "id": "molecule:MgO",
+      "lab": "Magnesium oxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 MgO \u00b7 cid bafyreie2xr2mkwwpebi6y\u2026"
+    },
+    {
+      "id": "molecule:MnO",
+      "lab": "Manganese(II) oxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 MnO \u00b7 cid bafyreibrrg7epsba3gsjy\u2026"
+    },
+    {
+      "id": "molecule:N2",
+      "lab": "Nitrogen gas",
+      "by": "molecule",
+      "def": "molecule \u00b7 N2 \u00b7 cid bafyreibhbsckgb4w5jr4g\u2026"
+    },
+    {
+      "id": "molecule:NH3",
+      "lab": "Ammonia",
+      "by": "molecule",
+      "def": "molecule \u00b7 NH3 \u00b7 cid bafyreiay3w4jeg6hnlvrx\u2026"
+    },
+    {
+      "id": "molecule:NO2",
+      "lab": "Nitrogen dioxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 NO2 \u00b7 cid bafyreib2iv5y2yd76xode\u2026"
+    },
+    {
+      "id": "molecule:NaCl",
+      "lab": "Table salt",
+      "by": "molecule",
+      "def": "molecule \u00b7 NaCl \u00b7 cid bafyreif34ktf4apxr5tqz\u2026"
+    },
+    {
+      "id": "molecule:NaF",
+      "lab": "Sodium fluoride",
+      "by": "molecule",
+      "def": "molecule \u00b7 NaF \u00b7 cid bafyreid733itiussyqqph\u2026"
+    },
+    {
+      "id": "molecule:NaOH",
+      "lab": "Sodium hydroxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 NaOH \u00b7 cid bafyreiglli7yvpxc2garl\u2026"
+    },
+    {
+      "id": "molecule:O2",
+      "lab": "Oxygen gas",
+      "by": "molecule",
+      "def": "molecule \u00b7 O2 \u00b7 cid bafyreibjies7u4shy3ymi\u2026"
+    },
+    {
+      "id": "molecule:SO2",
+      "lab": "Sulfur dioxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 SO2 \u00b7 cid bafyreie6cek3q775sknx4\u2026"
+    },
+    {
+      "id": "molecule:SiO2",
+      "lab": "Silicon dioxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 SiO2 \u00b7 cid bafyreihgul2zya4ew6lnj\u2026"
+    },
+    {
+      "id": "molecule:TiO2",
+      "lab": "Titanium dioxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 TiO2 \u00b7 cid bafyreigiquuecwd5urvww\u2026"
+    },
+    {
+      "id": "molecule:V2O3",
+      "lab": "Vanadium(III) oxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 V2O3 \u00b7 cid bafyreiftjoej7eawmpf7k\u2026"
+    },
+    {
+      "id": "molecule:V2O5",
+      "lab": "Vanadium(V) oxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 V2O5 \u00b7 cid bafyreieg33thn6minsdb3\u2026"
+    },
+    {
+      "id": "molecule:ZnO",
+      "lab": "Zinc oxide",
+      "by": "molecule",
+      "def": "molecule \u00b7 ZnO \u00b7 cid bafyreig23k74c4u44gcjv\u2026"
+    },
+    {
+      "id": "reaction-word:combustion-carbon",
+      "lab": "Combustion of carbon",
+      "by": "reaction-word",
+      "def": "reaction \u00b7 combustion-carbon \u00b7 cid bafyreibgwp2xk74egbt4t\u2026"
+    },
+    {
+      "id": "reaction-word:combustion-hydrogen",
+      "lab": "Combustion of hydrogen",
+      "by": "reaction-word",
+      "def": "reaction \u00b7 combustion-hydrogen \u00b7 cid bafyreif3oyfaxkijen4rb\u2026"
+    },
+    {
+      "id": "reaction-word:combustion-methane",
+      "lab": "Combustion of methane",
+      "by": "reaction-word",
+      "def": "reaction \u00b7 combustion-methane \u00b7 cid bafyreiglcplu2xrfoe42k\u2026"
+    },
+    {
+      "id": "reaction-word:decomposition-limestone",
+      "lab": "Decomposition of limestone",
+      "by": "reaction-word",
+      "def": "reaction \u00b7 decomposition-limestone \u00b7 cid bafyreidw7zd7dpzujj6pf\u2026"
+    },
+    {
+      "id": "reaction-word:neutralisation-hcl-naoh",
+      "lab": "Neutralisation of hydrochloric acid",
+      "by": "reaction-word",
+      "def": "reaction \u00b7 neutralisation-hcl-naoh \u00b7 cid bafyreigm7cxgf3vim3u7j\u2026"
+    },
+    {
+      "id": "reaction-word:roast-vanadium",
+      "lab": "Oxidative roast of vanadium oxide",
+      "by": "reaction-word",
+      "def": "reaction \u00b7 roast-vanadium \u00b7 cid bafyreiazo42qn6q5gnl3p\u2026"
+    },
+    {
+      "id": "reaction-word:synthesis-ammonia",
+      "lab": "Haber synthesis of ammonia",
+      "by": "reaction-word",
+      "def": "reaction \u00b7 synthesis-ammonia \u00b7 cid bafyreidef7ps3hiq4hoap\u2026"
+    },
+    {
+      "id": "reaction-word:synthesis-sulfur-dioxide",
+      "lab": "Burning sulfur",
+      "by": "reaction-word",
+      "def": "reaction \u00b7 synthesis-sulfur-dioxide \u00b7 cid bafyreic4chzgz3x4bdfby\u2026"
+    },
+    {
+      "id": "reaction-word:thermite-iron",
+      "lab": "Thermite reduction of iron oxide",
+      "by": "reaction-word",
+      "def": "reaction \u00b7 thermite-iron \u00b7 cid bafyreighcg4r2qz46cpyw\u2026"
+    },
+    {
+      "id": "reaction:combustion-carbon",
+      "lab": "combustion-carbon",
+      "by": "reaction",
+      "def": "reaction-knowledge (conservation-gated) \u00b7 cid bafyreidervwjoftptk7mr\u2026"
+    },
+    {
+      "id": "reaction:combustion-hydrogen",
+      "lab": "combustion-hydrogen",
+      "by": "reaction",
+      "def": "reaction-knowledge (conservation-gated) \u00b7 cid bafyreicodbc3fiaqtcnlq\u2026"
+    },
+    {
+      "id": "reaction:combustion-methane",
+      "lab": "combustion-methane",
+      "by": "reaction",
+      "def": "reaction-knowledge (conservation-gated) \u00b7 cid bafyreigp7mljlkluscfcs\u2026"
+    },
+    {
+      "id": "reaction:decomposition-limestone",
+      "lab": "decomposition-limestone",
+      "by": "reaction",
+      "def": "reaction-knowledge (conservation-gated) \u00b7 cid bafyreihsijq54dcyhlws6\u2026"
+    },
+    {
+      "id": "reaction:neutralisation-hcl-naoh",
+      "lab": "neutralisation-hcl-naoh",
+      "by": "reaction",
+      "def": "reaction-knowledge (conservation-gated) \u00b7 cid bafyreiayirsi7vedionr7\u2026"
+    },
+    {
+      "id": "reaction:roast-vanadium",
+      "lab": "roast-vanadium",
+      "by": "reaction",
+      "def": "reaction-knowledge (conservation-gated) \u00b7 cid bafyreidxgheey4bf33gve\u2026"
+    },
+    {
+      "id": "reaction:synthesis-ammonia",
+      "lab": "synthesis-ammonia",
+      "by": "reaction",
+      "def": "reaction-knowledge (conservation-gated) \u00b7 cid bafyreifby7zajfnxboqd2\u2026"
+    },
+    {
+      "id": "reaction:synthesis-sulfur-dioxide",
+      "lab": "synthesis-sulfur-dioxide",
+      "by": "reaction",
+      "def": "reaction-knowledge (conservation-gated) \u00b7 cid bafyreiavan2wz6wlvtpcw\u2026"
+    },
+    {
+      "id": "reaction:thermite-iron",
+      "lab": "thermite-iron",
+      "by": "reaction",
+      "def": "reaction-knowledge (conservation-gated) \u00b7 cid bafyreicgpvyj6c56hhkef\u2026"
+    },
+    {
+      "id": "word:CID",
+      "lab": "CID",
+      "by": "word",
+      "def": "identifier \u00b7 cid bafyreifgf23g2dvbfifek\u2026"
+    },
+    {
+      "id": "word:Fiber",
+      "lab": "Fiber",
+      "by": "word",
+      "def": "record \u00b7 cid bafyreie2c475ef52h4kit\u2026"
+    },
+    {
+      "id": "word:Knit",
+      "lab": "Knit",
+      "by": "word",
+      "def": "action \u00b7 cid bafyreigiqtsevhpkm5s7e\u2026"
+    },
+    {
+      "id": "word:Knitweb",
+      "lab": "Knitweb",
+      "by": "word",
+      "def": "protocol \u00b7 cid bafyreieubanaquqd4rtjn\u2026"
+    },
+    {
+      "id": "word:MOLGANG",
+      "lab": "MOLGANG",
+      "by": "word",
+      "def": "game \u00b7 cid bafyreidi2ujtuy3hmh5d3\u2026"
+    },
+    {
+      "id": "word:PLS",
+      "lab": "PLS",
+      "by": "word",
+      "def": "currency \u00b7 cid bafyreibd426cgp6teemt4\u2026"
+    },
+    {
+      "id": "word:PoUW",
+      "lab": "PoUW",
+      "by": "word",
+      "def": "mechanism \u00b7 cid bafyreibihn3g3wb4awt54\u2026"
+    },
+    {
+      "id": "word:Pulse",
+      "lab": "Pulse",
+      "by": "word",
+      "def": "network \u00b7 cid bafyreidnzs5nx27mtjg4j\u2026"
+    },
+    {
+      "id": "word:Slag Run",
+      "lab": "Slag Run",
+      "by": "word",
+      "def": "game \u00b7 cid bafyreifqd2tjxdlrhao5b\u2026"
+    },
+    {
+      "id": "word:Web",
+      "lab": "Web",
+      "by": "word",
+      "def": "fabric \u00b7 cid bafyreib5pv4mkhi6afk5x\u2026"
+    },
+    {
+      "id": "word:attestation",
+      "lab": "attestation",
+      "by": "word",
+      "def": "proof \u00b7 cid bafyreiftsb3aksbyzhsji\u2026"
+    },
+    {
+      "id": "word:ballot",
+      "lab": "ballot",
+      "by": "word",
+      "def": "vote \u00b7 cid bafyreidwa2dszbzfajrhf\u2026"
+    },
+    {
+      "id": "word:bar",
+      "lab": "bar",
+      "by": "word",
+      "def": "venue \u00b7 cid bafyreifvnagmqpi2ywedd\u2026"
+    },
+    {
+      "id": "word:certificate",
+      "lab": "certificate",
+      "by": "word",
+      "def": "reward \u00b7 cid bafyreigj7xglju3wh3bjb\u2026"
+    },
+    {
+      "id": "word:faucet",
+      "lab": "faucet",
+      "by": "word",
+      "def": "mechanism \u00b7 cid bafyreig3kpn5fybdiofeb\u2026"
+    },
+    {
+      "id": "word:level",
+      "lab": "level",
+      "by": "word",
+      "def": "progression \u00b7 cid bafyreihrc3cbo4tn5v74d\u2026"
+    },
+    {
+      "id": "word:propose",
+      "lab": "propose",
+      "by": "word",
+      "def": "action \u00b7 cid bafyreibiphlyju7h4nfag\u2026"
+    },
+    {
+      "id": "word:provenance",
+      "lab": "provenance",
+      "by": "word",
+      "def": "principle \u00b7 cid bafyreiaaqvx2r3wfhtdfe\u2026"
+    },
+    {
+      "id": "word:quorum",
+      "lab": "quorum",
+      "by": "word",
+      "def": "consensus \u00b7 cid bafyreifsfr77f5lm53bll\u2026"
+    },
+    {
+      "id": "word:settlement",
+      "lab": "settlement",
+      "by": "word",
+      "def": "outcome \u00b7 cid bafyreibuhnvjrhq42r7pk\u2026"
+    },
+    {
+      "id": "word:silk",
+      "lab": "silk",
+      "by": "word",
+      "def": "resource \u00b7 cid bafyreiatydivv56dwbrni\u2026"
+    },
+    {
+      "id": "word:spider",
+      "lab": "spider",
+      "by": "word",
+      "def": "worker \u00b7 cid bafyreic4gpi5j4vqhlxjn\u2026"
+    },
+    {
+      "id": "word:stake",
+      "lab": "stake",
+      "by": "word",
+      "def": "action \u00b7 cid bafyreidquzismxxffysij\u2026"
+    },
+    {
+      "id": "word:wallet",
+      "lab": "wallet",
+      "by": "word",
+      "def": "account \u00b7 cid bafyreia3mj5wo6ii3n5ym\u2026"
+    },
+    {
+      "id": "word:energy",
+      "lab": "energy",
+      "by": "word",
+      "def": "energy \u00b7 the capacity to do work; released or absorbed in chemical & nuclear change"
+    },
+    {
+      "id": "word:nuclear-energy",
+      "lab": "nuclear energy",
+      "by": "word",
+      "def": "nuclear energy \u00b7 energy released by nuclear fission or fusion"
+    },
+    {
+      "id": "knit:molgang",
+      "lab": "molgang",
+      "by": "field",
+      "def": "molgang \u00b7 the chemistry game \u2014 every term you play with is woven into this knit"
+    },
+    {
+      "id": "species:V2+aq",
+      "name": "V(2+)",
+      "label": "vanadium(II) aqua ion",
+      "group": "ox2",
+      "kind": "species",
+      "element": "V",
+      "oxidationState": 2,
+      "phase": "aqueous",
+      "color": "#8e44ad",
+      "val": 5,
+      "tags": [],
+      "cid": "sha256:d9ff2ebec7a5ecf3d43234b7425d6407d06c1e29d9eb9cc1762a656ebd467781",
+      "ual": "did:dkg:knitweb/sha256-d9ff2ebec7a5ecf3d43234b7425d6407d06c1e29d9eb9cc1762a656ebd467781"
+    },
+    {
+      "id": "species:V3+aq",
+      "name": "V(3+)",
+      "label": "vanadium(III) aqua ion",
+      "group": "ox3",
+      "kind": "species",
+      "element": "V",
+      "oxidationState": 3,
+      "phase": "aqueous",
+      "color": "#27ae60",
+      "val": 5,
+      "tags": [],
+      "cid": "sha256:2a6fc2fd507955e3ad8fc62f11e1ecfde421acec7e95aad5cd5570bcae5358c2",
+      "ual": "did:dkg:knitweb/sha256-2a6fc2fd507955e3ad8fc62f11e1ecfde421acec7e95aad5cd5570bcae5358c2"
+    },
+    {
+      "id": "species:VO2+aq",
+      "name": "VO(2+)",
+      "label": "vanadyl / oxovanadium(IV)",
+      "group": "ox4",
+      "kind": "species",
+      "element": "V",
+      "oxidationState": 4,
+      "phase": "aqueous",
+      "color": "#2980b9",
+      "val": 5,
+      "tags": [],
+      "cid": "sha256:9603c097e1fee40be975dbb648a8633c5e57b4d84b093b12d85922c5a57416b2",
+      "ual": "did:dkg:knitweb/sha256-9603c097e1fee40be975dbb648a8633c5e57b4d84b093b12d85922c5a57416b2"
+    },
+    {
+      "id": "species:VO2+cat_aq",
+      "name": "VO2(+)",
+      "label": "dioxovanadium(V) cation",
+      "group": "ox5",
+      "kind": "species",
+      "element": "V",
+      "oxidationState": 5,
+      "phase": "aqueous",
+      "color": "#f1c40f",
+      "val": 5,
+      "tags": [],
+      "cid": "sha256:a04f25edce4d3ef36fb11d55a809df333c748392c9af7f98be1de775bdfad408",
+      "ual": "did:dkg:knitweb/sha256-a04f25edce4d3ef36fb11d55a809df333c748392c9af7f98be1de775bdfad408"
+    },
+    {
+      "id": "species:vanadate_aq",
+      "name": "VO4(3-)",
+      "label": "orthovanadate (and protonated forms)",
+      "group": "ox5",
+      "kind": "species",
+      "element": "V",
+      "oxidationState": 5,
+      "phase": "aqueous",
+      "color": "#f39c12",
+      "val": 5,
+      "tags": [],
+      "cid": "sha256:8f4fe694e9f418c42efecc393d4fe407fb5f4df0abe31b530cb89ccac89d9354",
+      "ual": "did:dkg:knitweb/sha256-8f4fe694e9f418c42efecc393d4fe407fb5f4df0abe31b530cb89ccac89d9354"
+    },
+    {
+      "id": "species:V2O3",
+      "name": "V2O3",
+      "label": "vanadium(III) oxide",
+      "group": "ox3",
+      "kind": "species",
+      "element": "V",
+      "oxidationState": 3,
+      "phase": "solid",
+      "color": "#1e8449",
+      "val": 6,
+      "tags": [],
+      "cid": "sha256:bc433278b08e6b82d475e0ae57368289f072215f2c577e71f2032fd1e0796a5c",
+      "ual": "did:dkg:knitweb/sha256-bc433278b08e6b82d475e0ae57368289f072215f2c577e71f2032fd1e0796a5c"
+    },
+    {
+      "id": "species:VO2s",
+      "name": "VO2",
+      "label": "vanadium(IV) oxide",
+      "group": "ox4",
+      "kind": "species",
+      "element": "V",
+      "oxidationState": 4,
+      "phase": "solid",
+      "color": "#1f618d",
+      "val": 6,
+      "tags": [],
+      "cid": "sha256:c525d850d76d720f82ed15fb9eaea149464782e67c8dfe8e6fd53cb4b6ad3439",
+      "ual": "did:dkg:knitweb/sha256-c525d850d76d720f82ed15fb9eaea149464782e67c8dfe8e6fd53cb4b6ad3439"
+    },
+    {
+      "id": "species:V2O5",
+      "name": "V2O5",
+      "label": "vanadium(V) oxide",
+      "group": "ox5",
+      "kind": "species",
+      "element": "V",
+      "oxidationState": 5,
+      "phase": "solid",
+      "color": "#e67e22",
+      "val": 6,
+      "tags": [
+        "vanelex",
+        "vrfb-electrolyte-precursor"
+      ],
+      "cid": "sha256:29d0c89a030ec67a34e5c1307465a22772c569108a600795a261bc5ce2bcd8d2",
+      "ual": "did:dkg:knitweb/sha256-29d0c89a030ec67a34e5c1307465a22772c569108a600795a261bc5ce2bcd8d2"
+    },
+    {
+      "id": "species:Cr2+aq",
+      "name": "Cr(2+)",
+      "label": "chromium(II) aqua ion",
+      "group": "ox2",
+      "kind": "species",
+      "element": "Cr",
+      "oxidationState": 2,
+      "phase": "aqueous",
+      "color": "#5dade2",
+      "val": 5,
+      "tags": [],
+      "cid": "sha256:30436317406ecea83a2538231c20adf402d70d51c538c3f4c4867e7e33bf3ef9",
+      "ual": "did:dkg:knitweb/sha256-30436317406ecea83a2538231c20adf402d70d51c538c3f4c4867e7e33bf3ef9"
+    },
+    {
+      "id": "species:Cr3+aq",
+      "name": "Cr(3+)",
+      "label": "chromium(III) aqua ion",
+      "group": "ox3",
+      "kind": "species",
+      "element": "Cr",
+      "oxidationState": 3,
+      "phase": "aqueous",
+      "color": "#52be80",
+      "val": 5,
+      "tags": [],
+      "cid": "sha256:48567939b05f4035fa632ce29f4002aed6874e8a6cce6710f0a49bd6704f3caf",
+      "ual": "did:dkg:knitweb/sha256-48567939b05f4035fa632ce29f4002aed6874e8a6cce6710f0a49bd6704f3caf"
+    },
+    {
+      "id": "species:chromate_aq",
+      "name": "CrO4(2-)",
+      "label": "chromate",
+      "group": "ox6",
+      "kind": "species",
+      "element": "Cr",
+      "oxidationState": 6,
+      "phase": "aqueous",
+      "color": "#f4d03f",
+      "val": 5,
+      "tags": [],
+      "cid": "sha256:f32ea45ea8b8a03f17ea41cbcf0b31e5842b0c940f2dce3613c218f743bfdc07",
+      "ual": "did:dkg:knitweb/sha256-f32ea45ea8b8a03f17ea41cbcf0b31e5842b0c940f2dce3613c218f743bfdc07"
+    },
+    {
+      "id": "species:dichromate_aq",
+      "name": "Cr2O7(2-)",
+      "label": "dichromate",
+      "group": "ox6",
+      "kind": "species",
+      "element": "Cr",
+      "oxidationState": 6,
+      "phase": "aqueous",
+      "color": "#e67e22",
+      "val": 5,
+      "tags": [],
+      "cid": "sha256:e72a67370bacd0df05ff9eaa5ae4d7b46f27d6cd62b726f936b3e04ddf01b714",
+      "ual": "did:dkg:knitweb/sha256-e72a67370bacd0df05ff9eaa5ae4d7b46f27d6cd62b726f936b3e04ddf01b714"
+    },
+    {
+      "id": "species:Cr2O3",
+      "name": "Cr2O3",
+      "label": "chromium(III) oxide",
+      "group": "ox3",
+      "kind": "species",
+      "element": "Cr",
+      "oxidationState": 3,
+      "phase": "solid",
+      "color": "#239b56",
+      "val": 6,
+      "tags": [],
+      "cid": "sha256:434bd35093d06dba4ae4457f04a1b39349fa3a89c26ba551aa3d00cccefefb3d",
+      "ual": "did:dkg:knitweb/sha256-434bd35093d06dba4ae4457f04a1b39349fa3a89c26ba551aa3d00cccefefb3d"
+    },
+    {
+      "id": "kg:cod",
+      "name": "cod",
+      "label": "Crystallography Open Database (COD)",
+      "group": "source",
+      "kind": "source",
+      "val": 7,
+      "color": "#34495e",
+      "ual": "did:dkg:knitweb/sha256-c2114ef61b168eb2921d1d44a43cd446dff2e8a44b1dcc70d38821a3255c7f69"
+    },
+    {
+      "id": "kg:materials-project",
+      "name": "materials-project",
+      "label": "Materials Project",
+      "group": "source",
+      "kind": "source",
+      "val": 7,
+      "color": "#34495e",
+      "ual": "did:dkg:knitweb/sha256-ca4dc26cf4d5e33d21c8947425435b193459ef0bac593f80d8d5d807c9712539"
+    },
+    {
+      "id": "kg:phreeqc",
+      "name": "phreeqc",
+      "label": "PHREEQC thermodynamic databases",
+      "group": "source",
+      "kind": "source",
+      "val": 7,
+      "color": "#34495e",
+      "ual": "did:dkg:knitweb/sha256-af9f54646d04150f8986e0ead50aecf4be72354c5f58b52d4ebbaf81e037323b"
+    },
+    {
+      "id": "kg:usgs-mrdata",
+      "name": "usgs-mrdata",
+      "label": "USGS Mineral Resources Online Spatial Data (MRDATA)",
+      "group": "source",
+      "kind": "source",
+      "val": 7,
+      "color": "#34495e",
+      "ual": "did:dkg:knitweb/sha256-44e1d8d9c4a723e5dd18806e7a28b4e1a83020a40beca05ee59a681c9d1c1dd5"
+    },
+    {
+      "id": "kg:wikidata",
+      "name": "wikidata",
+      "label": "Wikidata",
+      "group": "source",
+      "kind": "source",
+      "val": 7,
+      "color": "#34495e",
+      "ual": "did:dkg:knitweb/sha256-edc94c0331f5a84943687d9b3e20c77c79a409b4dc2a8e74edc56bad33d6d94c"
+    }
+  ],
+  "edges": [
+    {
+      "s": "molecule:Al2O3",
+      "t": "element:Al",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:Al2O3",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:C6H12O6",
+      "t": "element:C",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:C6H12O6",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:C6H12O6",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:CH4",
+      "t": "element:C",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:CH4",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:CO",
+      "t": "element:C",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:CO",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:CO2",
+      "t": "element:C",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:CO2",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:CaCO3",
+      "t": "element:C",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:CaCO3",
+      "t": "element:Ca",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:CaCO3",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:CaO",
+      "t": "element:Ca",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:CaO",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:Cr2O3",
+      "t": "element:Cr",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:Cr2O3",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:Fe2O3",
+      "t": "element:Fe",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:Fe2O3",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:FeO",
+      "t": "element:Fe",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:FeO",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H2",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H2O",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H2O",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H2O2",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H2O2",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H2S",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H2S",
+      "t": "element:S",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H2SO4",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H2SO4",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H2SO4",
+      "t": "element:S",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H3PO4",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H3PO4",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:H3PO4",
+      "t": "element:P",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:HCl",
+      "t": "element:Cl",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:HCl",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:HNO3",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:HNO3",
+      "t": "element:N",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:HNO3",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:KBr",
+      "t": "element:Br",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:KBr",
+      "t": "element:K",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:KCl",
+      "t": "element:Cl",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:KCl",
+      "t": "element:K",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:KI",
+      "t": "element:I",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:KI",
+      "t": "element:K",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:KOH",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:KOH",
+      "t": "element:K",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:KOH",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:MgO",
+      "t": "element:Mg",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:MgO",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:MnO",
+      "t": "element:Mn",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:MnO",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:N2",
+      "t": "element:N",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:NH3",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:NH3",
+      "t": "element:N",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:NO2",
+      "t": "element:N",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:NO2",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:NaCl",
+      "t": "element:Cl",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:NaCl",
+      "t": "element:Na",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:NaF",
+      "t": "element:F",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:NaF",
+      "t": "element:Na",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:NaOH",
+      "t": "element:H",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:NaOH",
+      "t": "element:Na",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:NaOH",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:O2",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:SO2",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:SO2",
+      "t": "element:S",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:SiO2",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:SiO2",
+      "t": "element:Si",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:TiO2",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:TiO2",
+      "t": "element:Ti",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:V2O3",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:V2O3",
+      "t": "element:V",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:V2O5",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:V2O5",
+      "t": "element:V",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:ZnO",
+      "t": "element:O",
+      "r": "hasElement"
+    },
+    {
+      "s": "molecule:ZnO",
+      "t": "element:Zn",
+      "r": "hasElement"
+    },
+    {
+      "s": "word:Web",
+      "t": "word:Knitweb",
+      "r": "part-of"
+    },
+    {
+      "s": "word:Knit",
+      "t": "word:Web",
+      "r": "acts-on"
+    },
+    {
+      "s": "word:Pulse",
+      "t": "word:Knitweb",
+      "r": "part-of"
+    },
+    {
+      "s": "word:Fiber",
+      "t": "word:Web",
+      "r": "woven-into"
+    },
+    {
+      "s": "word:spider",
+      "t": "word:Fiber",
+      "r": "weaves"
+    },
+    {
+      "s": "word:PLS",
+      "t": "word:Pulse",
+      "r": "currency-of"
+    },
+    {
+      "s": "word:MOLGANG",
+      "t": "word:Knitweb",
+      "r": "runs-on"
+    },
+    {
+      "s": "word:propose",
+      "t": "word:bar",
+      "r": "happens-in"
+    },
+    {
+      "s": "word:quorum",
+      "t": "word:propose",
+      "r": "settles"
+    },
+    {
+      "s": "word:silk",
+      "t": "word:propose",
+      "r": "fuels"
+    },
+    {
+      "s": "word:bar",
+      "t": "word:MOLGANG",
+      "r": "part-of"
+    },
+    {
+      "s": "word:attestation",
+      "t": "word:Fiber",
+      "r": "signs"
+    },
+    {
+      "s": "word:CID",
+      "t": "word:Fiber",
+      "r": "addresses"
+    },
+    {
+      "s": "word:provenance",
+      "t": "word:CID",
+      "r": "traced-by"
+    },
+    {
+      "s": "word:settlement",
+      "t": "word:quorum",
+      "r": "follows"
+    },
+    {
+      "s": "word:PoUW",
+      "t": "word:PLS",
+      "r": "earns"
+    },
+    {
+      "s": "word:certificate",
+      "t": "word:PoUW",
+      "r": "proves"
+    },
+    {
+      "s": "word:faucet",
+      "t": "word:PLS",
+      "r": "mints"
+    },
+    {
+      "s": "word:wallet",
+      "t": "word:PLS",
+      "r": "holds"
+    },
+    {
+      "s": "word:ballot",
+      "t": "word:quorum",
+      "r": "feeds"
+    },
+    {
+      "s": "word:stake",
+      "t": "word:PLS",
+      "r": "locks"
+    },
+    {
+      "s": "word:level",
+      "t": "word:certificate",
+      "r": "unlocks"
+    },
+    {
+      "s": "word:Slag Run",
+      "t": "word:MOLGANG",
+      "r": "part-of"
+    },
+    {
+      "s": "reaction-word:combustion-carbon",
+      "t": "reaction:combustion-carbon",
+      "r": "describes"
+    },
+    {
+      "s": "reaction:combustion-carbon",
+      "t": "element:C",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:combustion-carbon",
+      "t": "molecule:O2",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:combustion-carbon",
+      "t": "molecule:CO2",
+      "r": "produces"
+    },
+    {
+      "s": "reaction-word:combustion-hydrogen",
+      "t": "reaction:combustion-hydrogen",
+      "r": "describes"
+    },
+    {
+      "s": "reaction:combustion-hydrogen",
+      "t": "molecule:H2",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:combustion-hydrogen",
+      "t": "molecule:O2",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:combustion-hydrogen",
+      "t": "molecule:H2O",
+      "r": "produces"
+    },
+    {
+      "s": "reaction-word:combustion-methane",
+      "t": "reaction:combustion-methane",
+      "r": "describes"
+    },
+    {
+      "s": "reaction:combustion-methane",
+      "t": "molecule:CH4",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:combustion-methane",
+      "t": "molecule:O2",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:combustion-methane",
+      "t": "molecule:CO2",
+      "r": "produces"
+    },
+    {
+      "s": "reaction:combustion-methane",
+      "t": "molecule:H2O",
+      "r": "produces"
+    },
+    {
+      "s": "reaction-word:decomposition-limestone",
+      "t": "reaction:decomposition-limestone",
+      "r": "describes"
+    },
+    {
+      "s": "reaction:decomposition-limestone",
+      "t": "molecule:CaCO3",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:decomposition-limestone",
+      "t": "molecule:CaO",
+      "r": "produces"
+    },
+    {
+      "s": "reaction:decomposition-limestone",
+      "t": "molecule:CO2",
+      "r": "produces"
+    },
+    {
+      "s": "reaction-word:neutralisation-hcl-naoh",
+      "t": "reaction:neutralisation-hcl-naoh",
+      "r": "describes"
+    },
+    {
+      "s": "reaction:neutralisation-hcl-naoh",
+      "t": "molecule:HCl",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:neutralisation-hcl-naoh",
+      "t": "molecule:NaOH",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:neutralisation-hcl-naoh",
+      "t": "molecule:NaCl",
+      "r": "produces"
+    },
+    {
+      "s": "reaction:neutralisation-hcl-naoh",
+      "t": "molecule:H2O",
+      "r": "produces"
+    },
+    {
+      "s": "reaction-word:roast-vanadium",
+      "t": "reaction:roast-vanadium",
+      "r": "describes"
+    },
+    {
+      "s": "reaction:roast-vanadium",
+      "t": "molecule:V2O3",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:roast-vanadium",
+      "t": "molecule:O2",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:roast-vanadium",
+      "t": "molecule:V2O5",
+      "r": "produces"
+    },
+    {
+      "s": "reaction-word:synthesis-ammonia",
+      "t": "reaction:synthesis-ammonia",
+      "r": "describes"
+    },
+    {
+      "s": "reaction:synthesis-ammonia",
+      "t": "molecule:N2",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:synthesis-ammonia",
+      "t": "molecule:H2",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:synthesis-ammonia",
+      "t": "molecule:NH3",
+      "r": "produces"
+    },
+    {
+      "s": "reaction-word:synthesis-sulfur-dioxide",
+      "t": "reaction:synthesis-sulfur-dioxide",
+      "r": "describes"
+    },
+    {
+      "s": "reaction:synthesis-sulfur-dioxide",
+      "t": "element:S",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:synthesis-sulfur-dioxide",
+      "t": "molecule:O2",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:synthesis-sulfur-dioxide",
+      "t": "molecule:SO2",
+      "r": "produces"
+    },
+    {
+      "s": "reaction-word:thermite-iron",
+      "t": "reaction:thermite-iron",
+      "r": "describes"
+    },
+    {
+      "s": "reaction:thermite-iron",
+      "t": "molecule:Fe2O3",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:thermite-iron",
+      "t": "element:Al",
+      "r": "consumes"
+    },
+    {
+      "s": "reaction:thermite-iron",
+      "t": "element:Fe",
+      "r": "produces"
+    },
+    {
+      "s": "reaction:thermite-iron",
+      "t": "molecule:Al2O3",
+      "r": "produces"
+    },
+    {
+      "s": "word:nuclear-energy",
+      "t": "word:energy",
+      "r": "isA"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Al",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Br",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:C",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Ca",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Cl",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Cr",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:F",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Fe",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:H",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:He",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:I",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:K",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Mg",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Mn",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:N",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Na",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:O",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:P",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:S",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Si",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Ti",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:V",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "element:Zn",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:Al2O3",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:C6H12O6",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:CH4",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:CO",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:CO2",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:CaCO3",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:CaO",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:Cr2O3",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:Fe2O3",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:FeO",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:H2",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:H2O",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:H2O2",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:H2S",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:H2SO4",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:H3PO4",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:HCl",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:HNO3",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:KBr",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:KCl",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:KI",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:KOH",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:MgO",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:MnO",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:N2",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:NH3",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:NO2",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:NaCl",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:NaF",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:NaOH",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:O2",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:SO2",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:SiO2",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:TiO2",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:V2O3",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:V2O5",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "molecule:ZnO",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction-word:combustion-carbon",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction-word:combustion-hydrogen",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction-word:combustion-methane",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction-word:decomposition-limestone",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction-word:neutralisation-hcl-naoh",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction-word:roast-vanadium",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction-word:synthesis-ammonia",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction-word:synthesis-sulfur-dioxide",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction-word:thermite-iron",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction:combustion-carbon",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction:combustion-hydrogen",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction:combustion-methane",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction:decomposition-limestone",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction:neutralisation-hcl-naoh",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction:roast-vanadium",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction:synthesis-ammonia",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction:synthesis-sulfur-dioxide",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "reaction:thermite-iron",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:CID",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:Fiber",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:Knit",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:Knitweb",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:MOLGANG",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:PLS",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:PoUW",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:Pulse",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:Slag Run",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:Web",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:attestation",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:ballot",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:bar",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:certificate",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:faucet",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:level",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:propose",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:provenance",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:quorum",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:settlement",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:silk",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:spider",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:stake",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:wallet",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:energy",
+      "r": "usesTerm"
+    },
+    {
+      "s": "knit:molgang",
+      "t": "word:nuclear-energy",
+      "r": "usesTerm"
+    },
+    {
+      "s": "element:V",
+      "t": "kg:wikidata",
+      "r": "related-to"
+    },
+    {
+      "s": "element:V",
+      "t": "kg:usgs-mrdata",
+      "r": "related-to"
+    },
+    {
+      "s": "element:Cr",
+      "t": "kg:wikidata",
+      "r": "related-to"
+    },
+    {
+      "s": "element:Cr",
+      "t": "kg:usgs-mrdata",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V2+aq",
+      "t": "element:V",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V2+aq",
+      "t": "kg:phreeqc",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V2+aq",
+      "t": "kg:wikidata",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V3+aq",
+      "t": "element:V",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V3+aq",
+      "t": "kg:phreeqc",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V3+aq",
+      "t": "kg:wikidata",
+      "r": "related-to"
+    },
+    {
+      "s": "species:VO2+aq",
+      "t": "element:V",
+      "r": "related-to"
+    },
+    {
+      "s": "species:VO2+aq",
+      "t": "kg:phreeqc",
+      "r": "related-to"
+    },
+    {
+      "s": "species:VO2+aq",
+      "t": "kg:wikidata",
+      "r": "related-to"
+    },
+    {
+      "s": "species:VO2+cat_aq",
+      "t": "element:V",
+      "r": "related-to"
+    },
+    {
+      "s": "species:VO2+cat_aq",
+      "t": "kg:phreeqc",
+      "r": "related-to"
+    },
+    {
+      "s": "species:VO2+cat_aq",
+      "t": "kg:wikidata",
+      "r": "related-to"
+    },
+    {
+      "s": "species:vanadate_aq",
+      "t": "element:V",
+      "r": "related-to"
+    },
+    {
+      "s": "species:vanadate_aq",
+      "t": "kg:phreeqc",
+      "r": "related-to"
+    },
+    {
+      "s": "species:vanadate_aq",
+      "t": "kg:wikidata",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V2O3",
+      "t": "element:V",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V2O3",
+      "t": "kg:materials-project",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V2O3",
+      "t": "kg:cod",
+      "r": "related-to"
+    },
+    {
+      "s": "species:VO2s",
+      "t": "element:V",
+      "r": "related-to"
+    },
+    {
+      "s": "species:VO2s",
+      "t": "kg:materials-project",
+      "r": "related-to"
+    },
+    {
+      "s": "species:VO2s",
+      "t": "kg:cod",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V2O5",
+      "t": "element:V",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V2O5",
+      "t": "kg:materials-project",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V2O5",
+      "t": "kg:cod",
+      "r": "related-to"
+    },
+    {
+      "s": "species:V2O5",
+      "t": "kg:usgs-mrdata",
+      "r": "related-to"
+    },
+    {
+      "s": "species:Cr2+aq",
+      "t": "element:Cr",
+      "r": "related-to"
+    },
+    {
+      "s": "species:Cr2+aq",
+      "t": "kg:phreeqc",
+      "r": "related-to"
+    },
+    {
+      "s": "species:Cr2+aq",
+      "t": "kg:wikidata",
+      "r": "related-to"
+    },
+    {
+      "s": "species:Cr3+aq",
+      "t": "element:Cr",
+      "r": "related-to"
+    },
+    {
+      "s": "species:Cr3+aq",
+      "t": "kg:phreeqc",
+      "r": "related-to"
+    },
+    {
+      "s": "species:Cr3+aq",
+      "t": "kg:wikidata",
+      "r": "related-to"
+    },
+    {
+      "s": "species:chromate_aq",
+      "t": "element:Cr",
+      "r": "related-to"
+    },
+    {
+      "s": "species:chromate_aq",
+      "t": "kg:phreeqc",
+      "r": "related-to"
+    },
+    {
+      "s": "species:chromate_aq",
+      "t": "kg:wikidata",
+      "r": "related-to"
+    },
+    {
+      "s": "species:dichromate_aq",
+      "t": "element:Cr",
+      "r": "related-to"
+    },
+    {
+      "s": "species:dichromate_aq",
+      "t": "kg:phreeqc",
+      "r": "related-to"
+    },
+    {
+      "s": "species:dichromate_aq",
+      "t": "kg:wikidata",
+      "r": "related-to"
+    },
+    {
+      "s": "species:Cr2O3",
+      "t": "element:Cr",
+      "r": "related-to"
+    },
+    {
+      "s": "species:Cr2O3",
+      "t": "kg:materials-project",
+      "r": "related-to"
+    },
+    {
+      "s": "species:Cr2O3",
+      "t": "kg:cod",
+      "r": "related-to"
+    }
+  ]
 }
